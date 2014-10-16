@@ -1,0 +1,422 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		631E363B19F060D500CD2DEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E363A19F060D500CD2DEB /* AppDelegate.swift */; };
+		631E363D19F060D500CD2DEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E363C19F060D500CD2DEB /* ViewController.swift */; };
+		631E364019F060D500CD2DEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 631E363E19F060D500CD2DEB /* Main.storyboard */; };
+		631E364219F060D500CD2DEB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 631E364119F060D500CD2DEB /* Images.xcassets */; };
+		631E364519F060D500CD2DEB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 631E364319F060D500CD2DEB /* LaunchScreen.xib */; };
+		631E365119F060D500CD2DEB /* RhetoricaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E365019F060D500CD2DEB /* RhetoricaTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		631E364B19F060D500CD2DEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 631E362D19F060D500CD2DEB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 631E363419F060D500CD2DEB;
+			remoteInfo = Rhetorica;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		631E363519F060D500CD2DEB /* Rhetorica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rhetorica.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		631E363919F060D500CD2DEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		631E363A19F060D500CD2DEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		631E363C19F060D500CD2DEB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		631E363F19F060D500CD2DEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		631E364119F060D500CD2DEB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		631E364419F060D500CD2DEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		631E364A19F060D500CD2DEB /* RhetoricaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RhetoricaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		631E364F19F060D500CD2DEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		631E365019F060D500CD2DEB /* RhetoricaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhetoricaTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		631E363219F060D500CD2DEB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		631E364719F060D500CD2DEB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		631E362C19F060D500CD2DEB = {
+			isa = PBXGroup;
+			children = (
+				631E363719F060D500CD2DEB /* Rhetorica */,
+				631E364D19F060D500CD2DEB /* RhetoricaTests */,
+				631E363619F060D500CD2DEB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		631E363619F060D500CD2DEB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				631E363519F060D500CD2DEB /* Rhetorica.app */,
+				631E364A19F060D500CD2DEB /* RhetoricaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		631E363719F060D500CD2DEB /* Rhetorica */ = {
+			isa = PBXGroup;
+			children = (
+				631E363A19F060D500CD2DEB /* AppDelegate.swift */,
+				631E363C19F060D500CD2DEB /* ViewController.swift */,
+				631E363E19F060D500CD2DEB /* Main.storyboard */,
+				631E364119F060D500CD2DEB /* Images.xcassets */,
+				631E364319F060D500CD2DEB /* LaunchScreen.xib */,
+				631E363819F060D500CD2DEB /* Supporting Files */,
+			);
+			path = Rhetorica;
+			sourceTree = "<group>";
+		};
+		631E363819F060D500CD2DEB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				631E363919F060D500CD2DEB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		631E364D19F060D500CD2DEB /* RhetoricaTests */ = {
+			isa = PBXGroup;
+			children = (
+				631E365019F060D500CD2DEB /* RhetoricaTests.swift */,
+				631E364E19F060D500CD2DEB /* Supporting Files */,
+			);
+			path = RhetoricaTests;
+			sourceTree = "<group>";
+		};
+		631E364E19F060D500CD2DEB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				631E364F19F060D500CD2DEB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		631E363419F060D500CD2DEB /* Rhetorica */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 631E365419F060D500CD2DEB /* Build configuration list for PBXNativeTarget "Rhetorica" */;
+			buildPhases = (
+				631E363119F060D500CD2DEB /* Sources */,
+				631E363219F060D500CD2DEB /* Frameworks */,
+				631E363319F060D500CD2DEB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Rhetorica;
+			productName = Rhetorica;
+			productReference = 631E363519F060D500CD2DEB /* Rhetorica.app */;
+			productType = "com.apple.product-type.application";
+		};
+		631E364919F060D500CD2DEB /* RhetoricaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 631E365719F060D500CD2DEB /* Build configuration list for PBXNativeTarget "RhetoricaTests" */;
+			buildPhases = (
+				631E364619F060D500CD2DEB /* Sources */,
+				631E364719F060D500CD2DEB /* Frameworks */,
+				631E364819F060D500CD2DEB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				631E364C19F060D500CD2DEB /* PBXTargetDependency */,
+			);
+			name = RhetoricaTests;
+			productName = RhetoricaTests;
+			productReference = 631E364A19F060D500CD2DEB /* RhetoricaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		631E362D19F060D500CD2DEB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Nick Podratz";
+				TargetAttributes = {
+					631E363419F060D500CD2DEB = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					631E364919F060D500CD2DEB = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 631E363419F060D500CD2DEB;
+					};
+				};
+			};
+			buildConfigurationList = 631E363019F060D500CD2DEB /* Build configuration list for PBXProject "Rhetorica" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 631E362C19F060D500CD2DEB;
+			productRefGroup = 631E363619F060D500CD2DEB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				631E363419F060D500CD2DEB /* Rhetorica */,
+				631E364919F060D500CD2DEB /* RhetoricaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		631E363319F060D500CD2DEB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				631E364019F060D500CD2DEB /* Main.storyboard in Resources */,
+				631E364519F060D500CD2DEB /* LaunchScreen.xib in Resources */,
+				631E364219F060D500CD2DEB /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		631E364819F060D500CD2DEB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		631E363119F060D500CD2DEB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				631E363D19F060D500CD2DEB /* ViewController.swift in Sources */,
+				631E363B19F060D500CD2DEB /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		631E364619F060D500CD2DEB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				631E365119F060D500CD2DEB /* RhetoricaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		631E364C19F060D500CD2DEB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 631E363419F060D500CD2DEB /* Rhetorica */;
+			targetProxy = 631E364B19F060D500CD2DEB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		631E363E19F060D500CD2DEB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				631E363F19F060D500CD2DEB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		631E364319F060D500CD2DEB /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				631E364419F060D500CD2DEB /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		631E365219F060D500CD2DEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		631E365319F060D500CD2DEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		631E365519F060D500CD2DEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Rhetorica/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		631E365619F060D500CD2DEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Rhetorica/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		631E365819F060D500CD2DEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RhetoricaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rhetorica.app/Rhetorica";
+			};
+			name = Debug;
+		};
+		631E365919F060D500CD2DEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RhetoricaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rhetorica.app/Rhetorica";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		631E363019F060D500CD2DEB /* Build configuration list for PBXProject "Rhetorica" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				631E365219F060D500CD2DEB /* Debug */,
+				631E365319F060D500CD2DEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		631E365419F060D500CD2DEB /* Build configuration list for PBXNativeTarget "Rhetorica" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				631E365519F060D500CD2DEB /* Debug */,
+				631E365619F060D500CD2DEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		631E365719F060D500CD2DEB /* Build configuration list for PBXNativeTarget "RhetoricaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				631E365819F060D500CD2DEB /* Debug */,
+				631E365919F060D500CD2DEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 631E362D19F060D500CD2DEB /* Project object */;
+}
