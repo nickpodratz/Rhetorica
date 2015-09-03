@@ -281,7 +281,8 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
 extension MasterViewController: UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         let searchString = searchController.searchBar.text
-        
+        definesPresentationContext = true
+
         if searchController.active {
             /// Searches for searchString in all properties of deviceList.
             searchResults = DataManager.sharedInstance.selectedList.elements.filter() { device in
