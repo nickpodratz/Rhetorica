@@ -42,10 +42,10 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.dataSource = self
         tableView.delegate = self
         setupSearchController()
-        
+
         originalSeparatorColor = tableView!.separatorColor
         tableView.sectionIndexBackgroundColor = UIColor.clearColor()
-        self.navigationItem.title = DataManager.sharedInstance.selectedList.title
+        navigationItem.title = DataManager.sharedInstance.selectedList.title
 
         tableView.reloadData()
         animateNoEntriesLabel(DataManager.sharedInstance.selectedList.elements.isEmpty)
@@ -70,12 +70,12 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         searchController.searchBar.searchBarStyle = UISearchBarStyle.Minimal
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.tintColor = UIColor.whiteColor()
         searchController.searchBar.sizeToFit()
         searchController.searchResultsUpdater = self
         searchController.searchBar.backgroundColor = UIColor.whiteColor()
         searchController.searchBar.tintColor = UIColor.purpleColor()
-        
+        searchController.view.layoutIfNeeded()
+
         tableView.tableHeaderView = searchController.searchBar
         
         NSTimer.scheduledTimerWithTimeInterval(0, target: self, selector: Selector("scrollTableViewToTop"), userInfo: nil, repeats: false)
@@ -85,7 +85,10 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     // MARK: - Transitioning
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showDetail" {
+        if segue.identifier == nil { return }
+        
+        switch segue.identifier! {
+        case "showDetail":
             definesPresentationContext = true
             if let indexPath = self.tableView.indexPathForSelectedRow() {
                 var device: StylisticDevice!
@@ -102,8 +105,8 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
                 controller.navigationItem.leftItemsSupplementBackButton = true
                 self.selectedIndexPath = indexPath
             }
-        }
-        else if segue.identifier == "showQuiz" {
+            
+        case "showQuiz":
             definesPresentationContext = true
             if DataManager.sharedInstance.selectedList.elements.count >= 4 {
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! QuizViewController
@@ -114,11 +117,14 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
                 alertController.addAction(UIAlertAction(title: "Alles klar", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alertController, animated: true, completion: nil)
             }
-        }
-        else if segue.identifier == "showList" {
+            
+        case "showList":
             definesPresentationContext = false
             let destinationController = (segue.destinationViewController as! UINavigationController).topViewController as! ListViewController
             destinationController.delegate = self
+            
+            
+        default: println("Found unknown identifier: \(segue.identifier!)")
         }
     }
     

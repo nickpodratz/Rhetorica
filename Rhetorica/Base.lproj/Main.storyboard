@@ -766,7 +766,7 @@
         <!--Master-->
         <scene sceneID="41A-v7-auN">
             <objects>
-                <viewController storyboardIdentifier="MasterVC" title="Master" providesPresentationContextTransitionStyle="YES" modalPresentationStyle="currentContext" id="nGr-RZ-pMr" customClass="MasterViewController" customModule="Rhetorica" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MasterVC" title="Master" definesPresentationContext="YES" modalPresentationStyle="currentContext" id="nGr-RZ-pMr" customClass="MasterViewController" customModule="Rhetorica" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Yah-VX-aAj"/>
                         <viewControllerLayoutGuide type="bottom" id="irz-o9-3sc"/>
