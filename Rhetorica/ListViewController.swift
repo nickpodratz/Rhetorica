@@ -15,6 +15,9 @@ protocol ListViewDelegate {
 
 class ListViewController: UITableViewController {
     
+    
+    // MARK: Outlets
+    
     @IBOutlet weak var fewDevicesCell: UITableViewCell!
     @IBOutlet weak var someDevicesCell: UITableViewCell!
     @IBOutlet weak var allDevicesCell: UITableViewCell!
@@ -24,25 +27,32 @@ class ListViewController: UITableViewController {
     @IBOutlet weak var allDevicesLabel: UILabel!
     @IBOutlet weak var favoritesLabel: UILabel!
     
+    
+    // MARK: Properties
+    
     var delegate: ListViewDelegate?
     
 
-    // ------------------------------------------------------------------------
-    // MARK: - Initialisation
-    // ------------------------------------------------------------------------
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
+    // MARK: - Life Cycle
     
     override func viewWillAppear(animated: Bool) {
         setCheckmarks()
     }
     
     
-    // ------------------------------------------------------------------------
-    // MARK: - Events
-    // ------------------------------------------------------------------------
+    // MARK: - Table View
+    // MARK: Delegate
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let tagOfSelectedCell = tableView.cellForRowAtIndexPath(indexPath)!.tag
+        setCheckmarks()
+        delegate?.listView(didSelectListWithTag: tagOfSelectedCell)
+
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    // MARK: - Private Functions
     
     private func setCheckmarks() {
         [fewDevicesCell, someDevicesCell, allDevicesCell, favouritesCell].map { $0.accessoryType = .None }
@@ -53,21 +63,6 @@ class ListViewController: UITableViewController {
         case fewDevicesLabel.text!: fewDevicesCell.accessoryType = .Checkmark
         case favoritesLabel.text!: favouritesCell.accessoryType = .Checkmark
         default: break
-        }
-    }
-
-    
-    // ------------------------------------------------------------------------
-    // MARK: - Table View
-    // ------------------------------------------------------------------------
-
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let tagOfSelectedCell = tableView.cellForRowAtIndexPath(indexPath)!.tag
-        setCheckmarks()
-        delegate?.listView(didSelectListWithTag: tagOfSelectedCell)
-
-        dismissViewControllerAnimated(true){
-            
         }
     }
 }

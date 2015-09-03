@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
-        loadUserData()
+        loadFavorites()
         let splitViewController = self.window!.rootViewController as! UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
         navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
@@ -55,20 +55,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    func loadUserData(){
-        // Load selected List
-        let loadedListTitle: String? = NSUserDefaults.standardUserDefaults().valueForKey("Selected List") as? String
-        let loadedList: DeviceList? = DataManager.sharedInstance.allDeviceLists.filter{$0.title == loadedListTitle}.first
+    func loadFavorites(){
+        // TODO: Memory Leak with 4300 calls
         
-        if loadedList?.elements.isEmpty == false {
-            DataManager.sharedInstance.selectedList = loadedList!
-        } else {
-            DataManager.sharedInstance.selectedList = DataManager.fewDevices
-            println("couldn't load Device List, set to fewDevices")
-        }
         // Load Favourites
-        if let loadedFavourites = NSUserDefaults.standardUserDefaults().valueForKey(DataManager.favourites.title) as? [String] {
-            DataManager.favourites.elements = DataManager.allDevices.elements.filter{ element in
+        if let loadedFavourites = NSUserDefaults.standardUserDefaults().valueForKey(DataManager.favorites.title) as? [String] {
+            DataManager.favorites.elements = DataManager.allDevices.elements.filter{ element in
                 contains(loadedFavourites, element.title)
             }
         }

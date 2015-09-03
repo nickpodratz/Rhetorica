@@ -8,9 +8,10 @@
 
 import Foundation
 
+
 let latinAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
-/// A singstatic leton class for the Data-access. The singstatic leton's name is sharedInstance.
+/// A singleton class for the Data-access of the business layer. The singstatic leton's name is sharedInstance.
 final class DataManager: NSObject {
     
     // TODO: Complete singleton pattern
@@ -18,32 +19,50 @@ final class DataManager: NSObject {
     static let sharedInstance = DataManager()
     
     // Transfer when class-variables are available into DeviceList class
-    var selectedList: DeviceList = fewDevices
-    var allDeviceLists = [fewDevices, someDevices, allDevices, favourites]
+    lazy var selectedList: DeviceList = {
+        // Load selected List from NSUserDefaults
+        let loadedListTitle: String? = NSUserDefaults.standardUserDefaults().valueForKey("Selected List") as? String
+        let loadedList: DeviceList? = DataManager.sharedInstance.allDeviceLists.filter{$0.title == loadedListTitle}.first
+        
+        if loadedList?.elements.isEmpty == false {
+            return loadedList!
+        } else {
+            println("couldn't load Device List, set to fewDevices")
+            return DataManager.fewDevices
+        }
+    }()
+    
+    var allDeviceLists = [fewDevices, someDevices, allDevices, favorites]
     
     /// An immutable collection of the most important Stylistic Devices.
-    static let fewDevices = DeviceList(
-        title: "Wichtigste Stilmittel",
-        editable: false,
-        elements: [allegorie, alliteration, anapher, antithese, allusion, antiklimax, chiasmus, ellipse, euphemismus, floskel, hyperbel, imperativ, inversion, ironie, klimax, metapher, neologismus, paradoxon, parallelismus, personifikation, pointe, redundanz, repetitio, rhetorische_frage, sarkasmus, symbol, synonym, untertreibung, vergleich, vulgarismus]
-    )
-    
+    static var fewDevices: DeviceList {
+        return DeviceList(
+            title: "Wichtigste Stilmittel",
+            editable: false,
+            elements: [allegorie, alliteration, anapher, antithese, allusion, antiklimax, chiasmus, ellipse, euphemismus, floskel, hyperbel, imperativ, inversion, ironie, klimax, metapher, neologismus, paradoxon, parallelismus, personifikation, pointe, redundanz, repetitio, rhetorische_frage, sarkasmus, symbol, synonym, untertreibung, vergleich, vulgarismus]
+        )
+
+    }
     /// An immutable collection of some Stylistic Devices.
-    static let someDevices = DeviceList(
-        title: "Einige Stilmittel",
-        editable: false,
-        elements: [accumulatio, addierendeZusammensetzung, adynaton, aischrologie, allegorie, alliteration, anapher, antithese, antonomasie, allusion, anastrophe, anthropomorphismus, antiklimax, antiphrasis, archaismus, asyndeton, buchstabendreher, chiasmus, chiffre, concessio, correctio, diaphora, diminutiv, dysphemismus, elision, ellipse, enjambement, enumeration, epitheton, eponomasie, etymologische_figur, euphemismus, evidenz, exclamatio, exemplum, floskel, homoioteleuton, hyperbaton, hyperbel, hypotaxe, imperativ, interjektion, inversion, invokation, ironie, katachrese, klimax, litotes, metapher, neologismus, onomatopoesie, oxymoron, palindrom, paradoxon, parallelismus, parataxe, parenthese, periphrase, personifikation, pleonasmus, pluralis_majestatis, pointe, redundanz, repetitio, rhetorische_frage, sarkasmus, scheindefinition, sentenz, solözismus, stabreim, sustentio, symbol, synekdoche, synonym, Tetrakolon, trikolon, untertreibung, variatio, verdinglichung, vergleich, vulgarismus, wortspiel, zynismus]
-    )
+    static var someDevices: DeviceList {
+        return DeviceList(
+            title: "Einige Stilmittel",
+            editable: false,
+            elements: [accumulatio, addierendeZusammensetzung, adynaton, aischrologie, allegorie, alliteration, anapher, antithese, antonomasie, allusion, anastrophe, anthropomorphismus, antiklimax, antiphrasis, archaismus, asyndeton, buchstabendreher, chiasmus, chiffre, concessio, correctio, diaphora, diminutiv, dysphemismus, elision, ellipse, enjambement, enumeration, epitheton, eponomasie, etymologische_figur, euphemismus, evidenz, exclamatio, exemplum, floskel, homoioteleuton, hyperbaton, hyperbel, hypotaxe, imperativ, interjektion, inversion, invokation, ironie, katachrese, klimax, litotes, metapher, neologismus, onomatopoesie, oxymoron, palindrom, paradoxon, parallelismus, parataxe, parenthese, periphrase, personifikation, pleonasmus, pluralis_majestatis, pointe, redundanz, repetitio, rhetorische_frage, sarkasmus, scheindefinition, sentenz, solözismus, stabreim, sustentio, symbol, synekdoche, synonym, Tetrakolon, trikolon, untertreibung, variatio, verdinglichung, vergleich, vulgarismus, wortspiel, zynismus]
+        )
+    }
     
     /// An immutable collection of all Stylistic Devices.
-    static let allDevices = DeviceList(
-        title: "Alle Stilmittel",
-        editable: false,
-        elements: [accumulatio, addierendeZusammensetzung, adynaton, aischrologie, allegorie, alliteration, anapher, antithese, antonomasie, apokoinu, allusion, alogismus, anadiplose, anakoluth, anastrophe, anthropomorphismus, antizipation, antiklimax, antilabe, antiphrasis, antitheton, aposipese, apostrophe, archaismus, assonanz, asyndeton, bathos, brachylogie, brevitas, buchstabendreher, chiasmus, chiffre, chrie, conversio, concessio, constructio_ad_sensum, contradicto_in_adiecto, correctio, diaphora, diakolon, diminutiv, dysphemismus, elision, ellipse, emphase, enjambement, enumeration, epanalepse, epanodos, epipher, epiphrase, epitheton, eponomasie, etymologische_figur, euphemismus, evidenz, exclamatio, exemplum, floskel, geminatio, gleichnis, hendiadyoin, homoioteleuton, homoioarkton, hypallage, hyperbaton, hyperbel, hypotaxe, hysteron_proteron, imperativ, inkonzinnität, interjektion, inversion, invokation, ironie, kakophonie, katachrese, klimax, kyklos, litotes, metapher, metonymie, montage, neologismus, onomatopoesie, oxymoron, palindrom, paradoxon, paralipse, parallelismus, paraphrase, parataxe, parenthese, paronomasie, pars_pro_toto, periphrase, personifikation, pleonasmus, pluralis_auctoris, pluralis_majestatis, pluralis_modestiae, pointe, polyptoton, polysyndeton, prokatalepsis, redundanz, repetitio, rhetorische_frage, sarkasmus, scheindefinition, sentenz, solözismus, stabreim, stichomythie, sustentio, syllepse, symbol, synästhesie, synekdoche, synonym, tautologie, Tetrakolon, totemismus, totum_pro_parte, trikolon, tricolon_in_membris_crescentibus, untertreibung, variatio, verdinglichung, vergleich, vulgarismus, wortspiel, zeugma, zynismus]
-    )
+    static var allDevices: DeviceList {
+        return DeviceList(
+            title: "Alle Stilmittel",
+            editable: false,
+            elements: [accumulatio, addierendeZusammensetzung, adynaton, aischrologie, allegorie, alliteration, anapher, antithese, antonomasie, apokoinu, allusion, alogismus, anadiplose, anakoluth, anastrophe, anthropomorphismus, antizipation, antiklimax, antilabe, antiphrasis, antitheton, aposipese, apostrophe, archaismus, assonanz, asyndeton, bathos, brachylogie, brevitas, buchstabendreher, chiasmus, chiffre, chrie, conversio, concessio, constructio_ad_sensum, contradicto_in_adiecto, correctio, diaphora, diakolon, diminutiv, dysphemismus, elision, ellipse, emphase, enjambement, enumeration, epanalepse, epanodos, epipher, epiphrase, epitheton, eponomasie, etymologische_figur, euphemismus, evidenz, exclamatio, exemplum, floskel, geminatio, gleichnis, hendiadyoin, homoioteleuton, homoioarkton, hypallage, hyperbaton, hyperbel, hypotaxe, hysteron_proteron, imperativ, inkonzinnität, interjektion, inversion, invokation, ironie, kakophonie, katachrese, klimax, kyklos, litotes, metapher, metonymie, montage, neologismus, onomatopoesie, oxymoron, palindrom, paradoxon, paralipse, parallelismus, paraphrase, parataxe, parenthese, paronomasie, pars_pro_toto, periphrase, personifikation, pleonasmus, pluralis_auctoris, pluralis_majestatis, pluralis_modestiae, pointe, polyptoton, polysyndeton, prokatalepsis, redundanz, repetitio, rhetorische_frage, sarkasmus, scheindefinition, sentenz, solözismus, stabreim, stichomythie, sustentio, syllepse, symbol, synästhesie, synekdoche, synonym, tautologie, Tetrakolon, totemismus, totum_pro_parte, trikolon, tricolon_in_membris_crescentibus, untertreibung, variatio, verdinglichung, vergleich, vulgarismus, wortspiel, zeugma, zynismus]
+        )
+    }
     
     /// A mutable collection of the user's favored Stylistic Devices.
-    static var favourites = DeviceList(
+    static var favorites = DeviceList(
         title: "Favoriten",
         editable: true,
         elements: [StylisticDevice]()

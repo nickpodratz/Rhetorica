@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class DeviceList {
+class DeviceList {
     let title: String
     let editable: Bool
     var elements: [StylisticDevice] {
@@ -16,10 +16,17 @@ final class DeviceList {
             if enoughForCategories {
                 presentLetters = latinAlphabet.filter{self.sortedList[$0] != nil}
             }
-            // Save Elementlist under title
-            let listOfFavouriteStrings = newValue.map{$0.title}
-            NSUserDefaults.standardUserDefaults().setValue(listOfFavouriteStrings, forKey: title)
-            NSUserDefaults.standardUserDefaults().synchronize()
+            
+            let backgroundQueue = dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)
+            dispatch_async(backgroundQueue) {
+                // Save Elementlist under title
+                let listOfFavouriteStrings = newValue.map{$0.title}
+                NSUserDefaults.standardUserDefaults().setValue(listOfFavouriteStrings, forKey: self.title)
+                NSUserDefaults.standardUserDefaults().synchronize()
+            }
+        }
+        didSet {
+            elements.sort(<)
         }
     }
     
@@ -68,6 +75,8 @@ extension DeviceList: SequenceType {
 
 // MARK: Collection Type
 extension DeviceList: CollectionType {
+    typealias Index = Int
+
     var startIndex: Int {
         return 0
     }

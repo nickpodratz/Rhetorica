@@ -12,6 +12,9 @@ import AudioToolbox
 
 class QuizViewController: UIViewController, UIActionSheetDelegate {
 
+    
+    // MARK: - Outlets
+
     @IBOutlet var questionView: UIView!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var exampleLabel: UILabel!
@@ -20,7 +23,10 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
     @IBOutlet weak var answer2: UIButton!
     @IBOutlet weak var answer3: UIButton!
     
-    var buttons: [UIButton]!
+    
+    // MARK: - Properties
+
+    lazy var buttons: [UIButton] = { [self.answer0, self.answer1, self.answer2, self.answer3] }()
     var devices: [StylisticDevice]!
     
     var tagOfCorrectAnswer: Int!
@@ -30,23 +36,18 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
     var counterOfQuestions = 0
     
     
-    // ------------------------------------------------------------------------
-    // MARK: - Initialisation
-    // ------------------------------------------------------------------------
-
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
-        buttons = [answer0, answer1, answer2, answer3]
         prepareViewForNewRound()
+//        for button in buttons {
+//            button.titleLabel?.numberOfLines = 1
+//            button.titleLabel?.adjustsFontSizeToFitWidth = true
+//        }
     }
     
     
-    // ------------------------------------------------------------------------
     // MARK: - Transitioning
-    // ------------------------------------------------------------------------
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         if segue.identifier == "showResult" {
@@ -57,18 +58,16 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
     }
 
     
-    // ------------------------------------------------------------------------
     // MARK: - User Interaction
-    // ------------------------------------------------------------------------
 
-    /** Called when Button is pushed down */
+    /// Called when Button is pushed down
     @IBAction func fadeIn(sender: UIButton) {
         UIView.animateWithDuration(0.1, delay: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
             sender.backgroundColor = UIColor(red: 0.629, green: 0.206, blue: 0.625, alpha: 1.0)
         }, completion: nil)
     }
     
-    /** Called when Button is cancelled */
+    /// Called when Button is cancelled
     @IBAction func fadeOut(sender: UIButton) {
         UIView.animateWithDuration(0.7, delay: 0.4, options: UIViewAnimationOptions.CurveEaseOut, animations: {
             sender.backgroundColor = UIColor.purpleColor()
@@ -81,7 +80,7 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
 
     }
     
-    @IBAction func abbrechen(sender: AnyObject) {
+    @IBAction func cancel(sender: AnyObject) {
         // let actionSheet = UIActionSheet(title: "Dieses Quiz wirklich beenden? Der Spielforschritt geht in diesem Fall verloren.", delegate: self, cancelButtonTitle: "abbrechen", destructiveButtonTitle: "Quiz beenden")
         dismissViewControllerAnimated(true, completion: nil)
         // actionSheet.actionSheetStyle = .Default
@@ -106,41 +105,54 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
 
         // Correct Answer
         if sender.tag == tagOfCorrectAnswer {
-            UIView.animateWithDuration(0.16, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
-                sender.backgroundColor = UIColor.greenColor()
-            }, completion: { _ in
-                UIView.animateWithDuration(0.8, delay: 0.9, options: UIViewAnimationOptions.CurveEaseOut, animations: {
-                    sender.backgroundColor = UIColor.purpleColor()
-                }, completion: { _ in
-                    self.counterOfCorrectAnswers++
-                    self.prepareViewForNewRound()
-                })
-            })
+            UIView.animateWithDuration(0.16, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut,
+                animations: {
+                    sender.backgroundColor = UIColor.greenColor()
+                },
+                completion: { _ in
+                    UIView.animateWithDuration(0.8, delay: 0.9, options: UIViewAnimationOptions.CurveEaseOut,
+                        animations: {
+                            sender.backgroundColor = UIColor.purpleColor()
+                        },
+                        completion: { _ in
+                            self.counterOfCorrectAnswers++
+                            self.prepareViewForNewRound()
+                        }
+                    )
+                }
+            )
             
         // False Answer
         } else {
-            UIView.animateWithDuration(0.16, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
-                sender.backgroundColor = UIColor.redColor()
-                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-            }, completion: { _ in
-                UIView.animateWithDuration(0.55, delay: 0.8, options: UIViewAnimationOptions.CurveEaseOut, animations: {
-                    sender.backgroundColor = UIColor.purpleColor()
-                    correctButton.backgroundColor = UIColor.greenColor()
-                }, completion: { _ in
-                    UIView.animateWithDuration(0.8, delay: 1.52, options: UIViewAnimationOptions.CurveEaseOut, animations: {
-                        correctButton.backgroundColor = UIColor.purpleColor()
-                    }, completion: { _ in
-                        self.prepareViewForNewRound()
-                    })
-                })
-            })
+            UIView.animateWithDuration(0.16, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn,
+                animations: {
+                    sender.backgroundColor = UIColor.redColor()
+                    AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                },
+                completion: { _ in
+                    UIView.animateWithDuration(0.55, delay: 0.8, options: UIViewAnimationOptions.CurveEaseOut,
+                        animations: {
+                            sender.backgroundColor = UIColor.purpleColor()
+                            correctButton.backgroundColor = UIColor.greenColor()
+                        },
+                        completion: { _ in
+                            UIView.animateWithDuration(0.8, delay: 1.52, options: UIViewAnimationOptions.CurveEaseOut,
+                                animations: {
+                                    correctButton.backgroundColor = UIColor.purpleColor()
+                                },
+                                completion: { _ in
+                                    self.prepareViewForNewRound()
+                                }
+                            )
+                        }
+                    )
+                }
+            )
         }
     }
     
     
-    // ------------------------------------------------------------------------
     // MARK: - Private Functions
-    // ------------------------------------------------------------------------
     
     /** :returns: a random Device from the 'devices' array. */
     private func getRandomDevice() -> StylisticDevice {
@@ -154,7 +166,8 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
         
         // Choosing four random devices
         var devices = [getRandomDevice()]
-        for device in 1...3 {
+        
+        for _ in indices(buttons) {
             var newRandomDevice: StylisticDevice
             do {
                 newRandomDevice = getRandomDevice()
@@ -169,8 +182,8 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
         
         // Configuring the buttons
         buttons.map({$0.backgroundColor = UIColor.purpleColor()})
-        for counter in 0...3 {
-            buttons[counter].setTitle(devices[counter].title, forState: UIControlState.Normal)
+        for (buttonIndex, button) in enumerate(buttons) {
+            button.setTitle(devices[buttonIndex].title, forState: UIControlState.Normal)
         }
         
         // Configuring the labels
@@ -179,6 +192,9 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
     }
 
 }
+
+
+// MARK: - Button colors
 
 private extension UIColor {
     private class func purpleColor() -> UIColor {

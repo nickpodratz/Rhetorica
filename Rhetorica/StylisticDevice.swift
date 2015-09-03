@@ -9,7 +9,7 @@
 import Foundation
 
 // TODO: Final class?
-struct StylisticDevice {
+class StylisticDevice {
     let title: String
     let definition: String
     let example: String

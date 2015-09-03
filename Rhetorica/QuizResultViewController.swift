@@ -10,12 +10,21 @@ import UIKit
 
 class QuizResultViewController: UIViewController {
     
+    
+    // MARK: - Outlets
+
     @IBOutlet weak var answersRoundSubview: UIView!
     @IBOutlet weak var answersRoundCorrect: UILabel!
     @IBOutlet weak var answersRoundAll: UILabel!
     
+    
+    // MARK: - Properties
+
     var numberOfCorrectAnswers = 0
     var numberOfQuestions = 0
+    
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         answersRoundCorrect.text = ""
@@ -44,6 +53,9 @@ class QuizResultViewController: UIViewController {
         )
     }
     
+    
+    // MARK: - User Interaction
+
     @IBAction func finished(sender: AnyObject) {
         navigationController?.popToRootViewControllerAnimated(true)
         navigationController?.popViewControllerAnimated(true)
