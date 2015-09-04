@@ -46,6 +46,10 @@ class DetailViewController: UITableViewController {
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        wikipediaCell.setSelected(false, animated: true)
+    }
+    
     func configureView() {
         // Check if device is selected
         if self.device == nil {

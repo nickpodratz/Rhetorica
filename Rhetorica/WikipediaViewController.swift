@@ -68,6 +68,7 @@ class WikipediaViewController: UIViewController, UIWebViewDelegate {
     // MARK: - WebView Delegate
     
     func webViewDidStartLoad(webView: UIWebView) {
+        webView.hidden = true
         activityIndicator.startAnimating()
         noConnectionLabel.hidden = true
         navigationItem.rightBarButtonItem?.enabled = false
@@ -75,12 +76,14 @@ class WikipediaViewController: UIViewController, UIWebViewDelegate {
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
+        webView.hidden = false
         activityIndicator.stopAnimating()
         navigationItem.rightBarButtonItem?.enabled = true
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
     }
     
     func webView(webView: UIWebView, didFailLoadWithError error: NSError) {
+        webView.hidden = true
         activityIndicator.stopAnimating()
         noConnectionLabel.hidden = false
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false

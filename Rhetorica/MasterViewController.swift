@@ -153,7 +153,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
             noElementsLabel.text = "Diese Liste ist leer"
         }
         
-        UIView.animateWithDuration(0.3,
+        UIView.animateWithDuration(0,
             animations: {
                 // Fade Color of Separator Lines
                 let newSeparatorColor = (noEntries == true) ? UIColor.whiteColor() : self.originalSeparatorColor
