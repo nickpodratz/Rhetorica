@@ -52,8 +52,10 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
 
         if let split = self.splitViewController {
             let controllers = split.viewControllers
-            if let navigationController = controllers[1] as? UINavigationController {
-                self.detailViewController = navigationController.visibleViewController as? DetailViewController
+            if controllers.count > 1 {
+                if let navigationController = controllers[1] as? UINavigationController {
+                    self.detailViewController = navigationController.visibleViewController as? DetailViewController
+                }
             }
         }
     }
@@ -262,9 +264,10 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
 
             if let split = self.splitViewController {
                 let controllers = split.viewControllers
-                if let navigationController = controllers[1] as? UINavigationController {
-                    let detailVC = navigationController.visibleViewController as? DetailViewController
-                    detailVC?.configureView()
+                if controllers.count > 1 {
+                    if let navigationController = controllers[1] as? UINavigationController {
+                        self.detailViewController = navigationController.visibleViewController as? DetailViewController
+                    }
                 }
             }
 
