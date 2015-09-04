@@ -67,19 +67,20 @@ class DetailViewController: UITableViewController {
     // MARK: - User Interaction
     
     @IBAction func addToFavorites(sender: AnyObject) {
-        // If it is a favourite
         if let indexOfDeviceInFavorites = find(DataManager.favorites.elements, self.device!){
+            // Deleting...
             DataManager.favorites.elements.removeAtIndex(indexOfDeviceInFavorites)
             self.navigationItem.rightBarButtonItem?.image = UIImage(named: "heart_0")
             showFavoritesLabel(addedStylisticDevice: false)
         }else {
+            // Adding...
             DataManager.favorites.elements.append(self.device!)
             self.navigationItem.rightBarButtonItem?.image = UIImage(named: "heart_1")
             showFavoritesLabel(addedStylisticDevice: true)
         }
         
         if let navigationController = self.splitViewController?.viewControllers.first as? UINavigationController,
-            masterController = navigationController.visibleViewController as? MasterViewController {
+            masterController = navigationController.childViewControllers.first as? MasterViewController {
                 masterController.tableView.reloadData()
         }
     }
