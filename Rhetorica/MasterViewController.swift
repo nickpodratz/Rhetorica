@@ -52,7 +52,9 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
 
         if let split = self.splitViewController {
             let controllers = split.viewControllers
-            self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
+            if let navigationController = controllers[1] as? UINavigationController {
+                self.detailViewController = navigationController.visibleViewController as? DetailViewController
+            }
         }
     }
     
@@ -257,6 +259,16 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         if editingStyle == UITableViewCellEditingStyle.Delete {
             DataManager.sharedInstance.selectedList.elements.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+
+            if let split = self.splitViewController {
+                let controllers = split.viewControllers
+                if let navigationController = controllers[1] as? UINavigationController {
+                    let detailVC = navigationController.visibleViewController as? DetailViewController
+                    detailVC?.configureView()
+                }
+            }
+
+            detailViewController?.configureView() // For some reason not enough for updating the detailsVC
         }
     }
     

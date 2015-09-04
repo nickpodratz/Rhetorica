@@ -38,14 +38,21 @@ class WikipediaViewController: UIViewController, UIWebViewDelegate {
         noConnectionLabel.hidden = true
 
         // Start request
-        if urlString != nil {
-            var url = NSURL(string: urlString!)
-            var request = NSURLRequest(URL:url!)
-            self.webView.loadRequest(request)
+        if urlString != nil { // Add this here?: [unowned self] in
+            let url = NSURL(string: urlString!)
+            let request = NSURLRequest(URL:url!)
+            webView.loadRequest(request)
         }
     }
     
-    
+    override func viewWillDisappear(animated: Bool) {
+        webView.loadHTMLString("<html></html>", baseURL: nil)
+        webView.stopLoading()
+        webView.delegate = nil
+        webView.removeFromSuperview()
+        NSURLCache.sharedURLCache().removeAllCachedResponses()
+        super.viewWillDisappear(animated)
+    }
     // MARK: - User Interaction
 
     @IBAction func share(sender: UIBarButtonItem) {

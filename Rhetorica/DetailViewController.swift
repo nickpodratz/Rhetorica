@@ -51,9 +51,12 @@ class DetailViewController: UITableViewController {
         if self.device == nil {
             self.device = DataManager.sharedInstance.selectedList.elements.first
         }
+        
         // Set correct Favorite-Image
         if contains(DataManager.favorites.elements, self.device!) {
             self.navigationItem.rightBarButtonItem?.image = UIImage(named: "heart_1")
+        } else {
+            self.navigationItem.rightBarButtonItem?.image = UIImage(named: "heart_0")
         }
         tableView.reloadData()
         tableView.estimatedRowHeight = 100
@@ -75,11 +78,10 @@ class DetailViewController: UITableViewController {
             showFavoritesLabel(addedStylisticDevice: true)
         }
         
-        // TODO: Not working. visible... is navigationController
-        let masterViewController: AnyObject? = splitViewController?.viewControllers.first
-        let tableController = masterViewController?.visibleViewController as! UITableViewController
-        let tableView = tableController.tableView
-        tableView.reloadData()
+        if let navigationController = self.splitViewController?.viewControllers.first as? UINavigationController,
+            masterController = navigationController.visibleViewController as? MasterViewController {
+                masterController.tableView.reloadData()
+        }
     }
     
     
