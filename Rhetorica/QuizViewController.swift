@@ -27,7 +27,7 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
     // MARK: - Properties
 
     lazy var buttons: [UIButton] = { [self.answer0, self.answer1, self.answer2, self.answer3] }()
-    var devices: [StylisticDevice]!
+    var devices: [StylisticDevice]! // Set to selected list.
     
     var tagOfCorrectAnswer: Int!
     
@@ -38,14 +38,9 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
     
     // MARK: - Life Cycle
     
-    override func viewDidLoad() {
+    override func viewWillAppear(animated: Bool) {
         prepareViewForNewRound()
-//        for button in buttons {
-//            button.titleLabel?.numberOfLines = 1
-//            button.titleLabel?.adjustsFontSizeToFitWidth = true
-//        }
     }
-    
     
     // MARK: - Transitioning
 
@@ -165,30 +160,30 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
         self.navigationItem.title = "\(counterOfCorrectAnswers) von \(counterOfQuestions) richtig"
         
         // Choosing four random devices
-        var devices = [getRandomDevice()]
+        var newDevices = [StylisticDevice]()
         
         for _ in indices(buttons) {
             var newRandomDevice: StylisticDevice
             do {
                 newRandomDevice = getRandomDevice()
-            } while (contains(devices, newRandomDevice) == true)
+            } while (contains(newDevices, newRandomDevice))
             
-            devices.append(newRandomDevice)
+            newDevices.append(newRandomDevice)
         }
         
         // Appoint correct device
         self.tagOfCorrectAnswer = Int(arc4random_uniform(4))
-        let correctDevice: StylisticDevice = self.devices[tagOfCorrectAnswer]
+        let correctDevice: StylisticDevice = newDevices[tagOfCorrectAnswer]
         
         // Configuring the buttons
         buttons.map({$0.backgroundColor = UIColor.purpleColor()})
         for (buttonIndex, button) in enumerate(buttons) {
-            button.setTitle(devices[buttonIndex].title, forState: UIControlState.Normal)
+            button.setTitle(newDevices[buttonIndex].title, forState: UIControlState.Normal)
         }
         
         // Configuring the labels
-        questionLabel.text = devices[tagOfCorrectAnswer].definition
-        exampleLabel.text = devices[tagOfCorrectAnswer].example
+        questionLabel.text = newDevices[tagOfCorrectAnswer].definition
+        exampleLabel.text = newDevices[tagOfCorrectAnswer].example
     }
 
 }

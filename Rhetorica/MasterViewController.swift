@@ -47,7 +47,6 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.sectionIndexBackgroundColor = UIColor.clearColor()
         navigationItem.title = DataManager.sharedInstance.selectedList.title
 
-        tableView.reloadData()
         animateNoEntriesLabel(DataManager.sharedInstance.selectedList.elements.isEmpty)
 
         if let split = self.splitViewController {
@@ -62,20 +61,21 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        definesPresentationContext = true
         if let indexPath = selectedIndexPath {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
             self.selectedIndexPath = nil
         }
     }
     
-    func setupSearchController() {
+    private func setupSearchController() {
         searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
         searchController.searchBar.frame.size.width = self.view.bounds.size.width
         searchController.searchBar.searchBarStyle = UISearchBarStyle.Minimal
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.sizeToFit()
-        searchController.searchResultsUpdater = self
         searchController.searchBar.backgroundColor = UIColor.whiteColor()
         searchController.searchBar.tintColor = UIColor.purpleColor()
         searchController.view.layoutIfNeeded()
@@ -91,36 +91,33 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == nil { return }
         
+        searchController.searchBar.resignFirstResponder()
         switch segue.identifier! {
         case "showDetail":
             definesPresentationContext = true
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-                var device: StylisticDevice!
-                
-                if DataManager.sharedInstance.selectedList.enoughForCategories == true {
-                    device = DataManager.sharedInstance.selectedList.sortedList[DataManager.sharedInstance.selectedList.presentLetters[indexPath.section]]![indexPath.row]
-                } else{
-                    device = DataManager.sharedInstance.selectedList.elements[indexPath.row] as StylisticDevice
-                }
-                
+                self.selectedIndexPath = indexPath
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-                controller.device = device
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
-                self.selectedIndexPath = indexPath
+                println(definesPresentationContext)
+                controller.device = {
+                    if self.searchController.active {
+                        return self.searchResults[indexPath.row]
+                    } else {
+                        if DataManager.sharedInstance.selectedList.enoughForCategories == true {
+                            return DataManager.sharedInstance.selectedList.sortedList[DataManager.sharedInstance.selectedList.presentLetters[indexPath.section]]![indexPath.row]
+                        } else {
+                            return DataManager.sharedInstance.selectedList.elements[indexPath.row] as StylisticDevice
+                        }
+                    }
+                }()
             }
             
         case "showQuiz":
             definesPresentationContext = true
-            if DataManager.sharedInstance.selectedList.elements.count >= 4 {
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! QuizViewController
-                controller.devices = DataManager.sharedInstance.selectedList.elements
-            } else {
-                let alertController = UIAlertController(title: "Quiz nicht möglich", message:
-                    "Vergewissere dich, dass die ausgewählte Liste mindestens vier Elemente beinhaltet.", preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(UIAlertAction(title: "Alles klar", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alertController, animated: true, completion: nil)
-            }
+            let controller = (segue.destinationViewController as! UINavigationController).topViewController as! QuizViewController
+            controller.devices = DataManager.sharedInstance.selectedList.elements
             
         case "showList":
             definesPresentationContext = false
@@ -132,6 +129,17 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        if identifier == "showQuiz" {
+            if DataManager.sharedInstance.selectedList.elements.count < 4 {
+                let alertController = UIAlertController(title: "Quiz nicht möglich", message: "Vergewissere dich, dass die ausgewählte Liste mindestens vier Elemente beinhaltet.", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Alles klar", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+                return false
+            }
+        }
+        return true
+    }
     
     // MARK: - Private Functions
     
