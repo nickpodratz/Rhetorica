@@ -90,7 +90,9 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
 
     @IBAction func buttonKlicked(sender: UIButton) {
         counterOfQuestions += 1
-        buttons.map{$0.userInteractionEnabled = false}
+        for button in buttons {
+            button.userInteractionEnabled = false
+        }
         
         let correctButton: UIButton = buttons[tagOfCorrectAnswer]
 
@@ -113,7 +115,7 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
                 }
             )
             
-        // False Answer
+        // Wrong Answer
         } else {
             UIView.animateWithDuration(0.16, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn,
                 animations: {
@@ -145,43 +147,44 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
     
     // MARK: - Private Functions
     
-    /** :returns: a random Device from the 'devices' array. */
+    /** - returns: a random Device from the 'devices' array. */
     private func getRandomDevice() -> StylisticDevice {
         let randomNumber = Int(arc4random_uniform(UInt32(deviceList.elements.count)))
         return deviceList[randomNumber]
     }
     
     private func setupViewForNewRound() {
-        buttons.map{$0.userInteractionEnabled = true}
         self.navigationItem.title = "\(counterOfCorrectAnswers) von \(counterOfQuestions) richtig"
         
         // Choosing four random devices
         var newDevices = [StylisticDevice]()
         
-        for _ in indices(buttons) {
+        for _ in buttons.indices {
             var newRandomDevice: StylisticDevice
-            do {
+            repeat {
                 newRandomDevice = getRandomDevice()
-            } while (contains(newDevices, newRandomDevice))
+            } while (newDevices.contains(newRandomDevice))
             
             newDevices.append(newRandomDevice)
         }
         
         // Appoint correct device
         self.tagOfCorrectAnswer = Int(arc4random_uniform(4))
-        let correctDevice: StylisticDevice = newDevices[tagOfCorrectAnswer]
         
         // Configuring the buttons
-        buttons.map({$0.backgroundColor = UIColor.purpleColor()})
-        for (buttonIndex, button) in enumerate(buttons) {
+        for button in buttons {
+            button.userInteractionEnabled = true
+            button.backgroundColor = UIColor.purpleColor()
+        }
+        for (buttonIndex, button) in buttons.enumerate() {
             button.setTitle(newDevices[buttonIndex].title, forState: UIControlState.Normal)
+            button.tag = buttonIndex
         }
         
         // Configuring the labels
         questionLabel.text = newDevices[tagOfCorrectAnswer].definition
         exampleLabel.text = newDevices[tagOfCorrectAnswer].example
     }
-
 }
 
 

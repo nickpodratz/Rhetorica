@@ -84,7 +84,7 @@ class WikipediaViewController: UIViewController, UIWebViewDelegate {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
     }
     
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError) {
+    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
         webView.hidden = true
         activityIndicator.stopAnimating()
         noConnectionLabel.hidden = false

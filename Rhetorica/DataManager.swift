@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import CoreSpotlight
+import MobileCoreServices
 
 
 let latinAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
@@ -27,7 +29,7 @@ final class DataManager: NSObject {
         if loadedList?.elements.isEmpty == false {
             return loadedList!
         } else {
-            println("couldn't load Device List, set to fewDevices")
+            print("couldn't load Device List, set to fewDevices")
             return DataManager.fewDevices
         }
     }()
@@ -59,6 +61,29 @@ final class DataManager: NSObject {
             editable: false,
             elements: [accumulatio, addierendeZusammensetzung, adynaton, aischrologie, allegorie, alliteration, anapher, antithese, antonomasie, apokoinu, allusion, alogismus, anadiplose, anakoluth, anastrophe, anthropomorphismus, antizipation, antiklimax, antilabe, antiphrasis, antitheton, aposipese, apostrophe, archaismus, assonanz, asyndeton, bathos, brachylogie, brevitas, buchstabendreher, chiasmus, chiffre, chrie, conversio, concessio, constructio_ad_sensum, contradicto_in_adiecto, correctio, diaphora, diakolon, diminutiv, dysphemismus, elision, ellipse, emphase, enjambement, enumeration, epanalepse, epanodos, epipher, epiphrase, epitheton, eponomasie, etymologische_figur, euphemismus, evidenz, exclamatio, exemplum, floskel, geminatio, gleichnis, hendiadyoin, homoioteleuton, homoioarkton, hypallage, hyperbaton, hyperbel, hypotaxe, hysteron_proteron, imperativ, inkonzinnität, interjektion, inversion, invokation, ironie, kakophonie, katachrese, klimax, kyklos, litotes, metapher, metonymie, montage, neologismus, onomatopoesie, oxymoron, palindrom, paradoxon, paralipse, parallelismus, paraphrase, parataxe, parenthese, paronomasie, pars_pro_toto, periphrase, personifikation, pleonasmus, pluralis_auctoris, pluralis_majestatis, pluralis_modestiae, pointe, polyptoton, polysyndeton, prokatalepsis, redundanz, repetitio, rhetorische_frage, sarkasmus, scheindefinition, sentenz, solözismus, stabreim, stichomythie, sustentio, syllepse, symbol, synästhesie, synekdoche, synonym, tautologie, Tetrakolon, totemismus, totum_pro_parte, trikolon, tricolon_in_membris_crescentibus, untertreibung, variatio, verdinglichung, vergleich, vulgarismus, wortspiel, zeugma, zynismus]
         )
+    }
+    
+    
+    func indexAllStylisticDevicesIfPossible() {
+        let deviceList = DataManager.allDevices
+        
+        for device in deviceList {
+            if #available(iOS 9.0, *) {
+                let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
+                attributeSet.title = device.title
+                attributeSet.contentDescription = device.definition
+                let item = CSSearchableItem(uniqueIdentifier: "\(device.title)", domainIdentifier: "np.rhetorica", attributeSet: attributeSet)
+                CSSearchableIndex.defaultSearchableIndex().indexSearchableItems([item]) { (error: NSError?) -> Void in
+                    if let error = error {
+                        print("Indexing error: \(error.localizedDescription)")
+                    } else {
+                        print("Search item successfully indexed!")
+                    }
+                }
+            } else {
+                print("Could not index stylistic devices on device, as its OS is too old.")
+            }
+        }
     }
     
     /// A mutable collection of the user's favored Stylistic Devices.

@@ -19,7 +19,6 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
 
     var searchController: UISearchController!
     var detailViewController: DetailViewController?
-    var selectedIndexPath: NSIndexPath?
     
     // MARK: - Properties
     
@@ -63,9 +62,11 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         definesPresentationContext = true
-        if let indexPath = selectedIndexPath {
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
-            self.selectedIndexPath = nil
+        
+        if let indexPaths = tableView.indexPathsForSelectedRows {
+            for indexPath in indexPaths {
+                tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            }
         }
     }
     
@@ -86,6 +87,9 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         NSTimer.scheduledTimerWithTimeInterval(0, target: self, selector: Selector("scrollTableViewToTop"), userInfo: nil, repeats: false)
     }
     
+    func setupDetailsViewController(stylisticDevice: StylisticDevice) {
+        
+    }
 
     // MARK: - Transitioning
     
@@ -96,12 +100,10 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         switch segue.identifier! {
         case "showDetail":
             definesPresentationContext = true
-            if let indexPath = self.tableView.indexPathForSelectedRow() {
-                self.selectedIndexPath = indexPath
+            if let indexPath = self.tableView.indexPathForSelectedRow {
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
-                println(definesPresentationContext)
                 controller.device = {
                     if self.searchController.active {
                         return self.searchResults[indexPath.row]
@@ -126,11 +128,11 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
             destinationController.delegate = self
             
             
-        default: println("Found unknown identifier: \(segue.identifier!)")
+        default: print("Found unknown identifier: \(segue.identifier!)")
         }
     }
     
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if identifier == "showQuiz" {
             if DataManager.sharedInstance.selectedList.elements.count < 4 {
                 let alertController = UIAlertController(title: "Quiz nicht möglich", message: "Vergewissere dich, dass die ausgewählte Liste mindestens vier Elemente beinhaltet.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -216,7 +218,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         var device: StylisticDevice!
         
         if searchController.active {
@@ -247,10 +249,10 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
             return -1
         }
 
-        return (find(DataManager.sharedInstance.selectedList.presentLetters, title) ?? 0)
+        return (DataManager.sharedInstance.selectedList.presentLetters.indexOf(title) ?? 0)
     }
     
-    func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]! {
+    func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
         var index = DataManager.sharedInstance.selectedList.presentLetters
         if searchController != nil {
             index.insert(UITableViewIndexSearch, atIndex: 0)
@@ -311,7 +313,7 @@ extension MasterViewController: UISearchResultsUpdating {
             /// Searches for searchString in all properties of deviceList.
             searchResults = DataManager.sharedInstance.selectedList.elements.filter() { device in
                 return !device.searchableStrings.filter({ stringProperty in
-                    return stringProperty.rangeOfString(searchString, options: NSStringCompareOptions.CaseInsensitiveSearch) != nil }).isEmpty
+                    return stringProperty.rangeOfString(searchString!, options: NSStringCompareOptions.CaseInsensitiveSearch) != nil }).isEmpty
             }
             
             // update UI

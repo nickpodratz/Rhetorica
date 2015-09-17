@@ -27,12 +27,12 @@ class StylisticDevice {
 
 extension StylisticDevice {
     var searchableStrings: [String] {
-// SWIFT 2:       return [title, definition, example, synonym , wikipedia].flatMap {$0}
+//        return [title, definition, example, synonym , wikipedia].flatMap {$0}
         return [title, definition, example, synonym , wikipedia].filter{$0 != nil}.map{$0!}
     }
 }
 
-extension StylisticDevice: Printable {
+extension StylisticDevice: CustomStringConvertible {
     var description: String {
         return self.title
     }
@@ -40,7 +40,7 @@ extension StylisticDevice: Printable {
 
 extension StylisticDevice: Hashable {
     var hashValue: Int {
-        return count(title.utf16)
+        return title.utf16.count
     }
 }
 

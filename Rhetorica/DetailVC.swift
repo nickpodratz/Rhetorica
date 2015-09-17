@@ -44,6 +44,8 @@ class DetailViewController: UITableViewController {
         if self.device?.wikipedia == nil {
             wikipediaCell.hidden = true
         }
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 0
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -57,7 +59,7 @@ class DetailViewController: UITableViewController {
         }
         
         // Set correct Favorite-Image
-        if contains(DataManager.favorites.elements, self.device!) {
+        if DataManager.favorites.elements.contains(self.device!) {
             self.navigationItem.rightBarButtonItem?.image = UIImage(named: "heart_1")
         } else {
             self.navigationItem.rightBarButtonItem?.image = UIImage(named: "heart_0")
@@ -71,7 +73,7 @@ class DetailViewController: UITableViewController {
     // MARK: - User Interaction
     
     @IBAction func addToFavorites(sender: AnyObject) {
-        if let indexOfDeviceInFavorites = find(DataManager.favorites.elements, self.device!){
+        if let indexOfDeviceInFavorites = DataManager.favorites.elements.indexOf(self.device!){
             // Deleting...
             DataManager.favorites.elements.removeAtIndex(indexOfDeviceInFavorites)
             self.navigationItem.rightBarButtonItem?.image = UIImage(named: "heart_0")
@@ -144,8 +146,7 @@ class DetailViewController: UITableViewController {
             }
         )
     }
-    
-    
+        
     /* Copying Dialogue
     
     // MARK: - Table View Delegate

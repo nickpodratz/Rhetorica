@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreSpotlight
+import MobileCoreServices
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
@@ -26,9 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
         loadFavorites()
+        DataManager.sharedInstance.indexAllStylisticDevicesIfPossible()
         let splitViewController = self.window!.rootViewController as! UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-        navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
+        navigationController.topViewController?.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
         splitViewController.delegate = self
         
         application.statusBarStyle = .LightContent
@@ -54,17 +57,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
     func loadFavorites(){
         // TODO: Memory Leak with 4300 calls
         
         // Load Favourites
         if let loadedFavourites = NSUserDefaults.standardUserDefaults().valueForKey(DataManager.favorites.title) as? [String] {
             DataManager.favorites.elements = DataManager.allDevices.elements.filter{ element in
-                contains(loadedFavourites, element.title)
+                loadedFavourites.contains(element.title)
             }
         }
     }
+    
+    func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
+        if #available(iOS 9.0, *) {
+            if userActivity.activityType == CSSearchableItemActionType {
+                if let uniqueIdentifier = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
+                    let splitViewController = self.window!.rootViewController as! UISplitViewController
+                    let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
+                    navigationController.popToRootViewControllerAnimated(false)
+                    if let _ = navigationController.topViewController as? MasterViewController {
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let detailVC = storyboard.instantiateViewControllerWithIdentifier("DetailVC") as! DetailViewController
+                        print(uniqueIdentifier)
+                        detailVC.device = DataManager.allDevices.filter({return "\($0.title)" == uniqueIdentifier}).first
+                        navigationController.pushViewController(detailVC, animated: false)
+                    }
+                }
+            }
+        }
+        return true
+    }
+
         
     // MARK: SplitViewController
 
@@ -72,7 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         return false
     }
     
-    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController:UIViewController!, ontoPrimaryViewController primaryViewController:UIViewController!) -> Bool {
+    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController:UIViewController, ontoPrimaryViewController primaryViewController:UIViewController) -> Bool {
         if let secondaryAsNavController = secondaryViewController as? UINavigationController {
             if let topAsDetailController = secondaryAsNavController.topViewController as? DetailViewController {
                 if topAsDetailController.device == nil {

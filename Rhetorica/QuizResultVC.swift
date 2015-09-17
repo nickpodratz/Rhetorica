@@ -31,17 +31,9 @@ class QuizResultViewController: UIViewController {
         answersRoundAll.text = ""
     }
     
-    override func viewDidAppear(animated: Bool) {
-        // First ProgressView
-        var widthOfView: CGFloat = 0
-        if (numberOfCorrectAnswers > 0 && numberOfQuestions > 0) {
-            let widthOfView = ((Float(self.numberOfCorrectAnswers) / Float(self.numberOfQuestions)) * 600.0)
-        } else {
-            widthOfView = 0.0
-        }
-        
+    override func viewDidAppear(animated: Bool) {        
         self.answersRoundSubview.bounds = CGRect(x: 0, y: 0, width: 0, height: 36)
-        UIView.animateWithDuration(0.4, delay: 0.0, options: nil, animations: {
+        UIView.animateWithDuration(0.4, delay: 0.0, options: [], animations: {
             self.answersRoundSubview.bounds = CGRect(x: 0, y: 0, width: 300, height: 36)
             self.answersRoundSubview.backgroundColor = UIColor.greenColor()
             }, completion: { _ in

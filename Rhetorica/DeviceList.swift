@@ -26,7 +26,7 @@ class DeviceList: NSObject {
             }
         }
         didSet {
-            elements.sort(<)
+            elements.sortInPlace(<)
         }
     }
     
@@ -35,7 +35,7 @@ class DeviceList: NSObject {
     lazy var sortedList: [String: [StylisticDevice]] = {
         var returnList = [String: [StylisticDevice]]()
         for element in self.elements {
-            let firstCharacterOfElement = String(first(element.title)!)
+            let firstCharacterOfElement = String(element.title.characters.first!)
             
             if returnList[firstCharacterOfElement] != nil {
                 returnList[firstCharacterOfElement]?.append(element)
@@ -64,11 +64,11 @@ func ~=(pattern: DeviceList, x: DeviceList) -> Bool {
 
 // MARK: Sequence Type
 extension DeviceList: SequenceType {
-    typealias Generator = GeneratorOf<StylisticDevice>
+    typealias Generator = AnyGenerator<StylisticDevice>
     
     func generate() -> Generator {
         var index = 0
-        return GeneratorOf {
+        return anyGenerator {
             if index < self.elements.count {
                 return self.elements[index++]
             }
@@ -94,16 +94,15 @@ extension DeviceList: CollectionType {
     }
 }
 
-// MARK: Printable
-extension DeviceList: Printable {
+// MARK: CustomStringConvertible
+extension DeviceList {
     override var description: String {
-        let elementString = join(", ", elements.map{$0.title})
+        let elementString = elements.map{$0.title}.joinWithSeparator(", ")
         return "\(self.title): " + elementString
     }
 }
 
 // MARK: Equatable
-extension DeviceList: Equatable{}
 func ==(lhs:DeviceList, rhs:DeviceList) -> Bool {
     return (lhs.title == rhs.title)
 }

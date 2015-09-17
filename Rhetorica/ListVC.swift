@@ -55,7 +55,7 @@ class ListViewController: UITableViewController {
     // MARK: - Private Functions
     
     private func setCheckmarks() {
-        [fewDevicesCell, someDevicesCell, allDevicesCell, favouritesCell].map { $0.accessoryType = .None }
+        for deviceList in [fewDevicesCell, someDevicesCell, allDevicesCell, favouritesCell] { deviceList.accessoryType = .None }
         
         switch(DataManager.sharedInstance.selectedList.title) {
         case allDevicesLabel.text!: allDevicesCell.accessoryType = .Checkmark
