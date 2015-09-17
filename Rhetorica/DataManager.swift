@@ -1018,7 +1018,7 @@ final class DataManager: NSObject {
     
     static let zynismus = StylisticDevice(
         title: "Zynismus",
-        definition: "Eine boshaft verstatic letzende, oft ironische Äußerung als Demonstration der Überlegenheit unter Missachtung, Umdeutung oder Ad-absurdum-Führung allgemein verbreiteter oder anerkannter Werte.",
+        definition: "Eine boshaft verletzende, oft ironische Äußerung als Demonstration der Überlegenheit unter Missachtung, Umdeutung oder Ad-absurdum-Führung allgemein verbreiteter oder anerkannter Werte.",
         example: "„Der Schläger sagt nach seiner Tat: ‚Hat es dir gefallen? Soll ich noch mal draufhauen?‘“\n„Jedes Volk hat die Regierung, die es verdient“",
         wikipedia: "http://de.wikipedia.org/wiki/Zynismus")
 

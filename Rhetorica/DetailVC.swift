@@ -103,6 +103,7 @@ class DetailViewController: UITableViewController {
         }
     }
 
+    
     // MARK: - Private Functions
     
     private func showFavoritesLabel(addedStylisticDevice added: Bool) {
@@ -143,5 +144,26 @@ class DetailViewController: UITableViewController {
             }
         )
     }
+    
+    
+    /* Copying Dialogue
+    
+    // MARK: - Table View Delegate
+    
+    override func tableView(tableView: UITableView, performAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject!) {
+        if action == Selector("copy:") {
+            println("copy")
+        }
+    }
+    
+    override func tableView(tableView: UITableView, shouldShowMenuForRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject) -> Bool {
+        return action == Selector("copy:")
+    }
+
+    */
 }
 

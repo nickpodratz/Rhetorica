@@ -501,13 +501,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="answer0" destination="A8Q-Ox-cuR" id="gJq-db-aN7"/>
-                        <outlet property="answer1" destination="Xbr-sx-4pR" id="r87-Gl-qU0"/>
-                        <outlet property="answer2" destination="UoG-36-VTf" id="Jx9-4q-F5e"/>
-                        <outlet property="answer3" destination="BnV-mP-U4P" id="Ap8-98-UPQ"/>
                         <outlet property="exampleLabel" destination="XUC-Md-rWN" id="sRC-8F-6rh"/>
                         <outlet property="questionLabel" destination="Pkd-5e-Q1j" id="jXe-Pa-lff"/>
                         <outlet property="questionView" destination="X9V-XA-LvX" id="xNP-Hj-AMY"/>
+                        <outletCollection property="buttons" destination="BnV-mP-U4P" collectionClass="NSMutableArray" id="q3k-o7-sw7"/>
+                        <outletCollection property="buttons" destination="Xbr-sx-4pR" collectionClass="NSMutableArray" id="S9r-24-bbr"/>
+                        <outletCollection property="buttons" destination="A8Q-Ox-cuR" collectionClass="NSMutableArray" id="LfE-Nx-dPc"/>
+                        <outletCollection property="buttons" destination="UoG-36-VTf" collectionClass="NSMutableArray" id="rVo-tK-YEd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYR-8m-3Ry" userLabel="First Responder" sceneMemberID="firstResponder"/>

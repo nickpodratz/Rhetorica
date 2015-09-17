@@ -31,7 +31,8 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+        // before: UIDevice.currentDevice().userInterfaceIdiom == .Pad
+        if traitCollection.horizontalSizeClass == .Regular && traitCollection.verticalSizeClass == .Regular {
             self.preferredContentSize = CGSize(width: 320.0, height: 600.0)
         }
     }
@@ -117,7 +118,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         case "showQuiz":
             definesPresentationContext = true
             let controller = (segue.destinationViewController as! UINavigationController).topViewController as! QuizViewController
-            controller.devices = DataManager.sharedInstance.selectedList.elements
+            controller.deviceList = DataManager.sharedInstance.selectedList
             
         case "showList":
             definesPresentationContext = false

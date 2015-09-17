@@ -27,6 +27,7 @@ class StylisticDevice {
 
 extension StylisticDevice {
     var searchableStrings: [String] {
+// SWIFT 2:       return [title, definition, example, synonym , wikipedia].flatMap {$0}
         return [title, definition, example, synonym , wikipedia].filter{$0 != nil}.map{$0!}
     }
 }

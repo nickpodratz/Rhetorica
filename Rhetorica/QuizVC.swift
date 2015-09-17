@@ -18,17 +18,12 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
     @IBOutlet var questionView: UIView!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var exampleLabel: UILabel!
-    @IBOutlet weak var answer0: UIButton!
-    @IBOutlet weak var answer1: UIButton!
-    @IBOutlet weak var answer2: UIButton!
-    @IBOutlet weak var answer3: UIButton!
+    @IBOutlet var buttons: [UIButton]!
     
     
     // MARK: - Properties
 
-    lazy var buttons: [UIButton] = { [self.answer0, self.answer1, self.answer2, self.answer3] }()
-    var devices: [StylisticDevice]! // Set to selected list.
-    
+    weak var deviceList: DeviceList!
     var tagOfCorrectAnswer: Int!
     
     // Answer-logging
@@ -39,8 +34,9 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
     // MARK: - Life Cycle
     
     override func viewWillAppear(animated: Bool) {
-        prepareViewForNewRound()
+        setupViewForNewRound()
     }
+    
     
     // MARK: - Transitioning
 
@@ -111,7 +107,7 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
                         },
                         completion: { _ in
                             self.counterOfCorrectAnswers++
-                            self.prepareViewForNewRound()
+                            self.setupViewForNewRound()
                         }
                     )
                 }
@@ -136,7 +132,7 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
                                     correctButton.backgroundColor = UIColor.purpleColor()
                                 },
                                 completion: { _ in
-                                    self.prepareViewForNewRound()
+                                    self.setupViewForNewRound()
                                 }
                             )
                         }
@@ -151,11 +147,11 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
     
     /** :returns: a random Device from the 'devices' array. */
     private func getRandomDevice() -> StylisticDevice {
-        let randomNumber = Int(arc4random_uniform(UInt32(devices.count)))
-        return devices[randomNumber]
+        let randomNumber = Int(arc4random_uniform(UInt32(deviceList.elements.count)))
+        return deviceList[randomNumber]
     }
     
-    private func prepareViewForNewRound() {
+    private func setupViewForNewRound() {
         buttons.map{$0.userInteractionEnabled = true}
         self.navigationItem.title = "\(counterOfCorrectAnswers) von \(counterOfQuestions) richtig"
         

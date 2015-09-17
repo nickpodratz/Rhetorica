@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DeviceList {
+class DeviceList: NSObject {
     let title: String
     let editable: Bool
     var elements: [StylisticDevice] {
@@ -58,6 +58,10 @@ class DeviceList {
 // MARK: - Protocol Conformance
 // ------------------------------------------------------------------------
 
+func ~=(pattern: DeviceList, x: DeviceList) -> Bool {
+    return pattern.title == x.title
+}
+
 // MARK: Sequence Type
 extension DeviceList: SequenceType {
     typealias Generator = GeneratorOf<StylisticDevice>
@@ -92,7 +96,7 @@ extension DeviceList: CollectionType {
 
 // MARK: Printable
 extension DeviceList: Printable {
-    var description: String {
+    override var description: String {
         let elementString = join(", ", elements.map{$0.title})
         return "\(self.title): " + elementString
     }

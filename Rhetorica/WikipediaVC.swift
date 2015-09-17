@@ -53,6 +53,8 @@ class WikipediaViewController: UIViewController, UIWebViewDelegate {
         NSURLCache.sharedURLCache().removeAllCachedResponses()
         super.viewWillDisappear(animated)
     }
+    
+    
     // MARK: - User Interaction
 
     @IBAction func share(sender: UIBarButtonItem) {
