@@ -231,6 +231,8 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
             }
         }
         
+        cell.setNeedsLayout()
+        cell.layoutIfNeeded()
         cell.textLabel?.text = device.title
         return cell
     }

@@ -26,12 +26,7 @@ class DetailViewController: UITableViewController {
     
     weak var device: StylisticDevice? {
         didSet {
-            if device != nil {
-                self.configureView()
-                titleLabel!.text = self.device?.title
-                definitionLabel!.text = self.device?.definition
-                exampleLabel!.text = self.device?.example
-            }
+            self.configureView()
         }
     }
     
@@ -39,34 +34,15 @@ class DetailViewController: UITableViewController {
     // MARK: - Life cycle
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        self.configureView()
-        if self.device?.wikipedia == nil {
-            wikipediaCell.hidden = true
-        }
+        // Update size of cells
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 0
+        self.tableView.estimatedRowHeight = 100
+        tableView.layoutIfNeeded()
     }
     
     override func viewWillAppear(animated: Bool) {
         wikipediaCell.setSelected(false, animated: true)
-    }
-    
-    func configureView() {
-        // Check if device is selected
-        if self.device == nil {
-            self.device = DataManager.sharedInstance.selectedList.elements.first
-        }
-        
-        // Set correct Favorite-Image
-        if DataManager.favorites.elements.contains(self.device!) {
-            self.navigationItem.rightBarButtonItem?.image = UIImage(named: "heart_1")
-        } else {
-            self.navigationItem.rightBarButtonItem?.image = UIImage(named: "heart_0")
-        }
-        tableView.reloadData()
-        tableView.estimatedRowHeight = 100
-        tableView.rowHeight = UITableViewAutomaticDimension
+        configureView()
     }
     
     
@@ -96,8 +72,8 @@ class DetailViewController: UITableViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toWikipedia" {
-            let controller = (segue.destinationViewController as! UINavigationController).topViewController as! WikipediaViewController
-            controller.urlString = self.device!.wikipedia
+            let controller = segue.destinationViewController as! WikipediaViewController
+            controller.urlString = self.device?.wikipedia
             controller.navigationItem.title = self.device?.title
             controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
             controller.navigationItem.leftItemsSupplementBackButton = true
@@ -106,8 +82,27 @@ class DetailViewController: UITableViewController {
     }
 
     
-    // MARK: - Private Functions
+    // MARK: - Helper Functions
     
+    func configureView() {
+        guard let device = self.device else {
+            self.device = DataManager.sharedInstance.selectedList.elements.first
+            configureView()
+            return
+        }
+        
+        // Fill tableview with data
+        titleLabel?.text = device.title
+        definitionLabel?.text = device.definition
+        exampleLabel?.text = device.example
+        wikipediaCell?.hidden = (device.wikipedia == nil)
+        
+        tableView.reloadData()
+        // Set correct Favorite-Image
+        let deviceIsFavorite = DataManager.favorites.elements.contains(self.device!)
+        navigationItem.rightBarButtonItem?.image = deviceIsFavorite ? UIImage(named: "heart_1") : UIImage(named: "heart_0")
+    }
+
     private func showFavoritesLabel(addedStylisticDevice added: Bool) {
         let isPresenting = (favoritesLabel != nil)
         let diameter: CGFloat = 140
