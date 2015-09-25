@@ -13,7 +13,7 @@ import MobileCoreServices
 
 let latinAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
-/// A singleton class for the Data-access of the business layer. The singstatic leton's name is sharedInstance.
+/// A singleton class for the Data-access of the business layer. The singleton's name is sharedInstance.
 final class DataManager: NSObject {
     
     // TODO: Complete singleton pattern
@@ -295,7 +295,7 @@ final class DataManager: NSObject {
     
     static let chiffre = StylisticDevice(
         title: "Chiffre",
-        definition: "Zeichen, dessen Inhalt rätselhaft und static letztlich nicht für den Leser zusammenhangslos zu erfassen ist.",
+        definition: "Zeichen, dessen Inhalt rätselhaft und letztlich nicht für den Leser zusammenhangslos zu erfassen ist.",
         examples: ["„Stadt“ als Chiffre der Hoffnungslosigkeit in der expressionistischen Lyrik"],
         wikipedia: "https://de.wikipedia.org/wiki/Chiffre_(Literatur)")
     
@@ -796,7 +796,7 @@ final class DataManager: NSObject {
     static let pluralis_auctoris = StylisticDevice(
         title: "Pluralis Auctoris",
         definition: "Die Verwendung des Plural anstelle des Singular zur generalisierung oder deklarierung als Gemeinschaftswerk. (meist in Wissenschaftlichen Arbeiten)",
-        examples: ["„Wir kommen damit zum Kern des Problems...“"],
+        examples: ["„Wir kommen damit zum Kern des Problems …“"],
         wikipedia: "https://de.wikipedia.org/wiki/pluralis_auctoris")
 
 
@@ -872,7 +872,7 @@ final class DataManager: NSObject {
     
     static let sarkasmus = StylisticDevice(
         title: "Sarkasmus",
-        definition: "Ein beißender, bitterer und/oder verstatic letzender Spott und Hohn. Oftmals wird dieser unter Hilfe von Ironie angewand.",
+        definition: "Ein beißender, bitterer und/oder verletzender Spott und Hohn. Oftmals wird dieser unter Hilfe von Ironie angewand.",
         examples: ["Der Geschlagene ruft, anstelle zu weinen: „Natürlich! Gleich noch mal!“"],
         wikipedia: "https://de.wikipedia.org/wiki/Sarkasmus")
 

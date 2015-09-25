@@ -16,6 +16,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noElementsLabel: UILabel!
+    @IBOutlet var tapRecognizer: UITapGestureRecognizer!
 
     var searchController: UISearchController!
     var detailViewController: DetailViewController?
@@ -81,14 +82,20 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         searchController.searchBar.backgroundColor = UIColor.whiteColor()
         searchController.searchBar.tintColor = UIColor.purpleColor()
         searchController.view.layoutIfNeeded()
-
         tableView.tableHeaderView = searchController.searchBar
         
         NSTimer.scheduledTimerWithTimeInterval(0, target: self, selector: Selector("scrollTableViewToTop"), userInfo: nil, repeats: false)
     }
     
+    func dismissSearchController() {
+        searchController.active = false
+    }
+    
     func setupDetailsViewController(stylisticDevice: StylisticDevice) {
         
+    }
+    @IBAction func cancelSearch(sender: AnyObject) {
+        searchController.active = false
     }
 
     // MARK: - Transitioning
@@ -318,6 +325,8 @@ extension MasterViewController: UISearchResultsUpdating {
                     return stringProperty.rangeOfString(searchString!, options: NSStringCompareOptions.CaseInsensitiveSearch) != nil }).isEmpty
             }
             
+            tapRecognizer.enabled = searchResults.isEmpty
+            
             // update UI
             animateNoEntriesLabel(searchResults.isEmpty)
             setNavigationItemsEnabled(false)
@@ -325,6 +334,7 @@ extension MasterViewController: UISearchResultsUpdating {
             // Called when Search is canceled, update UI
             animateNoEntriesLabel(DataManager.sharedInstance.selectedList.elements.isEmpty)
             setNavigationItemsEnabled(true)
+            tapRecognizer.enabled = false
         }
         
         tableView.reloadData()
