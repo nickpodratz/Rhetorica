@@ -183,7 +183,7 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
         
         // Configuring the labels
         questionLabel.text = newDevices[tagOfCorrectAnswer].definition
-        exampleLabel.text = newDevices[tagOfCorrectAnswer].example
+        exampleLabel.text = newDevices[tagOfCorrectAnswer].examples.shuffled().first
     }
 }
 

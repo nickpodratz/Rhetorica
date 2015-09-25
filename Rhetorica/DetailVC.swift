@@ -94,7 +94,7 @@ class DetailViewController: UITableViewController {
         // Fill tableview with data
         titleLabel?.text = device.title
         definitionLabel?.text = device.definition
-        exampleLabel?.text = device.example
+        exampleLabel?.text = device.examples.joinWithSeparator("\n")
         wikipediaCell?.hidden = (device.wikipedia == nil)
         
         tableView.reloadData()

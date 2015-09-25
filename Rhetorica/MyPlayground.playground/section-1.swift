@@ -11,6 +11,10 @@ let animals = ["cat", "dog", "turtle", "swift", "elephant"]
 
 animals.map{$0}
 
-println("hallo")
+print("hallo")
 
-println(str)
+print(str)
+
+animals.reduce("") { (initial, next) in
+    return initial + next
+}
