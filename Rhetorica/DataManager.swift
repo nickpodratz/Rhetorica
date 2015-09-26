@@ -96,14 +96,14 @@ final class DataManager: NSObject {
     static let accumulatio = StylisticDevice(
         title: "Accumulatio",
         definition: "Eine Ansammlung thematisch zusammengehörender Wörter unter einem genannten oder nicht genannten Oberbegriff.",
-        examples: ["„Feld, Wald und Wiesen“\n„Sonne, Mond und Sterne“"],
+        examples: ["„Feld, Wald und Wiesen“", "„Sonne, Mond und Sterne“"],
         wikipedia: "https://de.wikipedia.org/wiki/Accumulatio"
     )
     
     static let addierendeZusammensetzung = StylisticDevice(
         title: "Addierende Zusammensetzung",
         definition: "Zwei gleichberechtigte, einander widersprechende Glieder.",
-        examples: ["„traurigfroh“\n„du übersinnlich-sinnlicher Freier“"])
+        examples: ["„traurigfroh“", "„du übersinnlich-sinnlicher Freier“"])
     
     static let adynaton = StylisticDevice(
         title: "Adynaton",
@@ -113,7 +113,7 @@ final class DataManager: NSObject {
     
     static let aischrologie = StylisticDevice(
         title: "Aischrologie",
-        definition: "Eine abwertende Umschreibung. (eventuell Teil einer Schimpfrede)",
+        definition: "Eine abwertende Umschreibung.", // (eventuell Teil einer Schimpfrede)
         examples: ["„Blechkübel“ (Auto)"],
         wikipedia: "https://de.wikipedia.org/wiki/Aischrologie")
     
@@ -137,8 +137,8 @@ final class DataManager: NSObject {
         
     static let antithese = StylisticDevice(
         title: "Antithese",
-        definition: "Die Zusammensetzung entgegengesetzter (antithetischer) Begriffe.",
-        examples: ["Jung und Alt", "Gut und Böse\n", "„Eng ist die Welt und das Gehirn ist weit“"],
+        definition: "Die Zusammensetzung entgegengesetzter Begriffe.",
+        examples: ["Jung und Alt", "Gut und Böse", "„Eng ist die Welt und das Gehirn ist weit“"],
         wikipedia: "https://de.wikipedia.org/wiki/Antithese")
 
     
@@ -172,7 +172,7 @@ final class DataManager: NSObject {
     
     static let anadiplose = StylisticDevice(
         title: "Anadiplose",
-        definition: "Die Wiederholung eines (satz-/)versschließenden Wortes am Beginn des nächsten Satzes/Verses. (Schema: … x / x …) (Sonderfall der Repetitio)",
+        definition: "Die Wiederholung eines (satz-/)versschließenden Wortes am Beginn des nächsten Satzes/Verses. (Schema: … x / x …)", // (Sonderfall der Repetitio)
         examples: ["„Mit dem Schiffe spielen Wind und Wellen,\nWind und Wellen spielen nicht mit seinem Herzen.“ (Johann Wolfgang von Goethe)"],
         wikipedia: "https://de.wikipedia.org/wiki/Anadiplose")
 
@@ -180,14 +180,14 @@ final class DataManager: NSObject {
     static let anakoluth = StylisticDevice(
         title: "Anakoluth",
         definition: "Ein Satzbruch, eine plötzliche Änderung in der grammatischen Konstruktion eines Satzes.",
-        examples: ["„Korf erfindet eine Mittagszeitung,\nwelche, wenn man sie gelesen hat,/nist man satt.“ (Christian Morgenstern)"],
+        examples: ["„Korf erfindet eine Mittagszeitung, / welche, wenn man sie gelesen hat, / ist man satt.“ (Christian Morgenstern)"],
         wikipedia: "https://de.wikipedia.org/wiki/Anakoluth")
 
     
     static let anastrophe = StylisticDevice(
         title: "Anastrophe",
         definition: "Die Vertauschung zweier zusammengehörender Wörter.",
-        examples: ["„der Verstellung schwere Kunst“ anstelle von: „die schwere Kunst der Verstellung“"],
+        examples: ["„der Verstellung schwere Kunst“ statt: „die schwere Kunst der Verstellung“"],
         wikipedia: "https://de.wikipedia.org/wiki/Anastrophe_(Rhetorik)")
 
     
@@ -200,9 +200,10 @@ final class DataManager: NSObject {
     
     static let antiklimax = StylisticDevice(
         title: "Antiklimax",
-        definition: "Eine Abfallende Steigerung. (Gegenteil zur Klimax)",
+        definition: "Eine Abfallende Steigerung.",
         examples: ["„Urahne, Großmutter, Mutter und Kind“"],
-        wikipedia: "https://de.wikipedia.org/wiki/Antiklimax")
+        wikipedia: "https://de.wikipedia.org/wiki/Antiklimax",
+        opposite: "Klimax")
     
     static let antilabe = StylisticDevice(
         title: "Antilabe",
@@ -244,7 +245,7 @@ final class DataManager: NSObject {
     static let archaismus = StylisticDevice(
         title: "Archaismus",
         definition: "Ein veralteter sprachlicher Ausdruck",
-        examples: ["„Wams“ für: „Jacke“", "„gülden“ für: „golden“"],
+        examples: ["„Wams“ statt: „Jacke“", "„gülden“ statt: „golden“"],
         wikipedia: "https://de.wikipedia.org/wiki/Archaismus")
     
     static let assonanz = StylisticDevice(
@@ -281,7 +282,7 @@ final class DataManager: NSObject {
     
     static let buchstabendreher = StylisticDevice(
         title: "Buchstabendreher",
-        definition: "Meist eine Vertauschung der anlautenden Konsonanten (seltener der Vokale) zweier zusammengehöriger Wörter, sodass sich ein neuer, meist alberner Sinn oder Klang ergibt. (Sonderfall: Schüttelreim)",
+        definition: "Meist eine Vertauschung der anlautenden Konsonanten (seltener der Vokale) zweier zusammengehöriger Wörter, sodass sich ein neuer, meist alberner Sinn oder Klang ergibt.", // (Sonderfall: Schüttelreim)
         examples: ["„Hauptpreis sind ein Paar kopflose Schnurhörer“ („schnurlose Kopfhörer“)", "„Wechstaben verbuchseln“ („Buchstaben verwechseln“)", "„Liebes Lästerschwein, bitte ...“ („Schwesterlein“)"])
    
     
@@ -328,8 +329,8 @@ final class DataManager: NSObject {
     
     static let contradicto_in_adiecto = StylisticDevice(
         title: "Contradictio in adiecto",
-        definition: "widersprüchliche Kombination von Adjektiv und Substantiv. (Sonderfall des Oxymoron)",
-        examples: ["„fünfeckiger Kreis“", "„geschliffener Rohdiamant“", "„gerade Kurve“", "„alter Jüngling“", "„ehemalige Zukunft“ (Ödön von Horváth: Jugend ohne Gott)"])
+        definition: "widersprüchliche Kombination von Adjektiv und Substantiv.", // (Sonderfall des Oxymoron)
+        examples: ["„fünfeckiger Kreis“", "„geschliffener Rohdiamant“", "„gerade Kurve“", "„alter Jüngling“", "„ehemalige Zukunft“ (Ödön von Horváth)"])
     
     static let correctio = StylisticDevice(
         title: "Correctio",
@@ -360,17 +361,20 @@ final class DataManager: NSObject {
     
     static let dysphemismus = StylisticDevice(
         title: "Dysphemismus",
-        definition: "Eine abwertende, wertverschlechternde Umschreibung oder Wortschöpfung. (Gegenteil von Euphemismus)",
+        definition: "Eine abwertende, wertverschlechternde Umschreibung oder Wortschöpfung.",
         examples: ["„Saftschubse“ statt: „Stewardess“", "„Penner“ statt: „Obdachloser“", "„Ungeziefer“ statt: „Insekten“", "„sich zusammenrotten“ statt: „sich versammeln“"],
         synonym: "Pejoration",
-        wikipedia: "https://de.wikipedia.org/wiki/Dysphemismus")
+        wikipedia: "https://de.wikipedia.org/wiki/Dysphemismus",
+        opposite: "Euphemismus"
+    
+    )
     
     
     // E
     
     static let elision = StylisticDevice(
         title: "Elision",
-        definition: "Das Weglassen eines oder mehrerer meist unbetonter Laute. (in der Orthographie gelegentlich durch einen Apostroph gekennzeichnet)",
+        definition: "Das Weglassen eines oder mehrerer meist unbetonter Laute.", // (in der Orthographie gelegentlich durch einen Apostroph gekennzeichnet)
         examples: ["„bracht“ statt: „brachte“", "„fröhl'chen“ statt: „fröhlichen“"],
         wikipedia: "https://de.wikipedia.org/wiki/Elision")
     
@@ -392,7 +396,7 @@ final class DataManager: NSObject {
     static let enjambement = StylisticDevice(
         title: "Enjambement",
         definition: "Die Fortführung eines Satzes über das Vers-/Zeilenende hinaus.",
-        examples: ["„Die Wellen schaukeln /\nDen lustigen Kahn“ (Heinrich Heine)"],
+        examples: ["„Die Wellen schaukeln / Den lustigen Kahn“ (Heinrich Heine)"],
         wikipedia: "https://de.wikipedia.org/wiki/Enjambement")
     
     static let enumeration = StylisticDevice(
@@ -415,7 +419,7 @@ final class DataManager: NSObject {
     
     static let epipher = StylisticDevice(
         title: "Epipher",
-        definition: "Eine Wiederholung am Satz- oder Versende. (Schema: … x / … x) (Sonderfall der Repetitio)",
+        definition: "Eine Wiederholung am Satz- oder Versende. (Schema: … x / … x)", // (Sonderfall der Repetitio)
         examples: ["„Ich fordere Moral, du lebst Moral.“"],
         synonym: "Conversio",
         wikipedia: "https://de.wikipedia.org/wiki/Epipher")
@@ -441,16 +445,17 @@ final class DataManager: NSObject {
     static let etymologische_figur = StylisticDevice(
         title: "Etymologische Figur",
         definition: "Ein mit einem stammverwandten Substantiv verbundenes Verb.",
-        examples: ["„einen Kampf kämpfen“\n„eine Schlacht schlagen“\n„in Ruhe ruhen“\n„ein Spiel spielen“"])
+        examples: ["„einen Kampf kämpfen“", "„eine Schlacht schlagen“", "„in Ruhe ruhen“", "„ein Spiel spielen“"])
     
     static let euphemismus = StylisticDevice(
         title: "Euphemismus",
-        definition: "Eine Beschönigende Umschreibung. (Gegenteil: Dysphemismus)",
+        definition: "Eine beschönigende Umschreibung.",
         examples: [
             "„kräftig“ statt: „dick“",
             "„das Zeitliche segnen“ statt: „sterben“",
             "„Seniorenresidenz“ statt: „Altenheim“"],
-        wikipedia: "https://de.wikipedia.org/wiki/Euphemismus")
+        wikipedia: "https://de.wikipedia.org/wiki/Euphemismus",
+        opposite: "Dysphemismus")
     
     static let evidenz = StylisticDevice(
         title: "Evidenz",
@@ -498,7 +503,7 @@ final class DataManager: NSObject {
     static let gleichnis = StylisticDevice(
         title: "Gleichnis",
         definition: "Eine konkrete, bildhafte Veranschaulichung eines Sachverhalts mittels eines durch sprachliche Kontinuation ausgebauten Vergleichs.",
-        examples: ["(Bibel: Lukas 15,1-10: „Verlorenes Schaf“)"],
+        examples: ["Bibel: Lukas 15,1-10: „Verlorenes Schaf“"],
         wikipedia: "https://de.wikipedia.org/wiki/Gleichnis")
 
     
@@ -522,8 +527,9 @@ final class DataManager: NSObject {
     
     static let homoioarkton = StylisticDevice(
         title: "Homoioarkton",
-        definition: "Eine Anfangsgleichheit im Reim. (Gegensatz: Homoioteleuton)",
-        examples: ["„Billionen böse Buben beobachten Boris Becker beim Bechern.“", "„Milch macht müde Männer munter.“"])
+        definition: "Eine Anfangsgleichheit im Reim.",
+        examples: ["„Billionen böse Buben beobachten Boris Becker beim Bechern.“", "„Milch macht müde Männer munter.“"],
+        opposite: "Homoioteleuton")
 
     
     static let hypallage = StylisticDevice(
@@ -550,14 +556,15 @@ final class DataManager: NSObject {
     
     static let hypotaxe = StylisticDevice(
         title: "Hypotaxe",
-        definition: "Unterordnung von Nebensätzen unter einen verschachtelten, höherrangigen Teilsatz. (Gegenteil: Parataxe)",
+        definition: "Unterordnung von Nebensätzen unter einen verschachtelten, höherrangigen Teilsatz.",
         examples: ["„Als sie nach einer langen Konferenz, als es draußen bereits dunkel wurde, nach Hause fuhr, warf sie einen Blick in die glitzernde Metropole.“"],
-        wikipedia: "https://de.wikipedia.org/wiki/Hypotaxe")
+        wikipedia: "https://de.wikipedia.org/wiki/Hypotaxe",
+        opposite: "Parataxe")
 
     
     static let hysteron_proteron = StylisticDevice(
         title: "Hysteron-Proteron",
-        definition: "Nachholtechnik; das logisch/zeitlich Nachfolgende wird an den Anfang gestellt. (Sonderfall: Anachronismus)",
+        definition: "Nachholtechnik; das logisch/zeitlich Nachfolgende wird an den Anfang gestellt.", // (Sonderfall: Anachronismus)
         examples: ["„Dein Mann ist tot und lässt dich grüßen!“ (Goethe: Faust I: Mephisto an Marthe)"])
 
     
@@ -628,9 +635,10 @@ final class DataManager: NSObject {
     
     static let klimax = StylisticDevice(
         title: "Klimax",
-        definition: "Eine Stufenweise Steigerung von Wörtern. (Gegenteil zur Antiklimax)",
+        definition: "Eine Stufenweise Steigerung von Wörtern.",
         examples: ["„Sie arbeiten zehn, zwölf, ja vierzehn Stunden täglich am Erfolg.“"],
-        wikipedia: "https://de.wikipedia.org/wiki/Klimax_(Sprache)")
+        wikipedia: "https://de.wikipedia.org/wiki/Klimax_(Sprache)",
+        opposite: "Antiklimax")
 
     
     static let kyklos = StylisticDevice(
@@ -665,8 +673,8 @@ final class DataManager: NSObject {
     
     static let metonymie = StylisticDevice(
         title: "Metonymie",
-        definition: "Ersatz eines Begriffs durch einen bildlichen Ausdruck mit realer Beziehung. (Ursache/Wirkung, Rohstoff/Produkt, Gefäß/Inhalt, ...)",
-        examples: ["„Schiller lesen“", "„das Eisen“ für: „das Schwert“", "„ein Glas trinken“", "„einen Teller aufessen“"],
+        definition: "Ersatz eines Begriffs durch einen bildlichen Ausdruck mit realer Beziehung. (Ursache/Wirkung, Rohstoff/Produkt, Gefäß/Inhalt, …)",
+        examples: ["„Schiller lesen“", "„das Eisen“ statt: „das Schwert“", "„ein Glas trinken“", "„einen Teller aufessen“"],
         wikipedia: "https://de.wikipedia.org/wiki/Metonymie")
 
     
@@ -683,7 +691,7 @@ final class DataManager: NSObject {
     static let neologismus = StylisticDevice(
         title: "Neologismus",
         definition: "Eine Wortneuschöpfung.",
-        examples: ["Selberlebensbeschreibung (Jean Paul)", "Knabenmorgenblütenträume (Goethe)", "knorke"],
+        examples: ["Selberlebensbeschreibung (Jean Paul)", "Knabenmorgenblütenträume (Goethe)", "Knorke"],
         wikipedia: "https://de.wikipedia.org/wiki/Neologismus")
 
     
@@ -699,7 +707,7 @@ final class DataManager: NSObject {
     
     static let oxymoron = StylisticDevice(
         title: "Oxymoron",
-        definition: "Ein innerer Widerspruch (Sonderfall: Contradictio in adjecto)",
+        definition: "Ein innerer Widerspruch", // (Sonderfall: Contradictio in adjecto)
         examples: ["„heißkalt“", "„bittersüß“", "„Flüssiggas“", "„hübschhässlich“", "„Hassliebe“", "„großer Zwerg“", "„beredtes Schweigen“ (Cicero)"],
         wikipedia: "https://de.wikipedia.org/wiki/Oxymoron")
 
@@ -767,7 +775,7 @@ final class DataManager: NSObject {
 
     static let pars_pro_toto = StylisticDevice(
         title: "Pars pro toto",
-        definition: "Eine Benennung durch einen Teil. (Sonderfall der Synekdoche)",
+        definition: "Eine Benennung durch einen Teil.", // (Sonderfall der Synekdoche)
         examples: ["„pro Kopf“ für: „pro Person“", "„Ein Dach über dem Kopf haben“"],
         wikipedia: "https://de.wikipedia.org/wiki/pars_pro_toto")
 
@@ -775,7 +783,7 @@ final class DataManager: NSObject {
     static let periphrase = StylisticDevice(
         title: "Periphrase",
         definition: "Die Umschreibung eines Begriffs durch Einzelmerkmale.",
-        examples: ["„der Vater des Wirtschaftswunders“, umschreibt Ludwig Erhard"],
+        examples: ["„der Vater des Wirtschaftswunders“ statt: Ludwig Erhard"],
         wikipedia: "https://de.wikipedia.org/wiki/Periphrase")
 
 
@@ -795,7 +803,7 @@ final class DataManager: NSObject {
     
     static let pluralis_auctoris = StylisticDevice(
         title: "Pluralis Auctoris",
-        definition: "Die Verwendung des Plural anstelle des Singular zur generalisierung oder deklarierung als Gemeinschaftswerk. (meist in Wissenschaftlichen Arbeiten)",
+        definition: "Die Verwendung des Plural anstelle des Singular zur generalisierung oder deklarierung als Gemeinschaftswerk (meist in Wissenschaftlichen Arbeiten).",
         examples: ["„Wir kommen damit zum Kern des Problems …“"],
         wikipedia: "https://de.wikipedia.org/wiki/pluralis_auctoris")
 
@@ -817,7 +825,7 @@ final class DataManager: NSObject {
     static let pointe = StylisticDevice(
         title: "Pointe",
         definition: "Eine unerwartete Zuspitzung.",
-        examples: ["„Wenn einer, der mit Mühe kaum /\nGekrochen ist auf einen Baum, /\nSchon meint, dass er ein Vogel wär, /\nSo irrt sich der.“ (Wilhelm Busch, Der fliegende Frosch)"],
+        examples: ["„Wenn einer, der mit Mühe kaum / Gekrochen ist auf einen Baum, / Schon meint, dass er ein Vogel wär, / So irrt sich der.“ (Wilhelm Busch, Der fliegende Frosch)"],
         wikipedia: "https://de.wikipedia.org/wiki/Pointe")
 
     
@@ -943,7 +951,7 @@ final class DataManager: NSObject {
     
     static let synekdoche = StylisticDevice(
         title: "Synekdoche",
-        definition: "Ersetzung durch numerisch verwandten Begriff. (Teil/Ganzes, Gattung/Art, Singular/Plural, Früheres/Späteres, ...)",
+        definition: "Ersetzung durch numerisch verwandten Begriff. (z.B. Teil/Ganzes, Gattung/Art, Singular/Plural, Früheres/Späteres)",
         examples: ["„Dach über'm Kopf haben“ für: „in einem Haus leben“", "„Kopf“ für: „Person“", "„der Deutsche“ für: „viele Deutsche“"],
         wikipedia: "https://de.wikipedia.org/wiki/Synekdoche")
 
@@ -974,14 +982,15 @@ final class DataManager: NSObject {
     
     static let totemismus = StylisticDevice(
         title: "Totemismus",
-        definition: "Ein Mensch oder eine menschliche Eigenschaft erhält tierische Eigenschaften. Im Bereich prähistorischer Religionen zum Beispiel Mischwesen aus Mensch und Tieren. (Gegenteil: Anthropomorphismus)",
+        definition: "Ein Mensch oder eine menschliche Eigenschaft erhält tierische Eigenschaften. Im Bereich prähistorischer Religionen zum Beispiel Mischwesen aus Mensch und Tieren.",
         examples: ["„Da sprach der König: ‚Wenn ich nur wüsste, was dich vergnügt machen könnte. Willst du meine schöne Tochter zur Frau?‘ ‚Ach ja‘, sagte das Eselein, war auf einmal ganz lustig und guter Dinge, denn das war es gerade, was es sich gewünscht hatte. Also ward eine grosse und prächtige Hochzeit gehalten.“"],
-        wikipedia: "https://de.wikipedia.org/wiki/Totemismus")
+        wikipedia: "https://de.wikipedia.org/wiki/Totemismus",
+        opposite: "Anthropomorphismus")
 
     
     static let totum_pro_parte = StylisticDevice(
         title: "Totum pro parte",
-        definition: "Etwas wird durch den Oberbegriff seines Bedeutungsfeldes ausgedrückt. (Sonderfall der Synekdoche)",
+        definition: "Etwas wird durch den Oberbegriff seines Bedeutungsfeldes ausgedrückt.", // (Sonderfall der Synekdoche)
         examples: ["„Wald“ für: „Baum“\n„Deutschland gewinnt“ statt: „der deutsche Sportler gewinnt“"],
         wikipedia: "https://de.wikipedia.org/wiki/totum_pro_parte")
 
@@ -1029,7 +1038,7 @@ final class DataManager: NSObject {
     static let vergleich = StylisticDevice(
         title: "Vergleich",
         definition: "Eine durch ein Vergleichswort gekennzeichnete Veranschaulichung.",
-        examples: ["„stark wie ein Löwe“\n„größer als ein Elefant“"],
+        examples: ["„stark wie ein Löwe“", "„größer als ein Elefant“"],
         wikipedia: "https://de.wikipedia.org/wiki/Vergleich_(Literatur)")
 
     
@@ -1045,7 +1054,7 @@ final class DataManager: NSObject {
     
     static let wortspiel = StylisticDevice(
         title: "Wortspiel",
-        definition: "1) Die Verwendung des gleichen oder eines vom gleichen Wortstamm abgeleiteten Wortes in verschiedenen Bedeutungen oder verschiedenen Sinnzusammenhängen \n2) Eine leichte Veränderung des Wortes, durch die dieses eine Zusatzbedeutung erhält.",
+        definition: "1) Die Verwendung des gleichen oder eines vom gleichen Wortstamm abgeleiteten Wortes in verschiedenen Bedeutungen oder verschiedenen Sinnzusammenhängen\n2) Eine leichte Veränderung des Wortes, durch die dieses eine Zusatzbedeutung erhält.",
         examples: ["„Jesuiter – Jesuwider“", "„Unbiegsam sei sein Wille, aber biegsam sein Rücken“"],
         wikipedia: "https://de.wikipedia.org/wiki/Wortspiel")
 

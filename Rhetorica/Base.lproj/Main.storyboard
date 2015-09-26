@@ -554,7 +554,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diese Liste ist leer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5c-dL-Bch">
-                                <rect key="frame" x="24" y="286" width="552" height="27.5"/>
+                                <rect key="frame" x="32" y="286" width="536" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -566,9 +566,9 @@
                             <constraint firstItem="irz-o9-3sc" firstAttribute="top" secondItem="fsN-W2-Y0Y" secondAttribute="bottom" id="I2F-wx-q2U"/>
                             <constraint firstAttribute="trailing" secondItem="fsN-W2-Y0Y" secondAttribute="trailing" id="XIK-Aq-YqG"/>
                             <constraint firstItem="fsN-W2-Y0Y" firstAttribute="leading" secondItem="Dez-NN-549" secondAttribute="leading" id="YQ7-YE-mwD"/>
-                            <constraint firstItem="Y5c-dL-Bch" firstAttribute="leading" secondItem="Dez-NN-549" secondAttribute="leading" constant="24" id="dEH-xk-7Y6"/>
+                            <constraint firstItem="Y5c-dL-Bch" firstAttribute="leading" secondItem="Dez-NN-549" secondAttribute="leading" constant="32" id="dEH-xk-7Y6"/>
                             <constraint firstAttribute="centerY" secondItem="Y5c-dL-Bch" secondAttribute="centerY" id="feK-vT-xE6"/>
-                            <constraint firstAttribute="trailing" secondItem="Y5c-dL-Bch" secondAttribute="trailing" constant="24" id="siY-Ur-PGN"/>
+                            <constraint firstAttribute="trailing" secondItem="Y5c-dL-Bch" secondAttribute="trailing" constant="32" id="siY-Ur-PGN"/>
                             <constraint firstItem="fsN-W2-Y0Y" firstAttribute="top" secondItem="Dez-NN-549" secondAttribute="top" id="yzR-YL-4RJ"/>
                         </constraints>
                         <connections>

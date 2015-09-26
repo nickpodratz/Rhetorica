@@ -15,13 +15,15 @@ class StylisticDevice {
     let examples: [String]
     let synonym: String?
     let wikipedia: String?
+    let opposite: String?
     
-    init (title: String, definition: String, examples: [String], synonym: String? = nil, wikipedia: String? = nil){
+    init (title: String, definition: String, examples: [String], synonym: String? = nil, wikipedia: String? = nil, opposite: String? = nil){
         self.title = title
         self.definition = definition
         self.examples = examples
         self.synonym = synonym
         self.wikipedia = wikipedia
+        self.opposite = opposite
     }
 }
 
