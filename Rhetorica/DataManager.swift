@@ -67,8 +67,8 @@ final class DataManager: NSObject {
     func indexAllStylisticDevicesIfPossible() {
         let deviceList = DataManager.allDevices
         
+        if #available(iOS 9.0, *) {
         for device in deviceList {
-            if #available(iOS 9.0, *) {
                 let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
                 attributeSet.title = device.title
                 attributeSet.contentDescription = device.definition
@@ -78,15 +78,15 @@ final class DataManager: NSObject {
                         print("Indexing error: \(error.localizedDescription)")
                     }
                 }
-            } else {
-                print("Could not index stylistic devices on device, as its OS is too old.")
             }
+        } else {
+            print("Could not index stylistic devices on device, as its OS is too old.")
         }
     }
     
     /// A mutable collection of the user's favored Stylistic Devices.
     static var favorites = DeviceList(
-        title: "Favoriten",
+        title: "Lernliste",
         editable: true,
         elements: [StylisticDevice]()
     )

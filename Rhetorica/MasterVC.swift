@@ -158,7 +158,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         // Set text of label
         switch DataManager.sharedInstance.selectedList {
         case DataManager.favorites:
-            noElementsLabel.text = "keine Favoriten vorhanden"
+            noElementsLabel.text = "Deine Lernliste ist leer"
         default:
             noElementsLabel.text = "Diese Liste ist leer"
         }
@@ -268,6 +268,22 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         }
 
         return (DataManager.sharedInstance.selectedList.enoughForCategories && !searchController.active) ? index : nil
+    }
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let deleteButton = UITableViewRowAction(style: .Default, title: "Löschen", handler: { (action, indexPath) in
+            self.tableView.dataSource?.tableView?(
+                self.tableView,
+                commitEditingStyle: .Delete,
+                forRowAtIndexPath: indexPath
+            )
+            
+            return
+        })
+        
+        deleteButton.backgroundColor = UIColor.customRedColor()
+        
+        return [deleteButton]
     }
     
 

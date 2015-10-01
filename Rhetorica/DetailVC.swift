@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import PKHUD
+
 
 class DetailViewController: UITableViewController {
     
@@ -52,12 +54,12 @@ class DetailViewController: UITableViewController {
         if let indexOfDeviceInFavorites = DataManager.favorites.elements.indexOf(self.device!){
             // Deleting...
             DataManager.favorites.elements.removeAtIndex(indexOfDeviceInFavorites)
-            self.navigationItem.rightBarButtonItem?.image = UIImage(named: "heart_0")
+            self.navigationItem.rightBarButtonItem?.image = UIImage(named: "pin")
             showFavoritesLabel(addedStylisticDevice: false)
         }else {
             // Adding...
             DataManager.favorites.elements.append(self.device!)
-            self.navigationItem.rightBarButtonItem?.image = UIImage(named: "heart_1")
+            self.navigationItem.rightBarButtonItem?.image = UIImage(named: "pin_filled")
             showFavoritesLabel(addedStylisticDevice: true)
         }
         
@@ -100,10 +102,54 @@ class DetailViewController: UITableViewController {
         tableView.reloadData()
         // Set correct Favorite-Image
         let deviceIsFavorite = DataManager.favorites.elements.contains(self.device!)
-        navigationItem.rightBarButtonItem?.image = deviceIsFavorite ? UIImage(named: "heart_1") : UIImage(named: "heart_0")
+        navigationItem.rightBarButtonItem?.image = deviceIsFavorite ? UIImage(named: "pin_filled") : UIImage(named: "pin")
     }
 
     private func showFavoritesLabel(addedStylisticDevice added: Bool) {
+        if added {
+            let pinLayer = PinLayer()
+            let view = PKHUDSubtitleView(subtitle: "Hinzugefügt", image: nil)
+            view.layer.addSublayer(pinLayer)
+            PKHUD.sharedHUD.contentView = view
+            PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
+            PKHUD.sharedHUD.dimsBackground = false
+            PKHUD.sharedHUD.show()
+            PKHUD.sharedHUD.hide(afterDelay: 1)
+            pinLayer.frame = CGRect(
+                x: view.bounds.width/3,
+                y: view.bounds.height/4,
+                width: view.bounds.width/3,
+                height: view.bounds.height/3
+            )
+            pinLayer.animateHoverIn()
+        } else {
+            let pinLayer = PinLayer()
+            let crossLayer = PinCrossLayer()
+            let view = PKHUDSubtitleView(subtitle: "Entfernt", image: nil)
+            view.layer.addSublayer(pinLayer)
+            view.layer.addSublayer(crossLayer)
+//            view.layer.mask = crossLayer
+            PKHUD.sharedHUD.contentView = view
+            PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
+            PKHUD.sharedHUD.dimsBackground = false
+            PKHUD.sharedHUD.show()
+            PKHUD.sharedHUD.hide(afterDelay: 1)
+            pinLayer.frame = CGRect(
+                x: view.bounds.width/3,
+                y: view.bounds.height/4,
+                width: view.bounds.width/3,
+                height: view.bounds.height/3
+            )
+            crossLayer.frame = CGRect(
+                x: view.bounds.width/3,
+                y: view.bounds.height/4,
+                width: view.bounds.width/3,
+                height: view.bounds.height/3
+            )
+            crossLayer.animateCrossOut()
+        }
+
+        /*
         let isPresenting = (favoritesLabel != nil)
         let diameter: CGFloat = 140
         let text = added ? "zu Favoriten\nhinzugefügt" : "von Favoriten\nentfernt"
@@ -140,26 +186,26 @@ class DetailViewController: UITableViewController {
                 }
             }
         )
+*/
     }
         
-    /* Copying Dialogue
     
     // MARK: - Table View Delegate
     
-    override func tableView(tableView: UITableView, performAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject!) {
-        if action == Selector("copy:") {
-            println("copy")
-        }
-    }
-    
     override func tableView(tableView: UITableView, shouldShowMenuForRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    
-    override func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject) -> Bool {
-        return action == Selector("copy:")
+        return tableView.cellForRowAtIndexPath(indexPath) == wikipediaCell
     }
 
-    */
+    override func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
+        return action == Selector("copy:")
+        
+    }
+
+    override func tableView(tableView: UITableView, performAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject!) {
+        if action == Selector("copy:") {
+            UIPasteboard.generalPasteboard().string = device?.wikipedia
+        }
+    }
+
 }
 

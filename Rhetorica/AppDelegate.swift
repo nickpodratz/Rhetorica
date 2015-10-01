@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Nick Podratz. All rights reserved.
 //
 
+
+//15, 27, 13
 import UIKit
 import CoreSpotlight
 import MobileCoreServices
@@ -33,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
         navigationController.topViewController?.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
         splitViewController.delegate = self
-        
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
         application.statusBarStyle = .LightContent
         return true
     }
@@ -88,7 +90,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         }
         return true
     }
-
+    
         
     // MARK: SplitViewController
 

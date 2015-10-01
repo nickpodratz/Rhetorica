@@ -18,11 +18,16 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
     @IBOutlet var questionView: UIView!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var exampleLabel: UILabel!
-    @IBOutlet var buttons: [UIButton]!
+    @IBOutlet var buttons: [UIButton]! {
+        didSet{
+            self.defaultButtonColor = buttons.first!.backgroundColor
+        }
+    }
     
     
     // MARK: - Properties
 
+    var defaultButtonColor: UIColor!
     weak var deviceList: DeviceList!
     var tagOfCorrectAnswer: Int!
     
@@ -54,18 +59,18 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
     /// Called when Button is pushed down
     @IBAction func fadeIn(sender: UIButton) {
         UIView.animateWithDuration(0.1, delay: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
-            sender.backgroundColor = UIColor(red: 0.629, green: 0.206, blue: 0.625, alpha: 1.0)
+            sender.backgroundColor = UIColor(red:0.53, green:0.21, blue:0.39, alpha:0.9)
         }, completion: nil)
     }
     
     /// Called when Button is cancelled
     @IBAction func fadeOut(sender: UIButton) {
         UIView.animateWithDuration(0.7, delay: 0.4, options: UIViewAnimationOptions.CurveEaseOut, animations: {
-            sender.backgroundColor = UIColor.purpleColor()
+            sender.backgroundColor = self.defaultButtonColor
             },completion: { _ in
                 sleep(1)
                 UIView.animateWithDuration(0.7, delay: 0.4, options: UIViewAnimationOptions.CurveEaseOut, animations: {
-                    sender.backgroundColor = UIColor.purpleColor()
+                    sender.backgroundColor = self.defaultButtonColor
             }, completion: nil)
         })
 
@@ -100,12 +105,12 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
         if sender.tag == tagOfCorrectAnswer {
             UIView.animateWithDuration(0.16, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut,
                 animations: {
-                    sender.backgroundColor = UIColor.greenColor()
+                    sender.backgroundColor = UIColor.customGreenColor()
                 },
                 completion: { _ in
                     UIView.animateWithDuration(0.8, delay: 0.9, options: UIViewAnimationOptions.CurveEaseOut,
                         animations: {
-                            sender.backgroundColor = UIColor.purpleColor()
+                            sender.backgroundColor = self.defaultButtonColor
                         },
                         completion: { _ in
                             self.counterOfCorrectAnswers++
@@ -119,19 +124,19 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
         } else {
             UIView.animateWithDuration(0.16, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn,
                 animations: {
-                    sender.backgroundColor = UIColor.redColor()
+                    sender.backgroundColor = UIColor.customRedColor()
                     AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                 },
                 completion: { _ in
                     UIView.animateWithDuration(0.55, delay: 0.8, options: UIViewAnimationOptions.CurveEaseOut,
                         animations: {
-                            sender.backgroundColor = UIColor.purpleColor()
-                            correctButton.backgroundColor = UIColor.greenColor()
+                            sender.backgroundColor = self.defaultButtonColor
+                            correctButton.backgroundColor = UIColor.customGreenColor()
                         },
                         completion: { _ in
                             UIView.animateWithDuration(0.8, delay: 1.52, options: UIViewAnimationOptions.CurveEaseOut,
                                 animations: {
-                                    correctButton.backgroundColor = UIColor.purpleColor()
+                                    correctButton.backgroundColor = self.defaultButtonColor
                                 },
                                 completion: { _ in
                                     self.setupViewForNewRound()
@@ -174,7 +179,7 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
         // Configuring the buttons
         for button in buttons {
             button.userInteractionEnabled = true
-            button.backgroundColor = UIColor.purpleColor()
+            button.backgroundColor = defaultButtonColor
         }
         for (buttonIndex, button) in buttons.enumerate() {
             button.setTitle(newDevices[buttonIndex].title, forState: UIControlState.Normal)
@@ -190,17 +195,17 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
 
 // MARK: - Button colors
 
-private extension UIColor {
-    private class func purpleColor() -> UIColor {
-        return UIColor(red: 0.529, green: 0.106, blue: 0.525, alpha: 1.0)
+public extension UIColor {
+    class func customRedColor() -> UIColor {
+        return UIColor(red:0.79, green:0.25, blue:0.25, alpha:1)
     }
     
-    private class func redColor() -> UIColor {
-        return UIColor(red: 0.929, green: 0.106, blue: 0.525, alpha: 1.0)
+    class func customGreenColor() -> UIColor {
+        return UIColor(red:0.67, green:0.72, blue:0.14, alpha:1)
     }
-    
-    private class func greenColor() -> UIColor {
-        return UIColor(red: 0.508, green: 0.785, blue: 0.165, alpha: 1.0)
+
+    class func customPurpleColor() -> UIColor {
+        return UIColor(red:0.53, green:0.21, blue:0.39, alpha:1)
     }
 }
 

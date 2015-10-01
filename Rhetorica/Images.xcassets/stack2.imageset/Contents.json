@@ -2,13 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "menu_icon.pdf",
-      "alignment-insets" : {
-        "top" : 13,
-        "left" : 0,
-        "bottom" : 0,
-        "right" : 0
-      }
+      "filename" : "stack2.pdf"
     }
   ],
   "info" : {
