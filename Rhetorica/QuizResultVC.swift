@@ -35,7 +35,7 @@ class QuizResultViewController: UIViewController {
         self.answersRoundSubview.bounds = CGRect(x: 0, y: 0, width: 0, height: 36)
         UIView.animateWithDuration(0.4, delay: 0.0, options: [], animations: {
             self.answersRoundSubview.bounds = CGRect(x: 0, y: 0, width: 300, height: 36)
-            self.answersRoundSubview.backgroundColor = UIColor.greenColor()
+            self.answersRoundSubview.backgroundColor = UIColor.customGreenColor()
             }, completion: { _ in
                 if self.numberOfCorrectAnswers > 0 {
                     self.answersRoundCorrect.text = String(self.numberOfCorrectAnswers)

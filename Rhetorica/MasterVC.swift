@@ -17,7 +17,8 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noElementsLabel: UILabel!
     @IBOutlet var tapRecognizer: UITapGestureRecognizer!
-
+    @IBOutlet weak var noEntriesView: UIView!
+    
     var searchController: UISearchController!
     var detailViewController: DetailViewController?
     
@@ -45,7 +46,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         setupSearchController()
 
         originalSeparatorColor = tableView!.separatorColor
-        tableView.sectionIndexBackgroundColor = UIColor.clearColor()
+//        tableView.sectionIndexBackgroundColor = UIColor.clearColor()
         navigationItem.title = DataManager.sharedInstance.selectedList.title
 
         animateNoEntriesLabel(DataManager.sharedInstance.selectedList.elements.isEmpty)
@@ -80,7 +81,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.sizeToFit()
         searchController.searchBar.backgroundColor = UIColor.whiteColor()
-        searchController.searchBar.tintColor = UIColor.purpleColor()
+        searchController.searchBar.tintColor = UIColor.customPurpleColor()
         searchController.view.layoutIfNeeded()
         tableView.tableHeaderView = searchController.searchBar
         
@@ -172,7 +173,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
             completion: { _ in
                 if !self.searchController.active {
                     self.searchController.searchBar.hidden = noEntries
-                    self.noElementsLabel?.hidden = !noEntries
+                    self.noEntriesView?.hidden = !noEntries
                     self.tableView.userInteractionEnabled = !noEntries
                 } else {
                     self.searchController.searchBar.hidden = false

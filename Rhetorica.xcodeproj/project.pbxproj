@@ -23,6 +23,7 @@
 		63C0D7F21B51211C004EAF81 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C0D7F11B51211C004EAF81 /* Extensions.swift */; };
 		63EA0C1019F1A59200976A90 /* StylisticDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA0C0F19F1A59200976A90 /* StylisticDevice.swift */; };
 		63EB1F7C1BBB32A10005A996 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EB1F7B1BBB32A10005A996 /* Pin.swift */; settings = {ASSET_TAGS = (); }; };
+		63FEF1411BBEF6C00028F919 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63FEF1401BBEF6C00028F919 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		63C801FB1A07E18E003240B5 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		63EA0C0F19F1A59200976A90 /* StylisticDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StylisticDevice.swift; sourceTree = "<group>"; };
 		63EB1F7B1BBB32A10005A996 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
+		63FEF1401BBEF6C00028F919 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "../Launch Screen.storyboard"; sourceTree = "<group>"; };
 		960687A9770D045DECE40364 /* Pods-Rhetorica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rhetorica.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rhetorica/Pods-Rhetorica.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +108,7 @@
 				63C0D7F11B51211C004EAF81 /* Extensions.swift */,
 				631E363A19F060D500CD2DEB /* AppDelegate.swift */,
 				631E363E19F060D500CD2DEB /* Main.storyboard */,
+				63FEF1401BBEF6C00028F919 /* Launch Screen.storyboard */,
 				63EB1F7B1BBB32A10005A996 /* Pin.swift */,
 				63BAEA2F1B49CF8E004182FA /* Controllers */,
 				63BAEA301B49D06F004182FA /* Data */,
@@ -267,6 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63FEF1411BBEF6C00028F919 /* Launch Screen.storyboard in Resources */,
 				631E364019F060D500CD2DEB /* Main.storyboard in Resources */,
 				631E364219F060D500CD2DEB /* Images.xcassets in Resources */,
 			);
@@ -469,7 +473,6 @@
 			baseConfigurationReference = 960687A9770D045DECE40364 /* Pods-Rhetorica.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Rhetorica/Info.plist;
@@ -487,7 +490,6 @@
 			baseConfigurationReference = 0A1E9A4814F77251BA6DC3C6 /* Pods-Rhetorica.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Rhetorica/Info.plist;

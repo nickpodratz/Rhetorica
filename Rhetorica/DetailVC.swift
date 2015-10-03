@@ -25,6 +25,7 @@ class DetailViewController: UITableViewController {
     // MARK: - Properties
     
     var favoritesLabel: UILabel!
+    var hudView: PKHUDSubtitleView?
     
     weak var device: StylisticDevice? {
         didSet {
@@ -108,43 +109,43 @@ class DetailViewController: UITableViewController {
     private func showFavoritesLabel(addedStylisticDevice added: Bool) {
         if added {
             let pinLayer = PinLayer()
-            let view = PKHUDSubtitleView(subtitle: "Hinzugefügt", image: nil)
-            view.layer.addSublayer(pinLayer)
-            PKHUD.sharedHUD.contentView = view
+            hudView = PKHUDSubtitleView(subtitle: "Hinzugefügt", image: nil)
+            hudView!.layer.addSublayer(pinLayer)
+            PKHUD.sharedHUD.contentView = hudView!
             PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
             PKHUD.sharedHUD.dimsBackground = false
             PKHUD.sharedHUD.show()
             PKHUD.sharedHUD.hide(afterDelay: 1)
             pinLayer.frame = CGRect(
-                x: view.bounds.width/3,
-                y: view.bounds.height/4,
-                width: view.bounds.width/3,
-                height: view.bounds.height/3
+                x: hudView!.bounds.width/3,
+                y: hudView!.bounds.height/4,
+                width: hudView!.bounds.width/3,
+                height: hudView!.bounds.height/3
             )
             pinLayer.animateHoverIn()
         } else {
             let pinLayer = PinLayer()
             let crossLayer = PinCrossLayer()
-            let view = PKHUDSubtitleView(subtitle: "Entfernt", image: nil)
-            view.layer.addSublayer(pinLayer)
-            view.layer.addSublayer(crossLayer)
+            hudView = PKHUDSubtitleView(subtitle: "Entfernt", image: nil)
+            hudView!.layer.addSublayer(pinLayer)
+            hudView!.layer.addSublayer(crossLayer)
 //            view.layer.mask = crossLayer
-            PKHUD.sharedHUD.contentView = view
+            PKHUD.sharedHUD.contentView = hudView!
             PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
             PKHUD.sharedHUD.dimsBackground = false
             PKHUD.sharedHUD.show()
             PKHUD.sharedHUD.hide(afterDelay: 1)
             pinLayer.frame = CGRect(
-                x: view.bounds.width/3,
-                y: view.bounds.height/4,
-                width: view.bounds.width/3,
-                height: view.bounds.height/3
+                x: hudView!.bounds.width/3,
+                y: hudView!.bounds.height/4,
+                width: hudView!.bounds.width/3,
+                height: hudView!.bounds.height/3
             )
             crossLayer.frame = CGRect(
-                x: view.bounds.width/3,
-                y: view.bounds.height/4,
-                width: view.bounds.width/3,
-                height: view.bounds.height/3
+                x: hudView!.bounds.width/3,
+                y: hudView!.bounds.height/4,
+                width: hudView!.bounds.width/3,
+                height: hudView!.bounds.height/3
             )
             crossLayer.animateCrossOut()
         }
