@@ -31,22 +31,21 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     // MARK: - Life Cycle
 
     override func awakeFromNib() {
-        super.awakeFromNib()
         // before: UIDevice.currentDevice().userInterfaceIdiom == .Pad
         if traitCollection.horizontalSizeClass == .Regular && traitCollection.verticalSizeClass == .Regular {
             self.preferredContentSize = CGSize(width: 320.0, height: 600.0)
         }
+        super.awakeFromNib()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         tableView.dataSource = self
         tableView.delegate = self
         setupSearchController()
-
+        
         originalSeparatorColor = tableView!.separatorColor
-//        tableView.sectionIndexBackgroundColor = UIColor.clearColor()
         navigationItem.title = DataManager.sharedInstance.selectedList.title
 
         animateNoEntriesLabel(DataManager.sharedInstance.selectedList.elements.isEmpty)
@@ -64,12 +63,28 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         definesPresentationContext = true
-        
+
         if let indexPaths = tableView.indexPathsForSelectedRows {
             for indexPath in indexPaths {
                 tableView.deselectRowAtIndexPath(indexPath, animated: true)
             }
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        NSTimer.scheduledTimerWithTimeInterval(0.7, target: self, selector: "checkForFeedbackVC", userInfo: nil, repeats: false)
+    }
+    
+    func checkForFeedbackVC() {
+        // Feedback Views
+        let defaults = NSUserDefaults.standardUserDefaults()
+        var counter = defaults.integerForKey(masterVCLoadingCounterKey) ?? 0
+        print(counter)
+        if counter == 15 {
+            performSegueWithIdentifier("toFeedback", sender: self)
+        }
+        defaults.setInteger(++counter, forKey: masterVCLoadingCounterKey)
+        defaults.synchronize()
     }
     
     private func setupSearchController() {
@@ -88,17 +103,10 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         NSTimer.scheduledTimerWithTimeInterval(0, target: self, selector: Selector("scrollTableViewToTop"), userInfo: nil, repeats: false)
     }
     
-    func dismissSearchController() {
-        searchController.active = false
-    }
-    
-    func setupDetailsViewController(stylisticDevice: StylisticDevice) {
-        
-    }
     @IBAction func cancelSearch(sender: AnyObject) {
         searchController.active = false
     }
-
+    
     // MARK: - Transitioning
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -110,6 +118,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
             definesPresentationContext = true
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+                print(self.splitViewController)
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
                 controller.device = {
@@ -134,7 +143,9 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
             definesPresentationContext = false
             let destinationController = (segue.destinationViewController as! UINavigationController).topViewController as! ListViewController
             destinationController.delegate = self
-            
+
+        case "toFeedback":
+            break
             
         default: print("Found unknown identifier: \(segue.identifier!)")
         }
@@ -143,7 +154,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if identifier == "showQuiz" {
             if DataManager.sharedInstance.selectedList.elements.count < 4 {
-                let alertController = UIAlertController(title: "Quiz nicht möglich", message: "Vergewissere dich, dass die ausgewählte Liste mindestens vier Elemente beinhaltet.", preferredStyle: UIAlertControllerStyle.Alert)
+                let alertController = UIAlertController(title: "Quiz nicht möglich", message: "Vergewissern Sie sich, dass die ausgewählte Liste mindestens vier Einträge beinhaltet.", preferredStyle: UIAlertControllerStyle.Alert)
                 alertController.addAction(UIAlertAction(title: "Alles klar", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alertController, animated: true, completion: nil)
                 return false
@@ -152,6 +163,11 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         return true
     }
     
+    @IBAction func rewindsToMasterViewController(segue:UIStoryboardSegue) {
+        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
+    }
+    
+    
     // MARK: - Private Functions
     
     private func animateNoEntriesLabel(noEntries: Bool) {
@@ -159,7 +175,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         // Set text of label
         switch DataManager.sharedInstance.selectedList {
         case DataManager.favorites:
-            noElementsLabel.text = "Deine Lernliste ist leer"
+            noElementsLabel.text = "Ihre Lernliste ist leer"
         default:
             noElementsLabel.text = "Diese Liste ist leer"
         }

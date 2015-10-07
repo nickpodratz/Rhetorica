@@ -30,7 +30,7 @@ class StylisticDevice {
 extension StylisticDevice {
     var searchableStrings: [String] {
 //        return [title, definition, example, synonym , wikipedia].flatMap {$0}
-        return [title, definition, examples.reduce("", combine: {$0 + $1}), synonym , wikipedia].filter{$0 != nil}.map{$0!}
+        return [title, definition, examples.reduce("", combine: {$0 + $1}), synonym, wikipedia].filter{$0 != nil}.map{$0!}
     }
 }
 

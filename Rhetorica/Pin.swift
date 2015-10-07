@@ -24,14 +24,6 @@ class PinView: UIVisualEffectView {
     
     @IBOutlet var label: UILabel!
     var pinLayer: PinLayer!
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-    // Drawing code
-    }
-    
-    */
     
     @IBInspectable var cornerRadius: CGFloat = 10 {
         didSet {
@@ -85,26 +77,8 @@ class PinPath: UIBezierPath {
         addCurveToPoint(CGPointMake(width * (11.33/24), height * (8.14/24)), controlPoint1: CGPointMake(width * (15.88/24), height * (2/24)), controlPoint2: CGPointMake(width * (14.52/24), height * (3.48/24)))
         closePath()
         lineJoinStyle = .Round
-
-        /*
-        moveToPoint(CGPointMake(width * (42/91), height * (29/91)))
-        addCurveToPoint(CGPointMake(width * (13/91), height * (36/91)), controlPoint1: CGPointMake(width * (21/91), height * (25/91)), controlPoint2: CGPointMake(width * (13/91), height * (36/91)))
-        addLineToPoint(CGPointMake(width * (55/91), height * (78/91)))
-        addCurveToPoint(CGPointMake(width * (62/91), height * (48/91)), controlPoint1: CGPointMake(width * (55/91), height * (78/91)), controlPoint2: CGPointMake(width * (66/91), height * (69/91)))
-        addCurveToPoint(CGPointMake(width * (89/91), height * (29/91)), controlPoint1: CGPointMake(width * (84/91), height * (32.5/91)), controlPoint2: CGPointMake(width * (89/91), height * (29/91)))
-        addLineToPoint(CGPointMake(width * (62/91), height * (2/91)))
-        addCurveToPoint(CGPointMake(width * (42/91), height * (29/91)), controlPoint1: CGPointMake(width * (62/91), height * (2/91)), controlPoint2: CGPointMake(width * (56/91), height * (8.5/91)))
-        closePath()
-*/
         
         //// needle Drawing
-        /*
-        moveToPoint(CGPointMake(width * (1/91), height * (90/91)))
-        addCurveToPoint(CGPointMake(width * (29/91), height * (53/91)), controlPoint1: CGPointMake(0, height * (89/91)), controlPoint2: CGPointMake(width * (29/91), height * (53/91)))
-        addLineToPoint(CGPointMake(width * (38/91), height * (62/91)))
-        addCurveToPoint(CGPointMake(width * (1/91), height * (90/91)), controlPoint1: CGPointMake(width * (38/91), height * (62/91)), controlPoint2: CGPointMake(width * (2/91), height * (91/91)))
-        closePath()
-*/
         moveToPoint(CGPointMake(width * (2.01/24), height * (22.02/24)))
         addCurveToPoint(CGPointMake(width * (8.19/24), height * (13.82/24)), controlPoint1: CGPointMake(width * (1.78/24), height * (21.8/24)), controlPoint2: CGPointMake(width * (8.19/24), height * (13.82/24)))
         addLineToPoint(CGPointMake(width * (10.18/24), height * (15.81/24)))
@@ -128,13 +102,9 @@ class PinCrossPath: UIBezierPath {
         let width = rect.size.width
         let height = rect.size.height
         
-//        //// crossStrokeShadow Drawing
-//        moveToPoint(CGPointMake(width * 20/91, height * 8/91))
-//        addLineToPoint(CGPointMake(width * 83/91, height * 71/91))
-        
         //// crossStroke Drawing
-        moveToPoint(CGPointMake(width * (2/24), height * (2/24)))
-        addLineToPoint(CGPointMake(width * (22/24), height * (22/24)))
+        moveToPoint(CGPointMake(width * (2.01/24), height * (2.01/24)))
+        addLineToPoint(CGPointMake(width * (22.02/24), height * (22.02/24)))
     }
 }
 
@@ -227,7 +197,7 @@ class PinCrossLayer: CAShapeLayer {
     
     func animateCrossOut() {
         let pathAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        pathAnimation.duration = 0.5
+        pathAnimation.duration = 0.3
         pathAnimation.fromValue = 0
         pathAnimation.toValue = 1
         self.addAnimation(pathAnimation, forKey: "strokeEnd")

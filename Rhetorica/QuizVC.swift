@@ -15,7 +15,8 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
     
     // MARK: - Outlets
 
-    @IBOutlet var questionView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var definitionLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var exampleLabel: UILabel!
     @IBOutlet var buttons: [UIButton]! {
@@ -23,6 +24,7 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
             self.defaultButtonColor = buttons.first!.backgroundColor
         }
     }
+    @IBOutlet weak var toTopConstraint: NSLayoutConstraint!
     
     
     // MARK: - Properties
@@ -40,6 +42,10 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
     
     override func viewWillAppear(animated: Bool) {
         setupViewForNewRound()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        centerContent()
     }
     
     
@@ -189,6 +195,16 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
         // Configuring the labels
         questionLabel.text = newDevices[tagOfCorrectAnswer].definition
         exampleLabel.text = newDevices[tagOfCorrectAnswer].examples.shuffled().first
+        self.view.layoutIfNeeded()
+    }
+    
+    private func centerContent() {
+        let heightOfContents = exampleLabel.frame.origin.y + exampleLabel.frame.size.height - definitionLabel.frame.origin.y
+        if ((scrollView.frame.height - heightOfContents) / 2) > 30 {
+            self.toTopConstraint.constant = (scrollView.frame.height - heightOfContents)/2
+        } else {
+            self.toTopConstraint.constant = 20
+        }
     }
 }
 

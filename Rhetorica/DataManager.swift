@@ -119,7 +119,7 @@ final class DataManager: NSObject {
     
     static let allegorie = StylisticDevice(
         title: "Allegorie",
-        definition: "Ein fassbares, personifiziertes Bild, welches der Darstellung eines abstrakten Begriffes dient.",
+        definition: "Ein fassbares, personifiziertes Bild, das der Darstellung eines abstrakten Begriffes dient.",
         examples: ["Justitia"],
         wikipedia: "https://de.wikipedia.org/wiki/Allegorie")
     
@@ -244,7 +244,7 @@ final class DataManager: NSObject {
     
     static let archaismus = StylisticDevice(
         title: "Archaismus",
-        definition: "Ein veralteter sprachlicher Ausdruck",
+        definition: "Ein veralteter sprachlicher Ausdruck.",
         examples: ["„Wams“ statt: „Jacke“", "„gülden“ statt: „golden“"],
         wikipedia: "https://de.wikipedia.org/wiki/Archaismus")
     
@@ -313,7 +313,7 @@ final class DataManager: NSObject {
     
     static let concessio = StylisticDevice(
         title: "Concessio",
-        definition: "Das Eingestehen der Richtigkeit eines gegnerischen Argumentes, welches durch stärkere eigene Argumente umgehend unwirksam gemacht wird.",
+        definition: "Das Eingestehen der Richtigkeit eines gegnerischen Argumentes, das durch stärkere eigene Argumente umgehend unwirksam gemacht wird.",
         examples: ["„Er mag sich unmoralisch verhalten haben, aber bestrafen kann man ihn dafür nicht.“"],
         wikipedia: "https://de.wikipedia.org/wiki/Concessio")
     
@@ -701,7 +701,7 @@ final class DataManager: NSObject {
     static let onomatopoesie = StylisticDevice(
         title: "Onomatopoesie",
         definition: "Die sprachliche Nachahmung von außersprachlichen, akustischen Phänomenen.",
-        examples: ["„Quak!“", "„Kuckuck!“", "„Muh!“", "„Bumm!“", "„Peng!“", "„Zisch!, „Es knistert und knastert“", "„schnattattattattern“"],
+        examples: ["„Quak!“", "„Kuckuck!“", "„Muh!“", "„Bumm!“", "„Peng!“", "„Zisch!“", "„Es knistert und knastert“", "„schnattattattattern“"],
         synonym: "Lautmalerei",
         wikipedia: "https://de.wikipedia.org/wiki/Onomatopoesie")
     
@@ -991,7 +991,7 @@ final class DataManager: NSObject {
     static let totum_pro_parte = StylisticDevice(
         title: "Totum pro parte",
         definition: "Etwas wird durch den Oberbegriff seines Bedeutungsfeldes ausgedrückt.", // (Sonderfall der Synekdoche)
-        examples: ["„Wald“ für: „Baum“\n„Deutschland gewinnt“ statt: „der deutsche Sportler gewinnt“"],
+        examples: ["„Wald“ für: „Baum“", "„Deutschland gewinnt“ statt: „der deutsche Sportler gewinnt“"],
         wikipedia: "https://de.wikipedia.org/wiki/totum_pro_parte")
 
     
@@ -1065,7 +1065,7 @@ final class DataManager: NSObject {
     static let zeugma = StylisticDevice(
         title: "Zeugma",
         definition: "Eine syntaktisch korrekte Verbindung semantisch nicht zusammengehöriger Satzglieder.",
-        examples: ["„Er hob den Blick und ein Bein gen Himmel.“", "„Er öffnete die Schachtel, danach den Mund.“", "„Er saß ganze Nächte und Sessel durch“\n„Ich heiße Heinz Erhardt und Sie willkommen“"],
+        examples: ["„Er hob den Blick und ein Bein gen Himmel.“", "„Er öffnete die Schachtel, danach den Mund.“", "„Er saß ganze Nächte und Sessel durch“", "„Ich heiße Heinz Erhardt und Sie willkommen“"],
         wikipedia: "https://de.wikipedia.org/wiki/Zeugma")
 
     

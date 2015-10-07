@@ -19,7 +19,12 @@ class DetailViewController: UITableViewController {
     @IBOutlet weak var definitionLabel: UILabel!
     @IBOutlet weak var exampleLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var synonymLabel: UILabel!
+    @IBOutlet weak var oppositeLabel: UILabel!
+    
+    @IBOutlet weak var synonymCell: UITableViewCell!
     @IBOutlet weak var wikipediaCell: UITableViewCell!
+    @IBOutlet weak var oppositeCell: UITableViewCell!
     
     
     // MARK: - Properties
@@ -41,6 +46,7 @@ class DetailViewController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 100
         tableView.layoutIfNeeded()
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -84,6 +90,19 @@ class DetailViewController: UITableViewController {
         }
     }
 
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        synonymCell.hidden = (device?.synonym == nil)
+        wikipediaCell.hidden = (device?.wikipedia == nil)
+        oppositeCell.hidden = (device?.opposite == nil)
+
+        switch indexPath.row {
+        case synonymCell.tag where device?.synonym == nil: return 0
+        case wikipediaCell.tag where device?.wikipedia == nil: return 0
+        case oppositeCell.tag where device?.opposite == nil: return 0
+        default: return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+        }
+        
+    }
     
     // MARK: - Helper Functions
     
@@ -98,13 +117,15 @@ class DetailViewController: UITableViewController {
         titleLabel?.text = device.title
         definitionLabel?.text = device.definition
         exampleLabel?.text = device.examples.joinWithSeparator("\n")
-        wikipediaCell?.hidden = (device.wikipedia == nil)
+        oppositeLabel?.text = device.opposite
+        synonymLabel?.text = device.synonym
         
         tableView.reloadData()
         // Set correct Favorite-Image
         let deviceIsFavorite = DataManager.favorites.elements.contains(self.device!)
         navigationItem.rightBarButtonItem?.image = deviceIsFavorite ? UIImage(named: "pin_filled") : UIImage(named: "pin")
     }
+    
 
     private func showFavoritesLabel(addedStylisticDevice added: Bool) {
         if added {
@@ -149,45 +170,6 @@ class DetailViewController: UITableViewController {
             )
             crossLayer.animateCrossOut()
         }
-
-        /*
-        let isPresenting = (favoritesLabel != nil)
-        let diameter: CGFloat = 140
-        let text = added ? "zu Favoriten\nhinzugefügt" : "von Favoriten\nentfernt"
-        
-        if isPresenting {
-            favoritesLabel.removeFromSuperview()
-        }
-        
-        favoritesLabel = UILabel()
-        favoritesLabel.text = text
-        favoritesLabel.layer.backgroundColor = UIColor(white: 0, alpha: 0.7).CGColor
-        favoritesLabel.numberOfLines = 0
-        favoritesLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        favoritesLabel.textAlignment = NSTextAlignment.Center
-        favoritesLabel.textColor = UIColor.whiteColor()
-        favoritesLabel.layer.cornerRadius = 8
-        favoritesLabel.frame = CGRect(
-            x: (self.view.bounds.size.width - diameter) / 2,
-            y: (self.view.bounds.size.height - diameter + 40) / 3,
-            width: diameter,
-            height: diameter
-        )
-        
-        self.view.superview!.addSubview(favoritesLabel)
-        
-        UIView.animateWithDuration(0.4, delay: 0.55, options: UIViewAnimationOptions.CurveEaseOut,
-            animations: {
-                self.favoritesLabel.alpha = 0.0
-            },
-            completion: { finished in
-                if finished {
-                    self.favoritesLabel.removeFromSuperview()
-                    self.favoritesLabel = nil
-                }
-            }
-        )
-*/
     }
         
     

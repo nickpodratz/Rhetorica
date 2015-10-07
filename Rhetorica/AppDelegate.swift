@@ -12,6 +12,8 @@ import UIKit
 import CoreSpotlight
 import MobileCoreServices
 
+let appId = "926449450"
+let masterVCLoadingCounterKey = "MASTERVIEWCONTROLLERLOADINGKEY"
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
@@ -28,7 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-
         loadFavorites()
         DataManager.sharedInstance.indexAllStylisticDevicesIfPossible()
         let splitViewController = self.window!.rootViewController as! UISplitViewController

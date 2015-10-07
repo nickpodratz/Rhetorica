@@ -2,19 +2,28 @@
 
 import Foundation
 
-var str = "Hello, playground"
+//var str = "Hello, playground"
+//
+//str.rangeOfString("el")
+//var elements = ["defe","fwefw","fwef","wef","fe","wef","fewa"]
+//
+//let animals = ["cat", "dog", "turtle", "swift", "elephant"]
+//
+//animals.map{$0}
+//
+//print("hallo")
+//
+//print(str)
+//
+//animals.reduce("") { (initial, next) in
+//    return initial + next
+//}
 
-str.rangeOfString("el")
-var elements = ["defe","fwefw","fwef","wef","fe","wef","fewa"]
 
-let animals = ["cat", "dog", "turtle", "swift", "elephant"]
 
-animals.map{$0}
+"Rhetorica – Stilmittel einfa".characters.count
 
-print("hallo")
+"7 Min Workout - 7-Minuten-Trai".characters.count
 
-print(str)
-
-animals.reduce("") { (initial, next) in
-    return initial + next
-}
+"Runtastic PRO GPS Laufen, Walken, Jog".characters.count
+"Rhetorica – Stilmittel der rhetorik ein".characters.count
