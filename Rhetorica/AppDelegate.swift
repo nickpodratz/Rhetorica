@@ -72,27 +72,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         }
     }
     
+    // Searching from system search
     func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
         if #available(iOS 9.0, *) {
-            if userActivity.activityType == CSSearchableItemActionType {
-                if let uniqueIdentifier = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
-                    let splitViewController = self.window!.rootViewController as! UISplitViewController
-                    let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-                    navigationController.popToRootViewControllerAnimated(false)
-                    if let _ = navigationController.topViewController as? MasterViewController {
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                        let detailVC = storyboard.instantiateViewControllerWithIdentifier("DetailVC") as! DetailViewController
-                        print(uniqueIdentifier)
-                        detailVC.device = DataManager.allDevices.filter({return "\($0.title)" == uniqueIdentifier}).first
-                        navigationController.pushViewController(detailVC, animated: false)
-                    }
+            guard userActivity.activityType == CSSearchableItemActionType else { return true }
+            if let uniqueIdentifier = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
+                let device = DataManager.allDevices.filter{return "\($0.title)" == uniqueIdentifier}.first
+                let splitVC = self.window!.rootViewController as! UISplitViewController
+                let firstNavigationVC = splitVC.viewControllers.first as! UINavigationController
+                let masterVC = firstNavigationVC.viewControllers.first as! MasterViewController
+                
+                // Dismiss Quiz or List-VC
+                masterVC.presentedViewController?.dismissViewControllerAnimated(true, completion: nil)
+                if firstNavigationVC.viewControllers.count > 1 {
+                    // Called on iPhone
+                    let secondNavigationVC = firstNavigationVC.viewControllers[1] as! UINavigationController
+                    let detailVC = secondNavigationVC.viewControllers.first as! DetailViewController
+                    secondNavigationVC.popToViewController(detailVC, animated: false)
+                    detailVC.device = device
+                } else {
+                    // Called on iPad
+                    // TODO: Handle open Quiz
+                    //                    navigationController.visibleViewController?.dismissViewControllerAnimated(false, completion: nil)
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let detailNavigationVC = storyboard.instantiateViewControllerWithIdentifier("DetailNavigationVC") as! UINavigationController
+                    let detailVC = detailNavigationVC.visibleViewController as! DetailViewController
+                    detailVC.device = device
+                    splitVC.showDetailViewController(detailNavigationVC, sender: self)
                 }
+                
             }
         }
         return true
     }
     
-        
+    
     // MARK: SplitViewController
 
     func splitViewController(svc: UISplitViewController, shouldHideViewController vc: UIViewController, inOrientation orientation: UIInterfaceOrientation) -> Bool {

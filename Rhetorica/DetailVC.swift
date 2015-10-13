@@ -46,7 +46,6 @@ class DetailViewController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 100
         tableView.layoutIfNeeded()
-
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -86,7 +85,6 @@ class DetailViewController: UITableViewController {
             controller.navigationItem.title = self.device?.title
             controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
             controller.navigationItem.leftItemsSupplementBackButton = true
-
         }
     }
 
