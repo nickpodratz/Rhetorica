@@ -26,7 +26,8 @@ class ListViewController: UITableViewController {
     @IBOutlet weak var someDevicesLabel: UILabel!
     @IBOutlet weak var allDevicesLabel: UILabel!
     @IBOutlet weak var favoritesLabel: UILabel!
-    
+
+    var titleOfSelectedList: String!
     
     // MARK: Properties
     
@@ -55,9 +56,11 @@ class ListViewController: UITableViewController {
     // MARK: - Private Functions
     
     private func setCheckmarks() {
-        for deviceList in [fewDevicesCell, someDevicesCell, allDevicesCell, favouritesCell] { deviceList.accessoryType = .None }
+        for deviceList in [fewDevicesCell, someDevicesCell, allDevicesCell, favouritesCell] {
+            deviceList.accessoryType = .None
+        }
         
-        switch(DataManager.sharedInstance.selectedList.title) {
+        switch titleOfSelectedList {
         case allDevicesLabel.text!: allDevicesCell.accessoryType = .Checkmark
         case someDevicesLabel.text!: someDevicesCell.accessoryType = .Checkmark
         case fewDevicesLabel.text!: fewDevicesCell.accessoryType = .Checkmark

@@ -11,7 +11,19 @@ import UIKit
 
 class MasterViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, ListViewDelegate {
 
-    
+    @nonobjc var selectedDeviceList: DeviceList = {
+        // Load selected List from NSUserDefaults
+        let loadedListTitle: String? = NSUserDefaults.standardUserDefaults().valueForKey("Selected List") as? String
+        let loadedList: DeviceList? = DeviceList.allDeviceLists.filter{$0.title == loadedListTitle}.first
+        
+        if loadedList?.elements.isEmpty == false {
+            return loadedList!
+        } else {
+            print("couldn't load Device List, set to fewDevices")
+            return DeviceList.fewDevices
+        }
+    }()
+
     // MARK: - Outlets
 
     @IBOutlet weak var tableView: UITableView!
@@ -46,9 +58,9 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         setupSearchController()
         
         originalSeparatorColor = tableView!.separatorColor
-        navigationItem.title = DataManager.sharedInstance.selectedList.title
+        navigationItem.title = selectedDeviceList.title
 
-        animateNoEntriesLabel(DataManager.sharedInstance.selectedList.elements.isEmpty)
+        animateNoEntriesLabel(selectedDeviceList.elements.isEmpty)
 
         if let split = self.splitViewController {
             let controllers = split.viewControllers
@@ -118,17 +130,16 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
             definesPresentationContext = true
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-                print(self.splitViewController)
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
                 controller.device = {
                     if self.searchController.active {
                         return self.searchResults[indexPath.row]
                     } else {
-                        if DataManager.sharedInstance.selectedList.enoughForCategories == true {
-                            return DataManager.sharedInstance.selectedList.sortedList[DataManager.sharedInstance.selectedList.presentLetters[indexPath.section]]![indexPath.row]
+                        if selectedDeviceList.enoughForCategories == true {
+                            return selectedDeviceList.sortedList[selectedDeviceList.presentLetters[indexPath.section]]![indexPath.row]
                         } else {
-                            return DataManager.sharedInstance.selectedList.elements[indexPath.row] as StylisticDevice
+                            return selectedDeviceList.elements[indexPath.row] as StylisticDevice
                         }
                     }
                 }()
@@ -137,12 +148,13 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         case "showQuiz":
             definesPresentationContext = true
             let controller = (segue.destinationViewController as! UINavigationController).topViewController as! QuizViewController
-            controller.deviceList = DataManager.sharedInstance.selectedList
+            controller.deviceList = selectedDeviceList
             
         case "showList":
             definesPresentationContext = false
             let destinationController = (segue.destinationViewController as! UINavigationController).topViewController as! ListViewController
             destinationController.delegate = self
+            destinationController.titleOfSelectedList = selectedDeviceList.title
 
         case "toFeedback":
             break
@@ -153,7 +165,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if identifier == "showQuiz" {
-            if DataManager.sharedInstance.selectedList.elements.count < 4 {
+            if selectedDeviceList.elements.count < 4 {
                 let alertController = UIAlertController(title: "Quiz nicht möglich", message: "Vergewissern Sie sich, dass die ausgewählte Liste mindestens vier Einträge beinhaltet.", preferredStyle: UIAlertControllerStyle.Alert)
                 alertController.addAction(UIAlertAction(title: "Alles klar", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alertController, animated: true, completion: nil)
@@ -173,8 +185,8 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     private func animateNoEntriesLabel(noEntries: Bool) {
         
         // Set text of label
-        switch DataManager.sharedInstance.selectedList {
-        case DataManager.favorites:
+        switch selectedDeviceList {
+        case DeviceList.favorites:
             noElementsLabel.text = "Ihre Lernliste ist leer"
         default:
             noElementsLabel.text = "Diese Liste ist leer"
@@ -220,9 +232,9 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         if searchController.active {
             animateNoEntriesLabel(searchResults.isEmpty)
         } else {
-            animateNoEntriesLabel(DataManager.sharedInstance.selectedList.elements.isEmpty)
-            if DataManager.sharedInstance.selectedList.enoughForCategories == true {
-                return DataManager.sharedInstance.selectedList.sortedList.count
+            animateNoEntriesLabel(selectedDeviceList.elements.isEmpty)
+            if selectedDeviceList.enoughForCategories == true {
+                return selectedDeviceList.sortedList.count
             }
         }
         
@@ -234,10 +246,10 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
             return searchResults.count
         }
         
-        if DataManager.sharedInstance.selectedList.enoughForCategories {
-            return DataManager.sharedInstance.selectedList.sortedList[DataManager.sharedInstance.selectedList.presentLetters[section]]?.count ?? 0
+        if selectedDeviceList.enoughForCategories {
+            return selectedDeviceList.sortedList[selectedDeviceList.presentLetters[section]]?.count ?? 0
         } else {
-            return DataManager.sharedInstance.selectedList.elements.count ?? 0
+            return selectedDeviceList.elements.count ?? 0
         }
     }
 
@@ -248,10 +260,10 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         if searchController.active {
             device = searchResults[indexPath.row]
         } else {
-            if (DataManager.sharedInstance.selectedList.enoughForCategories == true) {
-                device = DataManager.sharedInstance.selectedList.sortedList[DataManager.sharedInstance.selectedList.presentLetters[indexPath.section]]![indexPath.row]
+            if (selectedDeviceList.enoughForCategories == true) {
+                device = selectedDeviceList.sortedList[selectedDeviceList.presentLetters[indexPath.section]]![indexPath.row]
             } else {
-                device = DataManager.sharedInstance.selectedList.elements[indexPath.row]
+                device = selectedDeviceList.elements[indexPath.row]
             }
         }
         
@@ -262,8 +274,8 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if !searchController.active && DataManager.sharedInstance.selectedList.enoughForCategories == true {
-            return (DataManager.sharedInstance.selectedList.sortedList[DataManager.sharedInstance.selectedList.presentLetters[section]] != nil) ? DataManager.sharedInstance.selectedList.presentLetters[section] : nil
+        if !searchController.active && selectedDeviceList.enoughForCategories == true {
+            return (selectedDeviceList.sortedList[selectedDeviceList.presentLetters[section]] != nil) ? selectedDeviceList.presentLetters[section] : nil
         }
         return nil
     }
@@ -275,16 +287,16 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
             return -1
         }
 
-        return (DataManager.sharedInstance.selectedList.presentLetters.indexOf(title) ?? 0)
+        return (selectedDeviceList.presentLetters.indexOf(title) ?? 0)
     }
     
     func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
-        var index = DataManager.sharedInstance.selectedList.presentLetters
+        var index = selectedDeviceList.presentLetters
         if searchController != nil {
             index.insert(UITableViewIndexSearch, atIndex: 0)
         }
 
-        return (DataManager.sharedInstance.selectedList.enoughForCategories && !searchController.active) ? index : nil
+        return (selectedDeviceList.enoughForCategories && !searchController.active) ? index : nil
     }
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
@@ -307,12 +319,12 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     // MARK: Delegate
 
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return DataManager.sharedInstance.selectedList.editable
+        return selectedDeviceList.editable
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
-            DataManager.sharedInstance.selectedList.elements.removeAtIndex(indexPath.row)
+            selectedDeviceList.elements.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
 
             if let split = self.splitViewController {
@@ -333,11 +345,11 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
 
     // TODO: Dispatch
     func listView(didSelectListWithTag tag: Int) {
-        DataManager.sharedInstance.selectedList = DataManager.sharedInstance.allDeviceLists[tag]
-        NSUserDefaults.standardUserDefaults().setValue(DataManager.sharedInstance.selectedList.title, forKey: "Selected List")
+        selectedDeviceList = DeviceList.allDeviceLists[tag]
+        NSUserDefaults.standardUserDefaults().setValue(selectedDeviceList.title, forKey: "Selected List")
         NSUserDefaults.standardUserDefaults().synchronize()
         
-        navigationItem.title = DataManager.sharedInstance.selectedList.title
+        navigationItem.title = selectedDeviceList.title
         tableView.reloadData()
         scrollTableViewToTop()
     }
@@ -353,7 +365,7 @@ extension MasterViewController: UISearchResultsUpdating {
 
         if searchController.active {
             /// Searches for searchString in all properties of deviceList.
-            searchResults = DataManager.sharedInstance.selectedList.elements.filter() { device in
+            searchResults = selectedDeviceList.elements.filter { device in
                 return !device.searchableStrings.filter({ stringProperty in
                     return stringProperty.rangeOfString(searchString!, options: NSStringCompareOptions.CaseInsensitiveSearch) != nil }).isEmpty
             }
@@ -365,7 +377,7 @@ extension MasterViewController: UISearchResultsUpdating {
             setNavigationItemsEnabled(false)
         } else {
             // Called when Search is canceled, update UI
-            animateNoEntriesLabel(DataManager.sharedInstance.selectedList.elements.isEmpty)
+            animateNoEntriesLabel(selectedDeviceList.elements.isEmpty)
             setNavigationItemsEnabled(true)
             tapRecognizer.enabled = false
         }

@@ -8,6 +8,8 @@
 
 import Foundation
 
+let latinAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+
 class DeviceList: NSObject {
     let title: String
     let editable: Bool
@@ -30,7 +32,6 @@ class DeviceList: NSObject {
         }
     }
     
-    var enoughForCategories: Bool { return elements.count > 30 }
     lazy var presentLetters: [String] = latinAlphabet.filter{self.sortedList[$0] != nil}
     lazy var sortedList: [String: [StylisticDevice]] = {
         var returnList = [String: [StylisticDevice]]()
@@ -46,6 +47,7 @@ class DeviceList: NSObject {
         return returnList
     }()
     
+    var enoughForCategories: Bool { return elements.count > 30 }
     
     init(title: String, editable: Bool, elements: [StylisticDevice]) {
         self.title = title
@@ -54,13 +56,6 @@ class DeviceList: NSObject {
     }
 }
 
-// ------------------------------------------------------------------------
-// MARK: - Protocol Conformance
-// ------------------------------------------------------------------------
-
-func ~=(pattern: DeviceList, x: DeviceList) -> Bool {
-    return pattern.title == x.title
-}
 
 // MARK: Sequence Type
 extension DeviceList: SequenceType {
@@ -80,7 +75,7 @@ extension DeviceList: SequenceType {
 // MARK: Collection Type
 extension DeviceList: CollectionType {
     typealias Index = Int
-
+    
     var startIndex: Int {
         return 0
     }
@@ -111,5 +106,44 @@ func !=(lhs:DeviceList, rhs:DeviceList) -> Bool {
     return !(lhs.title == rhs.title)
 }
 
+func ~=(pattern: DeviceList, x: DeviceList) -> Bool {
+    return pattern.title == x.title
+}
 
 
+extension DeviceList {
+    
+    @nonobjc static var allDeviceLists = [DeviceList.fewDevices, DeviceList.someDevices, DeviceList.allDevices, DeviceList.favorites]
+    
+    
+    /// A mutable collection of the user's favored Stylistic Devices.
+    @nonobjc static var favorites = DeviceList(
+        title: "Lernliste",
+        editable: true,
+        elements: {
+            // Load Favourites
+            if let loadedFavourites = NSUserDefaults.standardUserDefaults().valueForKey("Lernliste") as? [String] {
+                return allStylisticDevices.filter{ element in
+                    loadedFavourites.contains(element.title)
+                }
+            }
+            return [StylisticDevice]()
+        }()
+    )
+    
+    @nonobjc static let fewDevices = DeviceList(title: "Wichtigste Stilmittel", editable: false,
+        elements: allStylisticDevices.filter { device in
+            return device.levelOfImportance >= 7
+        }
+    )
+
+    @nonobjc static let someDevices = DeviceList(title: "Einige Stilmittel", editable: false,
+        elements: allStylisticDevices.filter{ device in
+            return device.levelOfImportance >= 4
+        }
+    )
+    
+    /// An immutable collection of all Stylistic Devices.
+    @nonobjc static let allDevices = DeviceList(title: "Alle Stilmittel", editable: false, elements: allStylisticDevices)
+    
+}

@@ -26,6 +26,7 @@ class DetailViewController: UITableViewController {
     @IBOutlet weak var wikipediaCell: UITableViewCell!
     @IBOutlet weak var oppositeCell: UITableViewCell!
     
+    @IBOutlet weak var pinBarButtonItem: UIBarButtonItem!
     
     // MARK: - Properties
     
@@ -57,14 +58,14 @@ class DetailViewController: UITableViewController {
     // MARK: - User Interaction
     
     @IBAction func addToFavorites(sender: AnyObject) {
-        if let indexOfDeviceInFavorites = DataManager.favorites.elements.indexOf(self.device!){
+        if let indexOfDeviceInFavorites = DeviceList.favorites.elements.indexOf(self.device!){
             // Deleting...
-            DataManager.favorites.elements.removeAtIndex(indexOfDeviceInFavorites)
+            DeviceList.favorites.elements.removeAtIndex(indexOfDeviceInFavorites)
             self.navigationItem.rightBarButtonItem?.image = UIImage(named: "pin")
             showFavoritesLabel(addedStylisticDevice: false)
         }else {
             // Adding...
-            DataManager.favorites.elements.append(self.device!)
+            DeviceList.favorites.elements.append(self.device!)
             self.navigationItem.rightBarButtonItem?.image = UIImage(named: "pin_filled")
             showFavoritesLabel(addedStylisticDevice: true)
         }
@@ -106,11 +107,14 @@ class DetailViewController: UITableViewController {
     
     func configureView() {
         guard let device = self.device else {
-            self.device = DataManager.sharedInstance.selectedList.elements.first
-            configureView()
+//            self.tableView.hidden = true
+            pinBarButtonItem.enabled = false
             return
         }
         
+        self.tableView.hidden = false
+        pinBarButtonItem.enabled = true
+
         // Fill tableview with data
         titleLabel?.text = device.title
         definitionLabel?.text = device.definition
@@ -120,7 +124,7 @@ class DetailViewController: UITableViewController {
         
         tableView.reloadData()
         // Set correct Favorite-Image
-        let deviceIsFavorite = DataManager.favorites.elements.contains(self.device!)
+        let deviceIsFavorite = DeviceList.favorites.elements.contains(self.device!)
         navigationItem.rightBarButtonItem?.image = deviceIsFavorite ? UIImage(named: "pin_filled") : UIImage(named: "pin")
     }
     

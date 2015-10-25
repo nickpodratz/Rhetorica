@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Nick Podratz. All rights reserved.
 //
 
-
-//15, 27, 13
 import UIKit
 import CoreSpotlight
 import MobileCoreServices
@@ -30,14 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        loadFavorites()
-        DataManager.sharedInstance.indexAllStylisticDevicesIfPossible()
         let splitViewController = self.window!.rootViewController as! UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
         navigationController.topViewController?.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
         splitViewController.delegate = self
-        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
-        application.statusBarStyle = .LightContent
+        
+        indexAllStylisticDevicesIfPossible()
+        application.setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
         return true
     }
 
@@ -61,23 +58,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func loadFavorites(){
-        // TODO: Memory Leak with 4300 calls
-        
-        // Load Favourites
-        if let loadedFavourites = NSUserDefaults.standardUserDefaults().valueForKey(DataManager.favorites.title) as? [String] {
-            DataManager.favorites.elements = DataManager.allDevices.elements.filter{ element in
-                loadedFavourites.contains(element.title)
-            }
-        }
-    }
-    
     // Searching from system search
     func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
         if #available(iOS 9.0, *) {
+            print("called!")
             guard userActivity.activityType == CSSearchableItemActionType else { return true }
             if let uniqueIdentifier = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
-                let device = DataManager.allDevices.filter{return "\($0.title)" == uniqueIdentifier}.first
+                let device = allStylisticDevices.filter{return "\($0.title)" == uniqueIdentifier}.first
                 let splitVC = self.window!.rootViewController as! UISplitViewController
                 let firstNavigationVC = splitVC.viewControllers.first as! UINavigationController
                 let masterVC = firstNavigationVC.viewControllers.first as! MasterViewController
@@ -123,6 +110,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             }
         }
         return false
+    }
+    
+    func indexAllStylisticDevicesIfPossible() {
+        let deviceList = allStylisticDevices
+        
+        if #available(iOS 9.0, *) {
+            for device in deviceList {
+                let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
+                attributeSet.title = device.title
+                attributeSet.contentDescription = device.definition
+                let item = CSSearchableItem(uniqueIdentifier: "\(device.title)", domainIdentifier: "np.rhetorica", attributeSet: attributeSet)
+                CSSearchableIndex.defaultSearchableIndex().indexSearchableItems([item]) { (error: NSError?) -> Void in
+                    if let error = error {
+                        print("Indexing error: \(error.localizedDescription)")
+                    }
+                }
+            }
+        } else {
+            print("Could not index stylistic devices on device, as its OS is too old.")
+        }
     }
 
 

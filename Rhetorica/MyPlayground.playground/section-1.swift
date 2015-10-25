@@ -21,9 +21,4 @@ import Foundation
 
 
 
-"Rhetorica – Stilmittel einfa".characters.count
-
-"7 Min Workout - 7-Minuten-Trai".characters.count
-
-"Runtastic PRO GPS Laufen, Walken, Jog".characters.count
-"Rhetorica – Stilmittel der rhetorik ein".characters.count
+"Rhetorik,rhetorische,Mittel,Germanistik,Analyse,Erörterung,Abi,Abitur,Deutsch,Klausur,Unterricht".characters.count
