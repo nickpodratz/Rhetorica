@@ -7,25 +7,14 @@
 //
 
 import UIKit
+import CoreSpotlight
+import MobileCoreServices
 
 
-class MasterViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, ListViewDelegate {
-
-    @nonobjc var selectedDeviceList: DeviceList = {
-        // Load selected List from NSUserDefaults
-        let loadedListTitle: String? = NSUserDefaults.standardUserDefaults().valueForKey("Selected List") as? String
-        let loadedList: DeviceList? = DeviceList.allDeviceLists.filter{$0.title == loadedListTitle}.first
-        
-        if loadedList?.elements.isEmpty == false {
-            return loadedList!
-        } else {
-            print("couldn't load Device List, set to fewDevices")
-            return DeviceList.fewDevices
-        }
-    }()
-
-    // MARK: - Outlets
-
+class MasterViewController: UIViewController, UISearchBarDelegate {
+    
+    // MARK: Outlets
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noElementsLabel: UILabel!
     @IBOutlet var tapRecognizer: UITapGestureRecognizer!
@@ -34,14 +23,40 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     var searchController: UISearchController!
     var detailViewController: DetailViewController?
     
-    // MARK: - Properties
     
+    // MARK: Properties
+    
+    var selectedLanguage: Language! {
+        didSet{
+            let allDevices = StylisticDevice.getAllDevicesFromPlist(selectedLanguage)
+            deviceLists = DeviceList.getAllDeviceLists(allDevices)
+            
+            indexStylisticDevicesIfPossible(allDevices)
+            
+            if let listTitle = DeviceList.getSelectedListTitle() {
+                if let loadedList = self.deviceLists.filter({$0.title == listTitle}).first {
+                    selectedDeviceList = loadedList
+                }
+            } else {
+                selectedDeviceList = deviceLists.first!
+            }
+        }
+    }
+    var deviceLists: [DeviceList] = [] {
+        didSet{
+            for list in deviceLists {
+                list.elements.sortInPlace()
+            }
+        }
+    }
+    var selectedDeviceList: DeviceList!
+
     var searchResults = [StylisticDevice]()
     var originalSeparatorColor: UIColor!
-
     
-    // MARK: - Life Cycle
-
+    
+    // MARK: Life Cycle
+    
     override func awakeFromNib() {
         // before: UIDevice.currentDevice().userInterfaceIdiom == .Pad
         if traitCollection.horizontalSizeClass == .Regular && traitCollection.verticalSizeClass == .Regular {
@@ -49,19 +64,23 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         }
         super.awakeFromNib()
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
+        // Set language
+        let languageIdentifier = Language.getSelectedLanguageIdentifier() ?? Language.getSystemLanguageIdentifier()
+        selectedLanguage = Language(identifier: languageIdentifier) ?? .German
+        
         tableView.dataSource = self
         tableView.delegate = self
         setupSearchController()
         
         originalSeparatorColor = tableView!.separatorColor
         navigationItem.title = selectedDeviceList.title
-
+        
         animateNoEntriesLabel(selectedDeviceList.elements.isEmpty)
-
+        
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             if controllers.count > 1 {
@@ -75,7 +94,6 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         definesPresentationContext = true
-
         if let indexPaths = tableView.indexPathsForSelectedRows {
             for indexPath in indexPaths {
                 tableView.deselectRowAtIndexPath(indexPath, animated: true)
@@ -119,7 +137,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         searchController.active = false
     }
     
-    // MARK: - Transitioning
+    // MARK: Transitioning
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == nil { return }
@@ -132,6 +150,8 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
+                self.detailViewController = controller
+                controller.favorites = deviceLists.last!
                 controller.device = {
                     if self.searchController.active {
                         return self.searchResults[indexPath.row]
@@ -142,7 +162,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
                             return selectedDeviceList.elements[indexPath.row] as StylisticDevice
                         }
                     }
-                }()
+                    }()
             }
             
         case "showQuiz":
@@ -154,8 +174,9 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
             definesPresentationContext = false
             let destinationController = (segue.destinationViewController as! UINavigationController).topViewController as! ListViewController
             destinationController.delegate = self
+            destinationController.selectedLanguage = self.selectedLanguage
             destinationController.titleOfSelectedList = selectedDeviceList.title
-
+            
         case "toFeedback":
             break
             
@@ -166,8 +187,8 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if identifier == "showQuiz" {
             if selectedDeviceList.elements.count < 4 {
-                let alertController = UIAlertController(title: "Quiz nicht möglich", message: "Vergewissern Sie sich, dass die ausgewählte Liste mindestens vier Einträge beinhaltet.", preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(UIAlertAction(title: "Alles klar", style: UIAlertActionStyle.Default, handler: nil))
+                let alertController = UIAlertController(title: NSLocalizedString("quiz_nicht_möglich", comment: ""), message: NSLocalizedString("quiz_alert_beschreibung", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: NSLocalizedString("quiz_alert_alles_klar", comment: ""), style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alertController, animated: true, completion: nil)
                 return false
             }
@@ -180,16 +201,16 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     
-    // MARK: - Private Functions
+    // MARK: Private Functions
     
     private func animateNoEntriesLabel(noEntries: Bool) {
         
         // Set text of label
-        switch selectedDeviceList {
-        case DeviceList.favorites:
-            noElementsLabel.text = "Ihre Lernliste ist leer"
+        switch selectedDeviceList.editable {
+        case true:
+            noElementsLabel.text = NSLocalizedString("ihre_lernliste_ist_leer", comment: "")
         default:
-            noElementsLabel.text = "Diese Liste ist leer"
+            noElementsLabel.text = NSLocalizedString("diese_liste_ist_leer", comment: "")
         }
         
         UIView.animateWithDuration(0,
@@ -214,7 +235,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         navigationItem.leftBarButtonItem?.enabled = enable
         navigationItem.rightBarButtonItem?.enabled = enable
     }
-
+    
     /// Not private, as it needs to be usable via a selector.
     func scrollTableViewToTop() {
         let navigationBarOrigin = navigationController!.navigationBar.frame.origin.y // 20
@@ -225,9 +246,28 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
-    // MARK: - Table View
-    // MARK: Data Source
+    private func indexStylisticDevicesIfPossible(devices: [StylisticDevice]) {
+        if #available(iOS 9.0, *) {
+            for device in devices {
+                let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
+                attributeSet.title = device.title
+                attributeSet.contentDescription = device.definition
+                let item = CSSearchableItem(uniqueIdentifier: "\(device.title)", domainIdentifier: "np.rhetorica", attributeSet: attributeSet)
+                CSSearchableIndex.defaultSearchableIndex().indexSearchableItems([item]) { (error: NSError?) -> Void in
+                    if let error = error {
+                        print("Indexing error: \(error.localizedDescription)")
+                    }
+                }
+            }
+        } else {
+            print("Could not index stylistic devices on device, as its OS is too old.")
+        }
+    }
+}
 
+// MARK: - MasterViewController: UITableViewDataSource, UITableViewDelegate
+extension MasterViewController: UITableViewDataSource, UITableViewDelegate {
+    // MARK: DataSource
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         if searchController.active {
             animateNoEntriesLabel(searchResults.isEmpty)
@@ -240,7 +280,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         
         return 1
     }
-
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.active {
             return searchResults.count
@@ -252,7 +292,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
             return selectedDeviceList.elements.count ?? 0
         }
     }
-
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         var device: StylisticDevice!
@@ -286,7 +326,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
             tableView.scrollRectToVisible(self.searchController.searchBar.frame, animated: false)
             return -1
         }
-
+        
         return (selectedDeviceList.presentLetters.indexOf(title) ?? 0)
     }
     
@@ -295,12 +335,12 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         if searchController != nil {
             index.insert(UITableViewIndexSearch, atIndex: 0)
         }
-
+        
         return (selectedDeviceList.enoughForCategories && !searchController.active) ? index : nil
     }
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        let deleteButton = UITableViewRowAction(style: .Default, title: "Löschen", handler: { (action, indexPath) in
+        let deleteButton = UITableViewRowAction(style: .Default, title: NSLocalizedString("löschen", comment: ""), handler: { (action, indexPath) in
             self.tableView.dataSource?.tableView?(
                 self.tableView,
                 commitEditingStyle: .Delete,
@@ -315,9 +355,9 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         return [deleteButton]
     }
     
-
+    
     // MARK: Delegate
-
+    
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return selectedDeviceList.editable
     }
@@ -326,7 +366,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         if editingStyle == UITableViewCellEditingStyle.Delete {
             selectedDeviceList.elements.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-
+            
             if let split = self.splitViewController {
                 let controllers = split.viewControllers
                 if controllers.count > 1 {
@@ -335,34 +375,47 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
                     }
                 }
             }
-
+            
             detailViewController?.configureView() // For some reason not enough for updating the detailsVC
         }
     }
     
-    
-    // MARK: - ListView
+}
 
+
+// MARK: - MasterViewController: ListViewDelegate
+
+extension MasterViewController: ListViewDelegate {
     // TODO: Dispatch
     func listView(didSelectListWithTag tag: Int) {
-        selectedDeviceList = DeviceList.allDeviceLists[tag]
-        NSUserDefaults.standardUserDefaults().setValue(selectedDeviceList.title, forKey: "Selected List")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        selectedDeviceList = deviceLists[tag]
+        DeviceList.setSelectedListTitle(selectedDeviceList.title)
         
         navigationItem.title = selectedDeviceList.title
         tableView.reloadData()
         scrollTableViewToTop()
     }
+    
+    func listView(didSelectLanguage language: Language) {
+        if language != self.selectedLanguage {
+            Language.setSelectedLanguageIdentifier(language.identifier)
+            self.selectedLanguage = language
+            tableView.reloadData()
+            scrollTableViewToTop()
+            detailViewController?.favorites = self.deviceLists.last!
+            detailViewController?.device = nil            
+        }
+    }
 }
 
 
-// MARK: - UISearchResultsUpdating
+// MARK: - MasterViewController: UISearchResultsUpdating
 
 extension MasterViewController: UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         let searchString = searchController.searchBar.text
         definesPresentationContext = true
-
+        
         if searchController.active {
             /// Searches for searchString in all properties of deviceList.
             searchResults = selectedDeviceList.elements.filter { device in

@@ -1,16 +1,18 @@
+
 //
 //  ListViewController.swift
 //  Cicero
 //
 //  Created by Nick Podratz on 15.10.14.
 //  Copyright (c) 2014 Nick Podratz. All rights reserved.
-//  
+//
 
 import Foundation
 import UIKit
 
 protocol ListViewDelegate {
     func listView(didSelectListWithTag tag: Int) -> Void
+    func listView(didSelectLanguage language: Language) -> Void
 }
 
 class ListViewController: UITableViewController {
@@ -22,50 +24,67 @@ class ListViewController: UITableViewController {
     @IBOutlet weak var someDevicesCell: UITableViewCell!
     @IBOutlet weak var allDevicesCell: UITableViewCell!
     @IBOutlet weak var favouritesCell: UITableViewCell!
-    @IBOutlet weak var fewDevicesLabel: UILabel!
-    @IBOutlet weak var someDevicesLabel: UILabel!
-    @IBOutlet weak var allDevicesLabel: UILabel!
-    @IBOutlet weak var favoritesLabel: UILabel!
-
-    var titleOfSelectedList: String!
+    
+    @IBOutlet weak var germanLanguageCell: UITableViewCell!
+    @IBOutlet weak var englishLanguageCell: UITableViewCell!
+    
     
     // MARK: Properties
     
     var delegate: ListViewDelegate?
-    
 
-    // MARK: - Life Cycle
+    var titleOfSelectedList: String!
+    var selectedLanguage: Language?
+
+    
+    // MARK: Life Cycle
     
     override func viewWillAppear(animated: Bool) {
-        setCheckmarks()
+        setDeviceListCheckmarks()
+        setLanguageCheckmarks()
     }
     
     
-    // MARK: - Table View
-    // MARK: Delegate
+    // MARK: UITableViewDelegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let tagOfSelectedCell = tableView.cellForRowAtIndexPath(indexPath)!.tag
-        setCheckmarks()
-        delegate?.listView(didSelectListWithTag: tagOfSelectedCell)
-
-        dismissViewControllerAnimated(true, completion: nil)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        switch (indexPath.section, indexPath.row) {
+        case (0, _):
+            delegate?.listView(didSelectListWithTag: tagOfSelectedCell)
+            titleOfSelectedList = tableView.cellForRowAtIndexPath(indexPath)!.textLabel!.text!
+            setDeviceListCheckmarks()
+        case (1, _):
+            if let language = Language(rawValue: tagOfSelectedCell) {
+                self.selectedLanguage = language
+                delegate?.listView(didSelectLanguage: language)
+            }
+            setLanguageCheckmarks()
+        default: ()
+        }
+    }
+    
+    @IBAction func rewindsToListViewController(segue:UIStoryboardSegue) {
+        
     }
     
     
-    // MARK: - Private Functions
     
-    private func setCheckmarks() {
-        for deviceList in [fewDevicesCell, someDevicesCell, allDevicesCell, favouritesCell] {
-            deviceList.accessoryType = .None
+    // MARK: Private Functions
+    
+    private func setDeviceListCheckmarks() {
+        for cell in [fewDevicesCell, someDevicesCell, allDevicesCell, favouritesCell] {
+            let isSelected = (cell.textLabel!.text == titleOfSelectedList)
+            cell.accessoryType = isSelected ? .Checkmark : .None
         }
-        
-        switch titleOfSelectedList {
-        case allDevicesLabel.text!: allDevicesCell.accessoryType = .Checkmark
-        case someDevicesLabel.text!: someDevicesCell.accessoryType = .Checkmark
-        case fewDevicesLabel.text!: fewDevicesCell.accessoryType = .Checkmark
-        case favoritesLabel.text!: favouritesCell.accessoryType = .Checkmark
-        default: break
+    }
+    
+    private func setLanguageCheckmarks() {
+        for cell in [germanLanguageCell, englishLanguageCell] {
+            let isSelected = (cell.textLabel!.text == selectedLanguage?.localizedDescription)
+            cell.accessoryType = isSelected ? .Checkmark : .None
         }
     }
 }

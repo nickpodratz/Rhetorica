@@ -13,16 +13,7 @@ import MobileCoreServices
 let appId = "926449450"
 let masterVCLoadingCounterKey = "MASTERVIEWCONTROLLERLOADINGKEY"
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
-
-    // 1. iPhone: Cell shouldn't highlight
-    // 2. Register in Table View
-    // 3. UISearchController
-    
-    // - Zweck
-    // - Quizmodus
-    // - Design
-    // - Wikipedia Link
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
@@ -33,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         navigationController.topViewController?.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
         splitViewController.delegate = self
         
-        indexAllStylisticDevicesIfPossible()
         application.setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
         return true
     }
@@ -58,13 +48,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    // Searching from system search
     func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
+        // Searching from system search
         if #available(iOS 9.0, *) {
             print("called!")
             guard userActivity.activityType == CSSearchableItemActionType else { return true }
             if let uniqueIdentifier = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
-                let device = allStylisticDevices.filter{return "\($0.title)" == uniqueIdentifier}.first
+                let languageIdentifier = Language.getSystemLanguageIdentifier()
+                let language = Language(identifier: languageIdentifier) ?? .German
+
+                let device = StylisticDevice.getAllDevicesFromPlist(language).filter{return "\($0.title)" == uniqueIdentifier}.first
                 let splitVC = self.window!.rootViewController as! UISplitViewController
                 let firstNavigationVC = splitVC.viewControllers.first as! UINavigationController
                 let masterVC = firstNavigationVC.viewControllers.first as! MasterViewController
@@ -93,9 +86,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         return true
     }
     
-    
-    // MARK: SplitViewController
+}
 
+
+// MARK: AppDelegate: UISplitViewControllerDelegate
+
+extension AppDelegate: UISplitViewControllerDelegate {
+    
     func splitViewController(svc: UISplitViewController, shouldHideViewController vc: UIViewController, inOrientation orientation: UIInterfaceOrientation) -> Bool {
         return false
     }
@@ -112,26 +109,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         return false
     }
     
-    func indexAllStylisticDevicesIfPossible() {
-        let deviceList = allStylisticDevices
-        
-        if #available(iOS 9.0, *) {
-            for device in deviceList {
-                let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
-                attributeSet.title = device.title
-                attributeSet.contentDescription = device.definition
-                let item = CSSearchableItem(uniqueIdentifier: "\(device.title)", domainIdentifier: "np.rhetorica", attributeSet: attributeSet)
-                CSSearchableIndex.defaultSearchableIndex().indexSearchableItems([item]) { (error: NSError?) -> Void in
-                    if let error = error {
-                        print("Indexing error: \(error.localizedDescription)")
-                    }
-                }
-            }
-        } else {
-            print("Could not index stylistic devices on device, as its OS is too old.")
-        }
-    }
-
-
 }
-

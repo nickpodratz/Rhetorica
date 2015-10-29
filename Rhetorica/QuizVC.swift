@@ -165,7 +165,9 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
     }
     
     private func setupViewForNewRound() {
-        self.navigationItem.title = "\(counterOfCorrectAnswers) von \(counterOfQuestions) richtig"
+        let firstPart = NSLocalizedString("von", comment: "")
+        let secondPart = NSLocalizedString("richtig", comment: "")
+        self.navigationItem.title = "\(counterOfCorrectAnswers) \(firstPart) \(counterOfQuestions) \(secondPart)"
         
         // Choosing four random devices
         var newDevices = [StylisticDevice]()

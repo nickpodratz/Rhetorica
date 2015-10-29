@@ -8,7 +8,6 @@
 
 import Foundation
 
-let latinAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
 class DeviceList: NSObject {
     let title: String
@@ -16,7 +15,7 @@ class DeviceList: NSObject {
     var elements: [StylisticDevice] {
         willSet{
             if enoughForCategories {
-                presentLetters = latinAlphabet.filter{self.sortedList[$0] != nil}
+                presentLetters = Language.latinAlphabet.filter{self.sortedList[$0] != nil}
             }
             
             let backgroundQueue = dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)
@@ -29,10 +28,11 @@ class DeviceList: NSObject {
         }
         didSet {
             elements.sortInPlace(<)
+            print("sorted?")
         }
     }
     
-    lazy var presentLetters: [String] = latinAlphabet.filter{self.sortedList[$0] != nil}
+    lazy var presentLetters: [String] = Language.latinAlphabet.filter{self.sortedList[$0] != nil}
     lazy var sortedList: [String: [StylisticDevice]] = {
         var returnList = [String: [StylisticDevice]]()
         for element in self.elements {
@@ -57,7 +57,8 @@ class DeviceList: NSObject {
 }
 
 
-// MARK: Sequence Type
+// MARK: DeviceList: Sequence Type
+
 extension DeviceList: SequenceType {
     typealias Generator = AnyGenerator<StylisticDevice>
     
@@ -72,7 +73,9 @@ extension DeviceList: SequenceType {
     }
 }
 
-// MARK: Collection Type
+
+// MARK: DeviceList: Collection Type
+
 extension DeviceList: CollectionType {
     typealias Index = Int
     
@@ -89,7 +92,9 @@ extension DeviceList: CollectionType {
     }
 }
 
-// MARK: CustomStringConvertible
+
+// MARK: DeviceList: CustomStringConvertible
+
 extension DeviceList {
     override var description: String {
         let elementString = elements.map{$0.title}.joinWithSeparator(", ")
@@ -97,13 +102,19 @@ extension DeviceList {
     }
 }
 
-// MARK: Equatable
+
+// MARK: DeviceList: Equatable
+
 func ==(lhs:DeviceList, rhs:DeviceList) -> Bool {
     return (lhs.title == rhs.title)
 }
 
-func !=(lhs:DeviceList, rhs:DeviceList) -> Bool {
-    return !(lhs.title == rhs.title)
+
+// MARK: DeviceList: Equatable
+
+extension DeviceList: Comparable {}
+func <(lhs:DeviceList, rhs:DeviceList) -> Bool {
+    return (lhs.title < rhs.title)
 }
 
 func ~=(pattern: DeviceList, x: DeviceList) -> Bool {
@@ -111,39 +122,67 @@ func ~=(pattern: DeviceList, x: DeviceList) -> Bool {
 }
 
 
+// MARK: DeviceList + Default Instances
+
+extension DeviceList {
+        
+    static func getAllDeviceLists(devices: [StylisticDevice]) -> [DeviceList] {
+        /// A mutable collection of the user's favored Stylistic Devices.
+        let favorites = DeviceList(
+            title: NSLocalizedString("lernliste", comment: ""),
+            editable: true,
+            elements: {
+                // Load Favourites
+                if let loadedFavourites = NSUserDefaults.standardUserDefaults().valueForKey(NSLocalizedString("lernliste", comment: "")) as? [String] {
+                    return devices.filter{ element in
+                        loadedFavourites.contains(element.title)
+                    }
+                } else {
+                    return [StylisticDevice]()
+                }
+            }()
+        )
+        
+        let fewDevices = DeviceList(title: NSLocalizedString("wichtigste_stilmittel", comment: ""), editable: false,
+            elements: devices.filter { device in
+                return device.levelOfImportance >= 7
+            }
+        )
+        
+        let someDevices = DeviceList(title: NSLocalizedString("einige_stilmittel", comment: ""), editable: false,
+            elements: devices.filter{ device in
+                return device.levelOfImportance >= 4
+            }
+        )
+        
+        /// An immutable collection of all Stylistic Devices.
+        let allDevices = DeviceList(title: NSLocalizedString("alle_Stilmittel", comment: ""), editable: false, elements: devices)
+        
+        return [fewDevices, someDevices, allDevices, favorites]
+    }
+    
+}
+
+
+// MARK: - DeviceList + Persistence of selected list
+
 extension DeviceList {
     
-    @nonobjc static var allDeviceLists = [DeviceList.fewDevices, DeviceList.someDevices, DeviceList.allDevices, DeviceList.favorites]
+    // NSLocalizedString("gewählte_liste", comment: "")
     
+    /// The key under which the title of the selected list is saved.
+    private static var selectedListTitleKey = "selected_list_title"
     
-    /// A mutable collection of the user's favored Stylistic Devices.
-    @nonobjc static var favorites = DeviceList(
-        title: "Lernliste",
-        editable: true,
-        elements: {
-            // Load Favourites
-            if let loadedFavourites = NSUserDefaults.standardUserDefaults().valueForKey("Lernliste") as? [String] {
-                return allStylisticDevices.filter{ element in
-                    loadedFavourites.contains(element.title)
-                }
-            }
-            return [StylisticDevice]()
-        }()
-    )
+    /// - Returns: The title of the selected list if it was set or nil.
+    static func getSelectedListTitle() -> String? {
+        return NSUserDefaults.standardUserDefaults().stringForKey(selectedListTitleKey)
+    }
     
-    @nonobjc static let fewDevices = DeviceList(title: "Wichtigste Stilmittel", editable: false,
-        elements: allStylisticDevices.filter { device in
-            return device.levelOfImportance >= 7
-        }
-    )
-
-    @nonobjc static let someDevices = DeviceList(title: "Einige Stilmittel", editable: false,
-        elements: allStylisticDevices.filter{ device in
-            return device.levelOfImportance >= 4
-        }
-    )
-    
-    /// An immutable collection of all Stylistic Devices.
-    @nonobjc static let allDevices = DeviceList(title: "Alle Stilmittel", editable: false, elements: allStylisticDevices)
-    
+    /// Saves the title of the selected List to the user defaults for later retrieval.
+    static func setSelectedListTitle(title: String) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        defaults.setValue(title, forKey: selectedListTitleKey)
+        defaults.synchronize()
+    }
 }

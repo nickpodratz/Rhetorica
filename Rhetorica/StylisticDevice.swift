@@ -8,8 +8,6 @@
 
 import Foundation
 
-var allStylisticDevices = StylisticDevice.getAllDevicesFromPlist()
-
 
 class StylisticDevice: NSObject {
     let title: String
@@ -31,11 +29,8 @@ class StylisticDevice: NSObject {
     }
 }
 
-extension StylisticDevice {
-    var searchableStrings: [String] {
-        return [title, definition, examples.reduce("", combine: {$0 + $1}), synonym , wikipedia].flatMap {$0}
-    }
-}
+
+// MARK: - StylisticDevice: CustomStringConvertible
 
 extension StylisticDevice {
     override var description: String {
@@ -43,17 +38,30 @@ extension StylisticDevice {
     }
 }
 
+
+// MARK: - StylisticDevice: Comparable
+
 extension StylisticDevice: Comparable {}
 func <(lhs: StylisticDevice, rhs: StylisticDevice) -> Bool {
     return lhs.title < rhs.title
 }
 
-extension StylisticDevice {
-    static func getAllDevicesFromPlist() -> [StylisticDevice] {
-        var devices = [StylisticDevice]()
-        let languageId = NSBundle.mainBundle().preferredLocalizations.first!
 
-        if let path = NSBundle.mainBundle().pathForResource("stylisticDevices_\(languageId)", ofType: "plist"),
+// MARK: - StylisticDevice + Search For String
+
+extension StylisticDevice {
+    var searchableStrings: [String] {
+        return [title, definition, examples.reduce("", combine: {$0 + $1}), synonym , wikipedia].flatMap {$0}
+    }
+}
+
+
+// MARK: - StylisticDevice + Loading from Plist
+
+extension StylisticDevice {
+    static func getAllDevicesFromPlist(language: Language) -> [StylisticDevice] {
+        var devices = [StylisticDevice]()
+        if let path = NSBundle.mainBundle().pathForResource("stylisticDevices_\(language.identifier)", ofType: "plist"),
             dict = NSDictionary(contentsOfFile: path) {
                 for (_, deviceDict) in dict {
                     let device = StylisticDevice(

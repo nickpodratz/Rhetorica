@@ -20,7 +20,7 @@ class FeedbackNegativeViewController: UIViewController {
         if MFMailComposeViewController.canSendMail() {
             composeMail()
         } else {
-            let alertController = UIAlertController(title: "Mail kann nicht erstellt werden", message: "Stellen Sie sicher, dass die Einstellungen ihres Mailaccounts in den Systemeinstellungen korrekt sind.", preferredStyle: UIAlertControllerStyle.Alert)
+            let alertController = UIAlertController(title: NSLocalizedString("mail_kann_nicht_erstellt_werden", comment: ""), message: NSLocalizedString("mail_alert_beschreibung", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
             alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alertController, animated: true, completion: nil)
         }

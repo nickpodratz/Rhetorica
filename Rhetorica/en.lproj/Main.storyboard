@@ -20,6 +20,7 @@
                             <tableViewSection id="2jI-WH-KMH">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="65" id="rAI-a9-7qM">
+                                        <rect key="frame" x="0.0" y="64" width="600" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rAI-a9-7qM" id="1ob-YT-8gG">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
@@ -50,6 +51,7 @@
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell tag="1" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="xGG-zc-2vd">
+                                        <rect key="frame" x="0.0" y="129" width="600" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xGG-zc-2vd" id="vE1-Zk-ISd">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="66"/>
@@ -92,6 +94,7 @@
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell tag="2" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="KtC-C9-pIe">
+                                        <rect key="frame" x="0.0" y="195" width="600" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KtC-C9-pIe" id="gtX-P4-80F">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="66"/>
@@ -103,8 +106,8 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beispiel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCg-4t-iEv">
-                                                    <rect key="frame" x="15" y="11.5" width="56.5" height="19.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Example" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCg-4t-iEv">
+                                                    <rect key="frame" x="15" y="11.5" width="62" height="20"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -132,6 +135,7 @@
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell tag="3" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="khe-rd-Nen">
+                                        <rect key="frame" x="0.0" y="261" width="600" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="khe-rd-Nen" id="4dh-c2-vE7">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="66"/>
@@ -172,6 +176,7 @@
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell tag="4" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Q7M-U7-kaN">
+                                        <rect key="frame" x="0.0" y="327" width="600" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q7M-U7-kaN" id="KCP-pE-P2Y">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="66"/>
@@ -183,7 +188,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gegenteil" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQb-8m-GlX">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Opposite" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQb-8m-GlX">
                                                     <rect key="frame" x="15" y="12" width="69.5" height="19.5"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -212,6 +217,7 @@
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell tag="5" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cME-M6-wHm">
+                                        <rect key="frame" x="0.0" y="393" width="600" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cME-M6-wHm" id="vk2-cZ-6L5">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="66"/>
@@ -226,8 +232,8 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Siehe auch" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTT-OC-IP7">
-                                                    <rect key="frame" x="15" y="8" width="80" height="19.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Further Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTT-OC-IP7">
+                                                    <rect key="frame" x="15" y="8" width="108" height="20"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -309,8 +315,8 @@
                                 <rect key="frame" x="290" y="290" width="20" height="20"/>
                                 <animations/>
                             </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verbindung zu Wikipedia nicht möglich" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XA2-GY-3cg">
-                                <rect key="frame" x="16" y="286" width="568" height="27.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No connection to Wikipedia" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XA2-GY-3cg">
+                                <rect key="frame" x="16" y="286" width="568" height="28"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -494,7 +500,7 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beispiel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YiC-F3-vrk">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Example" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YiC-F3-vrk">
                                         <rect key="frame" x="24" y="68.5" width="552" height="18"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -637,7 +643,7 @@
                 <viewControllerPlaceholder storyboardName="Feedback" id="KOT-Qe-JSg" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fj5-e3-tud" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1825.5" y="646"/>
+            <point key="canvasLocation" x="1759.5" y="610"/>
         </scene>
         <!--Stilmittel-->
         <scene sceneID="41A-v7-auN">
@@ -684,7 +690,7 @@
                             <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oyu-na-KFm">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deine Lernliste ist leer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5c-dL-Bch">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your learning list is empty" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5c-dL-Bch">
                                         <rect key="frame" x="40" y="302" width="520" height="27.5"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
@@ -700,7 +706,7 @@
                                             <constraint firstAttribute="height" constant="125" id="k4E-aa-MiJ"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tippe auf der Seite eines Stilmittels die Pinnadel an, um es zu deiner Lernliste hinzuzufügen." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bf3-9W-ePo">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap onto the pin on a device's detail page in order to add it to the list." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bf3-9W-ePo">
                                         <rect key="frame" x="125" y="339.5" width="350" height="36"/>
                                         <animations/>
                                         <constraints>
@@ -772,9 +778,9 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1310" y="130"/>
+            <point key="canvasLocation" x="1455" y="130"/>
         </scene>
-        <!--Umfang-->
+        <!--Extent-->
         <scene sceneID="ri4-RK-Zwf">
             <objects>
                 <tableViewController storyboardIdentifier="UmfangVC" id="ue6-FV-5gl" customClass="ListViewController" customModule="Rhetorica" customModuleProvider="target" sceneMemberID="viewController">
@@ -784,7 +790,7 @@
                         <animations/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
-                            <tableViewSection headerTitle="Umfang der Liste" id="hTx-CN-vPh">
+                            <tableViewSection headerTitle="Extend of the list" id="hTx-CN-vPh">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Wichtigste Stilmittel" textLabel="uxJ-Zd-E9L" imageView="A2Z-rK-BVn" style="IBUITableViewCellStyleDefault" id="sJY-oE-0Xu">
                                         <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
@@ -793,7 +799,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Wichtigste Stilmittel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uxJ-Zd-E9L">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Important Devices" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uxJ-Zd-E9L">
                                                     <rect key="frame" x="57" y="0.0" width="528" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
@@ -818,7 +824,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Einige Stilmittel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6kY-i7-OPn">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Many Devices" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6kY-i7-OPn">
                                                     <rect key="frame" x="57" y="0.0" width="528" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
@@ -843,7 +849,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Alle Stilmittel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CPE-gn-Kh9">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="All Devices" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CPE-gn-Kh9">
                                                     <rect key="frame" x="57" y="0.0" width="528" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
@@ -868,7 +874,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Lernliste" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FcF-Fk-hHG">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Learning List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FcF-Fk-hHG">
                                                     <rect key="frame" x="54" y="0.0" width="531" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
@@ -888,7 +894,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Sprache" id="Zq8-Ze-Qj2">
+                            <tableViewSection headerTitle="Language" id="Zq8-Ze-Qj2">
                                 <cells>
                                     <tableViewCell tag="1" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Favoriten" textLabel="qzL-4T-C24" imageView="gd5-xm-lxC" style="IBUITableViewCellStyleDefault" id="gSm-Gq-EJr">
                                         <rect key="frame" x="0.0" y="331.5" width="600" height="44"/>
@@ -897,7 +903,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Deutsch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qzL-4T-C24">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="German" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qzL-4T-C24">
                                                     <rect key="frame" x="57" y="0.0" width="528" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
@@ -922,7 +928,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Englisch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Y3t-w1-6RM">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="English" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Y3t-w1-6RM">
                                                     <rect key="frame" x="57" y="0.0" width="528" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
@@ -948,8 +954,8 @@
                             <outlet property="delegate" destination="ue6-FV-5gl" id="7VC-xu-6lr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Umfang" id="MYW-o4-ocw">
-                        <barButtonItem key="leftBarButtonItem" title="Über" id="FHw-AO-t47">
+                    <navigationItem key="navigationItem" title="Extent" id="MYW-o4-ocw">
+                        <barButtonItem key="leftBarButtonItem" title="About" id="FHw-AO-t47">
                             <connections>
                                 <segue destination="PzX-gw-oXN" kind="presentation" identifier="toAbout" modalPresentationStyle="formSheet" modalTransitionStyle="coverVertical" id="ptq-Kn-tUh"/>
                             </connections>
@@ -974,10 +980,10 @@
             </objects>
             <point key="canvasLocation" x="3042" y="486"/>
         </scene>
-        <!--Stilmittel-->
+        <!--Stylistic Devices-->
         <scene sceneID="BkV-xp-Fkg">
             <objects>
-                <navigationController title="Stilmittel" definesPresentationContext="YES" id="E3h-v8-5ac" sceneMemberID="viewController">
+                <navigationController title="Stylistic Devices" definesPresentationContext="YES" id="E3h-v8-5ac" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="k63-Ij-Wzg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1010,7 +1016,7 @@
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZQF-9c-h5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-190" y="538"/>
+            <point key="canvasLocation" x="-196" y="462"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0fq-qu-s4D">
@@ -1109,8 +1115,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Falsche Antworten" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R6V-jc-H8u">
-                                                    <rect key="frame" x="15" y="12" width="135" height="19.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Wrong Answers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R6V-jc-H8u">
+                                                    <rect key="frame" x="15" y="12" width="114" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -1144,7 +1150,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Neue Runde" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qtr-dP-UTH">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="New Round" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qtr-dP-UTH">
                                                     <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
@@ -1173,7 +1179,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZs-rS-buP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3890" y="-211"/>
+            <point key="canvasLocation" x="3725" y="-209"/>
         </scene>
         <!-- -->
         <scene sceneID="AoU-3K-A71">
@@ -1226,14 +1232,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title=" " id="N1c-Zr-gJP">
-                        <barButtonItem key="rightBarButtonItem" title="Alle hinzufügen" id="x63-mg-Xd5">
+                        <barButtonItem key="rightBarButtonItem" title="Add all" id="x63-mg-Xd5">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2qK-H6-KfV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4634" y="-211"/>
+            <point key="canvasLocation" x="4420" y="-209"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qlp-MG-5h2">
@@ -1257,9 +1263,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="po7-Nm-3hk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2298" y="-211"/>
+            <point key="canvasLocation" x="2298" y="-209"/>
         </scene>
-        <!--Über-->
+        <!--About-->
         <scene sceneID="JCL-Mo-Vx6">
             <objects>
                 <tableViewController storyboardIdentifier="AboutController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bl5-73-kmd" customClass="AboutViewController" customModule="Rhetorica" customModuleProvider="target" sceneMemberID="viewController">
@@ -1314,8 +1320,8 @@ Dies war meine erste App im App Store und ich bin immer noch sehr interessiert, 
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Entwickler aus Hamburg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qM9-7I-iTX">
-                                                            <rect key="frame" x="58" y="26" width="151.5" height="16"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Developer from Hamburg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qM9-7I-iTX">
+                                                            <rect key="frame" x="56.5" y="26" width="153" height="16"/>
                                                             <animations/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1350,7 +1356,7 @@ Dies war meine erste App im App Store und ich bin immer noch sehr interessiert, 
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="In Kontakt treten" id="qtL-Rt-VfO">
+                            <tableViewSection headerTitle="Get in touch" id="qtL-Rt-VfO">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="XOL-5B-4sb" style="IBUITableViewCellStyleDefault" id="8kL-O5-vFF">
                                         <rect key="frame" x="0.0" y="373" width="600" height="44"/>
@@ -1359,7 +1365,7 @@ Dies war meine erste App im App Store und ich bin immer noch sehr interessiert, 
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Rhetorica bewerten" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XOL-5B-4sb">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Review Rhetorica" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XOL-5B-4sb">
                                                     <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
@@ -1379,7 +1385,7 @@ Dies war meine erste App im App Store und ich bin immer noch sehr interessiert, 
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Feedback senden" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n3Z-D3-o0Y">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Send Feedback" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n3Z-D3-o0Y">
                                                     <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
@@ -1394,7 +1400,7 @@ Dies war meine erste App im App Store und ich bin immer noch sehr interessiert, 
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Meine anderen Apps" id="uee-IL-6qV" userLabel="Weitere Apps">
+                            <tableViewSection headerTitle="My other apps" id="uee-IL-6qV" userLabel="Weitere Apps">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="100" id="ec1-gk-kAT">
                                         <rect key="frame" x="0.0" y="503" width="600" height="100"/>
@@ -1490,7 +1496,7 @@ Dies war meine erste App im App Store und ich bin immer noch sehr interessiert, 
                             <outlet property="delegate" destination="bl5-73-kmd" id="dF5-OE-Xbl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Über" id="8d9-qO-gsr">
+                    <navigationItem key="navigationItem" title="About" id="8d9-qO-gsr">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="eNx-tb-WJU">
                             <connections>
                                 <segue destination="akT-PZ-dvY" kind="unwind" unwindAction="rewindsToListViewController:" id="ErL-q5-ivE"/>
@@ -1508,7 +1514,7 @@ Dies war meine erste App im App Store und ich bin immer noch sehr interessiert, 
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1iw-If-D2w" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="akT-PZ-dvY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4634" y="486"/>
+            <point key="canvasLocation" x="3854" y="1257"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="swx-zS-MF0">
@@ -1532,7 +1538,7 @@ Dies war meine erste App im App Store und ich bin immer noch sehr interessiert, 
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7hc-4y-g8p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3890" y="486"/>
+            <point key="canvasLocation" x="3110" y="1257"/>
         </scene>
     </scenes>
     <resources>

@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  Rhetorica
+
+  Created by Nick Podratz on 26.10.15.
+  Copyright © 2015 Nick Podratz. All rights reserved.
+*/
+
+"lernliste" = "Lernliste";
+"wichtigste_stilmittel" = "Wichtigste Stilmittel";
+"einige_stilmittel" = "Einige Stilmittel";
+"alle_Stilmittel" = "Alle Stilmittel";
+"gewählte_liste" = "Selected List";
+"quiz_nicht_möglich" = "Quiz nicht möglich";
+"quiz_alert_beschreibung" = "Vergewissere dich, dass die ausgewählte Liste mindestens vier Einträge enthält.";
+"quiz_alert_alles_klar" = "Alles klar";
+"ihre_lernliste_ist_leer" = "Deine Lernliste ist leer";
+"diese_liste_ist_leer" = "Diese Liste ist leer";
+"löschen" = "Löschen";
+"hinzugefügt" = "Hinzugefügt";
+"entfernt" = "Entfernt";
+"von" = "von";
+"richtig" = "richtig";
+"mail_kann_nicht_erstellt_werden" = "Mail kann nicht erstellt werden";
+"mail_alert_beschreibung" = "Stelle sicher, dass die Einstellungen deines Mailaccounts in den Systemeinstellungen richtig sind.";
+"german" = "Deutsch";
+"english" = "Englisch";
