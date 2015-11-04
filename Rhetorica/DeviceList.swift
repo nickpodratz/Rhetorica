@@ -17,21 +17,20 @@ class DeviceList: NSObject {
             if enoughForCategories {
                 presentLetters = Language.latinAlphabet.filter{self.sortedList[$0] != nil}
             }
-            
             let backgroundQueue = dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)
-            dispatch_async(backgroundQueue) {
-                // Save Elementlist under title
-                let listOfFavouriteStrings = newValue.map{$0.title}
-                NSUserDefaults.standardUserDefaults().setValue(listOfFavouriteStrings, forKey: self.title)
-                NSUserDefaults.standardUserDefaults().synchronize()
+            if self.editable {
+                dispatch_async(backgroundQueue) {
+                    // Save Elementlist under title
+                    let listOfFavouriteStrings = newValue.map{$0.title}
+                    NSUserDefaults.standardUserDefaults().setValue(listOfFavouriteStrings, forKey: self.title)
+                    NSUserDefaults.standardUserDefaults().synchronize()
+                }
             }
         }
         didSet {
             elements.sortInPlace(<)
-            print("sorted?")
         }
     }
-    
     lazy var presentLetters: [String] = Language.latinAlphabet.filter{self.sortedList[$0] != nil}
     lazy var sortedList: [String: [StylisticDevice]] = {
         var returnList = [String: [StylisticDevice]]()
@@ -52,7 +51,7 @@ class DeviceList: NSObject {
     init(title: String, editable: Bool, elements: [StylisticDevice]) {
         self.title = title
         self.editable = editable
-        self.elements = elements
+        self.elements = elements.sort()
     }
 }
 
@@ -184,5 +183,16 @@ extension DeviceList {
         
         defaults.setValue(title, forKey: selectedListTitleKey)
         defaults.synchronize()
+    }
+}
+
+
+// MARK: DeviceList + Random Device
+
+extension DeviceList {
+    /** - returns: A random Device from the 'devices' array. */
+    func getRandomDevice() -> StylisticDevice {
+        let randomNumber = Int(arc4random_uniform(UInt32(self.elements.count)))
+        return self.elements[randomNumber]
     }
 }

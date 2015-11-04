@@ -71,7 +71,7 @@
 	<key>Simile</key>
 	<dict>
 		<key>definition</key>
-		<string>A comparison between two different things. The comparison contains  either the word “like” or “as” to underline a similarity.</string>
+		<string>A comparison between two different things. The comparison contains either the word “like” or “as” to underline a similarity.</string>
 		<key>examples</key>
 		<array>
 			<string>“And the executioner went off like an arrow.” (Lewis Carroll)</string>
@@ -121,7 +121,7 @@
 	<key>Synecdoche</key>
 	<dict>
 		<key>definition</key>
-		<string>A metaphor in which a part a kind is used to signify the whole.</string>
+		<string>A metaphor in which a part of a kind is used to signify the whole.</string>
 		<key>examples</key>
 		<array>
 			<string>“Lend me your ears”</string>
@@ -317,7 +317,7 @@
 		<key>examples</key>
 		<array>
 			<string>“Love’s fire heats water, water cools not love.” (Shakespeare)</string>
-			<string>“Ask not what your country can do for you — ask what you can do for your country” (John F. Kennedy)</string>
+			<string>“Ask not what your country can do for you—ask what you can do for your country” (John F. Kennedy)</string>
 		</array>
 		<key>levelOfImportance</key>
 		<integer>7</integer>
@@ -514,10 +514,10 @@
 	<key>Epizeuxis</key>
 	<dict>
 		<key>definition</key>
-		<string>One word is repeated to emphasise its importance.</string>
+		<string>One word is repeated to emphasize its importance.</string>
 		<key>examples</key>
 		<array>
-			<string>The amusement park was fun, fun, fun.</string>
+			<string></string>
 			<string>“O horror, horror, horror.” (Shakespeare: Macbeth)</string>
 			<string>“Words, words, words.” (Shakespeare: Hamlet)</string>
 		</array>
@@ -693,7 +693,7 @@
 		<key>examples</key>
 		<array>
 			<string>“Miracles exist unless someone proves that they do not exist.”</string>
-			<string>“You can not prove that there is no souls”</string>
+			<string>“You can not prove that there is no souls.”</string>
 		</array>
 		<key>levelOfImportance</key>
 		<integer>5</integer>
@@ -738,7 +738,7 @@
 		<string>A clause that is grammatically, but not logically, complete.</string>
 		<key>examples</key>
 		<array>
-			<string>“so that while seeing, they should not see; and while hearing, they should not hear; and they should not perceive, lest they should turn back” (Matthew)</string>
+			<string>“So that while seeing, they should not see; and while hearing, they should not hear; and they should not perceive, lest they should turn back” (Matthew: Bible)</string>
 		</array>
 		<key>levelOfImportance</key>
 		<integer>4</integer>
@@ -813,7 +813,7 @@
 	<key>Dysphemism</key>
 	<dict>
 		<key>definition</key>
-		<string>An expression with connotations that are offensive either about the subject matter or to the audience, or both.</string>
+		<string>An expression with connotations that are offensive either about the subject of matter or to the audience, or both.</string>
 		<key>examples</key>
 		<array>
 			<string>“What an asshole.”</string>
@@ -866,7 +866,7 @@
 		<key>examples</key>
 		<array>
 			<string>“When I was a child, I spoke as a child, I understood as a child, I thought as a child” (The Apostle Paul)</string>
-			<string>“... this nation, under God, shall have a new birth of freedom — and that government of the people, by the people, for the people, shall not perish from the earth.” (Abraham Lincoln)</string>
+			<string>“... this nation, under God, shall have a new birth of freedom—and that government of the people, by the people, for the people, shall not perish from the earth.” (Abraham Lincoln)</string>
 			<string>“Where affections bear rule, their reason is subdued, honesty is subdued, good will is subdued, and all things else that withstand evil, for ever are subdued.” (Thomas Wilson)</string>
 		</array>
 		<key>levelOfImportance</key>
@@ -964,7 +964,7 @@
 	<key>Homeoteleuton</key>
 	<dict>
 		<key>definition</key>
-		<string>the repetition of endings in words.</string>
+		<string>The repetition of endings in words.</string>
 		<key>examples</key>
 		<array>
 			<string>“The waters rose rapidly / and I dove under quickly.”</string>
@@ -1313,7 +1313,7 @@
 	<key>Paradox</key>
 	<dict>
 		<key>definition</key>
-		<string>a statement that seems to be self-contradictory or opposed to common sense. </string>
+		<string>A statement that seems to be self-contradictory or opposed to common sense. </string>
 		<key>examples</key>
 		<array>
 			<string>“The child is father of the man.” (Wordsworth)</string>
@@ -1478,7 +1478,7 @@
 	<key>Blame</key>
 	<dict>
 		<key>definition</key>
-		<string>Declaring someone or something to be responsible for a bad happenings.</string>
+		<string>Declaring someone or something to be responsible for a bad happening.</string>
 		<key>examples</key>
 		<array>
 			<string>“It was all his fault!”</string>
@@ -1515,7 +1515,7 @@
 		<string>A written greeting.</string>
 		<key>examples</key>
 		<array>
-			<string>“Best wished”</string>
+			<string>“Best wishes”</string>
 			<string>“In love”</string>
 		</array>
 		<key>levelOfImportance</key>
@@ -1573,7 +1573,7 @@
 	<key>Sententia</key>
 	<dict>
 		<key>definition</key>
-		<string>Brief moral sayings taken from ancient or popular or other sources, often quoted without context</string>
+		<string>A brief moral saying taken from ancient, popular or other sources, often quoted without context.</string>
 		<key>examples</key>
 		<array>
 			<string>“A man&apos;s as miserable as he thinks he is.” (Seneca)</string>
@@ -1589,7 +1589,7 @@
 	<key>Telling Name</key>
 	<dict>
 		<key>definition</key>
-		<string>A personal name that is suited to its owner. Ooftentimes the name describes what he or she is or does.</string>
+		<string>A personal name that is suited to its owner. Oftentimes the name describes what he or she is or does.</string>
 		<key>examples</key>
 		<array>
 			<string>Darth Vader (dark + death, invader)</string>

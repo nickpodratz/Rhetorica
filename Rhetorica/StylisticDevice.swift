@@ -10,6 +10,7 @@ import Foundation
 
 
 class StylisticDevice: NSObject {
+    let language: Language
     let title: String
     let definition: String
     let examples: [String]
@@ -18,7 +19,8 @@ class StylisticDevice: NSObject {
     let opposite: String?
     let levelOfImportance: Int
     
-    init (title: String, definition: String, examples: [String], synonym: String? = nil, wikipedia: String? = nil, opposite: String? = nil, levelOfImportance: Int = 0){
+    init (language: Language, title: String, definition: String, examples: [String], synonym: String? = nil, wikipedia: String? = nil, opposite: String? = nil, levelOfImportance: Int = 0){
+        self.language = language
         self.title = title
         self.definition = definition
         self.examples = examples
@@ -56,15 +58,17 @@ extension StylisticDevice {
 }
 
 
-// MARK: - StylisticDevice + Loading from Plist
+// MARK: - StylisticDevice + Load from Plist
 
 extension StylisticDevice {
-    static func getAllDevicesFromPlist(language: Language) -> [StylisticDevice] {
+    
+    static func getDevicesFromPlistForLanguage(language: Language) -> [StylisticDevice] {
         var devices = [StylisticDevice]()
         if let path = NSBundle.mainBundle().pathForResource("stylisticDevices_\(language.identifier)", ofType: "plist"),
             dict = NSDictionary(contentsOfFile: path) {
                 for (_, deviceDict) in dict {
                     let device = StylisticDevice(
+                        language: language,
                         title: deviceDict.valueForKey("title") as! String,
                         definition: deviceDict.valueForKey("definition") as! String,
                         examples: deviceDict.valueForKey("examples") as! [String],
@@ -75,8 +79,16 @@ extension StylisticDevice {
                     
                     devices.append(device)
                 }
-            }
+        }
         return devices
     }
 
+    static func getDevicesFromPlistForLanguages(languages: [Language]) -> [StylisticDevice] {
+        var allDevices = [StylisticDevice]()
+        for language in languages {
+            allDevices.appendContentsOf(StylisticDevice.getDevicesFromPlistForLanguage(language))
+        }
+        return allDevices
+    }
 }
+

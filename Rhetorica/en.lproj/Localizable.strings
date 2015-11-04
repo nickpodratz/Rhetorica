@@ -20,7 +20,7 @@
 "hinzugefügt" = "Added";
 "entfernt" = "Removed";
 "von" = "of";
-"richtig" = "correct";
+"frage" = "Question";
 "mail_kann_nicht_erstellt_werden" = "Mail can't be created.";
 "mail_alert_beschreibung" = "Make sure, that the settings of your mail-account are valid.";
 "german" = "German";

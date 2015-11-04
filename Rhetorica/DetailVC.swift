@@ -36,32 +36,30 @@ class DetailViewController: UITableViewController {
         didSet {
             self.configureView()
             tableView.hidden = (device == nil)
-            pinBarButtonItem.enabled = device != nil
         }
     }
     
-    weak var device: StylisticDevice? {
+    var device: StylisticDevice? {
         didSet {
             self.configureView()
             tableView.hidden = (device == nil)
-            pinBarButtonItem.enabled = device != nil
         }
     }
-    
+    var delegate: DetailViewControllerDelegate?
+
     
     // MARK: - Life cycle
     
     override func viewDidLoad() {
-        tableView.hidden = (device == nil)
-        pinBarButtonItem.enabled = device != nil
-
         // Update size of cells
+        super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 100
         tableView.layoutIfNeeded()
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         wikipediaCell.setSelected(false, animated: true)
         configureView()
     }
@@ -70,13 +68,17 @@ class DetailViewController: UITableViewController {
     // MARK: - User Interaction
     
     @IBAction func addToFavorites(sender: AnyObject) {
-        if let indexOfDeviceInFavorites = favorites.elements.indexOf(self.device!){
+        print(favorites)
+        guard let favorites = favorites, let device = device else { return }
+        if let indexOfDeviceInFavorites = favorites.elements.indexOf(device){
             // Deleting...
+            delegate?.detailViewControllerDelegate(deviceNowIsFavorite: false)
             favorites.elements.removeAtIndex(indexOfDeviceInFavorites)
             self.navigationItem.rightBarButtonItem?.image = UIImage(named: "pin")
             showFavoritesLabel(addedStylisticDevice: false)
         }else {
             // Adding...
+            delegate?.detailViewControllerDelegate(deviceNowIsFavorite: true)
             favorites.elements.append(self.device!)
             self.navigationItem.rightBarButtonItem?.image = UIImage(named: "pin_filled")
             showFavoritesLabel(addedStylisticDevice: true)
@@ -119,7 +121,7 @@ class DetailViewController: UITableViewController {
     
     func configureView() {
         guard let device = self.device else {
-//            self.tableView.hidden = true
+            self.tableView.hidden = true
             pinBarButtonItem.enabled = false
             return
         }
@@ -135,8 +137,14 @@ class DetailViewController: UITableViewController {
         synonymLabel?.text = device.synonym
         
         tableView.reloadData()
+        
         // Set correct Favorite-Image
-        let deviceIsFavorite = favorites.elements.contains(self.device!)
+        let deviceIsFavorite: Bool
+        if let favorites = favorites {
+            deviceIsFavorite = favorites.elements.contains(device)
+        } else {
+            deviceIsFavorite = false
+        }
         navigationItem.rightBarButtonItem?.image = deviceIsFavorite ? UIImage(named: "pin_filled") : UIImage(named: "pin")
     }
     

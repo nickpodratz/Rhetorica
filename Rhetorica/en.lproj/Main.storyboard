@@ -188,8 +188,8 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Opposite" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQb-8m-GlX">
-                                                    <rect key="frame" x="15" y="12" width="69.5" height="19.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opposite" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQb-8m-GlX">
+                                                    <rect key="frame" x="15" y="12" width="66" height="19.5"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -491,7 +491,7 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Das Beispiel des gesuchten rhetorischen Mittels" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUC-Md-rWN">
-                                        <rect key="frame" x="24" y="88.5" width="552" height="20.5"/>
+                                        <rect key="frame" x="24" y="90.5" width="552" height="20.5"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -501,7 +501,7 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Example" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YiC-F3-vrk">
-                                        <rect key="frame" x="24" y="68.5" width="552" height="18"/>
+                                        <rect key="frame" x="24" y="70.5" width="552" height="18"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -538,7 +538,7 @@
                                     <constraint firstItem="Pkd-5e-Q1j" firstAttribute="top" secondItem="j1R-Ov-ini" secondAttribute="bottom" constant="2" id="bUB-0Z-lXj">
                                         <variation key="heightClass=regular-widthClass=regular" constant="3"/>
                                     </constraint>
-                                    <constraint firstItem="YiC-F3-vrk" firstAttribute="top" secondItem="Pkd-5e-Q1j" secondAttribute="bottom" constant="8" id="rx3-wa-Qcs">
+                                    <constraint firstItem="YiC-F3-vrk" firstAttribute="top" secondItem="Pkd-5e-Q1j" secondAttribute="bottom" constant="10" id="rx3-wa-Qcs">
                                         <variation key="heightClass=regular-widthClass=regular" constant="15"/>
                                     </constraint>
                                     <constraint firstAttribute="trailing" secondItem="j1R-Ov-ini" secondAttribute="trailing" constant="24" id="s7Y-ex-23w">
@@ -1301,8 +1301,8 @@ Dies war meine erste App im App Store und ich bin immer noch sehr interessiert, 
                                                         <rect key="frame" x="16" y="24" width="368" height="142"/>
                                                     </variation>
                                                 </label>
-                                                <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zLt-PO-uz4">
-                                                    <rect key="frame" x="24" y="185.5" width="209.5" height="50"/>
+                                                <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="zLt-PO-uz4">
+                                                    <rect key="frame" x="24" y="185.5" width="211" height="50"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="portrait" highlightedImage="portrait" translatesAutoresizingMaskIntoConstraints="NO" id="A9a-Ul-r8m">
                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -1320,8 +1320,8 @@ Dies war meine erste App im App Store und ich bin immer noch sehr interessiert, 
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Developer from Hamburg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qM9-7I-iTX">
-                                                            <rect key="frame" x="56.5" y="26" width="153" height="16"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developer from Hamburg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qM9-7I-iTX">
+                                                            <rect key="frame" x="58" y="26" width="153" height="16"/>
                                                             <animations/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

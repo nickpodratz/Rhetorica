@@ -77,17 +77,26 @@ extension Language {
     static func getSystemLanguageIdentifier() -> String {
         return NSBundle.mainBundle().preferredLocalizations.first!
     }
-
+    
     /// - Returns: The user-specified language identifier if it was set or nil.
     static func getSelectedLanguageIdentifier() -> String? {
         return NSUserDefaults.standardUserDefaults().stringForKey(selectedLanguageIdentifierKey)
     }
     
     /// Saves the specified identifier to the user defaults for later retrieval.
-    static func setSelectedLanguageIdentifier(identifier: String) {
+    static func setSelectedLanguage(language: Language) {
         let defaults = NSUserDefaults.standardUserDefaults()
         
-        defaults.setValue(identifier, forKey: selectedLanguageIdentifierKey)
+        defaults.setValue(language.identifier, forKey: selectedLanguageIdentifierKey)
         defaults.synchronize()
     }
+}
+
+
+// MARK: - Language + All Languages Array
+
+extension Language {
+    
+    /// An array of all languages available.
+    static var allLanguages = [Language.German, Language.English]
 }

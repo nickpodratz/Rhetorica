@@ -220,7 +220,7 @@ Wind und Wellen spielen nicht mit seinem Herzen.“ (Johann Wolfgang von Goethe)
 	<key>Antilabe</key>
 	<dict>
 		<key>definition</key>
-		<string>Derm Text einer Zeile wird auf mehrere Sprecher verteilt.</string>
+		<string>Der Text einer Zeile wird auf mehrere Sprecher verteilt.</string>
 		<key>examples</key>
 		<array>
 			<string>„DER HERR: Kennstaust? / MEPHISTOPHELES: Den Doktor? / DER HERR: Meinen Knecht!“ (Goethe: Faust I)</string>
@@ -943,7 +943,7 @@ Wind und Wellen spielen nicht mit seinem Herzen.“ (Johann Wolfgang von Goethe)
 		<string>Eine konkrete, bildhafte Veranschaulichung eines Sachverhalts mittels eines durch sprachliche Kontinuation ausgebauten Vergleichs.</string>
 		<key>examples</key>
 		<array>
-			<string>Bibel: Lukas 15,1-10: „Verlorenes Schaf“</string>
+			<string>„Verlorenes Schaf“ (Lukas: Bibel)</string>
 		</array>
 		<key>levelOfImportance</key>
 		<integer>5</integer>
@@ -1191,8 +1191,7 @@ Wind und Wellen spielen nicht mit seinem Herzen.“ (Johann Wolfgang von Goethe)
 	<key>Katachrese</key>
 	<dict>
 		<key>definition</key>
-		<string>1) Eine Metapher als Ersatz für ein fehlendes Wort. (z.B. bei technischen Neuerungen)
-2) Ein Bildbruch, Bildmissbrauch, oder eine falsche Verbindung zweier Bilder.</string>
+		<string>Eine Metapher durch falsche Verbindung zweier Bilder als Ersatz eines fehlenden Wortes. (z.B. bei technischen Neuerungen)</string>
 		<key>examples</key>
 		<array>
 			<string>„der Arm eines Flusses“</string>
@@ -1894,11 +1893,11 @@ Wind und Wellen spielen nicht mit seinem Herzen.“ (Johann Wolfgang von Goethe)
 	<key>Synästhesie</key>
 	<dict>
 		<key>definition</key>
-		<string>„Eine Verbindung verschiedener Sinneseindrücke.</string>
+		<string>Eine Verbindung verschiedener Sinneseindrücke.</string>
 		<key>examples</key>
 		<array>
-			<string>„Das nasse Gras klang wie ein Liebeslied“</string>
-			<string>„Süßer die Glocken nie klingen“</string>
+			<string>„Das nasse Gras klang wie ein Liebeslied.“</string>
+			<string>„Süßer die Glocken nie klingen.“</string>
 		</array>
 		<key>levelOfImportance</key>
 		<integer>3</integer>
@@ -2118,7 +2117,7 @@ Wind und Wellen spielen nicht mit seinem Herzen.“ (Johann Wolfgang von Goethe)
 	<key>Zynismus</key>
 	<dict>
 		<key>definition</key>
-		<string>Eine boshaft verletzende, oft ironische Äußerung als Demonstration der Überlegenheit unter Missachtung, Umdeutung oder Ad-absurdum-Führung allgemein verbreiteter oder anerkannter Werte.</string>
+		<string>Eine boshafte, oft ironische Äußerung als Demonstration der Überlegenheit unter Missachtung oder Umdeutung allgemein anerkannter Werte.</string>
 		<key>examples</key>
 		<array>
 			<string>„Der Schläger sagt nach seiner Tat: ‚Hat es dir gefallen? Soll ich noch mal draufhauen?‘“</string>

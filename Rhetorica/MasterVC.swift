@@ -17,20 +17,23 @@ class MasterViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noElementsLabel: UILabel!
-    @IBOutlet var tapRecognizer: UITapGestureRecognizer!
     @IBOutlet weak var noEntriesView: UIView!
+    @IBOutlet var tapRecognizer: UITapGestureRecognizer!
     
-    var searchController: UISearchController!
-    var detailViewController: DetailViewController?
-    
+    var searchController: UISearchController = UISearchController(searchResultsController: nil)
+    var detailViewController: DetailViewController? {
+        didSet {
+            detailViewController?.device = self.selectedDeviceList.elements.first
+        }
+    }
     
     // MARK: Properties
     
     var selectedLanguage: Language! {
         didSet{
-            let allDevices = StylisticDevice.getAllDevicesFromPlist(selectedLanguage)
+            // Update deviceLists…
+            let allDevices = StylisticDevice.getDevicesFromPlistForLanguage(selectedLanguage)
             deviceLists = DeviceList.getAllDeviceLists(allDevices)
-            
             indexStylisticDevicesIfPossible(allDevices)
             
             if let listTitle = DeviceList.getSelectedListTitle() {
@@ -40,6 +43,8 @@ class MasterViewController: UIViewController, UISearchBarDelegate {
             } else {
                 selectedDeviceList = deviceLists.first!
             }
+            detailViewController?.device = selectedDeviceList.elements.first
+            tableView.reloadData()
         }
     }
     var deviceLists: [DeviceList] = [] {
@@ -50,6 +55,9 @@ class MasterViewController: UIViewController, UISearchBarDelegate {
         }
     }
     var selectedDeviceList: DeviceList!
+    var favorites: DeviceList? {
+        return deviceLists.last
+    }
 
     var searchResults = [StylisticDevice]()
     var originalSeparatorColor: UIColor!
@@ -67,7 +75,7 @@ class MasterViewController: UIViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Set language
         let languageIdentifier = Language.getSelectedLanguageIdentifier() ?? Language.getSystemLanguageIdentifier()
         selectedLanguage = Language(identifier: languageIdentifier) ?? .German
@@ -126,7 +134,7 @@ class MasterViewController: UIViewController, UISearchBarDelegate {
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.sizeToFit()
         searchController.searchBar.backgroundColor = UIColor.whiteColor()
-        searchController.searchBar.tintColor = UIColor.customPurpleColor()
+        searchController.searchBar.tintColor = QuizButton.purpleColor()
         searchController.view.layoutIfNeeded()
         tableView.tableHeaderView = searchController.searchBar
         
@@ -151,7 +159,7 @@ class MasterViewController: UIViewController, UISearchBarDelegate {
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
                 self.detailViewController = controller
-                controller.favorites = deviceLists.last!
+                controller.favorites = favorites
                 controller.device = {
                     if self.searchController.active {
                         return self.searchResults[indexPath.row]
@@ -169,6 +177,8 @@ class MasterViewController: UIViewController, UISearchBarDelegate {
             definesPresentationContext = true
             let controller = (segue.destinationViewController as! UINavigationController).topViewController as! QuizViewController
             controller.deviceList = selectedDeviceList
+            controller.language = selectedLanguage
+            controller.favorites = deviceLists.last!
             
         case "showList":
             definesPresentationContext = false
@@ -332,9 +342,7 @@ extension MasterViewController: UITableViewDataSource, UITableViewDelegate {
     
     func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
         var index = selectedDeviceList.presentLetters
-        if searchController != nil {
-            index.insert(UITableViewIndexSearch, atIndex: 0)
-        }
+        index.insert(UITableViewIndexSearch, atIndex: 0)
         
         return (selectedDeviceList.enoughForCategories && !searchController.active) ? index : nil
     }
@@ -350,7 +358,7 @@ extension MasterViewController: UITableViewDataSource, UITableViewDelegate {
             return
         })
         
-        deleteButton.backgroundColor = UIColor.customRedColor()
+        deleteButton.backgroundColor = QuizButton.redColor()
         
         return [deleteButton]
     }
@@ -398,12 +406,12 @@ extension MasterViewController: ListViewDelegate {
     
     func listView(didSelectLanguage language: Language) {
         if language != self.selectedLanguage {
-            Language.setSelectedLanguageIdentifier(language.identifier)
+            Language.setSelectedLanguage(language)
             self.selectedLanguage = language
             tableView.reloadData()
             scrollTableViewToTop()
             detailViewController?.favorites = self.deviceLists.last!
-            detailViewController?.device = nil            
+            detailViewController?.device = self.selectedDeviceList.elements.first
         }
     }
 }

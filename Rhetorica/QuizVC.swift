@@ -19,185 +19,171 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
     @IBOutlet weak var definitionLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var exampleLabel: UILabel!
-    @IBOutlet var buttons: [UIButton]! {
-        didSet{
-            self.defaultButtonColor = buttons.first!.backgroundColor
-        }
-    }
+    @IBOutlet var buttons: [QuizButton]!
+    
     @IBOutlet weak var toTopConstraint: NSLayoutConstraint!
     
     
     // MARK: - Properties
-
-    var defaultButtonColor: UIColor!
+    
+    var language: Language!
     weak var deviceList: DeviceList!
-    var tagOfCorrectAnswer: Int!
-    
-    // Answer-logging
-    var counterOfCorrectAnswers = 0
-    var counterOfQuestions = 0
-    
+    weak var favorites: DeviceList!
+    var questionSet: QuestionSet!
     
     // MARK: - Life Cycle
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.questionSet = QuestionSet(fromDeviceList: deviceList, language: language, numberOfQuestions: 10)
+    }
+    
     override func viewWillAppear(animated: Bool) {
-        setupViewForNewRound()
+        setupForNewQuestion()
     }
     
     override func viewDidLayoutSubviews() {
         centerContent()
     }
     
+    @IBAction func quizButtonTouchedDown(sender: QuizButton) {
+        sender.animateTouched()
+
+        for button in buttons {
+            button.userInteractionEnabled = false
+        }
+        sender.userInteractionEnabled = true
+    }
+    
+    @IBAction func quizButtonTouchedUp(sender: QuizButton) {
+        for button in buttons {
+            button.userInteractionEnabled = true
+        }
+    }
     
     // MARK: - Transitioning
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
-        if segue.identifier == "showResult" {
-            let controller = segue.destinationViewController as! QuizResultViewController
-            controller.numberOfCorrectAnswers = self.counterOfCorrectAnswers
-            controller.numberOfQuestions = self.counterOfQuestions
+        if segue.identifier == "toQuizResults" {
+            let destinationController = segue.destinationViewController as! QuizResultsViewController
+            destinationController.questionSet = self.questionSet
+            destinationController.favorites = favorites
         }
+    }
+    
+    @IBAction func rewindsToQuizViewController(segue:UIStoryboardSegue) {
+        self.questionSet = QuestionSet(fromDeviceList: deviceList, language: questionSet.language, numberOfQuestions: 10)
     }
 
     
     // MARK: - User Interaction
 
     /// Called when Button is pushed down
-    @IBAction func fadeIn(sender: UIButton) {
-        UIView.animateWithDuration(0.1, delay: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
-            sender.backgroundColor = UIColor(red:0.53, green:0.21, blue:0.39, alpha:0.9)
-        }, completion: nil)
+    @IBAction func fadeIn(sender: QuizButton) {
     }
     
     /// Called when Button is cancelled
-    @IBAction func fadeOut(sender: UIButton) {
-        UIView.animateWithDuration(0.7, delay: 0.4, options: UIViewAnimationOptions.CurveEaseOut, animations: {
-            sender.backgroundColor = self.defaultButtonColor
-            },completion: { _ in
-                sleep(1)
-                UIView.animateWithDuration(0.7, delay: 0.4, options: UIViewAnimationOptions.CurveEaseOut, animations: {
-                    sender.backgroundColor = self.defaultButtonColor
-            }, completion: nil)
-        })
-
+    @IBAction func fadeOut(sender: QuizButton) {
+        sender.animateUntouched()
     }
     
     @IBAction func cancel(sender: AnyObject) {
-        // let actionSheet = UIActionSheet(title: "Dieses Quiz wirklich beenden? Der Spielforschritt geht in diesem Fall verloren.", delegate: self, cancelButtonTitle: "abbrechen", destructiveButtonTitle: "Quiz beenden")
-        dismissViewControllerAnimated(true, completion: nil)
-        // actionSheet.actionSheetStyle = .Default
-        // actionSheet.showInView(self.view)
-    }
-/*
-    // MARK: UIActionSheetDelegate
-    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
-        println(buttonIndex)
-        switch buttonIndex {
-        case  0: dismissViewControllerAnimated(true, completion: nil)
-        default: break
+        if questionSet.numberOfCurrentQuestion != 1 {
+            let alertController = UIAlertController(title: "Quiz beenden?", message: "Wenn du nun das Quiz abbrichst, geht dein bisheriger Spielstand verloren.", preferredStyle: .Alert)
+            
+            let proceedAction = UIAlertAction(title: "Beenden", style: UIAlertActionStyle.Destructive) { action in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+            alertController.addAction(proceedAction)
+            
+            let cancelAction = UIAlertAction(title: "Fortfahren", style: UIAlertActionStyle.Cancel, handler: nil)
+            alertController.addAction(cancelAction)
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
-*/
 
-    @IBAction func buttonKlicked(sender: UIButton) {
-        counterOfQuestions += 1
+    @IBAction func buttonKlicked(sender: QuizButton) {
+        let answerWasCorrect = (sender.tag == questionSet.currentQuestion!.tagOfCorrectAnswer)
+        let correctButton = buttons[questionSet.currentQuestion!.tagOfCorrectAnswer]
+
+        questionSet.currentQuestion?.answerWasCorrect = answerWasCorrect
+
         for button in buttons {
             button.userInteractionEnabled = false
         }
         
-        let correctButton: UIButton = buttons[tagOfCorrectAnswer]
-
-        // Correct Answer
-        if sender.tag == tagOfCorrectAnswer {
-            UIView.animateWithDuration(0.16, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut,
-                animations: {
-                    sender.backgroundColor = UIColor.customGreenColor()
-                },
-                completion: { _ in
-                    UIView.animateWithDuration(0.8, delay: 0.9, options: UIViewAnimationOptions.CurveEaseOut,
-                        animations: {
-                            sender.backgroundColor = self.defaultButtonColor
-                        },
-                        completion: { _ in
-                            self.counterOfCorrectAnswers++
-                            self.setupViewForNewRound()
-                        }
-                    )
+        if answerWasCorrect {
+            sender.animateIsCorrect() {
+                sender.animateToNormal() {
+                    self.setupForNewQuestion()
+                    
                 }
-            )
-            
-        // Wrong Answer
+            }
         } else {
-            UIView.animateWithDuration(0.16, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn,
-                animations: {
-                    sender.backgroundColor = UIColor.customRedColor()
-                    AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-                },
-                completion: { _ in
-                    UIView.animateWithDuration(0.55, delay: 0.8, options: UIViewAnimationOptions.CurveEaseOut,
-                        animations: {
-                            sender.backgroundColor = self.defaultButtonColor
-                            correctButton.backgroundColor = UIColor.customGreenColor()
-                        },
-                        completion: { _ in
-                            UIView.animateWithDuration(0.8, delay: 1.52, options: UIViewAnimationOptions.CurveEaseOut,
-                                animations: {
-                                    correctButton.backgroundColor = self.defaultButtonColor
-                                },
-                                completion: { _ in
-                                    self.setupViewForNewRound()
-                                }
-                            )
+            sender.animateIsFalse() {
+                sender.animateToNormal() {
+                    correctButton.animateIsCorrect() {
+                        correctButton.animateToNormal() {
+                            self.setupForNewQuestion()
                         }
-                    )
+                    }
                 }
-            )
+            }
         }
     }
     
     
     // MARK: - Private Functions
-    
-    /** - returns: a random Device from the 'devices' array. */
-    private func getRandomDevice() -> StylisticDevice {
-        let randomNumber = Int(arc4random_uniform(UInt32(deviceList.elements.count)))
-        return deviceList[randomNumber]
-    }
-    
-    private func setupViewForNewRound() {
-        let firstPart = NSLocalizedString("von", comment: "")
-        let secondPart = NSLocalizedString("richtig", comment: "")
-        self.navigationItem.title = "\(counterOfCorrectAnswers) \(firstPart) \(counterOfQuestions) \(secondPart)"
         
-        // Choosing four random devices
-        var newDevices = [StylisticDevice]()
-        
-        for _ in buttons.indices {
-            var newRandomDevice: StylisticDevice
-            repeat {
-                newRandomDevice = getRandomDevice()
-            } while (newDevices.contains(newRandomDevice))
-            
-            newDevices.append(newRandomDevice)
+    private func setupForNewQuestion() {
+        // Get current question and check if quiz ended.
+        guard let question = questionSet.nextQuestion() else {
+            print("Quiz did end")
+            performSegueWithIdentifier("toQuizResults", sender: self)
+            return
         }
-        
-        // Appoint correct device
-        self.tagOfCorrectAnswer = Int(arc4random_uniform(4))
-        
-        // Configuring the buttons
-        for button in buttons {
-            button.userInteractionEnabled = true
-            button.backgroundColor = defaultButtonColor
+
+        // Fade out
+        if questionSet.numberOfCurrentQuestion > 1 {
+            UIView.animateWithDuration(0.4, delay: 0.03, options: .CurveEaseOut,
+                animations: {
+                    self.scrollView.alpha = 0
+                }, completion: nil
+            )
         }
+
+        // Configuring title of Navigation Bar
+        let questionLocalized = NSLocalizedString("frage", comment: "")
+        let ofLocalized = NSLocalizedString("von", comment: "")
+        self.navigationItem.title = "\(questionLocalized) \(questionSet.numberOfCurrentQuestion) \(ofLocalized) \(questionSet.numberOfQuestions)"
+        
+        // Configuring Buttons
+        print(buttons)
         for (buttonIndex, button) in buttons.enumerate() {
-            button.setTitle(newDevices[buttonIndex].title, forState: UIControlState.Normal)
+            button.backgroundColor = QuizButton.purpleColor()
+            
+            button.setTitle(question.devices[buttonIndex].title, forState: UIControlState.Normal)
             button.tag = buttonIndex
         }
         
-        // Configuring the labels
-        questionLabel.text = newDevices[tagOfCorrectAnswer].definition
-        exampleLabel.text = newDevices[tagOfCorrectAnswer].examples.shuffled().first
+        // Configuring question-labels
+        questionLabel.text = question.correctAnswer.definition
+        exampleLabel.text = question.correctAnswer.examples.shuffled().first
         self.view.layoutIfNeeded()
+        
+        UIView.animateWithDuration(0.24, delay: 0.43, options: .CurveEaseIn,
+            animations: {
+                self.scrollView.alpha = 1
+            },
+            completion: { _ in
+                for button in self.buttons {
+                    button.userInteractionEnabled = true
+                }
+            }
+        )
     }
     
     private func centerContent() {
@@ -209,21 +195,3 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
         }
     }
 }
-
-
-// MARK: - Button colors
-
-public extension UIColor {
-    class func customRedColor() -> UIColor {
-        return UIColor(red:0.79, green:0.25, blue:0.25, alpha:1)
-    }
-    
-    class func customGreenColor() -> UIColor {
-        return UIColor(red:0.67, green:0.72, blue:0.14, alpha:1)
-    }
-
-    class func customPurpleColor() -> UIColor {
-        return UIColor(red:0.53, green:0.21, blue:0.39, alpha:1)
-    }
-}
-
