@@ -38,6 +38,7 @@
 		63D0B29E1BDFFD8C00380DF7 /* OtherAppsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D0B29D1BDFFD8C00380DF7 /* OtherAppsCell.swift */; };
 		63D0B2A51BDFFE6A00380DF7 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D0B2A41BDFFE6A00380DF7 /* UIImage+Resize.swift */; };
 		63D525D01BC035D9003F35AC /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D525CF1BC035D9003F35AC /* RoundedButton.swift */; };
+		63D69BCB1BEACBDB0044A00B /* UIColor+RhetoricaColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D69BCA1BEACBDB0044A00B /* UIColor+RhetoricaColors.swift */; };
 		63E274311BDFBFAA0039D1C1 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E274301BDFBFAA0039D1C1 /* Language.swift */; };
 		63E58E0D1BD954B500C717B6 /* CollectionType+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E58E0C1BD954B500C717B6 /* CollectionType+.swift */; };
 		63EA0C1019F1A59200976A90 /* StylisticDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA0C0F19F1A59200976A90 /* StylisticDevice.swift */; };
@@ -97,6 +98,7 @@
 		63D0B29D1BDFFD8C00380DF7 /* OtherAppsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherAppsCell.swift; sourceTree = "<group>"; };
 		63D0B2A41BDFFE6A00380DF7 /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		63D525CF1BC035D9003F35AC /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		63D69BCA1BEACBDB0044A00B /* UIColor+RhetoricaColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+RhetoricaColors.swift"; sourceTree = "<group>"; };
 		63E274301BDFBFAA0039D1C1 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		63E58E0C1BD954B500C717B6 /* CollectionType+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionType+.swift"; sourceTree = "<group>"; };
 		63EA0C0F19F1A59200976A90 /* StylisticDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StylisticDevice.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				63C0D7F11B51211C004EAF81 /* UIImage+.swift */,
 				63D0B2A41BDFFE6A00380DF7 /* UIImage+Resize.swift */,
 				63E58E0C1BD954B500C717B6 /* CollectionType+.swift */,
+				63D69BCA1BEACBDB0044A00B /* UIColor+RhetoricaColors.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				636DE7A91BE3D27C009B2BA5 /* QuizWrongAnswersVC.swift in Sources */,
 				634D6B4C1A27F90D0043AA5F /* WikipediaVC.swift in Sources */,
 				63E58E0D1BD954B500C717B6 /* CollectionType+.swift in Sources */,
+				63D69BCB1BEACBDB0044A00B /* UIColor+RhetoricaColors.swift in Sources */,
 				63463EEE1A0BFE8C000C0BBD /* QuizResultsVC.swift in Sources */,
 				63E274311BDFBFAA0039D1C1 /* Language.swift in Sources */,
 				636DE7A11BE3A4FA009B2BA5 /* LineChart.swift in Sources */,

@@ -42,7 +42,7 @@ class AboutViewController: UITableViewController, SKStoreProductViewControllerDe
 
         // Update size of cells
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 0
+        self.tableView.estimatedRowHeight = 100
 
         timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "getOtherApps", userInfo: nil, repeats: true)
     }
@@ -185,6 +185,10 @@ class AboutViewController: UITableViewController, SKStoreProductViewControllerDe
             }
         default: return
         }
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
     
     

@@ -52,10 +52,8 @@ class DetailViewController: UITableViewController {
     
     override func viewDidLoad() {
         // Update size of cells
-        super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 100
-        tableView.layoutIfNeeded()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -112,9 +110,8 @@ class DetailViewController: UITableViewController {
         case synonymCell.tag where device?.synonym == nil: return 0
         case wikipediaCell.tag where device?.wikipedia == nil: return 0
         case oppositeCell.tag where device?.opposite == nil: return 0
-        default: return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+        default: return UITableViewAutomaticDimension
         }
-        
     }
     
     // MARK: - Helper Functions

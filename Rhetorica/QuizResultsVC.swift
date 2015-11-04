@@ -93,7 +93,7 @@ class QuizResultsViewController: UITableViewController {
     private func setupDiagram() {
         lineChart = LineChart()
         
-        lineChart.colors = [QuizButton.greenColor(), QuizButton.purpleColor(), QuizButton.redColor()]
+        lineChart.colors = [UIColor.rhetoricaGreenColor(), UIColor.rhetoricaPurpleColor(), UIColor.rhetoricaRedColor()]
         lineChart.animation.enabled = false
         lineChart.animation.duration = 2
         

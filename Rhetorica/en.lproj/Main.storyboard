@@ -661,31 +661,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Qlc-7I-R7f" style="IBUITableViewCellStyleDefault" id="Cmk-sK-38r">
-                                        <rect key="frame" x="0.0" y="86" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cmk-sK-38r" id="i9T-c2-OmR">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qlc-7I-R7f">
-                                                    <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                        <connections>
-                                            <segue destination="ssQ-jJ-41J" kind="showDetail" identifier="showDetail" id="k7M-jO-EY9"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                             <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oyu-na-KFm">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
@@ -1552,8 +1527,5 @@ Dies war meine erste App im App Store und ich bin immer noch sehr interessiert, 
         <image name="stack2" width="27" height="27"/>
         <image name="stack3" width="27" height="27"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="k7M-jO-EY9"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.52941179275512695" green="0.20784313976764679" blue="0.39215686917304993" alpha="1" colorSpace="calibratedRGB"/>
 </document>

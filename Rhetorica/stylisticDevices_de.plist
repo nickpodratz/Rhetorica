@@ -130,8 +130,7 @@
 		<string>Die Wiederholung eines (satz-/)versschließenden Wortes am Beginn des nächsten Satzes/Verses. (Schema: … x / x …)</string>
 		<key>examples</key>
 		<array>
-			<string>„Mit dem Schiffe spielen Wind und Wellen,
-Wind und Wellen spielen nicht mit seinem Herzen.“ (Johann Wolfgang von Goethe)</string>
+			<string>„Mit dem Schiffe spielen Wind und Wellen, Wind und Wellen spielen nicht mit seinem Herzen.“ (Johann Wolfgang von Goethe)</string>
 		</array>
 		<key>levelOfImportance</key>
 		<integer>3</integer>

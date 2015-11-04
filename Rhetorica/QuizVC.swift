@@ -162,9 +162,7 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
         
         // Configuring Buttons
         print(buttons)
-        for (buttonIndex, button) in buttons.enumerate() {
-            button.backgroundColor = QuizButton.purpleColor()
-            
+        for (buttonIndex, button) in buttons.enumerate() {            
             button.setTitle(question.devices[buttonIndex].title, forState: UIControlState.Normal)
             button.tag = buttonIndex
         }

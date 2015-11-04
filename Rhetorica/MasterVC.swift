@@ -134,7 +134,7 @@ class MasterViewController: UIViewController, UISearchBarDelegate {
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.sizeToFit()
         searchController.searchBar.backgroundColor = UIColor.whiteColor()
-        searchController.searchBar.tintColor = QuizButton.purpleColor()
+        searchController.searchBar.tintColor = UIColor.rhetoricaPurpleColor()
         searchController.view.layoutIfNeeded()
         tableView.tableHeaderView = searchController.searchBar
         
@@ -358,7 +358,7 @@ extension MasterViewController: UITableViewDataSource, UITableViewDelegate {
             return
         })
         
-        deleteButton.backgroundColor = QuizButton.redColor()
+        deleteButton.backgroundColor = UIColor.rhetoricaRedColor()
         
         return [deleteButton]
     }
