@@ -317,7 +317,7 @@
 		<key>examples</key>
 		<array>
 			<string>“Love’s fire heats water, water cools not love.” (Shakespeare)</string>
-			<string>“Ask not what your country can do for you—ask what you can do for your country” (John F. Kennedy)</string>
+			<string>“Ask not what your country can do for you — ask what you can do for your country” (John F. Kennedy)</string>
 		</array>
 		<key>levelOfImportance</key>
 		<integer>7</integer>
@@ -366,7 +366,7 @@
 		<string>A reference to an event, literary work or person.</string>
 		<key>examples</key>
 		<array>
-			<string>I can’t do that because I am not Superman.</string>
+			<string>“I can’t do that because I am not Superman.”</string>
 		</array>
 		<key>levelOfImportance</key>
 		<integer>7</integer>
@@ -381,7 +381,7 @@
 		<string>Repeats a word or expression for emphasis.</string>
 		<key>examples</key>
 		<array>
-			<string>Love, real love, takes time.</string>
+			<string>“Love, real love, takes time.”</string>
 		</array>
 		<key>levelOfImportance</key>
 		<integer>7</integer>
@@ -1231,7 +1231,7 @@
 		<key>examples</key>
 		<array>
 			<string>“The man who removes a mountain begins by carrying away small stones.” (William Faulkner)</string>
-			<string>“Having nothing, nothing can he lose” (Shakespeare)</string>
+			<string>“Having nothing, nothing can he lose.” (Shakespeare)</string>
 		</array>
 		<key>levelOfImportance</key>
 		<integer>6</integer>
@@ -1610,8 +1610,8 @@
 		<string>An argument that is a logical fallacy based on misrepresentation of an opponent&apos;s position.</string>
 		<key>examples</key>
 		<array>
-			<string>“A: We should relax the laws on beer.
-B: &apos;No, any society with unrestricted access to intoxicants loses its work ethic and goes only for immediate gratification.”</string>
+			<string>A: “We should relax the laws on beer.”
+B: “No, any society with unrestricted access to intoxicants loses its work ethic and goes only for immediate gratification.”</string>
 		</array>
 		<key>levelOfImportance</key>
 		<integer>2</integer>

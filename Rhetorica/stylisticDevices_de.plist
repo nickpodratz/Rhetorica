@@ -2081,8 +2081,7 @@
 	<key>Wortspiel</key>
 	<dict>
 		<key>definition</key>
-		<string>1) Die Verwendung des gleichen oder eines vom gleichen Wortstamm abgeleiteten Wortes in verschiedenen Bedeutungen oder verschiedenen Sinnzusammenhängen
-2) Eine leichte Veränderung des Wortes, durch die dieses eine Zusatzbedeutung erhält.</string>
+		<string>Die Verwendung des gleichen, leicht veränderten oder oder vom gleichen Wortstamm abgeleiteten Wortes in verschiedenen Bedeutungen oder Sinnzusammenhängen, sodass dieses eine Zusatzbedeutung erhält.</string>
 		<key>examples</key>
 		<array>
 			<string>„Jesuiter – Jesuwider“</string>

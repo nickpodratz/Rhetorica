@@ -351,45 +351,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" tag="3" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="BnV-mP-U4P" customClass="QuizButton" customModule="Rhetorica" customModuleProvider="target">
-                                <rect key="frame" x="301" y="554" width="297" height="44"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
-                                <state key="normal" title="Answer 4">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorFalse">
-                                        <color key="value" red="0.74320852756500244" green="0.17174623906612396" blue="0.19724228978157043" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorCorrect">
-                                        <color key="value" red="0.67058825489999996" green="0.72156864399999998" blue="0.1411764771" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorSelected">
-                                        <color key="value" red="0.56862747669219971" green="0.16862745583057404" blue="0.36078432202339172" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                        <color key="value" red="0.15056313574314117" green="0.15055863559246063" blue="0.15056121349334717" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <variation key="heightClass=compact-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                </variation>
-                                <connections>
-                                    <action selector="buttonKlicked:" destination="COG-xr-eg7" eventType="touchUpInside" id="SnE-dp-Xyc"/>
-                                    <action selector="fadeOut:" destination="COG-xr-eg7" eventType="touchDragExit" id="o4x-Vc-jg5"/>
-                                    <action selector="quizButtonTouchedDown:" destination="COG-xr-eg7" eventType="touchDown" id="tJI-L5-Ick"/>
-                                    <action selector="quizButtonTouchedUp:" destination="COG-xr-eg7" eventType="touchUpOutside" id="OSi-Cb-4IU"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" tag="2" contentMode="scaleAspectFill" restorationIdentifier="2" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="UoG-36-VTf" customClass="QuizButton" customModule="Rhetorica" customModuleProvider="target">
                                 <rect key="frame" x="2" y="554" width="297" height="44"/>
                                 <animations/>
@@ -404,16 +365,19 @@
                                         <real key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="colorFalse">
-                                        <color key="value" red="0.74320852756500244" green="0.17174623906612396" blue="0.19724228978157043" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.81663596630096436" green="0.20430707931518555" blue="0.22194629907608032" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="colorCorrect">
-                                        <color key="value" red="0.67058825489999996" green="0.72156864399999998" blue="0.1411764771" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.74887031316757202" green="0.76144754886627197" blue="0.14247643947601318" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="colorSelected">
                                         <color key="value" red="0.56862747669219971" green="0.16862745583057404" blue="0.36078432202339172" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                        <color key="value" red="0.15056313574314117" green="0.15055863559246063" blue="0.15056121349334717" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.56862747669219971" green="0.16862745583057404" blue="0.36078432202339172" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.84505854700000005" green="0.84505854700000005" blue="0.84505854700000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="heightClass=compact-widthClass=regular">
@@ -429,8 +393,141 @@
                                     <action selector="quizButtonTouchedUp:" destination="COG-xr-eg7" eventType="touchUpOutside" id="qsi-IW-Uyi"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qL-Ze-Zbg">
-                                <rect key="frame" x="0.0" y="66" width="600" height="440"/>
+                            <button opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleAspectFill" restorationIdentifier="0" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="A8Q-Ox-cuR" customClass="QuizButton" customModule="Rhetorica" customModuleProvider="target">
+                                <rect key="frame" x="2" y="508" width="297" height="44"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="fy6-sm-Vk1">
+                                        <variation key="heightClass=compact-widthClass=regular" constant="60"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="44"/>
+                                        <variation key="heightClass=regular-widthClass=regular" constant="115"/>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                <state key="normal" title="Answer 1">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorFalse">
+                                        <color key="value" red="0.81663596630096436" green="0.20430707931518555" blue="0.22194629907608032" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorCorrect">
+                                        <color key="value" red="0.74887031316757202" green="0.76144754886627197" blue="0.14247643947601318" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorSelected">
+                                        <color key="value" red="0.56862747669219971" green="0.16862745583057404" blue="0.36078432202339172" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.56862747669219971" green="0.16862745583057404" blue="0.36078432202339172" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.84505854700000005" green="0.84505854700000005" blue="0.84505854700000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="heightClass=compact-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                </variation>
+                                <connections>
+                                    <action selector="buttonKlicked:" destination="COG-xr-eg7" eventType="touchUpInside" id="EUY-bb-8my"/>
+                                    <action selector="fadeOut:" destination="COG-xr-eg7" eventType="touchDragExit" id="srb-hy-xAk"/>
+                                    <action selector="quizButtonTouchedDown:" destination="COG-xr-eg7" eventType="touchDown" id="16W-c6-hJu"/>
+                                    <action selector="quizButtonTouchedUp:" destination="COG-xr-eg7" eventType="touchUpOutside" id="fjI-Fq-oPO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" tag="3" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="BnV-mP-U4P" customClass="QuizButton" customModule="Rhetorica" customModuleProvider="target">
+                                <rect key="frame" x="301" y="554" width="297" height="44"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                <state key="normal" title="Answer 4">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorFalse">
+                                        <color key="value" red="0.81663596630096436" green="0.20430707931518555" blue="0.22194629907608032" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorCorrect">
+                                        <color key="value" red="0.74887031316757202" green="0.76144754886627197" blue="0.14247643947601318" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorSelected">
+                                        <color key="value" red="0.56862747669219971" green="0.16862745583057404" blue="0.36078432202339172" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.56862747669219971" green="0.16862745583057404" blue="0.36078432202339172" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.84505854700000005" green="0.84505854700000005" blue="0.84505854700000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="heightClass=compact-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                </variation>
+                                <connections>
+                                    <action selector="buttonKlicked:" destination="COG-xr-eg7" eventType="touchUpInside" id="SnE-dp-Xyc"/>
+                                    <action selector="fadeOut:" destination="COG-xr-eg7" eventType="touchDragExit" id="o4x-Vc-jg5"/>
+                                    <action selector="quizButtonTouchedDown:" destination="COG-xr-eg7" eventType="touchDown" id="tJI-L5-Ick"/>
+                                    <action selector="quizButtonTouchedUp:" destination="COG-xr-eg7" eventType="touchUpOutside" id="OSi-Cb-4IU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" tag="1" contentMode="scaleAspectFill" restorationIdentifier="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Xbr-sx-4pR" customClass="QuizButton" customModule="Rhetorica" customModuleProvider="target">
+                                <rect key="frame" x="301" y="508" width="297" height="44"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                <state key="normal" title="Answer 2">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorFalse">
+                                        <color key="value" red="0.81663596630096436" green="0.20430707931518555" blue="0.22194629907608032" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorCorrect">
+                                        <color key="value" red="0.74887031316757202" green="0.76144754886627197" blue="0.14247643947601318" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorSelected">
+                                        <color key="value" red="0.56862747669219971" green="0.16862745583057404" blue="0.36078432202339172" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.56862747669219971" green="0.16862745583057404" blue="0.36078432202339172" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.84505854700000005" green="0.84505854700000005" blue="0.84505854700000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="heightClass=compact-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                </variation>
+                                <connections>
+                                    <action selector="buttonKlicked:" destination="COG-xr-eg7" eventType="touchUpInside" id="x8G-ZA-Ydn"/>
+                                    <action selector="fadeOut:" destination="COG-xr-eg7" eventType="touchDragExit" id="Njd-Oh-Oa4"/>
+                                    <action selector="quizButtonTouchedDown:" destination="COG-xr-eg7" eventType="touchDown" id="Ljz-Vs-wQd"/>
+                                    <action selector="quizButtonTouchedUp:" destination="COG-xr-eg7" eventType="touchUpOutside" id="1Zj-fx-jtv"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qL-Ze-Zbg">
+                                <rect key="frame" x="0.0" y="64" width="600" height="440"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Die Definition des gesuchten rhetorischen Mittels" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pkd-5e-Q1j">
                                         <rect key="frame" x="24" y="40" width="552" height="20.5"/>
@@ -513,91 +610,6 @@
                                     <rect key="frame" x="0.0" y="64" width="800" height="638"/>
                                 </variation>
                             </scrollView>
-                            <button opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleAspectFill" restorationIdentifier="0" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="A8Q-Ox-cuR" customClass="QuizButton" customModule="Rhetorica" customModuleProvider="target">
-                                <rect key="frame" x="2" y="508" width="297" height="44"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="fy6-sm-Vk1">
-                                        <variation key="heightClass=compact-widthClass=regular" constant="60"/>
-                                        <variation key="heightClass=regular-widthClass=compact" constant="44"/>
-                                        <variation key="heightClass=regular-widthClass=regular" constant="115"/>
-                                    </constraint>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
-                                <state key="normal" title="Answer 1">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorFalse">
-                                        <color key="value" red="0.74320852756500244" green="0.17174623906612396" blue="0.19724228978157043" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorCorrect">
-                                        <color key="value" red="0.67058825489999996" green="0.72156864399999998" blue="0.1411764771" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorSelected">
-                                        <color key="value" red="0.56862747669219971" green="0.16862745583057404" blue="0.36078432202339172" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                        <color key="value" red="0.15056313574314117" green="0.15055863559246063" blue="0.15056121349334717" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <variation key="heightClass=compact-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                </variation>
-                                <connections>
-                                    <action selector="buttonKlicked:" destination="COG-xr-eg7" eventType="touchUpInside" id="EUY-bb-8my"/>
-                                    <action selector="fadeOut:" destination="COG-xr-eg7" eventType="touchDragExit" id="srb-hy-xAk"/>
-                                    <action selector="quizButtonTouchedDown:" destination="COG-xr-eg7" eventType="touchDown" id="16W-c6-hJu"/>
-                                    <action selector="quizButtonTouchedUp:" destination="COG-xr-eg7" eventType="touchUpOutside" id="fjI-Fq-oPO"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" tag="1" contentMode="scaleAspectFill" restorationIdentifier="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Xbr-sx-4pR" customClass="QuizButton" customModule="Rhetorica" customModuleProvider="target">
-                                <rect key="frame" x="301" y="508" width="297" height="44"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
-                                <state key="normal" title="Answer 2">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorFalse">
-                                        <color key="value" red="0.74320852756500244" green="0.17174623906612396" blue="0.19724228978157043" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorCorrect">
-                                        <color key="value" red="0.67058825489999996" green="0.72156864399999998" blue="0.1411764771" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorSelected">
-                                        <color key="value" red="0.56862747669219971" green="0.16862745583057404" blue="0.36078432202339172" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                        <color key="value" red="0.15056313574314117" green="0.15055863559246063" blue="0.15056121349334717" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <variation key="heightClass=compact-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                </variation>
-                                <connections>
-                                    <action selector="buttonKlicked:" destination="COG-xr-eg7" eventType="touchUpInside" id="x8G-ZA-Ydn"/>
-                                    <action selector="fadeOut:" destination="COG-xr-eg7" eventType="touchDragExit" id="Njd-Oh-Oa4"/>
-                                    <action selector="quizButtonTouchedDown:" destination="COG-xr-eg7" eventType="touchDown" id="Ljz-Vs-wQd"/>
-                                    <action selector="quizButtonTouchedUp:" destination="COG-xr-eg7" eventType="touchUpOutside" id="1Zj-fx-jtv"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1435,7 +1447,7 @@
                                                     <rect key="frame" x="16" y="25" width="568" height="65.5"/>
                                                     <animations/>
                                                     <string key="text">Danke, dass du Rhetorica nutzt!
-Ich habe diese App während meiner Abiturvorbereitung entwickelt und hoffe, dass sie auch für dich einen Zweck erfüllt. Über eine kurze Mail oder App Store Bewertung mit deiner Meinung würde ich mich daher sehr freuen. Und vielleicht magst du noch einen Blick auf meine anderen Apps werfen?</string>
+Ich habe diese App im Zuge meiner eigenen Abiturvorbereitung entwickelt und hoffe, dass sie auch für dich einen Zweck erfüllt. Über eine kurze Mail oder App Store Bewertung mit deiner Meinung würde ich mich daher sehr freuen. Und vielleicht magst du noch einen Blick auf meine anderen Apps werfen?</string>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="widthClass=compact" misplaced="YES">
@@ -1443,7 +1455,7 @@ Ich habe diese App während meiner Abiturvorbereitung entwickelt und hoffe, dass
                                                     </variation>
                                                 </label>
                                                 <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="zLt-PO-uz4">
-                                                    <rect key="frame" x="24" y="106.5" width="205" height="50"/>
+                                                    <rect key="frame" x="24" y="106" width="205" height="50"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nick Podratz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjb-DO-2PB">
                                                             <rect key="frame" x="58" y="7" width="88" height="18"/>

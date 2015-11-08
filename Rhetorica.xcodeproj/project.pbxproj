@@ -15,6 +15,8 @@
 		631E365F19F069C700CD2DEB /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E365E19F069C700CD2DEB /* DetailVC.swift */; };
 		631E366119F06BCA00CD2DEB /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E366019F06BCA00CD2DEB /* ListVC.swift */; };
 		633FDE5A1BDFB359002DCBC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 631E363E19F060D500CD2DEB /* Main.storyboard */; };
+		634526CD1BEEB8E20028E4E9 /* NoListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 634526CC1BEEB8E20028E4E9 /* NoListView.xib */; };
+		634526CE1BEEB9E30028E4E9 /* NoDeviceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 634526D01BEEB9E30028E4E9 /* NoDeviceView.xib */; };
 		63463EEE1A0BFE8C000C0BBD /* QuizResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63463EED1A0BFE8C000C0BBD /* QuizResultsVC.swift */; };
 		63494DE71BDD7D7900EF221E /* stylisticDevices_de.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63494DE61BDD7D7900EF221E /* stylisticDevices_de.plist */; };
 		634D6B4C1A27F90D0043AA5F /* WikipediaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634D6B4B1A27F90D0043AA5F /* WikipediaVC.swift */; };
@@ -73,6 +75,9 @@
 		631E365E19F069C700CD2DEB /* DetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DetailVC.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		631E366019F06BCA00CD2DEB /* ListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
 		633FDE5B1BDFB399002DCBC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Feedback.storyboard; sourceTree = "<group>"; };
+		634526CC1BEEB8E20028E4E9 /* NoListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NoListView.xib; path = Views/NoListView.xib; sourceTree = "<group>"; };
+		634526CF1BEEB9E30028E4E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NoDeviceView.xib; sourceTree = "<group>"; };
+		634526D21BEEB9E90028E4E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NoDeviceView.strings; sourceTree = "<group>"; };
 		63463EED1A0BFE8C000C0BBD /* QuizResultsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizResultsVC.swift; sourceTree = "<group>"; };
 		63494DE61BDD7D7900EF221E /* stylisticDevices_de.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = stylisticDevices_de.plist; sourceTree = "<group>"; };
 		634D6B4B1A27F90D0043AA5F /* WikipediaVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikipediaVC.swift; sourceTree = "<group>"; };
@@ -93,7 +98,6 @@
 		63C0D7F11B51211C004EAF81 /* UIImage+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		63C542A31BC501E600EBB370 /* FeedbackThanksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackThanksViewController.swift; sourceTree = "<group>"; };
 		63C801FB1A07E18E003240B5 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
-		63CA115E1BE1B490004E1C4E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		63D0B29B1BDFFD5100380DF7 /* AboutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		63D0B29D1BDFFD8C00380DF7 /* OtherAppsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherAppsCell.swift; sourceTree = "<group>"; };
 		63D0B2A41BDFFE6A00380DF7 /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 		63EB1F7B1BBB32A10005A996 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		63EC67821BBFD2BA00DD7B55 /* Version 1.2.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "Version 1.2.rtf"; sourceTree = SOURCE_ROOT; };
 		63FEF1401BBEF6C00028F919 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "../Launch Screen.storyboard"; sourceTree = "<group>"; };
+		63FF3D881BEC30CE002E972F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		960687A9770D045DECE40364 /* Pods-Rhetorica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rhetorica.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rhetorica/Pods-Rhetorica.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -242,6 +247,8 @@
 				63D525CF1BC035D9003F35AC /* RoundedButton.swift */,
 				63D0B29D1BDFFD8C00380DF7 /* OtherAppsCell.swift */,
 				636DE7AA1BE3DA5E009B2BA5 /* PinnableDeviceCell.swift */,
+				634526D01BEEB9E30028E4E9 /* NoDeviceView.xib */,
+				634526CC1BEEB8E20028E4E9 /* NoListView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -362,10 +369,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				63494DE71BDD7D7900EF221E /* stylisticDevices_de.plist in Resources */,
+				634526CD1BEEB8E20028E4E9 /* NoListView.xib in Resources */,
 				63EC67831BBFD2BA00DD7B55 /* Version 1.2.rtf in Resources */,
 				63FEF1411BBEF6C00028F919 /* Launch Screen.storyboard in Resources */,
 				633FDE5A1BDFB359002DCBC6 /* Main.storyboard in Resources */,
 				6357C3871BDDA4EB00337BFC /* Feedback.storyboard in Resources */,
+				634526CE1BEEB9E30028E4E9 /* NoDeviceView.xib in Resources */,
 				63B092DF1BDD93EB00EAF5D7 /* stylisticDevices_en.plist in Resources */,
 				6357C37F1BDD9B9700337BFC /* Localizable.strings in Resources */,
 				631E364219F060D500CD2DEB /* Images.xcassets in Resources */,
@@ -488,9 +497,19 @@
 			isa = PBXVariantGroup;
 			children = (
 				631E363F19F060D500CD2DEB /* Base */,
-				63CA115E1BE1B490004E1C4E /* en */,
+				63FF3D881BEC30CE002E972F /* en */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		634526D01BEEB9E30028E4E9 /* NoDeviceView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				634526CF1BEEB9E30028E4E9 /* Base */,
+				634526D21BEEB9E90028E4E9 /* en */,
+			);
+			name = NoDeviceView.xib;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		6357C3811BDD9B9700337BFC /* Localizable.strings */ = {

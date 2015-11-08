@@ -411,7 +411,6 @@ extension MasterViewController: ListViewDelegate {
             tableView.reloadData()
             scrollTableViewToTop()
             detailViewController?.favorites = self.deviceLists.last!
-            detailViewController?.device = self.selectedDeviceList.elements.first
         }
     }
 }

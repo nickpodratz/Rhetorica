@@ -25,8 +25,8 @@ class DetailViewController: UITableViewController {
     @IBOutlet weak var synonymCell: UITableViewCell!
     @IBOutlet weak var wikipediaCell: UITableViewCell!
     @IBOutlet weak var oppositeCell: UITableViewCell!
-    
     @IBOutlet weak var pinBarButtonItem: UIBarButtonItem!
+    var noDeviceView: UIView?
     
     // MARK: - Properties
     
@@ -35,14 +35,18 @@ class DetailViewController: UITableViewController {
     weak var favorites: DeviceList! {
         didSet {
             self.configureView()
-            tableView.hidden = (device == nil)
+            self.noDeviceView?.hidden = (device != nil)
+            self.tableView.userInteractionEnabled = (self.device != nil)
+//            tableView.hidden = (device == nil)
         }
     }
     
     var device: StylisticDevice? {
         didSet {
             self.configureView()
-            tableView.hidden = (device == nil)
+            self.noDeviceView?.hidden = (device != nil)
+            self.tableView.userInteractionEnabled = (self.device != nil)
+//            tableView.hidden = (device == nil)
         }
     }
     var delegate: DetailViewControllerDelegate?
@@ -66,7 +70,6 @@ class DetailViewController: UITableViewController {
     // MARK: - User Interaction
     
     @IBAction func addToFavorites(sender: AnyObject) {
-        print(favorites)
         guard let favorites = favorites, let device = device else { return }
         if let indexOfDeviceInFavorites = favorites.elements.indexOf(device){
             // Deleting...
@@ -117,13 +120,25 @@ class DetailViewController: UITableViewController {
     // MARK: - Helper Functions
     
     func configureView() {
+        
+        // Add No Device View
+        if let view = UINib(nibName: "NoDeviceView", bundle: nil).instantiateWithOwner(nil, options: nil).first as? UIView {
+            view.frame = self.tableView.frame
+            view.layer.zPosition = 1
+            self.view.addSubview(view)
+            self.view.insertSubview(view, belowSubview: self.tableView)
+            self.noDeviceView = view
+            self.noDeviceView?.hidden = (self.device != nil)
+            self.tableView.userInteractionEnabled = (self.device != nil)
+        }
+
         guard let device = self.device else {
-            self.tableView.hidden = true
+//            self.tableView.hidden = true
             pinBarButtonItem.enabled = false
             return
         }
         
-        self.tableView.hidden = false
+//        self.tableView.hidden = false
         pinBarButtonItem.enabled = true
 
         // Fill tableview with data

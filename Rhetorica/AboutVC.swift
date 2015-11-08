@@ -183,6 +183,16 @@ class AboutViewController: UITableViewController, SKStoreProductViewControllerDe
                 alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alertController, animated: true, completion: nil)
             }
+        case (1, 2):
+            if let url = NSURL(string: "fb://profile/1515153398777652/") {
+                UIApplication.sharedApplication().openURL(url)
+                if let selectedIndexPaths = tableView.indexPathsForSelectedRows {
+                    for indexPath in selectedIndexPaths {
+                        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                    }
+                }
+            }
+            
         default: return
         }
     }
