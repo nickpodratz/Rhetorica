@@ -15,7 +15,7 @@ protocol DetailViewControllerDelegate {
 class QuizWrongAnswersViewController: UITableViewController, PinnableDeviceCellDelegate, DetailViewControllerDelegate {
     
     var wrongAnsweredQuestions: [Question]!
-    weak var favorites: DeviceList!
+    var favorites: DeviceList!
     var selectedCell: PinnableDeviceCell?
     
     @IBAction func addAllDevicesPressed(sender: AnyObject) {

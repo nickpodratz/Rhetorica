@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Dpx-9T-lJ5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Dpx-9T-lJ5">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Detail-->
@@ -272,7 +271,6 @@
                         <outlet property="exampleLabel" destination="aSD-op-LRn" id="qCJ-al-9ko"/>
                         <outlet property="oppositeCell" destination="Q7M-U7-kaN" id="fJb-oz-HMg"/>
                         <outlet property="oppositeLabel" destination="MOU-Qy-1gw" id="rIe-oE-uyZ"/>
-                        <outlet property="pinBarButtonItem" destination="Qf1-qx-sk5" id="X5s-mV-ZdB"/>
                         <outlet property="synonymCell" destination="khe-rd-Nen" id="6jF-2u-Xpg"/>
                         <outlet property="synonymLabel" destination="gke-ec-Fo2" id="Qcn-iG-zMA"/>
                         <outlet property="titleLabel" destination="ZJh-PJ-aU7" id="HVS-L0-VcC"/>
@@ -364,20 +362,11 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorFalse">
-                                        <color key="value" red="0.81663596630096436" green="0.20430707931518555" blue="0.22194629907608032" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorCorrect">
-                                        <color key="value" red="0.74887031316757202" green="0.76144754886627197" blue="0.14247643947601318" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorSelected">
-                                        <color key="value" red="0.56862747669219971" green="0.16862745583057404" blue="0.36078432202339172" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                        <color key="value" red="0.56862747669219971" green="0.16862745583057404" blue="0.36078432202339172" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" red="0.84505854700000005" green="0.84505854700000005" blue="0.84505854700000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.5490196078431373" green="0.14117647058823529" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="heightClass=compact-widthClass=regular">
@@ -413,20 +402,11 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorFalse">
-                                        <color key="value" red="0.81663596630096436" green="0.20430707931518555" blue="0.22194629907608032" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorCorrect">
-                                        <color key="value" red="0.74887031316757202" green="0.76144754886627197" blue="0.14247643947601318" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorSelected">
-                                        <color key="value" red="0.56862747669219971" green="0.16862745583057404" blue="0.36078432202339172" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                        <color key="value" red="0.56862747669219971" green="0.16862745583057404" blue="0.36078432202339172" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" red="0.84505854700000005" green="0.84505854700000005" blue="0.84505854700000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.5490196078431373" green="0.14117647058823529" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="heightClass=compact-widthClass=regular">
@@ -442,48 +422,6 @@
                                     <action selector="quizButtonTouchedUp:" destination="COG-xr-eg7" eventType="touchUpOutside" id="fjI-Fq-oPO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" tag="3" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="BnV-mP-U4P" customClass="QuizButton" customModule="Rhetorica" customModuleProvider="target">
-                                <rect key="frame" x="301" y="554" width="297" height="44"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
-                                <state key="normal" title="Answer 4">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorFalse">
-                                        <color key="value" red="0.81663596630096436" green="0.20430707931518555" blue="0.22194629907608032" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorCorrect">
-                                        <color key="value" red="0.74887031316757202" green="0.76144754886627197" blue="0.14247643947601318" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorSelected">
-                                        <color key="value" red="0.56862747669219971" green="0.16862745583057404" blue="0.36078432202339172" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                        <color key="value" red="0.56862747669219971" green="0.16862745583057404" blue="0.36078432202339172" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.84505854700000005" green="0.84505854700000005" blue="0.84505854700000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <variation key="heightClass=compact-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                </variation>
-                                <connections>
-                                    <action selector="buttonKlicked:" destination="COG-xr-eg7" eventType="touchUpInside" id="SnE-dp-Xyc"/>
-                                    <action selector="fadeOut:" destination="COG-xr-eg7" eventType="touchDragExit" id="o4x-Vc-jg5"/>
-                                    <action selector="quizButtonTouchedDown:" destination="COG-xr-eg7" eventType="touchDown" id="tJI-L5-Ick"/>
-                                    <action selector="quizButtonTouchedUp:" destination="COG-xr-eg7" eventType="touchUpOutside" id="OSi-Cb-4IU"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" tag="1" contentMode="scaleAspectFill" restorationIdentifier="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Xbr-sx-4pR" customClass="QuizButton" customModule="Rhetorica" customModuleProvider="target">
                                 <rect key="frame" x="301" y="508" width="297" height="44"/>
                                 <animations/>
@@ -497,20 +435,11 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorFalse">
-                                        <color key="value" red="0.81663596630096436" green="0.20430707931518555" blue="0.22194629907608032" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorCorrect">
-                                        <color key="value" red="0.74887031316757202" green="0.76144754886627197" blue="0.14247643947601318" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorSelected">
-                                        <color key="value" red="0.56862747669219971" green="0.16862745583057404" blue="0.36078432202339172" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                        <color key="value" red="0.56862747669219971" green="0.16862745583057404" blue="0.36078432202339172" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" red="0.84505854700000005" green="0.84505854700000005" blue="0.84505854700000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.5490196078431373" green="0.14117647058823529" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="heightClass=compact-widthClass=regular">
@@ -526,8 +455,8 @@
                                     <action selector="quizButtonTouchedUp:" destination="COG-xr-eg7" eventType="touchUpOutside" id="1Zj-fx-jtv"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qL-Ze-Zbg">
-                                <rect key="frame" x="0.0" y="64" width="600" height="440"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qL-Ze-Zbg">
+                                <rect key="frame" x="0.0" y="66" width="600" height="440"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Die Definition des gesuchten rhetorischen Mittels" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pkd-5e-Q1j">
                                         <rect key="frame" x="24" y="40" width="552" height="20.5"/>
@@ -610,6 +539,39 @@
                                     <rect key="frame" x="0.0" y="64" width="800" height="638"/>
                                 </variation>
                             </scrollView>
+                            <button opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" tag="3" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="BnV-mP-U4P" customClass="QuizButton" customModule="Rhetorica" customModuleProvider="target">
+                                <rect key="frame" x="301" y="554" width="297" height="44"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                <state key="normal" title="Answer 4">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.84505854700000005" green="0.84505854700000005" blue="0.84505854700000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.5490196078431373" green="0.14117647058823529" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="heightClass=compact-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                </variation>
+                                <connections>
+                                    <action selector="buttonKlicked:" destination="COG-xr-eg7" eventType="touchUpInside" id="SnE-dp-Xyc"/>
+                                    <action selector="fadeOut:" destination="COG-xr-eg7" eventType="touchDragExit" id="o4x-Vc-jg5"/>
+                                    <action selector="quizButtonTouchedDown:" destination="COG-xr-eg7" eventType="touchDown" id="tJI-L5-Ick"/>
+                                    <action selector="quizButtonTouchedUp:" destination="COG-xr-eg7" eventType="touchUpOutside" id="OSi-Cb-4IU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -685,7 +647,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYR-8m-3Ry" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3042" y="-211"/>
+            <point key="canvasLocation" x="3854" y="-211"/>
         </scene>
         <!--Feedback-->
         <scene sceneID="w3F-ON-ftW">
@@ -695,140 +657,64 @@
             </objects>
             <point key="canvasLocation" x="1825.5" y="646"/>
         </scene>
-        <!--Stilmittel-->
-        <scene sceneID="41A-v7-auN">
+        <!--Master-->
+        <scene sceneID="cXc-dp-wPt">
             <objects>
-                <viewController storyboardIdentifier="MasterVC" title="Stilmittel" definesPresentationContext="YES" modalPresentationStyle="currentContext" id="nGr-RZ-pMr" customClass="MasterViewController" customModule="Rhetorica" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Yah-VX-aAj"/>
-                        <viewControllerLayoutGuide type="bottom" id="irz-o9-3sc"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Dez-NN-549">
+                <tableViewController title="Master" id="UAF-Vp-uzV" customClass="MasterViewController" customModule="Rhetorica" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="jY7-cR-q8O">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fsN-W2-Y0Y">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Qlc-7I-R7f" style="IBUITableViewCellStyleDefault" id="Cmk-sK-38r">
-                                        <rect key="frame" x="0.0" y="86" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cmk-sK-38r" id="i9T-c2-OmR">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qlc-7I-R7f">
-                                                    <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                        <connections>
-                                            <segue destination="ssQ-jJ-41J" kind="showDetail" identifier="showDetail" id="k7M-jO-EY9"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                            <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oyu-na-KFm">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deine Lernliste ist leer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5c-dL-Bch">
-                                        <rect key="frame" x="40" y="302" width="520" height="27.5"/>
-                                        <animations/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pinBig" translatesAutoresizingMaskIntoConstraints="NO" id="UZG-LK-wbq">
-                                        <rect key="frame" x="237.5" y="140" width="125" height="125"/>
-                                        <animations/>
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="125" id="Wjk-Fs-Eru"/>
-                                            <constraint firstAttribute="height" constant="125" id="k4E-aa-MiJ"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tippe auf der Seite eines Stilmittels die Pinnadel an, um es zu deiner Lernliste hinzuzufügen." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bf3-9W-ePo">
-                                        <rect key="frame" x="125" y="339.5" width="350" height="36"/>
-                                        <animations/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" priority="900" constant="350" id="quf-d5-tjb"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <animations/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Bf3-9W-ePo" secondAttribute="trailing" constant="32" id="7Em-mj-XhB"/>
-                                    <constraint firstItem="UZG-LK-wbq" firstAttribute="centerY" secondItem="Oyu-na-KFm" secondAttribute="centerY" multiplier="0.79" constant="-10" id="9XL-hQ-g4P"/>
-                                    <constraint firstItem="Bf3-9W-ePo" firstAttribute="top" secondItem="Y5c-dL-Bch" secondAttribute="bottom" constant="10" id="C0w-Rc-viw"/>
-                                    <constraint firstItem="Y5c-dL-Bch" firstAttribute="centerY" secondItem="Oyu-na-KFm" secondAttribute="centerY" multiplier="0.94" constant="64" id="Hxl-N7-0KJ"/>
-                                    <constraint firstItem="Bf3-9W-ePo" firstAttribute="centerX" secondItem="Oyu-na-KFm" secondAttribute="centerX" id="Mlx-oT-Hwh"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="Y5c-dL-Bch" secondAttribute="trailing" constant="32" id="NR2-v6-GcN"/>
-                                    <constraint firstItem="Bf3-9W-ePo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Oyu-na-KFm" secondAttribute="leading" constant="32" id="OhO-PU-tF0"/>
-                                    <constraint firstItem="Y5c-dL-Bch" firstAttribute="leading" secondItem="Oyu-na-KFm" secondAttribute="leadingMargin" constant="32" id="Run-fb-iP8"/>
-                                    <constraint firstItem="UZG-LK-wbq" firstAttribute="centerX" secondItem="Oyu-na-KFm" secondAttribute="centerX" id="iq1-wZ-QWW"/>
-                                    <constraint firstItem="Y5c-dL-Bch" firstAttribute="centerX" secondItem="Oyu-na-KFm" secondAttribute="centerX" id="pkc-wU-SRN"/>
-                                </constraints>
-                            </view>
-                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Oyu-na-KFm" secondAttribute="trailing" id="9d8-p0-jyd"/>
-                            <constraint firstItem="irz-o9-3sc" firstAttribute="top" secondItem="fsN-W2-Y0Y" secondAttribute="bottom" id="I2F-wx-q2U"/>
-                            <constraint firstAttribute="trailing" secondItem="fsN-W2-Y0Y" secondAttribute="trailing" id="XIK-Aq-YqG"/>
-                            <constraint firstItem="fsN-W2-Y0Y" firstAttribute="leading" secondItem="Dez-NN-549" secondAttribute="leading" id="YQ7-YE-mwD"/>
-                            <constraint firstItem="irz-o9-3sc" firstAttribute="top" secondItem="Oyu-na-KFm" secondAttribute="bottom" id="ilm-tV-4ir"/>
-                            <constraint firstItem="Oyu-na-KFm" firstAttribute="leading" secondItem="Dez-NN-549" secondAttribute="leading" id="tLz-Ip-K56"/>
-                            <constraint firstItem="Oyu-na-KFm" firstAttribute="top" secondItem="Yah-VX-aAj" secondAttribute="bottom" id="wD4-qF-G0q"/>
-                            <constraint firstItem="fsN-W2-Y0Y" firstAttribute="top" secondItem="Dez-NN-549" secondAttribute="top" id="yzR-YL-4RJ"/>
-                        </constraints>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="vCJ-ki-9Lh">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vCJ-ki-9Lh" id="hvD-oT-iNw">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <connections>
+                                    <segue destination="ssQ-jJ-41J" kind="showDetail" identifier="showDetail" id="XBM-tv-2KK"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="LBd-cy-8ET" appends="YES" id="HVy-bq-QWo"/>
+                            <outlet property="dataSource" destination="UAF-Vp-uzV" id="DLj-bP-hNd"/>
+                            <outlet property="delegate" destination="UAF-Vp-uzV" id="ZzV-Ac-2KH"/>
+                            <outletCollection property="gestureRecognizers" destination="ZSV-x9-aZ1" appends="YES" id="PzA-wN-If7"/>
                         </connections>
-                    </view>
-                    <navigationItem key="navigationItem" id="7ow-HA-Vtr">
-                        <barButtonItem key="backBarButtonItem" title="Stilmittel" id="cpZ-7e-2Bf"/>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="0gw-eR-nrg">
                         <barButtonItem key="leftBarButtonItem" image="list" id="zPq-gV-iMQ">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="Kks-Mn-Y9n" kind="presentation" identifier="showList" modalPresentationStyle="currentContext" id="8Ig-c3-JV1"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Quiz" id="Iar-Ek-ZHy">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="kRp-8O-q3t" kind="presentation" identifier="showQuiz" id="H6P-df-0Ej"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="noElementsLabel" destination="Y5c-dL-Bch" id="iSI-FH-ulg"/>
-                        <outlet property="noEntriesView" destination="Oyu-na-KFm" id="TMq-bT-vsV"/>
-                        <outlet property="tableView" destination="fsN-W2-Y0Y" id="uhI-iM-xv2"/>
-                        <outlet property="tapRecognizer" destination="LBd-cy-8ET" id="wiE-c4-MuT"/>
-                        <segue destination="KOT-Qe-JSg" kind="presentation" identifier="toFeedback" modalTransitionStyle="coverVertical" id="ZRP-V4-ahU"/>
+                        <outlet property="tapRecognizer" destination="ZSV-x9-aZ1" id="ZSw-Zp-SJq"/>
+                        <segue destination="KOT-Qe-JSg" kind="show" identifier="toFeedback" id="9iU-u6-LdD"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="laK-Uo-mxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer enabled="NO" id="LBd-cy-8ET">
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t5S-Tr-Lu1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer enabled="NO" id="ZSV-x9-aZ1">
                     <connections>
-                        <action selector="cancelSearch:" destination="nGr-RZ-pMr" id="b1i-Xs-HV0"/>
+                        <action selector="cancelSearch:" destination="UAF-Vp-uzV" id="J22-aL-Igj"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1310" y="130"/>
+            <point key="canvasLocation" x="1316" y="-10"/>
         </scene>
         <!--Umfang-->
         <scene sceneID="ri4-RK-Zwf">
@@ -1030,38 +916,14 @@
             </objects>
             <point key="canvasLocation" x="3042" y="486"/>
         </scene>
-        <!--Stilmittel-->
-        <scene sceneID="BkV-xp-Fkg">
-            <objects>
-                <navigationController title="Stilmittel" definesPresentationContext="YES" id="E3h-v8-5ac" sceneMemberID="viewController">
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="k63-Ij-Wzg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.49803921580314636" green="0.023529412224888802" blue="0.25490197539329529" alpha="1" colorSpace="calibratedRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="nGr-RZ-pMr" kind="relationship" relationship="rootViewController" id="iif-uY-nhG"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jvE-77-M9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="626" y="130"/>
-        </scene>
         <!--Split View Controller-->
         <scene sceneID="3JM-wt-DTL">
             <objects>
                 <splitViewController storyboardIdentifier="SplitVC" id="Dpx-9T-lJ5" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
-                        <segue destination="E3h-v8-5ac" kind="relationship" relationship="masterViewController" id="Qg1-NS-ff1"/>
                         <segue destination="ssQ-jJ-41J" kind="relationship" relationship="detailViewController" id="0X6-vE-A9u"/>
+                        <segue destination="1e9-BQ-72C" kind="relationship" relationship="masterViewController" id="lMb-Ul-akE"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZQF-9c-h5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1079,7 +941,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.49803921580314636" green="0.023529412224888802" blue="0.25490197539329529" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.49226874110000002" green="0.0" blue="0.26430228350000001" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
@@ -1104,7 +966,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.49803921580314636" green="0.023529412224888802" blue="0.25490197539329529" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.49226874110000002" green="0.0" blue="0.26430228350000001" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
@@ -1305,7 +1167,7 @@
                     <navigationItem key="navigationItem" title="Ergebnis" id="87r-pb-aCA">
                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="JZY-lZ-bnW">
                             <connections>
-                                <action selector="shareButtonPressed:" destination="o83-tV-g8m" id="FKu-Hm-0j3"/>
+                                <action selector="shareButtonPressed:" destination="o83-tV-g8m" id="fNi-NY-hYQ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="bKb-oc-83u">
@@ -1327,7 +1189,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZs-rS-buP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="T7V-Kt-NZa" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3890" y="-211"/>
+            <point key="canvasLocation" x="4702" y="-211"/>
         </scene>
         <!-- -->
         <scene sceneID="AoU-3K-A71">
@@ -1398,7 +1260,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2qK-H6-KfV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4634" y="-211"/>
+            <point key="canvasLocation" x="5446" y="-211"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qlp-MG-5h2">
@@ -1410,7 +1272,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.49803921580314636" green="0.023529412224888802" blue="0.25490197539329529" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.49226874113082886" green="0.0" blue="0.26430228352546692" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
@@ -1422,7 +1284,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="po7-Nm-3hk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2298" y="-211"/>
+            <point key="canvasLocation" x="3110" y="-211"/>
         </scene>
         <!--Über-->
         <scene sceneID="JCL-Mo-Vx6">
@@ -1703,7 +1565,7 @@ Ich habe diese App im Zuge meiner eigenen Abiturvorbereitung entwickelt und hoff
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.49803921580314636" green="0.023529412224888802" blue="0.25490197539329529" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.49226874110000002" green="0.0" blue="0.26430228350000001" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
@@ -1717,21 +1579,45 @@ Ich habe diese App im Zuge meiner eigenen Abiturvorbereitung entwickelt und hoff
             </objects>
             <point key="canvasLocation" x="3890" y="486"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cmy-sk-SgV">
+            <objects>
+                <navigationController id="1e9-BQ-72C" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jYU-Zx-Nb0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.49226874110000002" green="0.0" blue="0.26430228350000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="UAF-Vp-uzV" kind="relationship" relationship="rootViewController" id="HKJ-VE-3NN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uL1-bQ-iiF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="626" y="-10"/>
+        </scene>
     </scenes>
     <resources>
         <image name="englandFlag" width="27" height="27"/>
         <image name="germanFlag" width="27" height="27"/>
         <image name="list" width="24" height="24"/>
         <image name="pin" width="24" height="24"/>
-        <image name="pinBig" width="125" height="125"/>
         <image name="portrait" width="50" height="50"/>
         <image name="stack1" width="27" height="27"/>
         <image name="stack2" width="27" height="27"/>
         <image name="stack3" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="k7M-jO-EY9"/>
+        <segue reference="XBM-tv-2KK"/>
         <segue reference="wkO-Il-Wqh"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="0.56862745100000001" green="0.16862745100000001" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="0.5607843137254902" green="0.14117647058823529" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
 </document>

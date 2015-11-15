@@ -1,0 +1,189 @@
+
+/* Class = "UILabel"; text = "Some Devices"; ObjectID = "6kY-i7-OPn"; */
+"6kY-i7-OPn.text" = "Some Devices";
+
+/* Class = "UINavigationItem"; title = "Results"; ObjectID = "87r-pb-aCA"; */
+"87r-pb-aCA.title" = "Results";
+
+/* Class = "UINavigationItem"; title = "About"; ObjectID = "8d9-qO-gsr"; */
+"8d9-qO-gsr.title" = "About";
+
+/* Class = "UILabel"; text = "Difficulty"; ObjectID = "9wc-6c-sRZ"; */
+"9wc-6c-sRZ.text" = "Difficulty";
+
+/* Class = "UIButton"; normalTitle = "Answer 1"; ObjectID = "A8Q-Ox-cuR"; */
+"A8Q-Ox-cuR.normalTitle" = "Answer 1";
+
+/* Class = "UILabel"; text = "Tap onto the pin on the detailpage of a device in order to add it to this list."; ObjectID = "Bf3-9W-ePo"; */
+"Bf3-9W-ePo.text" = "Tap onto the pin on the detailpage of a device in order to add it to this list.";
+
+/* Class = "UIButton"; normalTitle = "Answer 4"; ObjectID = "BnV-mP-U4P"; */
+"BnV-mP-U4P.normalTitle" = "Answer 4";
+
+/* Class = "UILabel"; text = "Definition"; ObjectID = "BsH-hP-r42"; */
+"BsH-hP-r42.text" = "Definition";
+
+/* Class = "UILabel"; text = "All Devices"; ObjectID = "CPE-gn-Kh9"; */
+"CPE-gn-Kh9.text" = "All Devices";
+
+/* Class = "UINavigationController"; title = "Stylistic Devices"; ObjectID = "E3h-v8-5ac"; */
+"E3h-v8-5ac.title" = "Stylistic Devices";
+
+/* Class = "UIBarButtonItem"; title = "About"; ObjectID = "FHw-AO-t47"; */
+"FHw-AO-t47.title" = "About";
+
+/* Class = "UILabel"; text = "Learning List"; ObjectID = "FcF-Fk-hHG"; */
+"FcF-Fk-hHG.text" = "Learning List";
+
+/* Class = "UITableViewController"; title = "Detail"; ObjectID = "I35-n9-hUG"; */
+"I35-n9-hUG.title" = "Detail";
+
+/* Class = "UIBarButtonItem"; title = "Quiz"; ObjectID = "Iar-Ek-ZHy"; */
+"Iar-Ek-ZHy.title" = "Quiz";
+
+/* Class = "UILabel"; text = "Opposite"; ObjectID = "JQb-8m-GlX"; */
+"JQb-8m-GlX.text" = "Opposite";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "L3t-BD-cTg"; */
+"L3t-BD-cTg.text" = "Detail";
+
+/* Class = "UILabel"; text = "Score"; ObjectID = "M0b-PY-K8v"; */
+"M0b-PY-K8v.text" = "Score";
+
+/* Class = "UILabel"; text = "Das Gegenteil"; ObjectID = "MOU-Qy-1gw"; */
+"MOU-Qy-1gw.text" = "Das Gegenteil";
+
+/* Class = "UINavigationItem"; title = "Extent"; ObjectID = "MYW-o4-ocw"; */
+"MYW-o4-ocw.title" = "Extent";
+
+/* Class = "UINavigationItem"; title = " "; ObjectID = "N1c-Zr-gJP"; */
+"N1c-Zr-gJP.title" = " ";
+
+/* Class = "UILabel"; text = "Examples"; ObjectID = "PCg-4t-iEv"; */
+"PCg-4t-iEv.text" = "Examples";
+
+/* Class = "UILabel"; text = "Die Definition des gesuchten rhetorischen Mittels"; ObjectID = "Pkd-5e-Q1j"; */
+"Pkd-5e-Q1j.text" = "Die Definition des gesuchten rhetorischen Mittels";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Qlc-7I-R7f"; */
+"Qlc-7I-R7f.text" = "Title";
+
+/* Class = "UILabel"; text = "New Round"; ObjectID = "Qtr-dP-UTH"; */
+"Qtr-dP-UTH.text" = "New Round";
+
+/* Class = "UILabel"; text = "Wrong Answers"; ObjectID = "R6V-jc-H8u"; */
+"R6V-jc-H8u.text" = "Wrong Answers";
+
+/* Class = "UILabel"; text = "Follow on Facebook"; ObjectID = "S1T-kc-k7n"; */
+"S1T-kc-k7n.text" = "Follow on Facebook";
+
+/* Class = "UIButton"; normalTitle = "Answer 3"; ObjectID = "UoG-36-VTf"; */
+"UoG-36-VTf.normalTitle" = "Answer 3";
+
+/* Class = "UILabel"; text = "No connection to Wikipedia"; ObjectID = "XA2-GY-3cg"; */
+"XA2-GY-3cg.text" = "No connection to Wikipedia";
+
+/* Class = "UILabel"; text = "Rate Rhetorica"; ObjectID = "XOL-5B-4sb"; */
+"XOL-5B-4sb.text" = "Rate Rhetorica";
+
+/* Class = "UILabel"; text = "Das Beispiel des gesuchten rhetorischen Mittels"; ObjectID = "XUC-Md-rWN"; */
+"XUC-Md-rWN.text" = "Das Beispiel des gesuchten rhetorischen Mittels";
+
+/* Class = "UIButton"; normalTitle = "Answer 2"; ObjectID = "Xbr-sx-4pR"; */
+"Xbr-sx-4pR.normalTitle" = "Answer 2";
+
+/* Class = "UILabel"; text = "English"; ObjectID = "Y3t-w1-6RM"; */
+"Y3t-w1-6RM.text" = "English";
+
+/* Class = "UILabel"; text = "Your learning list is empty"; ObjectID = "Y5c-dL-Bch"; */
+"Y5c-dL-Bch.text" = "Your learning list is empty";
+
+/* Class = "UILabel"; text = "Example"; ObjectID = "YiC-F3-vrk"; */
+"YiC-F3-vrk.text" = "Example";
+
+/* Class = "UILabel"; text = "Language"; ObjectID = "Yn0-uR-vlm"; */
+"Yn0-uR-vlm.text" = "Language";
+
+/* Class = "UILabel"; text = "Antithese"; ObjectID = "ZJh-PJ-aU7"; */
+"ZJh-PJ-aU7.text" = "Antithese";
+
+/* Class = "UITableViewSection"; headerTitle = "Language"; ObjectID = "Zq8-Ze-Qj2"; */
+"Zq8-Ze-Qj2.headerTitle" = "Language";
+
+/* Class = "UILabel"; text = "„Alter Freund! Immer getreuer Schlaf, fliehst du mich?“"; ObjectID = "aSD-op-LRn"; */
+"aSD-op-LRn.text" = "„Alter Freund! Immer getreuer Schlaf, fliehst du mich?“";
+
+/* Class = "UIBarButtonItem"; title = "Stilmittel"; ObjectID = "cpZ-7e-2Bf"; */
+"cpZ-7e-2Bf.title" = "Stilmittel";
+
+/* Class = "UILabel"; text = "4"; ObjectID = "eZ1-aX-jbL"; */
+"eZ1-aX-jbL.text" = "4";
+
+/* Class = "UILabel"; text = "Das Synonym"; ObjectID = "gke-ec-Fo2"; */
+"gke-ec-Fo2.text" = "Das Synonym";
+
+/* Class = "UILabel"; text = "Thank you for using Rhetorica!\nI developed this app during my preparation for final exams at Highschool and hope that it is as well useful for you! Would you mind writing me a short mail or an App Store review with your opinion about this app so I can keep develop fancy upates? And also feel free to check out my other apps listed below, I would be really pleased if you gave them a try."; ObjectID = "hEX-6G-X2F"; */
+"hEX-6G-X2F.text" = "Thank you for using Rhetorica!\nI developed this app during my preparation for final exams at Highschool and hope that it is as well useful for you! Would you mind writing me a short mail or an App Store review with your opinion about this app so I can keep develop fancy upates? And also feel free to check out my other apps listed below, I would be really pleased if you gave them a try.";
+
+/* Class = "UITableViewSection"; headerTitle = "Extend of the list"; ObjectID = "hTx-CN-vPh"; */
+"hTx-CN-vPh.headerTitle" = "Extend of the list";
+
+/* Class = "UILabel"; text = "Nick Podratz"; ObjectID = "hjb-DO-2PB"; */
+"hjb-DO-2PB.text" = "Nick Podratz";
+
+/* Class = "UILabel"; text = "Definition"; ObjectID = "j1R-Ov-ini"; */
+"j1R-Ov-ini.text" = "Definition";
+
+/* Class = "UILabel"; text = "Hinwendung zum Publikum oder zu einer anwesenden"; ObjectID = "lBo-nn-l1w"; */
+"lBo-nn-l1w.text" = "Hinwendung zum Publikum oder zu einer anwesenden";
+
+/* Class = "UINavigationItem"; title = "5 of 10"; ObjectID = "m97-P1-fDK"; */
+"m97-P1-fDK.title" = "5 of 10";
+
+/* Class = "UILabel"; text = "App Name"; ObjectID = "mI3-Qo-UmM"; */
+"mI3-Qo-UmM.text" = "App Name";
+
+/* Class = "UILabel"; text = "Further Details"; ObjectID = "mTT-OC-IP7"; */
+"mTT-OC-IP7.text" = "Further Details";
+
+/* Class = "UIButton"; normalTitle = "Wikipedia"; ObjectID = "mh4-YQ-BkA"; */
+"mh4-YQ-BkA.normalTitle" = "Wikipedia";
+
+/* Class = "UILabel"; text = "Send Feedback"; ObjectID = "n3Z-D3-o0Y"; */
+"n3Z-D3-o0Y.text" = "Send Feedback";
+
+/* Class = "UIViewController"; title = "Stilmittel"; ObjectID = "nGr-RZ-pMr"; */
+"nGr-RZ-pMr.title" = "Stilmittel";
+
+/* Class = "UILabel"; text = "Entwickler aus Hamburg"; ObjectID = "qM9-7I-iTX"; */
+"qM9-7I-iTX.text" = "Entwickler aus Hamburg";
+
+/* Class = "UITableViewSection"; headerTitle = "contact me"; ObjectID = "qtL-Rt-VfO"; */
+"qtL-Rt-VfO.headerTitle" = "contact me";
+
+/* Class = "UILabel"; text = "German"; ObjectID = "qzL-4T-C24"; */
+"qzL-4T-C24.text" = "German";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "rFi-WW-dVc"; */
+"rFi-WW-dVc.text" = "Detail";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "ubb-X6-oKQ"; */
+"ubb-X6-oKQ.text" = "Detail";
+
+/* Class = "UITableViewSection"; headerTitle = "My other apps"; ObjectID = "uee-IL-6qV"; */
+"uee-IL-6qV.headerTitle" = "My other apps";
+
+/* Class = "UILabel"; text = "Important Devices"; ObjectID = "uxJ-Zd-E9L"; */
+"uxJ-Zd-E9L.text" = "Important Devices";
+
+/* Class = "UIBarButtonItem"; title = "Add all"; ObjectID = "x63-mg-Xd5"; */
+"x63-mg-Xd5.title" = "Add all";
+
+/* Class = "UILabel"; text = "No internet connection"; ObjectID = "xdr-8V-25c"; */
+"xdr-8V-25c.text" = "No internet connection";
+
+/* Class = "UILabel"; text = "Synonym"; ObjectID = "yhE-4G-aRI"; */
+"yhE-4G-aRI.text" = "Synonym";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "zod-mA-0iT"; */
+"zod-mA-0iT.text" = "Label";

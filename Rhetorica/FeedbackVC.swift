@@ -8,6 +8,8 @@
 
 import UIKit
 
+let masterVCLoadingCounterKey = "MASTERVIEWCONTROLLERLOADINGKEY"
+
 class FeedbackViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -32,6 +34,17 @@ class FeedbackViewController: UIViewController {
         let transparentWhiteImage = UIImage(color: UIColor(white: 1, alpha: 0))
         navigationController?.navigationBar.shadowImage = transparentWhiteImage
         navigationController?.navigationBar.setBackgroundImage(transparentWhiteImage, forBarMetrics: UIBarMetrics.Default)
+    }
+    
+
+    static func shouldBePresented() -> Bool {
+        // Feedback Views
+        let defaults = NSUserDefaults.standardUserDefaults()
+        var counter = defaults.integerForKey(masterVCLoadingCounterKey) ?? 0
+        print(counter)
+        defaults.setInteger(++counter, forKey: masterVCLoadingCounterKey)
+        defaults.synchronize()
+        return (counter == 15)
     }
 
 }

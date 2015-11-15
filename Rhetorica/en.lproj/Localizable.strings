@@ -25,3 +25,4 @@
 "mail_alert_beschreibung" = "Make sure, that the settings of your mail-account are valid.";
 "german" = "German";
 "english" = "English";
+"NO_INTERNET_CONNECTION" = "no internet connection";

@@ -25,7 +25,6 @@ class DetailViewController: UITableViewController {
     @IBOutlet weak var synonymCell: UITableViewCell!
     @IBOutlet weak var wikipediaCell: UITableViewCell!
     @IBOutlet weak var oppositeCell: UITableViewCell!
-    @IBOutlet weak var pinBarButtonItem: UIBarButtonItem!
     var noDeviceView: UIView?
     
     // MARK: - Properties
@@ -35,18 +34,12 @@ class DetailViewController: UITableViewController {
     weak var favorites: DeviceList! {
         didSet {
             self.configureView()
-            self.noDeviceView?.hidden = (device != nil)
-            self.tableView.userInteractionEnabled = (self.device != nil)
-//            tableView.hidden = (device == nil)
         }
     }
     
     var device: StylisticDevice? {
         didSet {
             self.configureView()
-            self.noDeviceView?.hidden = (device != nil)
-            self.tableView.userInteractionEnabled = (self.device != nil)
-//            tableView.hidden = (device == nil)
         }
     }
     var delegate: DetailViewControllerDelegate?
@@ -58,12 +51,27 @@ class DetailViewController: UITableViewController {
         // Update size of cells
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 100
+        
+        noDeviceView = UINib(nibName: "NoDeviceView", bundle: nil).instantiateWithOwner(nil, options: nil).first as? UIView
+        if noDeviceView != nil {
+            noDeviceView!.layer.zPosition = 1
+            noDeviceView!.autoresizesSubviews = false
+            noDeviceView!.hidden = (self.device != nil)
+            self.tableView.userInteractionEnabled = (self.device != nil)
+            self.tableView.addSubview(noDeviceView!)
+        }
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         wikipediaCell.setSelected(false, animated: true)
         configureView()
+
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        noDeviceView!.hidden = (self.device != nil)
     }
     
     
@@ -120,40 +128,28 @@ class DetailViewController: UITableViewController {
     // MARK: - Helper Functions
     
     func configureView() {
-        
-        // Add No Device View
-        if let view = UINib(nibName: "NoDeviceView", bundle: nil).instantiateWithOwner(nil, options: nil).first as? UIView {
-            view.frame = self.tableView.frame
-            view.layer.zPosition = 1
-            self.view.addSubview(view)
-            self.view.insertSubview(view, belowSubview: self.tableView)
-            self.noDeviceView = view
-            self.noDeviceView?.hidden = (self.device != nil)
-            self.tableView.userInteractionEnabled = (self.device != nil)
-        }
-
-        guard let device = self.device else {
-//            self.tableView.hidden = true
-            pinBarButtonItem.enabled = false
-            return
-        }
-        
-//        self.tableView.hidden = false
-        pinBarButtonItem.enabled = true
+        self.navigationItem.rightBarButtonItem?.enabled = (device != nil)
+        noDeviceView?.hidden = (self.device != nil)
+        self.tableView.userInteractionEnabled = (self.device != nil)
+        noDeviceView!.frame = self.view.bounds
 
         // Fill tableview with data
-        titleLabel?.text = device.title
-        definitionLabel?.text = device.definition
-        exampleLabel?.text = device.examples.joinWithSeparator("\n")
-        oppositeLabel?.text = device.opposite
-        synonymLabel?.text = device.synonym
+        titleLabel?.text = self.device?.title
+        definitionLabel?.text = self.device?.definition
+        exampleLabel?.text = self.device?.examples.joinWithSeparator("\n")
+        oppositeLabel?.text = self.device?.opposite
+        synonymLabel?.text = self.device?.synonym
         
         tableView.reloadData()
         
         // Set correct Favorite-Image
         let deviceIsFavorite: Bool
         if let favorites = favorites {
-            deviceIsFavorite = favorites.elements.contains(device)
+            if device != nil {
+                deviceIsFavorite = favorites.elements.contains(device!)
+            } else {
+                deviceIsFavorite = false
+            }
         } else {
             deviceIsFavorite = false
         }

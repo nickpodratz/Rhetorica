@@ -1,0 +1,6 @@
+
+/* Class = "UILabel"; text = "Tippe auf der Seite eines Stilmittels die Pinnadel an, um es zu deiner Lernliste hinzuzufügen."; ObjectID = "AGI-w7-Al3"; */
+"AGI-w7-Al3.text" = "Tap onto the pin on the detailpage of a device in order to add it to this list.";
+
+/* Class = "UILabel"; text = "Deine Lernliste ist leer"; ObjectID = "Reh-lV-h1f"; */
+"Reh-lV-h1f.text" = "Your learning list is empty";

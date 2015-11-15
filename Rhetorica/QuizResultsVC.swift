@@ -76,12 +76,13 @@ class QuizResultsViewController: UITableViewController {
         }
     }
     
-    @IBAction func shareButtonPressed(sender: AnyObject) {
+    @IBAction func shareButtonPressed(sender: UIBarButtonItem) {
         let textToShare = "Ich habe gerade \(questionSet.correctAnsweredQuestions.count) von \(questionSet.numberOfQuestions) Fragen im Stilmittel-Quiz richtig beantwortet.\n"
         
         if let myWebsite = NSURL(string: "https://itunes.apple.com/de/app/id926449450?mt=8") {
             let objectsToShare = [textToShare, myWebsite]
             let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            activityVC.popoverPresentationController?.barButtonItem = sender
             
             //New Excluded Activities Code
             activityVC.excludedActivityTypes = [UIActivityTypeAirDrop, UIActivityTypeAddToReadingList]

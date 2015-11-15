@@ -10,6 +10,7 @@ import Foundation
 
 
 class DeviceList: NSObject {
+    let language: Language
     let title: String
     let editable: Bool
     var elements: [StylisticDevice] {
@@ -22,7 +23,8 @@ class DeviceList: NSObject {
                 dispatch_async(backgroundQueue) {
                     // Save Elementlist under title
                     let listOfFavouriteStrings = newValue.map{$0.title}
-                    NSUserDefaults.standardUserDefaults().setValue(listOfFavouriteStrings, forKey: self.title)
+                    NSUserDefaults.standardUserDefaults().setValue(listOfFavouriteStrings, forKey: "\(self.language.identifier)_favorites"
+                    )
                     NSUserDefaults.standardUserDefaults().synchronize()
                 }
             }
@@ -48,7 +50,8 @@ class DeviceList: NSObject {
     
     var enoughForCategories: Bool { return elements.count > 30 }
     
-    init(title: String, editable: Bool, elements: [StylisticDevice]) {
+    init(language: Language, title: String, editable: Bool, elements: [StylisticDevice]) {
+        self.language = language
         self.title = title
         self.editable = editable
         self.elements = elements.sort()
@@ -125,15 +128,18 @@ func ~=(pattern: DeviceList, x: DeviceList) -> Bool {
 
 extension DeviceList {
         
-    static func getAllDeviceLists(devices: [StylisticDevice]) -> [DeviceList] {
+    static func getAllDeviceLists(allDevices: [StylisticDevice], forLanguage language: Language) -> [DeviceList] {
+        let favoritesKey = "\(language.identifier)_favorites"
+        
         /// A mutable collection of the user's favored Stylistic Devices.
-        let favorites = DeviceList(
+        let favoritesList = DeviceList(
+            language: language,
             title: NSLocalizedString("lernliste", comment: ""),
             editable: true,
             elements: {
                 // Load Favourites
-                if let loadedFavourites = NSUserDefaults.standardUserDefaults().valueForKey(NSLocalizedString("lernliste", comment: "")) as? [String] {
-                    return devices.filter{ element in
+                if let loadedFavourites = NSUserDefaults.standardUserDefaults().valueForKey(favoritesKey) as? [String] {
+                    return allDevices.filter{ element in
                         loadedFavourites.contains(element.title)
                     }
                 } else {
@@ -142,22 +148,22 @@ extension DeviceList {
             }()
         )
         
-        let fewDevices = DeviceList(title: NSLocalizedString("wichtigste_stilmittel", comment: ""), editable: false,
-            elements: devices.filter { device in
+        let fewDevicesList = DeviceList(language: language, title: NSLocalizedString("wichtigste_stilmittel", comment: ""), editable: false,
+            elements: allDevices.filter { device in
                 return device.levelOfImportance >= 7
             }
         )
         
-        let someDevices = DeviceList(title: NSLocalizedString("einige_stilmittel", comment: ""), editable: false,
-            elements: devices.filter{ device in
+        let someDevicesList = DeviceList(language: language, title: NSLocalizedString("einige_stilmittel", comment: ""), editable: false,
+            elements: allDevices.filter{ device in
                 return device.levelOfImportance >= 4
             }
         )
         
         /// An immutable collection of all Stylistic Devices.
-        let allDevices = DeviceList(title: NSLocalizedString("alle_Stilmittel", comment: ""), editable: false, elements: devices)
+        let allDevicesList = DeviceList(language: language, title: NSLocalizedString("alle_Stilmittel", comment: ""), editable: false, elements: allDevices)
         
-        return [fewDevices, someDevices, allDevices, favorites]
+        return [fewDevicesList, someDevicesList, allDevicesList, favoritesList]
     }
     
 }

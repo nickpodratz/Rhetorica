@@ -14,7 +14,7 @@ class QuizButton: RoundedButton {
     
     
     // MARK: Colors
-    @IBInspectable var color: UIColor = UIColor.rhetoricaGreyColor() {
+    @IBInspectable var color: UIColor = UIColor.rhetoricaPurpleColor() {
         didSet{
             self.backgroundColor = color
         }

@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import CoreSpotlight
+import MobileCoreServices
 
 
 class StylisticDevice: NSObject {
@@ -92,3 +94,28 @@ extension StylisticDevice {
     }
 }
 
+
+// MARK: StylisticDevice + Indexing for System Search
+
+extension StylisticDevice {
+    
+    
+    static func indexAllIfPossible(devices: [StylisticDevice]) {
+        if #available(iOS 9.0, *) {
+            for device in devices {
+                let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
+                attributeSet.title = device.title
+                attributeSet.contentDescription = device.definition
+                let item = CSSearchableItem(uniqueIdentifier: "\(device.title)", domainIdentifier: "np.rhetorica", attributeSet: attributeSet)
+                CSSearchableIndex.defaultSearchableIndex().indexSearchableItems([item]) { (error: NSError?) -> Void in
+                    if let error = error {
+                        print("Indexing error: \(error.localizedDescription)")
+                    }
+                }
+            }
+        } else {
+            print("Could not index stylistic devices on device, as its OS is too old.")
+        }
+    }
+
+}

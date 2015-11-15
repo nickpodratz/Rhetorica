@@ -9,6 +9,16 @@ import UIKit
 import StoreKit
 import MessageUI
 
+extension UITableView {
+    func deselectAllRows(animated animated: Bool = true) {
+        if let selectedIndexPaths = self.indexPathsForSelectedRows {
+            for indexPath in selectedIndexPaths {
+                self.deselectRowAtIndexPath(indexPath, animated: animated)
+            }
+        }
+    }
+}
+
 
 class AboutViewController: UITableViewController, SKStoreProductViewControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -49,13 +59,7 @@ class AboutViewController: UITableViewController, SKStoreProductViewControllerDe
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        tableView.reloadData()
-        if let selectedIndexPaths = tableView.indexPathsForSelectedRows {
-            for indexPath in selectedIndexPaths {
-                tableView.deselectRowAtIndexPath(indexPath, animated: true)
-            }
-        }
+        tableView.deselectAllRows()
     }
     
     
@@ -151,11 +155,7 @@ class AboutViewController: UITableViewController, SKStoreProductViewControllerDe
         if let iOSAppStoreURL = NSURL(string: "itms-apps://itunes.apple.com/de/app/id\(appId)") {
             UIApplication.sharedApplication().openURL(iOSAppStoreURL)
         }
-        if let selectedIndexPaths = tableView.indexPathsForSelectedRows {
-            for indexPath in selectedIndexPaths {
-                tableView.deselectRowAtIndexPath(indexPath, animated: true)
-            }
-        }
+        tableView.deselectAllRows()
     }
     
     
@@ -178,6 +178,7 @@ class AboutViewController: UITableViewController, SKStoreProductViewControllerDe
         case (1, 1):
             if MFMailComposeViewController.canSendMail() {
                 self.composeMail()
+                tableView.deselectAllRows()
             } else {
                 let alertController = UIAlertController(title: NSLocalizedString("CAN_NOT_SEND_MAIL", comment: "Can't send mail"), message: NSLocalizedString("HINT_ON_MAIL_PREFERENCES", comment: "Make sure, that the information about your mail account in the system preferences are valid."), preferredStyle: UIAlertControllerStyle.Alert)
                 alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))

@@ -25,3 +25,4 @@
 "mail_alert_beschreibung" = "Stelle sicher, dass die Einstellungen deines Mailaccounts in den Systemeinstellungen richtig sind.";
 "german" = "Deutsch";
 "english" = "Englisch";
+"NO_INTERNET_CONNECTION" = "keine Internetverbindung";

@@ -11,7 +11,6 @@ import CoreSpotlight
 import MobileCoreServices
 
 let appId = "926449450"
-let masterVCLoadingCounterKey = "MASTERVIEWCONTROLLERLOADINGKEY"
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

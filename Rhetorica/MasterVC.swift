@@ -7,23 +7,19 @@
 //
 
 import UIKit
-import CoreSpotlight
-import MobileCoreServices
 
 
-class MasterViewController: UIViewController, UISearchBarDelegate {
+class MasterViewController: UITableViewController, UISearchBarDelegate {
     
     // MARK: Outlets
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var noElementsLabel: UILabel!
-    @IBOutlet weak var noEntriesView: UIView!
+    var noEntriesView: UIView!
     @IBOutlet var tapRecognizer: UITapGestureRecognizer!
     
     var searchController: UISearchController = UISearchController(searchResultsController: nil)
     var detailViewController: DetailViewController? {
         didSet {
-            detailViewController?.device = self.selectedDeviceList.elements.first
+            detailViewController?.device = nil
         }
     }
     
@@ -33,8 +29,8 @@ class MasterViewController: UIViewController, UISearchBarDelegate {
         didSet{
             // Update deviceLists…
             let allDevices = StylisticDevice.getDevicesFromPlistForLanguage(selectedLanguage)
-            deviceLists = DeviceList.getAllDeviceLists(allDevices)
-            indexStylisticDevicesIfPossible(allDevices)
+            deviceLists = DeviceList.getAllDeviceLists(allDevices, forLanguage: selectedLanguage)
+            StylisticDevice.indexAllIfPossible(allDevices)
             
             if let listTitle = DeviceList.getSelectedListTitle() {
                 if let loadedList = self.deviceLists.filter({$0.title == listTitle}).first {
@@ -43,7 +39,7 @@ class MasterViewController: UIViewController, UISearchBarDelegate {
             } else {
                 selectedDeviceList = deviceLists.first!
             }
-            detailViewController?.device = selectedDeviceList.elements.first
+            detailViewController?.device = nil
             tableView.reloadData()
         }
     }
@@ -54,41 +50,26 @@ class MasterViewController: UIViewController, UISearchBarDelegate {
             }
         }
     }
-    var selectedDeviceList: DeviceList!
+    var selectedDeviceList: DeviceList! {
+        didSet {
+            navigationItem.title = selectedDeviceList.title
+            setupTableView(selectedDeviceList.isEmpty)
+        }
+    }
     var favorites: DeviceList? {
         return deviceLists.last
     }
 
     var searchResults = [StylisticDevice]()
-    var originalSeparatorColor: UIColor!
+    var defaultSeparatorColor: UIColor!
     
     
     // MARK: Life Cycle
     
-    override func awakeFromNib() {
-        // before: UIDevice.currentDevice().userInterfaceIdiom == .Pad
-        if traitCollection.horizontalSizeClass == .Regular && traitCollection.verticalSizeClass == .Regular {
-            self.preferredContentSize = CGSize(width: 320.0, height: 600.0)
-        }
-        super.awakeFromNib()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Set language
-        let languageIdentifier = Language.getSelectedLanguageIdentifier() ?? Language.getSystemLanguageIdentifier()
-        selectedLanguage = Language(identifier: languageIdentifier) ?? .German
         
-        tableView.dataSource = self
-        tableView.delegate = self
-        setupSearchController()
-        
-        originalSeparatorColor = tableView!.separatorColor
-        navigationItem.title = selectedDeviceList.title
-        
-        animateNoEntriesLabel(selectedDeviceList.elements.isEmpty)
-        
+        // Set detailViewController property
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             if controllers.count > 1 {
@@ -97,35 +78,16 @@ class MasterViewController: UIViewController, UISearchBarDelegate {
                 }
             }
         }
-    }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+        // Setup data
+        let languageIdentifier = Language.getSelectedLanguageIdentifier() ?? Language.getSystemLanguageIdentifier()
+        selectedLanguage = Language(identifier: languageIdentifier) ?? .German
+        
+        defaultSeparatorColor = tableView!.separatorColor
         definesPresentationContext = true
-        if let indexPaths = tableView.indexPathsForSelectedRows {
-            for indexPath in indexPaths {
-                tableView.deselectRowAtIndexPath(indexPath, animated: true)
-            }
-        }
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        NSTimer.scheduledTimerWithTimeInterval(0.7, target: self, selector: "checkForFeedbackVC", userInfo: nil, repeats: false)
-    }
-    
-    func checkForFeedbackVC() {
-        // Feedback Views
-        let defaults = NSUserDefaults.standardUserDefaults()
-        var counter = defaults.integerForKey(masterVCLoadingCounterKey) ?? 0
-        print(counter)
-        if counter == 15 {
-            performSegueWithIdentifier("toFeedback", sender: self)
-        }
-        defaults.setInteger(++counter, forKey: masterVCLoadingCounterKey)
-        defaults.synchronize()
-    }
-    
-    private func setupSearchController() {
+        navigationItem.title = selectedDeviceList.title
+
+        // Search Controller
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.searchBar.frame.size.width = self.view.bounds.size.width
@@ -137,13 +99,25 @@ class MasterViewController: UIViewController, UISearchBarDelegate {
         searchController.searchBar.tintColor = UIColor.rhetoricaPurpleColor()
         searchController.view.layoutIfNeeded()
         tableView.tableHeaderView = searchController.searchBar
-        
-        NSTimer.scheduledTimerWithTimeInterval(0, target: self, selector: Selector("scrollTableViewToTop"), userInfo: nil, repeats: false)
+    
+        // No Entries View
+        noEntriesView = UINib(nibName: "NoListView", bundle: nil).instantiateWithOwner(nil, options: nil).first as? UIView
+        if noEntriesView != nil {
+            noEntriesView.frame = self.tableView.bounds
+            noEntriesView.layer.zPosition = 1
+            self.view.addSubview(noEntriesView)
+            let searchBarOffset = self.searchController.searchBar.bounds.height + navigationController!.navigationBar.frame.origin.y
+            noEntriesView.frame = CGRect(x: 0, y: -searchBarOffset, width: self.tableView.bounds.width, height: self.tableView.bounds.height)
+        }
     }
     
-    @IBAction func cancelSearch(sender: AnyObject) {
-        searchController.active = false
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if FeedbackViewController.shouldBePresented() {
+            performSegueWithIdentifier("toFeedback", sender: self)
+        }
     }
+    
     
     // MARK: Transitioning
     
@@ -211,78 +185,60 @@ class MasterViewController: UIViewController, UISearchBarDelegate {
     }
     
     
+    // MARK: User Interaction
+    
+    @IBAction func cancelSearch(sender: AnyObject) {
+        searchController.active = false
+        self.tableView.separatorColor = self.defaultSeparatorColor
+    }
+    
+    
     // MARK: Private Functions
     
-    private func animateNoEntriesLabel(noEntries: Bool) {
-        
-        // Set text of label
-        switch selectedDeviceList.editable {
-        case true:
-            noElementsLabel.text = NSLocalizedString("ihre_lernliste_ist_leer", comment: "")
-        default:
-            noElementsLabel.text = NSLocalizedString("diese_liste_ist_leer", comment: "")
-        }
-        
-        UIView.animateWithDuration(0,
-            animations: {
-                // Fade Color of Separator Lines
-                let newSeparatorColor = (noEntries == true) ? UIColor.whiteColor() : self.originalSeparatorColor
-                self.tableView.separatorColor = newSeparatorColor
-            },
-            completion: { _ in
-                if !self.searchController.active {
-                    self.searchController.searchBar.hidden = noEntries
-                    self.noEntriesView?.hidden = !noEntries
-                    self.tableView.userInteractionEnabled = !noEntries
-                } else {
-                    self.searchController.searchBar.hidden = false
-                }
+    func setupTableView(isEmpty: Bool) {
+        if self.searchController.active || !isEmpty {
+            self.noEntriesView?.hidden = true
+            self.tableView.userInteractionEnabled = true
+            if UIApplication.sharedApplication().statusBarHidden {
+                tableView.setContentOffset(CGPoint(x: 0, y: -12), animated: false)
+            } else {
+                let navigationBarOrigin = navigationController!.navigationBar.frame.origin.y // 20
+                tableView.setContentOffset(CGPoint(x: 0, y: -navigationBarOrigin), animated: false)
             }
-        )
+        } else {
+            let searchBarOffset = navigationController!.navigationBar.frame.origin.y + searchController.searchBar.bounds.height
+            tableView.setContentOffset(CGPoint(x: 0, y: -searchBarOffset), animated: false)
+            self.noEntriesView?.hidden = false
+            self.tableView.userInteractionEnabled = false
+        }
+    }
+    
+    private func showNoEntriesView(noEntries noEntries: Bool) {
+        if self.searchController.active || !noEntries {
+            self.noEntriesView?.hidden = true
+            self.tableView.userInteractionEnabled = true
+        } else {
+            let searchBarOffset = navigationController!.navigationBar.frame.origin.y + searchController.searchBar.bounds.height
+            tableView.setContentOffset(CGPoint(x: 0, y: -searchBarOffset), animated: false)
+            self.noEntriesView?.hidden = false
+            self.tableView.userInteractionEnabled = false
+        }
     }
     
     private func setNavigationItemsEnabled(enable: Bool) {
         navigationItem.leftBarButtonItem?.enabled = enable
         navigationItem.rightBarButtonItem?.enabled = enable
     }
-    
-    /// Not private, as it needs to be usable via a selector.
-    func scrollTableViewToTop() {
-        let navigationBarOrigin = navigationController!.navigationBar.frame.origin.y // 20
-        if UIApplication.sharedApplication().statusBarHidden {
-            tableView.setContentOffset(CGPoint(x: 0, y: 12), animated: false)
-        } else {
-            tableView.setContentOffset(CGPoint(x: 0, y: -navigationBarOrigin), animated: false)
-        }
-    }
-    
-    private func indexStylisticDevicesIfPossible(devices: [StylisticDevice]) {
-        if #available(iOS 9.0, *) {
-            for device in devices {
-                let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
-                attributeSet.title = device.title
-                attributeSet.contentDescription = device.definition
-                let item = CSSearchableItem(uniqueIdentifier: "\(device.title)", domainIdentifier: "np.rhetorica", attributeSet: attributeSet)
-                CSSearchableIndex.defaultSearchableIndex().indexSearchableItems([item]) { (error: NSError?) -> Void in
-                    if let error = error {
-                        print("Indexing error: \(error.localizedDescription)")
-                    }
-                }
-            }
-        } else {
-            print("Could not index stylistic devices on device, as its OS is too old.")
-        }
-    }
 }
 
-// MARK: - MasterViewController: UITableViewDataSource, UITableViewDelegate
-extension MasterViewController: UITableViewDataSource, UITableViewDelegate {
-    // MARK: DataSource
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+
+// MARK: - MasterViewController: UITableViewDataSource
+extension MasterViewController {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         if searchController.active {
-            animateNoEntriesLabel(searchResults.isEmpty)
+            showNoEntriesView(noEntries: searchResults.isEmpty)
         } else {
-            animateNoEntriesLabel(selectedDeviceList.elements.isEmpty)
+            showNoEntriesView(noEntries: selectedDeviceList.elements.isEmpty)
             if selectedDeviceList.enoughForCategories == true {
                 return selectedDeviceList.sortedList.count
             }
@@ -291,7 +247,7 @@ extension MasterViewController: UITableViewDataSource, UITableViewDelegate {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.active {
             return searchResults.count
         }
@@ -303,7 +259,7 @@ extension MasterViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         var device: StylisticDevice!
         
@@ -317,20 +273,24 @@ extension MasterViewController: UITableViewDataSource, UITableViewDelegate {
             }
         }
         
-        cell.setNeedsLayout()
-        cell.layoutIfNeeded()
         cell.textLabel?.text = device.title
         return cell
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if !searchController.active && selectedDeviceList.enoughForCategories == true {
             return (selectedDeviceList.sortedList[selectedDeviceList.presentLetters[section]] != nil) ? selectedDeviceList.presentLetters[section] : nil
         }
         return nil
     }
     
-    func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
+}
+
+
+// MARK: - MasterViewController: UITableViewDataSource (Section Index)
+
+extension MasterViewController {
+    override func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
         // if magnifying glass
         if index == 0 {
             tableView.scrollRectToVisible(self.searchController.searchBar.frame, animated: false)
@@ -340,37 +300,37 @@ extension MasterViewController: UITableViewDataSource, UITableViewDelegate {
         return (selectedDeviceList.presentLetters.indexOf(title) ?? 0)
     }
     
-    func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
+    override func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
         var index = selectedDeviceList.presentLetters
         index.insert(UITableViewIndexSearch, atIndex: 0)
         
         return (selectedDeviceList.enoughForCategories && !searchController.active) ? index : nil
     }
-    
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+}
+
+
+// MARK: - MasterViewController: UITableViewDelgate (Deleting)
+
+extension MasterViewController {
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         let deleteButton = UITableViewRowAction(style: .Default, title: NSLocalizedString("löschen", comment: ""), handler: { (action, indexPath) in
             self.tableView.dataSource?.tableView?(
                 self.tableView,
                 commitEditingStyle: .Delete,
                 forRowAtIndexPath: indexPath
             )
-            
             return
         })
         
         deleteButton.backgroundColor = UIColor.rhetoricaRedColor()
-        
         return [deleteButton]
     }
-    
-    
-    // MARK: Delegate
-    
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return selectedDeviceList.editable
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             selectedDeviceList.elements.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
@@ -387,7 +347,6 @@ extension MasterViewController: UITableViewDataSource, UITableViewDelegate {
             detailViewController?.configureView() // For some reason not enough for updating the detailsVC
         }
     }
-    
 }
 
 
@@ -398,18 +357,13 @@ extension MasterViewController: ListViewDelegate {
     func listView(didSelectListWithTag tag: Int) {
         selectedDeviceList = deviceLists[tag]
         DeviceList.setSelectedListTitle(selectedDeviceList.title)
-        
-        navigationItem.title = selectedDeviceList.title
         tableView.reloadData()
-        scrollTableViewToTop()
     }
     
     func listView(didSelectLanguage language: Language) {
         if language != self.selectedLanguage {
             Language.setSelectedLanguage(language)
             self.selectedLanguage = language
-            tableView.reloadData()
-            scrollTableViewToTop()
             detailViewController?.favorites = self.deviceLists.last!
         }
     }
@@ -429,15 +383,16 @@ extension MasterViewController: UISearchResultsUpdating {
                 return !device.searchableStrings.filter({ stringProperty in
                     return stringProperty.rangeOfString(searchString!, options: NSStringCompareOptions.CaseInsensitiveSearch) != nil }).isEmpty
             }
-            
+
             tapRecognizer.enabled = searchResults.isEmpty
             
             // update UI
-            animateNoEntriesLabel(searchResults.isEmpty)
+            self.tableView.separatorColor = searchResults.isEmpty ? UIColor.whiteColor() : defaultSeparatorColor
             setNavigationItemsEnabled(false)
         } else {
             // Called when Search is canceled, update UI
-            animateNoEntriesLabel(selectedDeviceList.elements.isEmpty)
+            self.tableView.separatorColor = defaultSeparatorColor
+            showNoEntriesView(noEntries: selectedDeviceList.elements.isEmpty)
             setNavigationItemsEnabled(true)
             tapRecognizer.enabled = false
         }
