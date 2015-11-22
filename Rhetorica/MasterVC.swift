@@ -13,9 +13,9 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
     
     // MARK: Outlets
     
-    var noEntriesView: UIView!
     @IBOutlet var tapRecognizer: UITapGestureRecognizer!
     
+    var noEntriesView: UIView!
     var searchController: UISearchController = UISearchController(searchResultsController: nil)
     var detailViewController: DetailViewController? {
         didSet {
@@ -43,6 +43,7 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
             tableView.reloadData()
         }
     }
+    
     var deviceLists: [DeviceList] = [] {
         didSet{
             for list in deviceLists {
@@ -53,7 +54,9 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
     var selectedDeviceList: DeviceList! {
         didSet {
             navigationItem.title = selectedDeviceList.title
-            setupTableView(selectedDeviceList.isEmpty)
+            tableView.reloadData()
+            showNoEntriesView(noEntries: selectedDeviceList.isEmpty)
+            scrollToTop()
         }
     }
     var favorites: DeviceList? {
@@ -99,16 +102,26 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
         searchController.searchBar.tintColor = UIColor.rhetoricaPurpleColor()
         searchController.view.layoutIfNeeded()
         tableView.tableHeaderView = searchController.searchBar
-    
+
         // No Entries View
         noEntriesView = UINib(nibName: "NoListView", bundle: nil).instantiateWithOwner(nil, options: nil).first as? UIView
         if noEntriesView != nil {
-            noEntriesView.frame = self.tableView.bounds
             noEntriesView.layer.zPosition = 1
             self.view.addSubview(noEntriesView)
             let searchBarOffset = self.searchController.searchBar.bounds.height + navigationController!.navigationBar.frame.origin.y
             noEntriesView.frame = CGRect(x: 0, y: -searchBarOffset, width: self.tableView.bounds.width, height: self.tableView.bounds.height)
+            noEntriesView.layoutSubviews()
+            showNoEntriesView(noEntries: selectedDeviceList.elements.isEmpty)
         }
+        
+        let searchBarOffset = self.searchController.searchBar.bounds.height
+        tableView.setContentOffset(CGPoint(x: 0, y: searchBarOffset), animated: false)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.clearsSelectionOnViewWillAppear = false
+        super.viewWillAppear(animated)
+        tableView.deselectAllRows()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -195,31 +208,24 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
     
     // MARK: Private Functions
     
-    func setupTableView(isEmpty: Bool) {
-        if self.searchController.active || !isEmpty {
-            self.noEntriesView?.hidden = true
-            self.tableView.userInteractionEnabled = true
-            if UIApplication.sharedApplication().statusBarHidden {
-                tableView.setContentOffset(CGPoint(x: 0, y: -12), animated: false)
-            } else {
-                let navigationBarOrigin = navigationController!.navigationBar.frame.origin.y // 20
-                tableView.setContentOffset(CGPoint(x: 0, y: -navigationBarOrigin), animated: false)
-            }
+    func scrollToTop() {
+        if UIApplication.sharedApplication().statusBarHidden {
+            tableView.setContentOffset(CGPoint(x: 0, y: 12), animated: false)
         } else {
-            let searchBarOffset = navigationController!.navigationBar.frame.origin.y + searchController.searchBar.bounds.height
-            tableView.setContentOffset(CGPoint(x: 0, y: -searchBarOffset), animated: false)
-            self.noEntriesView?.hidden = false
-            self.tableView.userInteractionEnabled = false
+            let navigationBarOrigin = navigationController!.navigationBar.frame.origin.y
+            tableView.setContentOffset(CGPoint(x: 0, y: -navigationBarOrigin), animated: false)
         }
     }
     
     private func showNoEntriesView(noEntries noEntries: Bool) {
         if self.searchController.active || !noEntries {
+            self.tableView.separatorColor = self.defaultSeparatorColor
             self.noEntriesView?.hidden = true
             self.tableView.userInteractionEnabled = true
         } else {
-            let searchBarOffset = navigationController!.navigationBar.frame.origin.y + searchController.searchBar.bounds.height
-            tableView.setContentOffset(CGPoint(x: 0, y: -searchBarOffset), animated: false)
+//            self.tableView.separatorColor = UIColor.whiteColor()
+//            let searchBarOffset = navigationController!.navigationBar.frame.origin.y + searchController.searchBar.bounds.height
+//            tableView.setContentOffset(CGPoint(x: 0, y: -searchBarOffset), animated: false)
             self.noEntriesView?.hidden = false
             self.tableView.userInteractionEnabled = false
         }
@@ -235,14 +241,9 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
 // MARK: - MasterViewController: UITableViewDataSource
 extension MasterViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        if searchController.active {
-            showNoEntriesView(noEntries: searchResults.isEmpty)
-        } else {
-            showNoEntriesView(noEntries: selectedDeviceList.elements.isEmpty)
             if selectedDeviceList.enoughForCategories == true {
                 return selectedDeviceList.sortedList.count
             }
-        }
         
         return 1
     }
@@ -269,6 +270,7 @@ extension MasterViewController {
             if (selectedDeviceList.enoughForCategories == true) {
                 device = selectedDeviceList.sortedList[selectedDeviceList.presentLetters[indexPath.section]]![indexPath.row]
             } else {
+                print(indexPath)
                 device = selectedDeviceList.elements[indexPath.row]
             }
         }
@@ -334,7 +336,7 @@ extension MasterViewController {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             selectedDeviceList.elements.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-            
+            showNoEntriesView(noEntries: selectedDeviceList.isEmpty)
             if let split = self.splitViewController {
                 let controllers = split.viewControllers
                 if controllers.count > 1 {
@@ -357,7 +359,6 @@ extension MasterViewController: ListViewDelegate {
     func listView(didSelectListWithTag tag: Int) {
         selectedDeviceList = deviceLists[tag]
         DeviceList.setSelectedListTitle(selectedDeviceList.title)
-        tableView.reloadData()
     }
     
     func listView(didSelectLanguage language: Language) {
@@ -374,18 +375,17 @@ extension MasterViewController: ListViewDelegate {
 
 extension MasterViewController: UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
-        let searchString = searchController.searchBar.text
         definesPresentationContext = true
         
         if searchController.active {
             /// Searches for searchString in all properties of deviceList.
+            let searchString = searchController.searchBar.text
             searchResults = selectedDeviceList.elements.filter { device in
                 return !device.searchableStrings.filter({ stringProperty in
                     return stringProperty.rangeOfString(searchString!, options: NSStringCompareOptions.CaseInsensitiveSearch) != nil }).isEmpty
             }
 
             tapRecognizer.enabled = searchResults.isEmpty
-            
             // update UI
             self.tableView.separatorColor = searchResults.isEmpty ? UIColor.whiteColor() : defaultSeparatorColor
             setNavigationItemsEnabled(false)

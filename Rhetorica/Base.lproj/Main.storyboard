@@ -704,7 +704,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tapRecognizer" destination="ZSV-x9-aZ1" id="ZSw-Zp-SJq"/>
-                        <segue destination="KOT-Qe-JSg" kind="show" identifier="toFeedback" id="9iU-u6-LdD"/>
+                        <segue destination="KOT-Qe-JSg" kind="presentation" identifier="toFeedback" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="9iU-u6-LdD"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5S-Tr-Lu1" userLabel="First Responder" sceneMemberID="firstResponder"/>
