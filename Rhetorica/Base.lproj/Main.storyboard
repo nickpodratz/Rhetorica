@@ -526,7 +526,7 @@
                                     <constraint firstItem="Pkd-5e-Q1j" firstAttribute="centerX" secondItem="0qL-Ze-Zbg" secondAttribute="centerX" id="uFx-gM-NqS"/>
                                     <constraint firstAttribute="bottom" secondItem="XUC-Md-rWN" secondAttribute="bottom" constant="20" symbolic="YES" id="xgs-8X-bds"/>
                                 </constraints>
-                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                <variation key="widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="16" y="72" width="368" height="330"/>
                                 </variation>
                                 <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
@@ -1306,7 +1306,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEX-6G-X2F">
-                                                    <rect key="frame" x="16" y="25" width="568" height="65.5"/>
+                                                    <rect key="frame" x="16" y="25" width="568" height="65"/>
                                                     <animations/>
                                                     <string key="text">Danke, dass du Rhetorica nutzt!
 Ich habe diese App im Zuge meiner eigenen Abiturvorbereitung entwickelt und hoffe, dass sie auch für dich einen Zweck erfüllt. Über eine kurze Mail oder App Store Bewertung mit deiner Meinung würde ich mich daher sehr freuen. Und vielleicht magst du noch einen Blick auf meine anderen Apps werfen?</string>
@@ -1475,10 +1475,16 @@ Ich habe diese App im Zuge meiner eigenen Abiturvorbereitung entwickelt und hoff
                                                                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
+                                                                        <variation key="widthClass=compact" misplaced="YES">
+                                                                            <rect key="frame" x="0.0" y="63" width="66" height="12"/>
+                                                                        </variation>
                                                                     </label>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="abn-Fj-ogE">
                                                                         <rect key="frame" x="3" y="0.0" width="60" height="60"/>
                                                                         <animations/>
+                                                                        <variation key="widthClass=compact" misplaced="YES">
+                                                                            <rect key="frame" x="3" y="-1" width="60" height="60"/>
+                                                                        </variation>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <animations/>
