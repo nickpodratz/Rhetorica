@@ -61,7 +61,7 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
     var favorites: DeviceList? {
         return deviceLists.last
     }
-
+    
     var searchResults = [StylisticDevice]()
     var defaultSeparatorColor: UIColor!
     
@@ -81,13 +81,13 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
             }
         }
         
+        defaultSeparatorColor = tableView!.separatorColor
+        definesPresentationContext = true
+        
         // Setup data
         let languageIdentifier = Language.getSelectedLanguageIdentifier() ?? Language.getSystemLanguageIdentifier()
         selectedLanguage = Language(identifier: languageIdentifier) ?? .German
         
-        defaultSeparatorColor = tableView!.separatorColor
-        definesPresentationContext = true
-
         // Search Controller
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
@@ -100,7 +100,7 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
         searchController.searchBar.tintColor = UIColor.rhetoricaPurpleColor()
         searchController.view.layoutIfNeeded()
         tableView.tableHeaderView = searchController.searchBar
-
+        
         // No Entries View
         noEntriesView = UINib(nibName: "NoListView", bundle: nil).instantiateWithOwner(nil, options: nil).first as? UIView
         if noEntriesView != nil {
@@ -113,8 +113,8 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
         if !selectedDeviceList.isEmpty {
             tableView.setContentOffset(CGPoint(x: 0, y: searchController.searchBar.bounds.size.height), animated: true)
         }
-//        showNoEntriesView(noEntries: selectedDeviceList.isEmpty)
-
+        //        showNoEntriesView(noEntries: selectedDeviceList.isEmpty)
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -137,7 +137,7 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
         
         defaults.setInteger(++counter, forKey: masterVCLoadingCounterKey)
         defaults.synchronize()
-
+        
     }
     
     
@@ -232,7 +232,7 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
             self.noEntriesView?.hidden = true
             self.tableView.userInteractionEnabled = true
         } else {
-//            self.tableView.separatorColor = UIColor.whiteColor()
+            self.tableView.separatorColor = UIColor.whiteColor()
             let searchBarOffset = navigationController!.navigationBar.frame.origin.y + searchController.searchBar.bounds.height
             tableView.setContentOffset(CGPoint(x: 0, y: -searchBarOffset), animated: false)
             self.noEntriesView?.hidden = false
@@ -250,9 +250,9 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
 // MARK: - MasterViewController: UITableViewDataSource
 extension MasterViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-            if selectedDeviceList.enoughForCategories == true {
-                return selectedDeviceList.sortedList.count
-            }
+        if selectedDeviceList.enoughForCategories == true {
+            return selectedDeviceList.sortedList.count
+        }
         
         return 1
     }
@@ -335,7 +335,7 @@ extension MasterViewController {
         deleteButton.backgroundColor = UIColor.rhetoricaRedColor()
         return [deleteButton]
     }
-
+    
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return selectedDeviceList.editable
     }
@@ -392,7 +392,7 @@ extension MasterViewController: UISearchResultsUpdating {
                 return !device.searchableStrings.filter({ stringProperty in
                     return stringProperty.rangeOfString(searchString!, options: NSStringCompareOptions.CaseInsensitiveSearch) != nil }).isEmpty
             }
-
+            
             tapRecognizer.enabled = searchResults.isEmpty
             // update UI
             self.tableView.separatorColor = searchResults.isEmpty ? UIColor.whiteColor() : defaultSeparatorColor

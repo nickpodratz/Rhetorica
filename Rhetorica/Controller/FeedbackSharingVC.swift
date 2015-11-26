@@ -42,13 +42,15 @@ class FeedbackSharingViewController: UIViewController {
     @IBAction func postToFacebookPressed(sender: UIButton) {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
             let controller = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-            let url = NSURL(string: NSLocalizedString("rhetorica_appstore_link", comment: ""))
+            let coutryCode = NSLocalizedString("minCountryCode", comment: "")
+            let url = NSURL(string: "https://itunes.apple.com/\(coutryCode)/app/rhetorica-stilmittel-einfach/id926449450?mt=8")!
             controller.addURL(url)
-            self.presentViewController(controller, animated:true, completion:{ self.dismissViewControllerAnimated(true, completion: nil) })
+            self.presentViewController(controller, animated:true, completion: nil)
         }
         else {
             print("no Facebook account found on device")
         }
+//        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
 }

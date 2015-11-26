@@ -86,7 +86,8 @@ class AboutViewController: UITableViewController, SKStoreProductViewControllerDe
         dispatch_async(userInitiatedPatch) {
             // Fetch my other apps in a asynchronously
             
-            guard let url = NSURL(string: "https://itunes.apple.com/search?term=Nick+Podratz&media=software&country=DE") else { print("Can't create URL."); return }
+            let countryCode = NSLocalizedString("majCountryCode", comment: "")
+            guard let url = NSURL(string: "https://itunes.apple.com/search?term=Nick+Podratz&media=software&country=\(countryCode)") else { print("Can't create URL."); return }
             NSURLSession.sharedSession().dataTaskWithURL(url) {(data, response, error) in
                 
                 do {
@@ -152,7 +153,8 @@ class AboutViewController: UITableViewController, SKStoreProductViewControllerDe
     }
     
     private func openInAppStore() {
-        if let iOSAppStoreURL = NSURL(string: "itms-apps://itunes.apple.com/de/app/id\(appId)") {
+        let countryCode = NSLocalizedString("minCountryCode", comment: "")
+        if let iOSAppStoreURL = NSURL(string: "itms-apps://itunes.apple.com/\(countryCode)/app/id\(appId)") {
             UIApplication.sharedApplication().openURL(iOSAppStoreURL)
         }
         tableView.deselectAllRows()

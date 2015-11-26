@@ -26,4 +26,5 @@
 "german" = "German";
 "english" = "English";
 "NO_INTERNET_CONNECTION" = "no internet connection";
-"rhetorica_appstore_link" = "https://itunes.apple.com/us/app/rhetorica-stilmittel-einfach/id926449450?mt=8";
+"majCountryCode" = "US";
+"minCountryCode" = "us";
