@@ -649,13 +649,29 @@
             </objects>
             <point key="canvasLocation" x="3854" y="-211"/>
         </scene>
+        <!--FeedbackSharingViewController-->
+        <scene sceneID="HPr-Y7-9Lf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Feedback" referencedIdentifier="FeedbackSharingViewController" id="iCx-Kg-V5R" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9P5-C6-kKh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1750" y="451"/>
+        </scene>
+        <!--FeedbackLikingViewController-->
+        <scene sceneID="5JO-lm-9Ci">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Feedback" referencedIdentifier="FeedbackLikingViewController" id="hcw-Fx-ckd" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OpB-bZ-0T6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1359" y="451"/>
+        </scene>
         <!--Feedback-->
         <scene sceneID="w3F-ON-ftW">
             <objects>
                 <viewControllerPlaceholder storyboardName="Feedback" id="KOT-Qe-JSg" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fj5-e3-tud" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1825.5" y="646"/>
+            <point key="canvasLocation" x="1551.5" y="451"/>
         </scene>
         <!--Master-->
         <scene sceneID="cXc-dp-wPt">
@@ -705,6 +721,8 @@
                     <connections>
                         <outlet property="tapRecognizer" destination="ZSV-x9-aZ1" id="ZSw-Zp-SJq"/>
                         <segue destination="KOT-Qe-JSg" kind="presentation" identifier="toFeedback" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="9iU-u6-LdD"/>
+                        <segue destination="iCx-Kg-V5R" kind="presentation" identifier="toFeedbackSharing" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="4XG-5p-DZl"/>
+                        <segue destination="hcw-Fx-ckd" kind="presentation" identifier="toFeedbackLiking" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="LMn-Tv-5GI"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5S-Tr-Lu1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1298,15 +1316,15 @@
                         <sections>
                             <tableViewSection id="D8D-Vh-VAk">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="173" id="hyv-gE-nQA">
-                                        <rect key="frame" x="0.0" y="79" width="600" height="173"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="150" id="hyv-gE-nQA">
+                                        <rect key="frame" x="0.0" y="79" width="600" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hyv-gE-nQA" id="Zq3-gj-jzh">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="172.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="149.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEX-6G-X2F">
-                                                    <rect key="frame" x="16" y="25" width="568" height="65"/>
+                                                    <rect key="frame" x="16" y="25" width="568" height="110.5"/>
                                                     <animations/>
                                                     <string key="text">Danke, dass du Rhetorica nutzt!
 Ich habe diese App im Zuge meiner eigenen Abiturvorbereitung entwickelt und hoffe, dass sie auch für dich einen Zweck erfüllt. Über eine kurze Mail oder App Store Bewertung mit deiner Meinung würde ich mich daher sehr freuen. Und vielleicht magst du noch einen Blick auf meine anderen Apps werfen?</string>
@@ -1316,24 +1334,42 @@ Ich habe diese App im Zuge meiner eigenen Abiturvorbereitung entwickelt und hoff
                                                         <rect key="frame" x="16" y="24" width="368" height="142"/>
                                                     </variation>
                                                 </label>
-                                                <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="zLt-PO-uz4">
-                                                    <rect key="frame" x="24" y="106" width="205" height="50"/>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="hEX-6G-X2F" firstAttribute="leading" secondItem="Zq3-gj-jzh" secondAttribute="leadingMargin" constant="8" id="4ZP-xP-2WV"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="hEX-6G-X2F" secondAttribute="bottom" constant="6" id="9U6-hZ-i2A"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="hEX-6G-X2F" secondAttribute="trailing" constant="8" id="AHF-jX-Ql2"/>
+                                                <constraint firstItem="hEX-6G-X2F" firstAttribute="top" secondItem="Zq3-gj-jzh" secondAttribute="top" constant="25" id="xrA-aD-TQK"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="i5s-lE-AqM">
+                                        <rect key="frame" x="0.0" y="229" width="600" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="i5s-lE-AqM" id="Ww3-Mi-r7o">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zLt-PO-uz4">
+                                                    <rect key="frame" x="16" y="10" width="205" height="50"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nick Podratz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjb-DO-2PB">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Nick Podratz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjb-DO-2PB">
                                                             <rect key="frame" x="58" y="7" width="88" height="18"/>
                                                             <animations/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entwickler aus Hamburg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qM9-7I-iTX">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Entwickler aus Hamburg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qM9-7I-iTX">
                                                             <rect key="frame" x="58" y="26" width="147" height="16"/>
                                                             <animations/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="portrait" highlightedImage="portrait" translatesAutoresizingMaskIntoConstraints="NO" id="A9a-Ul-r8m">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="portrait" highlightedImage="portrait" translatesAutoresizingMaskIntoConstraints="NO" id="A9a-Ul-r8m">
                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                             <animations/>
                                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1360,22 +1396,20 @@ Ich habe diese App im Zuge meiner eigenen Abiturvorbereitung entwickelt und hoff
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstItem="hEX-6G-X2F" firstAttribute="leading" secondItem="Zq3-gj-jzh" secondAttribute="leadingMargin" constant="8" id="4ZP-xP-2WV"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="hEX-6G-X2F" secondAttribute="trailing" constant="8" id="AHF-jX-Ql2"/>
-                                                <constraint firstItem="zLt-PO-uz4" firstAttribute="top" secondItem="hEX-6G-X2F" secondAttribute="bottom" constant="16" id="FGF-ed-uDk"/>
-                                                <constraint firstAttribute="bottom" secondItem="zLt-PO-uz4" secondAttribute="bottom" constant="16" id="WIh-ga-TxW"/>
-                                                <constraint firstItem="zLt-PO-uz4" firstAttribute="leading" secondItem="hEX-6G-X2F" secondAttribute="leading" constant="8" id="sEJ-Zw-s5s"/>
-                                                <constraint firstItem="hEX-6G-X2F" firstAttribute="top" secondItem="Zq3-gj-jzh" secondAttribute="top" constant="25" id="xrA-aD-TQK"/>
+                                                <constraint firstItem="zLt-PO-uz4" firstAttribute="top" secondItem="Ww3-Mi-r7o" secondAttribute="topMargin" constant="2" id="Qyl-YK-Evo"/>
+                                                <constraint firstItem="zLt-PO-uz4" firstAttribute="leading" secondItem="Ww3-Mi-r7o" secondAttribute="leadingMargin" constant="8" id="jqV-w3-fWb"/>
+                                                <constraint firstItem="zLt-PO-uz4" firstAttribute="centerY" secondItem="Ww3-Mi-r7o" secondAttribute="centerY" id="zL3-Kv-Jr4"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="zLt-PO-uz4" secondAttribute="bottom" constant="8" id="zrp-5x-ZpP"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="In Kontakt treten" id="qtL-Rt-VfO">
+                            <tableViewSection headerTitle="Deine Meinung preisgeben" id="qtL-Rt-VfO">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="XOL-5B-4sb" style="IBUITableViewCellStyleDefault" id="8kL-O5-vFF">
-                                        <rect key="frame" x="0.0" y="294" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="351" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8kL-O5-vFF" id="tjo-LY-Ojt">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -1395,7 +1429,7 @@ Ich habe diese App im Zuge meiner eigenen Abiturvorbereitung entwickelt und hoff
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="n3Z-D3-o0Y" style="IBUITableViewCellStyleDefault" id="3jN-8N-NKR">
-                                        <rect key="frame" x="0.0" y="338" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="395" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3jN-8N-NKR" id="Vpi-Yz-d0c">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -1414,32 +1448,12 @@ Ich habe diese App im Zuge meiner eigenen Abiturvorbereitung entwickelt und hoff
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="S1T-kc-k7n" style="IBUITableViewCellStyleDefault" id="vF9-7N-2CG">
-                                        <rect key="frame" x="0.0" y="382" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vF9-7N-2CG" id="Zfb-DS-hSN">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Auf Facebook folgen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="S1T-kc-k7n">
-                                                    <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Meine anderen Apps" id="uee-IL-6qV" userLabel="Weitere Apps">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="100" id="ec1-gk-kAT">
-                                        <rect key="frame" x="0.0" y="468" width="600" height="100"/>
+                                        <rect key="frame" x="0.0" y="481" width="600" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ec1-gk-kAT" id="3kY-AH-LXr">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>

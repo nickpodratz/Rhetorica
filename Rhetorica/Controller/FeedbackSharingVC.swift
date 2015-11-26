@@ -1,17 +1,16 @@
 //
-//  FeedbackViewController.swift
+//  FeedbackSharingVC.swift
 //  Rhetorica
 //
-//  Created by Nick Podratz on 04.10.15.
+//  Created by Nick Podratz on 26.11.15.
 //  Copyright © 2015 Nick Podratz. All rights reserved.
 //
 
 import UIKit
+import Social
 
-let masterVCLoadingCounterKey = "MASTERVIEWCONTROLLERLOADINGKEY"
-
-class FeedbackViewController: UIViewController {
-
+class FeedbackSharingViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: true)
@@ -21,11 +20,11 @@ class FeedbackViewController: UIViewController {
     override func viewWillDisappear(animated: Bool) {
         UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-        
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "rewindsToMasterViewController" {
             let defaults = NSUserDefaults.standardUserDefaults()
@@ -38,6 +37,18 @@ class FeedbackViewController: UIViewController {
         let transparentWhiteImage = UIImage(color: UIColor(white: 1, alpha: 0))
         navigationController?.navigationBar.shadowImage = transparentWhiteImage
         navigationController?.navigationBar.setBackgroundImage(transparentWhiteImage, forBarMetrics: UIBarMetrics.Default)
+    }
+    
+    @IBAction func postToFacebookPressed(sender: UIButton) {
+        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
+            let controller = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+            let url = NSURL(string: NSLocalizedString("rhetorica_appstore_link", comment: ""))
+            controller.addURL(url)
+            self.presentViewController(controller, animated:true, completion:{ self.dismissViewControllerAnimated(true, completion: nil) })
+        }
+        else {
+            print("no Facebook account found on device")
+        }
     }
     
 }

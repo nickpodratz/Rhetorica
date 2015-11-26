@@ -37,7 +37,7 @@ class AboutViewController: UITableViewController, SKStoreProductViewControllerDe
     @IBOutlet weak var imageView: UIImageView!
     
     var timer: NSTimer!
-
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -49,11 +49,11 @@ class AboutViewController: UITableViewController, SKStoreProductViewControllerDe
         
         imageView.layer.cornerRadius = imageView.bounds.size.width / 2
         imageView.layer.masksToBounds = true
-
+        
         // Update size of cells
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 100
-
+        
         timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "getOtherApps", userInfo: nil, repeats: true)
     }
     
@@ -173,29 +173,45 @@ class AboutViewController: UITableViewController, SKStoreProductViewControllerDe
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch (indexPath.section, indexPath.row) {
+        case (0, _):
+            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+            alertController.addAction(UIAlertAction(title: "Meine Website besuchen", style: UIAlertActionStyle.Default, handler: { action in
+                UIApplication.sharedApplication().openURL(NSURL(string: "http://www.podratz.de")!)
+                tableView.deselectAllRows()
+            }))
+            alertController.addAction(UIAlertAction(title: "Facebookseite anzeigen", style: UIAlertActionStyle.Default, handler: { action in
+                if let url = NSURL(string: "fb://profile/1515153398777652/") {
+                    UIApplication.sharedApplication().openURL(url)
+                    if let selectedIndexPaths = tableView.indexPathsForSelectedRows {
+                        for indexPath in selectedIndexPaths {
+                            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                        }
+                    }
+                }
+                tableView.deselectAllRows()
+            }))
+            alertController.addAction(UIAlertAction(title: "Abbrechen", style: UIAlertActionStyle.Cancel, handler: { action in
+                tableView.deselectAllRows()
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
         case (1, 0):
             openInAppStore()
+            tableView.deselectAllRows()
         case (1, 1):
             if MFMailComposeViewController.canSendMail() {
                 self.composeMail()
                 tableView.deselectAllRows()
             } else {
                 let alertController = UIAlertController(title: NSLocalizedString("CAN_NOT_SEND_MAIL", comment: "Can't send mail"), message: NSLocalizedString("HINT_ON_MAIL_PREFERENCES", comment: "Make sure, that the information about your mail account in the system preferences are valid."), preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { action in
+                    tableView.deselectAllRows()
+                }))
                 self.presentViewController(alertController, animated: true, completion: nil)
             }
-        case (1, 2):
-            if let url = NSURL(string: "fb://profile/1515153398777652/") {
-                UIApplication.sharedApplication().openURL(url)
-                if let selectedIndexPaths = tableView.indexPathsForSelectedRows {
-                    for indexPath in selectedIndexPaths {
-                        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-                    }
-                }
-            }
-            
         default: return
+
         }
+
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

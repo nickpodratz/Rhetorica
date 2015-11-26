@@ -1,17 +1,15 @@
 //
-//  FeedbackViewController.swift
+//  FeedbackLikingVC.swift
 //  Rhetorica
 //
-//  Created by Nick Podratz on 04.10.15.
+//  Created by Nick Podratz on 26.11.15.
 //  Copyright © 2015 Nick Podratz. All rights reserved.
 //
 
 import UIKit
 
-let masterVCLoadingCounterKey = "MASTERVIEWCONTROLLERLOADINGKEY"
-
-class FeedbackViewController: UIViewController {
-
+class FeedbackLikingViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: true)
@@ -25,7 +23,7 @@ class FeedbackViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-        
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "rewindsToMasterViewController" {
             let defaults = NSUserDefaults.standardUserDefaults()
@@ -40,4 +38,10 @@ class FeedbackViewController: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(transparentWhiteImage, forBarMetrics: UIBarMetrics.Default)
     }
     
+    @IBAction func showFacebookPagePressed(sender: UIButton) {
+        if let url = NSURL(string: "fb://profile/1515153398777652/") {
+            UIApplication.sharedApplication().openURL(url)
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+    }
 }

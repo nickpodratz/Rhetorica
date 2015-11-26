@@ -396,7 +396,7 @@ Cg
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfC-xo-Aak">
-                                <rect key="frame" x="140.5" y="206" width="319.5" height="108"/>
+                                <rect key="frame" x="141" y="206" width="319.5" height="109"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="320" id="AvG-PL-V6F"/>
@@ -411,21 +411,11 @@ Cg
                                     </fragment>
                                     <fragment>
                                         <string key="content" base64-UTF8="YES">
-Cg
+Cgo
 </string>
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="15" name="HelveticaNeue-Medium"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                        <attributes>
-                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                            <font key="NSFont" size="16" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -598,7 +588,7 @@ Cg
         <!--Feedback-->
         <scene sceneID="5Xp-PT-whq">
             <objects>
-                <viewController id="UCt-rP-LG6" userLabel="Feedback" customClass="FeedbackViewController" customModule="Rhetorica" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedbackLikingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UCt-rP-LG6" userLabel="Feedback" customClass="FeedbackLikingViewController" customModule="Rhetorica" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ngD-TZ-nbO"/>
                         <viewControllerLayoutGuide type="bottom" id="4ae-3u-Mmk"/>
@@ -608,7 +598,7 @@ Cg
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nJN-hA-Fbw">
-                                <rect key="frame" x="182" y="360" width="236" height="40"/>
+                                <rect key="frame" x="182" y="380" width="236" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GnJ-BY-P9h" customClass="RoundedButton" customModule="Rhetorica" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="110" height="40"/>
@@ -619,7 +609,7 @@ Cg
                                             <constraint firstAttribute="width" constant="110" id="qdC-DD-vrV"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                                        <state key="normal" title="Nein">
+                                        <state key="normal" title="Nee…">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -633,6 +623,9 @@ Cg
                                                 <real key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="QN6-dR-40Q" kind="unwind" unwindAction="rewindsToMasterViewController:" id="hcN-K3-klh"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Er-k4-ggD" customClass="RoundedButton" customModule="Rhetorica" customModuleProvider="target">
                                         <rect key="frame" x="126" y="0.0" width="110" height="40"/>
@@ -643,7 +636,7 @@ Cg
                                             <constraint firstAttribute="width" constant="110" id="ccb-fn-qFr"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                                        <state key="normal" title="Ja">
+                                        <state key="normal" title="Jetzt Folgen">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -657,6 +650,9 @@ Cg
                                                 <real key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="showFacebookPagePressed:" destination="UCt-rP-LG6" eventType="touchUpInside" id="6yQ-O7-v81"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
@@ -672,13 +668,247 @@ Cg
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6pE-fn-R0R">
-                                <rect key="frame" x="162.5" y="223.5" width="275" height="79.5"/>
+                                <rect key="frame" x="153.5" y="179.5" width="294.5" height="167"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="280" id="6zE-oF-lHY"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="295" id="6zE-oF-lHY"/>
                                 </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content="Gefällt dir Rhetorica? ">
+                                    <fragment content="Möchtest du">
+                                        <attributes>
+                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue-Medium"/>
+                                            <font key="NSOriginalFont" size="17" name="HelveticaNeue-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" immer auf dem neusten Stand sein">
+                                        <attributes>
+                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="? ">
+                                        <attributes>
+                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue-Medium"/>
+                                            <font key="NSOriginalFont" size="17" name="HelveticaNeue-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+Über meine Facebookseite lade ich zum </string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.20784313725490197" green="0.20784313725490197" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="1" defaultTabInterval="28" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Beta Testing">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20784313725490197" green="0.20784313725490197" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="15" name="HelveticaNeue-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="1" defaultTabInterval="28" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" brandneuer Funktionen ein, gebe ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20784313725490197" green="0.20784313725490197" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="1" defaultTabInterval="28" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Promo-Codes">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20784313725490197" green="0.20784313725490197" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="15" name="HelveticaNeue-Medium"/>
+                                            <font key="NSOriginalFont" size="15" name="HelveticaNeue-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="1" defaultTabInterval="28" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" meiner aktuellen Apps heraus und teile ab und zu Einblicke in meine">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20784313725490197" green="0.20784313725490197" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="1" defaultTabInterval="28" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20784313725490197" green="0.20784313725490197" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                            <font key="NSOriginalFont" size="12" name="Helvetica-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="1" defaultTabInterval="28" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="App-">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20784313725490197" green="0.20784313725490197" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="1" defaultTabInterval="28" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Entwicklung">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20784313725490197" green="0.20784313725490197" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                            <font key="NSOriginalFont" size="12" name="Helvetica-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="1" defaultTabInterval="28" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=". Von mir gibt es keinen Spam: Indianerehrenwort!">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20784313725490197" green="0.20784313725490197" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="1" defaultTabInterval="28" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6pE-fn-R0R" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qmH-Ql-YIJ" secondAttribute="leadingMargin" constant="16" id="J3v-cG-7VH"/>
+                            <constraint firstItem="nJN-hA-Fbw" firstAttribute="centerY" secondItem="qmH-Ql-YIJ" secondAttribute="centerY" constant="100" id="Ouc-E5-Atq"/>
+                            <constraint firstItem="6pE-fn-R0R" firstAttribute="centerY" secondItem="qmH-Ql-YIJ" secondAttribute="centerY" multiplier="0.92" constant="-13" id="Y0n-96-Da4"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="6pE-fn-R0R" secondAttribute="trailing" constant="16" id="gxX-ZZ-kJ7"/>
+                            <constraint firstItem="nJN-hA-Fbw" firstAttribute="centerX" secondItem="qmH-Ql-YIJ" secondAttribute="centerX" id="uIr-ns-yvM"/>
+                            <constraint firstItem="6pE-fn-R0R" firstAttribute="centerX" secondItem="qmH-Ql-YIJ" secondAttribute="centerX" id="wlS-gA-ZBr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="skO-pc-lFu">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="Zfy-hc-pfk">
+                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O1i-Pc-mDO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="QN6-dR-40Q" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3159" y="-46"/>
+        </scene>
+        <!--Feedback-->
+        <scene sceneID="vBF-IB-ZfR">
+            <objects>
+                <viewController storyboardIdentifier="FeedbackSharingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y3i-Pj-FMd" userLabel="Feedback" customClass="FeedbackSharingViewController" customModule="Rhetorica" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="508-r0-cZw"/>
+                        <viewControllerLayoutGuide type="bottom" id="vkz-IW-UeV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ATY-uU-wma">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G8A-tH-Bd4">
+                                <rect key="frame" x="182" y="360" width="236" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caZ-oh-kQr" customClass="RoundedButton" customModule="Rhetorica" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="110" height="40"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.52941179279999995" green="0.20784313979999999" blue="0.39215686919999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="110" id="HLO-kL-27a"/>
+                                            <constraint firstAttribute="height" constant="40" id="xtN-FR-Ge4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                        <state key="normal" title="Keine Lust">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="aTI-fD-cJy" kind="unwind" unwindAction="rewindsToMasterViewController:" id="S2z-Ow-scw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoY-Ww-jJ5" customClass="RoundedButton" customModule="Rhetorica" customModuleProvider="target">
+                                        <rect key="frame" x="126" y="0.0" width="110" height="40"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.67058825489999996" green="0.72156864399999998" blue="0.1411764771" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="110" id="le5-Pa-q9F"/>
+                                            <constraint firstAttribute="height" constant="40" id="nk3-ic-gtc"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                        <state key="normal" title="Jetzt teilen">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="postToFacebookPressed:" destination="Y3i-Pj-FMd" eventType="touchUpInside" id="oJ9-lO-rra"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="caZ-oh-kQr" firstAttribute="leading" secondItem="G8A-tH-Bd4" secondAttribute="leading" id="0mY-lq-2ki"/>
+                                    <constraint firstItem="zoY-Ww-jJ5" firstAttribute="top" secondItem="G8A-tH-Bd4" secondAttribute="top" id="7Ty-5y-25W"/>
+                                    <constraint firstAttribute="trailing" secondItem="zoY-Ww-jJ5" secondAttribute="trailing" id="UCW-dv-P7N"/>
+                                    <constraint firstItem="zoY-Ww-jJ5" firstAttribute="leading" secondItem="caZ-oh-kQr" secondAttribute="trailing" constant="16" id="Whi-3r-JBT"/>
+                                    <constraint firstAttribute="bottom" secondItem="caZ-oh-kQr" secondAttribute="bottom" id="iRv-Yp-Vgb"/>
+                                    <constraint firstItem="caZ-oh-kQr" firstAttribute="top" secondItem="G8A-tH-Bd4" secondAttribute="top" id="jb1-um-VxU"/>
+                                    <constraint firstAttribute="bottom" secondItem="zoY-Ww-jJ5" secondAttribute="bottom" id="xlo-QD-1Du"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BjK-An-VsN">
+                                <rect key="frame" x="164.5" y="209" width="271" height="107"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="280" id="TPf-B6-nUq"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Sharing is caring &lt;3">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <font key="NSFont" size="17" name="HelveticaNeue-Medium"/>
@@ -707,10 +937,10 @@ Cg
                                             </paragraphStyle>
                                         </attributes>
                                     </fragment>
-                                    <fragment content="Möchtest du immer auf dem laufenden bleiben was Rabattaktionen, Beta Testing und neue Funktionen meiner Entwicklung angeht?">
+                                    <fragment content="Dir gefällt Rhetorica? Dann tue mir doch einen Gefallen und erzähle deinen Freunden davon. Sicher wären sie dir sehr dankbar.">
                                         <attributes>
                                             <color key="NSColor" red="0.20784313725490197" green="0.20784313725490197" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="12" name="Helvetica"/>
+                                            <font key="NSFont" size="15" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="1" defaultTabInterval="28" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -723,27 +953,28 @@ Cg
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6pE-fn-R0R" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qmH-Ql-YIJ" secondAttribute="leadingMargin" constant="16" id="J3v-cG-7VH"/>
-                            <constraint firstItem="nJN-hA-Fbw" firstAttribute="centerY" secondItem="qmH-Ql-YIJ" secondAttribute="centerY" constant="80" id="Ouc-E5-Atq"/>
-                            <constraint firstItem="6pE-fn-R0R" firstAttribute="centerY" secondItem="qmH-Ql-YIJ" secondAttribute="centerY" multiplier="0.92" constant="-13" id="Y0n-96-Da4"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="6pE-fn-R0R" secondAttribute="trailing" constant="16" id="gxX-ZZ-kJ7"/>
-                            <constraint firstItem="nJN-hA-Fbw" firstAttribute="centerX" secondItem="qmH-Ql-YIJ" secondAttribute="centerX" id="uIr-ns-yvM"/>
-                            <constraint firstItem="6pE-fn-R0R" firstAttribute="centerX" secondItem="qmH-Ql-YIJ" secondAttribute="centerX" id="wlS-gA-ZBr"/>
+                            <constraint firstItem="G8A-tH-Bd4" firstAttribute="centerY" secondItem="ATY-uU-wma" secondAttribute="centerY" constant="80" id="82S-db-klE"/>
+                            <constraint firstItem="BjK-An-VsN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ATY-uU-wma" secondAttribute="leadingMargin" constant="16" id="Gvp-60-boe"/>
+                            <constraint firstItem="BjK-An-VsN" firstAttribute="centerY" secondItem="ATY-uU-wma" secondAttribute="centerY" multiplier="0.92" constant="-13" id="Nbe-xI-Gv2"/>
+                            <constraint firstItem="G8A-tH-Bd4" firstAttribute="centerX" secondItem="ATY-uU-wma" secondAttribute="centerX" id="WFy-GB-xA8"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="BjK-An-VsN" secondAttribute="trailing" constant="16" id="nG3-3w-usy"/>
+                            <constraint firstItem="BjK-An-VsN" firstAttribute="centerX" secondItem="ATY-uU-wma" secondAttribute="centerX" id="x9U-Y7-meh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="skO-pc-lFu">
-                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="Zfy-hc-pfk">
+                    <navigationItem key="navigationItem" id="xkV-Vl-JXR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="Ig7-60-1XQ">
                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="O1i-Pc-mDO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WVw-3B-dzs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="aTI-fD-cJy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3159" y="-46"/>
+            <point key="canvasLocation" x="3863" y="-46"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Hei-O5-vYi"/>
+        <segue reference="onG-0c-GMP"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.56862745100000001" green="0.17254901959999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

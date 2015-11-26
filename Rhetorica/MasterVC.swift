@@ -125,9 +125,19 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        if FeedbackViewController.shouldBePresented() {
-            performSegueWithIdentifier("toFeedback", sender: self)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        var counter = NSUserDefaults.standardUserDefaults().integerForKey(masterVCLoadingCounterKey) ?? 0
+        
+        switch counter {
+        case 15: performSegueWithIdentifier("toFeedback", sender: self)
+        case 2: performSegueWithIdentifier("toFeedbackLiking", sender: self)
+        case 4: performSegueWithIdentifier("toFeedbackSharing", sender: self)
+        default: ()
         }
+        
+        defaults.setInteger(++counter, forKey: masterVCLoadingCounterKey)
+        defaults.synchronize()
+
     }
     
     
@@ -269,7 +279,6 @@ extension MasterViewController {
             if (selectedDeviceList.enoughForCategories == true) {
                 device = selectedDeviceList.sortedList[selectedDeviceList.presentLetters[indexPath.section]]![indexPath.row]
             } else {
-                print(indexPath)
                 device = selectedDeviceList.elements[indexPath.row]
             }
         }
