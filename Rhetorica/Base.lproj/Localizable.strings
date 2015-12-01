@@ -28,3 +28,6 @@
 "NO_INTERNET_CONNECTION" = "keine Internetverbindung";
 "majCountryCode" = "DE";
 "minCountryCode" = "de";
+"visit_my_website" = "Meine Website besuchen";
+VISIT_MY_WEBSITE = "Meine Website besuchen";
+VISIT_FACEBOOK_PAGE = "Facebookseite anzeigen";

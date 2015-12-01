@@ -64,7 +64,6 @@
 /* Begin PBXFileReference section */
 		0A1E9A4814F77251BA6DC3C6 /* Pods-Rhetorica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rhetorica.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rhetorica/Pods-Rhetorica.release.xcconfig"; sourceTree = "<group>"; };
 		1A0EACFD15FD5DD4426087EB /* Pods_Rhetorica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rhetorica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		63104F5F1BDDA5E3000B1A25 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Feedback.storyboard; sourceTree = "<group>"; };
 		631E363519F060D500CD2DEB /* Rhetorica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rhetorica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		631E363919F060D500CD2DEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		631E363A19F060D500CD2DEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,7 +85,6 @@
 		63494DE61BDD7D7900EF221E /* stylisticDevices_de.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = stylisticDevices_de.plist; sourceTree = "<group>"; };
 		634D6B4B1A27F90D0043AA5F /* WikipediaVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikipediaVC.swift; sourceTree = "<group>"; };
 		6350F1F81A0A9DB60060F055 /* QuizVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizVC.swift; sourceTree = "<group>"; };
-		6357C3801BDD9B9700337BFC /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6357C3841BDD9C6400337BFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		636DE7A01BE3A4FA009B2BA5 /* LineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		636DE7A21BE3AD78009B2BA5 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -94,6 +92,7 @@
 		636DE7A61BE3C512009B2BA5 /* QuizButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizButton.swift; sourceTree = "<group>"; };
 		636DE7A81BE3D27C009B2BA5 /* QuizWrongAnswersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizWrongAnswersVC.swift; sourceTree = "<group>"; };
 		636DE7AA1BE3DA5E009B2BA5 /* PinnableDeviceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinnableDeviceCell.swift; sourceTree = "<group>"; };
+		638322A31C0E14BD00DF305A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Feedback.strings; sourceTree = "<group>"; };
 		638F91371C0690EB00AF75EB /* FeedbackSharingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedbackSharingVC.swift; path = Controller/FeedbackSharingVC.swift; sourceTree = "<group>"; };
 		638F91391C06942F00AF75EB /* FeedbackLikingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedbackLikingVC.swift; path = Controller/FeedbackLikingVC.swift; sourceTree = "<group>"; };
 		63B092DE1BDD93EB00EAF5D7 /* stylisticDevices_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = stylisticDevices_en.plist; sourceTree = "<group>"; };
@@ -115,6 +114,7 @@
 		63EA0C0F19F1A59200976A90 /* StylisticDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StylisticDevice.swift; sourceTree = "<group>"; };
 		63EB1F7B1BBB32A10005A996 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		63EC67821BBFD2BA00DD7B55 /* Version 1.2.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "Version 1.2.rtf"; sourceTree = SOURCE_ROOT; };
+		63FA42D31C07F3FA00E70375 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		960687A9770D045DECE40364 /* Pods-Rhetorica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rhetorica.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rhetorica/Pods-Rhetorica.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -379,7 +379,6 @@
 			developmentRegion = German;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				de,
 				Base,
 				en,
 			);
@@ -558,8 +557,8 @@
 		6357C3811BDD9B9700337BFC /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6357C3801BDD9B9700337BFC /* de */,
 				6357C3841BDD9C6400337BFC /* en */,
+				63FA42D31C07F3FA00E70375 /* Base */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -567,8 +566,8 @@
 		6357C3891BDDA4EB00337BFC /* Feedback.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				63104F5F1BDDA5E3000B1A25 /* en */,
 				633FDE5B1BDFB399002DCBC6 /* Base */,
+				638322A31C0E14BD00DF305A /* en */,
 			);
 			name = Feedback.storyboard;
 			sourceTree = "<group>";

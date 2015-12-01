@@ -52,5 +52,20 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>np.rhetorica.showFavorites</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Lernliste zeigen</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>enthält 7 Stilmittel</string>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string></string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>pin</string>
+		</dict>
+	</array>
 </dict>
 </plist>

@@ -1,0 +1,72 @@
+
+/* Class = "UILabel"; text = "Fantastic!"; ObjectID = "1aC-p4-AmR"; */
+"1aC-p4-AmR.text" = "Fantastic!";
+
+/* Class = "UIButton"; normalTitle = "Show Page"; ObjectID = "3Er-k4-ggD"; */
+"3Er-k4-ggD.normalTitle" = "Show Page";
+
+/* Class = "UILabel"; text = "Thank you so much!"; ObjectID = "6UC-I0-XYH"; */
+"6UC-I0-XYH.text" = "Thank you so much!";
+
+/* Class = "UILabel"; text = "On my Facebook page I post invites for beta-testing, share promo-codes of my recent apps and give some insights into my app-development. There will ne no spam. Ever."; ObjectID = "6pE-fn-R0R"; */
+"6pE-fn-R0R.text" = "On my Facebook page I post invitations for beta-testing, share promo-codes of my latest apps and give some insights into app-development. There will be no spam. Ever.";
+
+/* Class = "UILabel"; text = "You like Rhetorica? Could you do me a favor then and share this app with your friends? I am sure they will appreciate it.\n"; ObjectID = "BjK-An-VsN"; */
+"BjK-An-VsN.text" = "You like Rhetorica? Could you do me a favor then and share this app with your friends? I am sure they will appreciate it.";
+
+/* Class = "UILabel"; text = "Not now"; ObjectID = "DTo-z0-76j"; */
+"DTo-z0-76j.text" = "Not now";
+
+/* Class = "UIButton"; normalTitle = "No …"; ObjectID = "GnJ-BY-P9h"; */
+"GnJ-BY-P9h.normalTitle" = "No";
+
+/* Class = "UILabel"; text = "Your opinion is very important to me and will be regarded in future updates."; ObjectID = "KIz-sa-Cpp"; */
+"KIz-sa-Cpp.text" = "Your opinion is very important to me and will be regarded in future updates.";
+
+/* Class = "UILabel"; text = "I will read through your feedback as soon as possible and send you my answer."; ObjectID = "LXK-TK-t2b"; */
+"LXK-TK-t2b.text" = "I will read through your feedback as soon as possible and send you my answer.";
+
+/* Class = "UIButton"; normalTitle = "Not now"; ObjectID = "RoT-FF-oxA"; */
+"RoT-FF-oxA.normalTitle" = "Not now";
+
+/* Class = "UIButton"; normalTitle = "No"; ObjectID = "WOW-nn-t1n"; */
+"WOW-nn-t1n.normalTitle" = "No";
+
+/* Class = "UIButton"; normalTitle = "Okay"; ObjectID = "Zdj-KG-tII"; */
+"Zdj-KG-tII.normalTitle" = "Okay";
+
+/* Class = "UILabel"; text = "Do you like Rhetorica?"; ObjectID = "c6N-6n-3I5"; */
+"c6N-6n-3I5.text" = "Do you like Rhetorica?";
+
+/* Class = "UIButton"; normalTitle = "Not now"; ObjectID = "c8l-Pp-7rR"; */
+"c8l-Pp-7rR.normalTitle" = "Not now";
+
+/* Class = "UIButton"; normalTitle = "Yes"; ObjectID = "cQZ-vm-qRv"; */
+"cQZ-vm-qRv.normalTitle" = "Yes";
+
+/* Class = "UIButton"; normalTitle = "Definitely not"; ObjectID = "caZ-oh-kQr"; */
+"caZ-oh-kQr.normalTitle" = "Not now";
+
+/* Class = "UILabel"; text = "Sharing is caring <3"; ObjectID = "iTH-V6-KKF"; */
+"iTH-V6-KKF.text" = "Sharing is caring <3";
+
+/* Class = "UILabel"; text = "… but feedback is the first step to all improvements. If you write me a short mail with your critics I can start fixing the errors."; ObjectID = "mYb-tR-TnY"; */
+"mYb-tR-TnY.text" = "… but feedback is the first step to all improvements. If you write me a short mail with your critics I can start fixing the errors.";
+
+/* Class = "UIButton"; normalTitle = "Review App"; ObjectID = "nHL-Gk-gwV"; */
+"nHL-Gk-gwV.normalTitle" = "Review App";
+
+/* Class = "UIButton"; normalTitle = "Compose Mail"; ObjectID = "o08-T1-tcf"; */
+"o08-T1-tcf.normalTitle" = "Compose Mail";
+
+/* Class = "UILabel"; text = "I'm sorry for that!"; ObjectID = "uk9-z1-ejV"; */
+"uk9-z1-ejV.text" = "I'm sorry for that!";
+
+/* Class = "UILabel"; text = "Do you want to always stay up-to-date?"; ObjectID = "vhr-w3-Cod"; */
+"vhr-w3-Cod.text" = "Do you want to stay informed?";
+
+/* Class = "UILabel"; text = "Würdest du mir und vielen Nutzern einen Gefallen tun und deine Meinung in einer kurzen Rezension oder Bewertung im App Store hinterlassen? Das wäre sehr hilfreich!"; ObjectID = "xfC-xo-Aak"; */
+"xfC-xo-Aak.text" = "Could you do a favor to me and many other users by leaving your opinion in a short review or rating on the App Store? That would be really nice!";
+
+/* Class = "UIButton"; normalTitle = "Share now"; ObjectID = "zoY-Ww-jJ5"; */
+"zoY-Ww-jJ5.normalTitle" = "Share";

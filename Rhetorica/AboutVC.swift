@@ -19,6 +19,13 @@ extension UITableView {
     }
 }
 
+extension String {
+    func replace(target: String, withString: String) -> String
+    {
+        return self.stringByReplacingOccurrencesOfString(target, withString: withString, options: NSStringCompareOptions.LiteralSearch, range: nil)
+    }
+}
+
 
 class AboutViewController: UITableViewController, SKStoreProductViewControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -110,14 +117,15 @@ class AboutViewController: UITableViewController, SKStoreProductViewControllerDe
                     
                     // Prevent current app from being displayed in where clause
                     let localBundleId = NSBundle.mainBundle().infoDictionary!["CFBundleIdentifier"] as? String
+                    let scaleFactor = Int(UIScreen.mainScreen().scale)
                     for result in results where result["bundleId"] as? String != localBundleId {
                         if let
                             trackId = result["trackId"] as? Int,
                             appName = result["trackName"] as? String,
                             iconURLString = result["artworkUrl60"] as? String,
-                            iconURL = NSURL(string: iconURLString),
+                            iconURL = NSURL(string: iconURLString.replace("60x60bb", withString: "\(60*scaleFactor)x\(60*scaleFactor)bb")),
                             iconData = NSData(contentsOfURL: iconURL),
-                            icon = UIImage(data: iconData)?.resize(CGSize(width: 60, height: 60)) {
+                            icon = UIImage(data: iconData) {
                                 returnData.append(icon: icon, title: appName, trackId: trackId)
                         }
                     }
@@ -177,18 +185,17 @@ class AboutViewController: UITableViewController, SKStoreProductViewControllerDe
         switch (indexPath.section, indexPath.row) {
         case (0, _):
             let alertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-            alertController.addAction(UIAlertAction(title: "Meine Website besuchen", style: UIAlertActionStyle.Default, handler: { action in
-                UIApplication.sharedApplication().openURL(NSURL(string: "http://www.podratz.de")!)
+            let visitWebsiteLocalized = NSLocalizedString("VISIT_MY_WEBSITE", comment: "")
+            alertController.addAction(UIAlertAction(title: visitWebsiteLocalized, style: UIAlertActionStyle.Default, handler: { action in
+                if let url = NSURL(string: "http://www.podratz.de") {
+                    UIApplication.sharedApplication().openURL(url)
+                }
                 tableView.deselectAllRows()
             }))
-            alertController.addAction(UIAlertAction(title: "Facebookseite anzeigen", style: UIAlertActionStyle.Default, handler: { action in
+            let showFacebookPageLocalized = NSLocalizedString("VISIT_FACEBOOK_PAGE", comment: "")
+            alertController.addAction(UIAlertAction(title: showFacebookPageLocalized, style: UIAlertActionStyle.Default, handler: { action in
                 if let url = NSURL(string: "fb://profile/1515153398777652/") {
                     UIApplication.sharedApplication().openURL(url)
-                    if let selectedIndexPaths = tableView.indexPathsForSelectedRows {
-                        for indexPath in selectedIndexPaths {
-                            tableView.deselectRowAtIndexPath(indexPath, animated: true)
-                        }
-                    }
                 }
                 tableView.deselectAllRows()
             }))
@@ -211,9 +218,9 @@ class AboutViewController: UITableViewController, SKStoreProductViewControllerDe
                 self.presentViewController(alertController, animated: true, completion: nil)
             }
         default: return
-
+            
         }
-
+        
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

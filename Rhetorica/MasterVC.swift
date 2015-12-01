@@ -130,14 +130,13 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
         
         switch counter {
         case 15: performSegueWithIdentifier("toFeedback", sender: self)
-        case 2: performSegueWithIdentifier("toFeedbackLiking", sender: self)
-        case 4: performSegueWithIdentifier("toFeedbackSharing", sender: self)
-        default: ()
+        case 25: performSegueWithIdentifier("toFeedbackLiking", sender: self)
+        case 35: performSegueWithIdentifier("toFeedbackSharing", sender: self)
+        default: performSegueWithIdentifier("toFeedbackLiking", sender: self)
         }
         
         defaults.setInteger(++counter, forKey: masterVCLoadingCounterKey)
         defaults.synchronize()
-        
     }
     
     
