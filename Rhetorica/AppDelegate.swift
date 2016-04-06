@@ -13,10 +13,10 @@ import MobileCoreServices
 let appId = "926449450"
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
-
+    
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         let splitViewController = self.window!.rootViewController as! UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
@@ -26,26 +26,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
         return true
     }
-
+    
     func applicationWillResignActive(application: UIApplication) {
     }
-
+    
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
-
+    
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     }
-
+    
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
-
+    
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    @available(iOS 9.0, *)
+    func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
+        let splitVC = self.window!.rootViewController as! UISplitViewController
+        let firstNavigationVC = splitVC.viewControllers.first as! UINavigationController
+        let masterVC = firstNavigationVC.viewControllers.first as! MasterViewController
+
+        switch shortcutItem.type.componentsSeparatedByString(".").last! {
+        case "showFavorites":
+            masterVC.selectedDeviceList = masterVC.deviceLists.last!
+            masterVC.searchController.searchBar.resignFirstResponder()
+            
+        case "searchForStylisticDevice":
+            masterVC.selectedDeviceList = masterVC.deviceLists[2]
+            masterVC.searchController.active = true
+            NSTimer.scheduledTimerWithTimeInterval(0.1, target: masterVC.searchController.searchBar, selector: "becomeFirstResponder", userInfo: nil, repeats: false)
+            
+        case "playQuiz":
+            masterVC.performSegueWithIdentifier("showQuiz", sender: masterVC)
+            
+        default: ()
+        }
+        // Handle quick actions
+        //        completionHandler(handleQuickAction(shortcutItem))
+        
+    }
+    
     
     func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
         // Searching from system search

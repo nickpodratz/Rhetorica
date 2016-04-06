@@ -183,7 +183,7 @@ class AboutViewController: UITableViewController, SKStoreProductViewControllerDe
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch (indexPath.section, indexPath.row) {
-        case (0, _):
+        case (0, 1):
             let alertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
             let visitWebsiteLocalized = NSLocalizedString("VISIT_MY_WEBSITE", comment: "")
             alertController.addAction(UIAlertAction(title: visitWebsiteLocalized, style: UIAlertActionStyle.Default, handler: { action in
@@ -199,7 +199,7 @@ class AboutViewController: UITableViewController, SKStoreProductViewControllerDe
                 }
                 tableView.deselectAllRows()
             }))
-            alertController.addAction(UIAlertAction(title: "Abbrechen", style: UIAlertActionStyle.Cancel, handler: { action in
+            alertController.addAction(UIAlertAction(title: NSLocalizedString("CANCEL", comment: ""), style: UIAlertActionStyle.Cancel, handler: { action in
                 tableView.deselectAllRows()
             }))
             self.presentViewController(alertController, animated: true, completion: nil)

@@ -8,7 +8,7 @@
 
 import UIKit
 
-
+// , UIViewControllerPreviewing
 class MasterViewController: UITableViewController, UISearchBarDelegate {
     
     // MARK: Outlets and Views
@@ -71,6 +71,12 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if #available(iOS 9.0, *) {
+            if( traitCollection.forceTouchCapability == .Available){
+                registerForPreviewingWithDelegate(self, sourceView: view)
+            }
+        }
+        
         // Set detailViewController property
         if let split = self.splitViewController {
             let controllers = split.viewControllers
@@ -125,14 +131,15 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        print("called")
         let defaults = NSUserDefaults.standardUserDefaults()
         var counter = NSUserDefaults.standardUserDefaults().integerForKey(masterVCLoadingCounterKey) ?? 0
         
         switch counter {
-        case 15: performSegueWithIdentifier("toFeedback", sender: self)
-        case 25: performSegueWithIdentifier("toFeedbackLiking", sender: self)
-        case 35: performSegueWithIdentifier("toFeedbackSharing", sender: self)
-        default: performSegueWithIdentifier("toFeedbackLiking", sender: self)
+        case 12: performSegueWithIdentifier("toFeedback", sender: self)
+        case 20: performSegueWithIdentifier("toFeedbackLiking", sender: self)
+        case 28: performSegueWithIdentifier("toFeedbackSharing", sender: self)
+        default: ()
         }
         
         defaults.setInteger(++counter, forKey: masterVCLoadingCounterKey)
@@ -166,8 +173,8 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
                         }
                     }
                     }()
+                controller.delegate = self
             }
-            
         case "showQuiz":
             definesPresentationContext = true
             let controller = (segue.destinationViewController as! UINavigationController).topViewController as! QuizViewController
@@ -188,6 +195,24 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
         default: print("Found unknown identifier: \(segue.identifier!)")
         }
     }
+    
+//    func previewingContext(previewingContext: UIViewControllerPreviewing,viewControllerForLocation location: CGPoint) -> UIViewController? method:
+//    
+//    // Obtain the index path and the cell that was pressed.
+//    guard let indexPath = tableView.indexPathForRowAtPoint(location),
+//    cell = tableView.cellForRowAtIndexPath(indexPath) else { return nil }
+//    
+//    // Create a destination view controller and set its properties.
+//    guard let destinationViewController = storyboard?.instantiateViewControllerWithIdentifier("DestinationViewController") as? DestinationViewController else { return nil }
+//    let object = fetchedResultController.objectAtIndexPath(indexPath)
+//    destinationViewController.detailItem = object
+//    
+//    destinationViewController.preferredContentSize = CGSize(width: 0.0, height: 0.0)
+//    
+//    previewingContext.sourceRect = cell.frame
+//    
+//    return destinationViewController
+//}
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if identifier == "showQuiz" {
@@ -246,10 +271,40 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
 }
 
 
+extension MasterViewController: UIViewControllerPreviewingDelegate {
+    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+        showViewController(viewControllerToCommit, sender: self)
+    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let indexPath = tableView?.indexPathForRowAtPoint(location) else { return nil }
+        guard let cell = tableView?.cellForRowAtIndexPath(indexPath) else { return nil }
+        guard let detailVC = storyboard?.instantiateViewControllerWithIdentifier("DetailVC") as? DetailViewController else { return nil }
+        if #available(iOS 9.0, *) {
+            previewingContext.sourceRect = cell.frame
+        }
+        detailVC.device = {
+            if self.searchController.active {
+                return self.searchResults[indexPath.row]
+            } else {
+                if selectedDeviceList.enoughForCategories == true {
+                    return selectedDeviceList.sortedList[selectedDeviceList.presentLetters[indexPath.section]]![indexPath.row]
+                } else {
+                    return selectedDeviceList.elements[indexPath.row] as StylisticDevice
+                }
+            }
+            }()
+        detailVC.favorites = self.favorites
+        detailVC.delegate = self
+        return detailVC
+    }
+}
+
+
 // MARK: - MasterViewController: UITableViewDataSource
 extension MasterViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        if selectedDeviceList.enoughForCategories == true {
+        if selectedDeviceList.enoughForCategories == true && !self.searchController.active {
             return selectedDeviceList.sortedList.count
         }
         
@@ -377,6 +432,17 @@ extension MasterViewController: ListViewDelegate {
     }
 }
 
+extension MasterViewController: DetailViewControllerDelegate {
+    func detailViewControllerDelegate(deviceNowIsFavorite isFavorite: Bool) {
+        if selectedDeviceList == deviceLists.last {
+            tableView.reloadData()
+            if selectedDeviceList.elements.isEmpty {
+                scrollToTop()
+            }
+            showNoEntriesView(noEntries: selectedDeviceList.elements.isEmpty)
+        }
+    }
+}
 
 // MARK: - MasterViewController: UISearchResultsUpdating
 

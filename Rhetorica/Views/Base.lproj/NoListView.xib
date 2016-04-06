@@ -13,7 +13,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deine Lernliste ist leer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Reh-lV-h1f">
-                    <rect key="frame" x="32" y="376.5" width="536" height="27.5"/>
+                    <rect key="frame" x="24" y="376.5" width="552" height="27.5"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -45,9 +45,9 @@
                 <constraint firstItem="Reh-lV-h1f" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6R4-o6-M8j"/>
                 <constraint firstItem="3Sb-k1-uWr" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="8ri-La-cwb"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AGI-w7-Al3" secondAttribute="trailing" constant="32" id="CL2-cJ-Sq0"/>
-                <constraint firstItem="Reh-lV-h1f" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="LSY-mL-rSk"/>
+                <constraint firstItem="Reh-lV-h1f" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="24" id="LSY-mL-rSk"/>
                 <constraint firstItem="AGI-w7-Al3" firstAttribute="top" secondItem="Reh-lV-h1f" secondAttribute="bottom" constant="10" id="Qeu-Yb-SPv"/>
-                <constraint firstAttribute="trailing" secondItem="Reh-lV-h1f" secondAttribute="trailing" constant="32" id="SB1-90-eeP"/>
+                <constraint firstAttribute="trailing" secondItem="Reh-lV-h1f" secondAttribute="trailing" constant="24" id="SB1-90-eeP"/>
                 <constraint firstItem="AGI-w7-Al3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="ZVV-ET-OEX"/>
                 <constraint firstItem="Reh-lV-h1f" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="0.94" constant="108" id="kvr-A5-uNu"/>
                 <constraint firstItem="AGI-w7-Al3" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="q35-J3-CWL"/>

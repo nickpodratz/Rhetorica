@@ -74,6 +74,24 @@ class DetailViewController: UITableViewController {
         noDeviceView!.hidden = (self.device != nil)
     }
     
+    @available(iOS 9.0, *)
+    override func previewActionItems() -> [UIPreviewActionItem] {
+        guard let device = self.device else { print("no device"); return [] }
+        guard favorites != nil else { print("no favorites"); return [] }
+        
+        let action: UIPreviewAction
+        if favorites.contains(device) {
+            action = UIPreviewAction(title: NSLocalizedString("remove_from_favorites", comment: ""), style: .Destructive) { (action, viewController) in
+                self.addToFavorites(self)
+            }
+        } else {
+            action = UIPreviewAction(title: "Zu Lernliste hinzufügen", style: .Default) { (action, viewController) -> Void in
+                self.addToFavorites(self)
+            }
+        }
+        
+        return [action]
+    }
     
     // MARK: - User Interaction
     
@@ -81,16 +99,16 @@ class DetailViewController: UITableViewController {
         guard let favorites = favorites, let device = device else { return }
         if let indexOfDeviceInFavorites = favorites.elements.indexOf(device){
             // Deleting...
-            delegate?.detailViewControllerDelegate(deviceNowIsFavorite: false)
             favorites.elements.removeAtIndex(indexOfDeviceInFavorites)
             self.navigationItem.rightBarButtonItem?.image = UIImage(named: "pin")
             showFavoritesLabel(addedStylisticDevice: false)
+            delegate?.detailViewControllerDelegate(deviceNowIsFavorite: false)
         }else {
             // Adding...
-            delegate?.detailViewControllerDelegate(deviceNowIsFavorite: true)
             favorites.elements.append(self.device!)
             self.navigationItem.rightBarButtonItem?.image = UIImage(named: "pin_filled")
             showFavoritesLabel(addedStylisticDevice: true)
+            delegate?.detailViewControllerDelegate(deviceNowIsFavorite: true)
         }
         
         if let navigationController = self.splitViewController?.viewControllers.first as? UINavigationController,

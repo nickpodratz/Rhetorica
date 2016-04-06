@@ -31,3 +31,8 @@
 "visit_my_website" = "Meine Website besuchen";
 VISIT_MY_WEBSITE = "Meine Website besuchen";
 VISIT_FACEBOOK_PAGE = "Facebookseite anzeigen";
+"falsche_antworten" = "Falsche Antworten";
+shortcutTitleFavorites = "Lernliste zeigen";
+remove_from_favorites = "Aus Lernliste entfernen";
+add_to_favorites = "Zu Lernliste hinzufügen";
+CANCEL = "Abbrechen";

@@ -91,7 +91,7 @@ class QuizWrongAnswersViewController: UITableViewController, PinnableDeviceCellD
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Falsche Antworten"
+        return NSLocalizedString("falsche_antworten", comment: "")
     }
     
     func detailViewControllerDelegate(deviceNowIsFavorite isFavorite: Bool) {

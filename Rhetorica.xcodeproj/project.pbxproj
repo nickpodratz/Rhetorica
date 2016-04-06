@@ -14,6 +14,7 @@
 		631E365D19F069A800CD2DEB /* MasterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E365C19F069A800CD2DEB /* MasterVC.swift */; };
 		631E365F19F069C700CD2DEB /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E365E19F069C700CD2DEB /* DetailVC.swift */; };
 		631E366119F06BCA00CD2DEB /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E366019F06BCA00CD2DEB /* ListVC.swift */; };
+		6339F44C1CB50F4B00436B4B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6339F44A1CB50F4B00436B4B /* Info.plist */; };
 		633FDE5A1BDFB359002DCBC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 631E363E19F060D500CD2DEB /* Main.storyboard */; };
 		634526CE1BEEB9E30028E4E9 /* NoDeviceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 634526D01BEEB9E30028E4E9 /* NoDeviceView.xib */; };
 		634526D71BEEDA620028E4E9 /* NoListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 634526D91BEEDA620028E4E9 /* NoListView.xib */; };
@@ -65,7 +66,6 @@
 		0A1E9A4814F77251BA6DC3C6 /* Pods-Rhetorica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rhetorica.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rhetorica/Pods-Rhetorica.release.xcconfig"; sourceTree = "<group>"; };
 		1A0EACFD15FD5DD4426087EB /* Pods_Rhetorica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rhetorica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		631E363519F060D500CD2DEB /* Rhetorica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rhetorica.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		631E363919F060D500CD2DEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		631E363A19F060D500CD2DEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		631E363F19F060D500CD2DEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		631E364119F060D500CD2DEB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -75,6 +75,7 @@
 		631E365C19F069A800CD2DEB /* MasterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MasterVC.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		631E365E19F069C700CD2DEB /* DetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DetailVC.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		631E366019F06BCA00CD2DEB /* ListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
+		6339F44B1CB50F4B00436B4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		633FDE5B1BDFB399002DCBC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Feedback.storyboard; sourceTree = "<group>"; };
 		634526CF1BEEB9E30028E4E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NoDeviceView.xib; sourceTree = "<group>"; };
 		634526D21BEEB9E90028E4E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NoDeviceView.strings; sourceTree = "<group>"; };
@@ -179,7 +180,7 @@
 				63494DE61BDD7D7900EF221E /* stylisticDevices_de.plist */,
 				63B092DE1BDD93EB00EAF5D7 /* stylisticDevices_en.plist */,
 				63EC67821BBFD2BA00DD7B55 /* Version 1.2.rtf */,
-				631E363919F060D500CD2DEB /* Info.plist */,
+				6339F44A1CB50F4B00436B4B /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -406,6 +407,7 @@
 				634526CE1BEEB9E30028E4E9 /* NoDeviceView.xib in Resources */,
 				63B092DF1BDD93EB00EAF5D7 /* stylisticDevices_en.plist in Resources */,
 				6357C37F1BDD9B9700337BFC /* Localizable.strings in Resources */,
+				6339F44C1CB50F4B00436B4B /* Info.plist in Resources */,
 				63E19FDC1C03D899003AA011 /* Launch Screen.storyboard in Resources */,
 				631E364219F060D500CD2DEB /* Images.xcassets in Resources */,
 			);
@@ -534,6 +536,14 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
+		6339F44A1CB50F4B00436B4B /* Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6339F44B1CB50F4B00436B4B /* Base */,
+			);
+			name = Info.plist;
+			sourceTree = "<group>";
+		};
 		634526D01BEEB9E30028E4E9 /* NoDeviceView.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -611,6 +621,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Rhetorica/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -650,6 +661,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Rhetorica/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;

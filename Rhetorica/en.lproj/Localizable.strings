@@ -30,3 +30,8 @@
 "minCountryCode" = "us";
 VISIT_MY_WEBSITE = "Visit my website";
 VISIT_FACEBOOK_PAGE = "Show Facebook page";
+"falsche_antworten" = "Wrong answers";
+shortcutTitleFavorites = "Show learning list";
+remove_from_favorites = "Remove from learning list";
+add_to_favorites = "Add to learning list";
+CANCEL = "Cancel";

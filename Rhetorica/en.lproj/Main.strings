@@ -69,7 +69,7 @@
 "Qlc-7I-R7f.text" = "Title";
 
 /* Class = "UILabel"; text = "New Round"; ObjectID = "Qtr-dP-UTH"; */
-"Qtr-dP-UTH.text" = "New Round";
+"Qtr-dP-UTH.text" = "New round";
 
 /* Class = "UILabel"; text = "Wrong Answers"; ObjectID = "R6V-jc-H8u"; */
 "R6V-jc-H8u.text" = "Wrong Answers";
@@ -123,7 +123,7 @@
 "gke-ec-Fo2.text" = "Das Synonym";
 
 /* Class = "UILabel"; text = "Thank you for using Rhetorica!\nI developed this app during my preparation for final exams at Highschool and hope that it is as well useful for you! Would you mind writing me a short mail or an App Store review with your opinion about this app so I can keep develop fancy upates? And also feel free to check out my other apps listed below, I would be really pleased if you gave them a try."; ObjectID = "hEX-6G-X2F"; */
-"hEX-6G-X2F.text" = "Thank you for using Rhetorica!\nI developed this app during my preparation for final exams at Highschool and hope that it is as well useful for you! Would you mind writing me a short mail or an App Store review with your opinion about this app so I can keep develop fancy upates? And also feel free to check out my other apps listed below, I would be really pleased if you gave them a try.";
+"hEX-6G-X2F.text" = "Thank you for using Rhetorica!\nI developed this app during my preparation for final exams at highschool and hope that it is as well useful for you! Would you mind writing me a short mail or an App Store review with your opinion about this app so I can keep develop fancy upates? And also feel free to check out my other apps listed below, I would be really pleased if you gave them a try.";
 
 /* Class = "UITableViewSection"; headerTitle = "Extend of the list"; ObjectID = "hTx-CN-vPh"; */
 "hTx-CN-vPh.headerTitle" = "Extend of the list";
