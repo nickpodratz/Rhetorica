@@ -15,7 +15,7 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet var tapRecognizer: UITapGestureRecognizer!
     var noEntriesView: UIView!
-    var searchController: UISearchController = UISearchController(searchResultsController: nil)
+    var searchController = UISearchController(searchResultsController: nil)
     var detailViewController: DetailViewController? {
         didSet {
             detailViewController?.device = nil
@@ -95,8 +95,8 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
         selectedLanguage = Language(identifier: languageIdentifier) ?? .German
         
         // Search Controller
-        searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
         searchController.searchBar.frame.size.width = self.view.bounds.size.width
         searchController.searchBar.searchBarStyle = UISearchBarStyle.Minimal
         searchController.hidesNavigationBarDuringPresentation = false
@@ -236,6 +236,9 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
     @IBAction func cancelSearch(sender: AnyObject) {
         searchController.active = false
         self.tableView.separatorColor = self.defaultSeparatorColor
+        if self.tableView.contentOffset.y > 0 {
+            self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: .Middle, animated: false)
+        }
     }
     
     
@@ -471,5 +474,13 @@ extension MasterViewController: UISearchResultsUpdating {
         }
         
         tableView.reloadData()
+    }
+}
+
+// MARK: - MasterViewController: UISearchResultsUpdating
+
+extension MasterViewController {
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        self.cancelSearch(searchBar)
     }
 }

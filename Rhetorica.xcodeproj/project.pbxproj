@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		5AD28231B3FC6D471A754A89 /* Pods_Rhetorica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A0EACFD15FD5DD4426087EB /* Pods_Rhetorica.framework */; };
+		630C609A1CB5150300E9054F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 630C60991CB5150300E9054F /* Info.plist */; };
 		631E363B19F060D500CD2DEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E363A19F060D500CD2DEB /* AppDelegate.swift */; };
 		631E364219F060D500CD2DEB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 631E364119F060D500CD2DEB /* Images.xcassets */; };
 		631E365119F060D500CD2DEB /* RhetoricaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E365019F060D500CD2DEB /* RhetoricaTests.swift */; };
 		631E365D19F069A800CD2DEB /* MasterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E365C19F069A800CD2DEB /* MasterVC.swift */; };
 		631E365F19F069C700CD2DEB /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E365E19F069C700CD2DEB /* DetailVC.swift */; };
 		631E366119F06BCA00CD2DEB /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E366019F06BCA00CD2DEB /* ListVC.swift */; };
-		6339F44C1CB50F4B00436B4B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6339F44A1CB50F4B00436B4B /* Info.plist */; };
 		633FDE5A1BDFB359002DCBC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 631E363E19F060D500CD2DEB /* Main.storyboard */; };
 		634526CE1BEEB9E30028E4E9 /* NoDeviceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 634526D01BEEB9E30028E4E9 /* NoDeviceView.xib */; };
 		634526D71BEEDA620028E4E9 /* NoListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 634526D91BEEDA620028E4E9 /* NoListView.xib */; };
@@ -65,6 +65,7 @@
 /* Begin PBXFileReference section */
 		0A1E9A4814F77251BA6DC3C6 /* Pods-Rhetorica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rhetorica.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rhetorica/Pods-Rhetorica.release.xcconfig"; sourceTree = "<group>"; };
 		1A0EACFD15FD5DD4426087EB /* Pods_Rhetorica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rhetorica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		630C60991CB5150300E9054F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		631E363519F060D500CD2DEB /* Rhetorica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rhetorica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		631E363A19F060D500CD2DEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		631E363F19F060D500CD2DEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -75,7 +76,6 @@
 		631E365C19F069A800CD2DEB /* MasterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MasterVC.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		631E365E19F069C700CD2DEB /* DetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DetailVC.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		631E366019F06BCA00CD2DEB /* ListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
-		6339F44B1CB50F4B00436B4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		633FDE5B1BDFB399002DCBC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Feedback.storyboard; sourceTree = "<group>"; };
 		634526CF1BEEB9E30028E4E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NoDeviceView.xib; sourceTree = "<group>"; };
 		634526D21BEEB9E90028E4E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NoDeviceView.strings; sourceTree = "<group>"; };
@@ -162,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				631E363A19F060D500CD2DEB /* AppDelegate.swift */,
+				630C60991CB5150300E9054F /* Info.plist */,
 				63E58E0E1BD954BD00C717B6 /* Extensions */,
 				63BAEA301B49D06F004182FA /* Model */,
 				63C542A81BC507FD00EBB370 /* Views */,
@@ -180,7 +181,6 @@
 				63494DE61BDD7D7900EF221E /* stylisticDevices_de.plist */,
 				63B092DE1BDD93EB00EAF5D7 /* stylisticDevices_en.plist */,
 				63EC67821BBFD2BA00DD7B55 /* Version 1.2.rtf */,
-				6339F44A1CB50F4B00436B4B /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -407,7 +407,7 @@
 				634526CE1BEEB9E30028E4E9 /* NoDeviceView.xib in Resources */,
 				63B092DF1BDD93EB00EAF5D7 /* stylisticDevices_en.plist in Resources */,
 				6357C37F1BDD9B9700337BFC /* Localizable.strings in Resources */,
-				6339F44C1CB50F4B00436B4B /* Info.plist in Resources */,
+				630C609A1CB5150300E9054F /* Info.plist in Resources */,
 				63E19FDC1C03D899003AA011 /* Launch Screen.storyboard in Resources */,
 				631E364219F060D500CD2DEB /* Images.xcassets in Resources */,
 			);
@@ -534,14 +534,6 @@
 				634526DC1BEEDAB00028E4E9 /* en */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		6339F44A1CB50F4B00436B4B /* Info.plist */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6339F44B1CB50F4B00436B4B /* Base */,
-			);
-			name = Info.plist;
 			sourceTree = "<group>";
 		};
 		634526D01BEEB9E30028E4E9 /* NoDeviceView.xib */ = {
@@ -679,7 +671,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = Rhetorica/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Rhetorica/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
@@ -697,7 +689,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = Rhetorica/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Rhetorica/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
@@ -721,7 +713,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = RhetoricaTests/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Rhetorica/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "np.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -737,7 +729,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = RhetoricaTests/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Rhetorica/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "np.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
