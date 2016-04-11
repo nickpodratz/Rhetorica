@@ -21,7 +21,7 @@ public extension UIColor {
         //        return UIColor(red:196/256, green:182/256, blue:51/256, alpha:1)
         //        return UIColor(red:188/256, green:162/256, blue:23/256, alpha:1)
         //        return UIColor(red:188/256, green:163/256, blue:23/256, alpha:1)
-        return UIColor(red:197/256, green:209/256, blue:50/256, alpha:1)
+        return UIColor(red:102/255, green:220/255, blue:130/255, alpha:1)
     }
     
     class func rhetoricaPurpleColor() -> UIColor {

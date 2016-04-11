@@ -49,10 +49,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     @available(iOS 9.0, *)
     func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
-        let splitVC = self.window!.rootViewController as! UISplitViewController
-        let firstNavigationVC = splitVC.viewControllers.first as! UINavigationController
-        let masterVC = firstNavigationVC.viewControllers.first as! MasterViewController
-
+        guard let splitVC = self.window!.rootViewController as? UISplitViewController,
+            let firstNavigationVC = splitVC.viewControllers.first as? UINavigationController,
+            let masterVC = firstNavigationVC.viewControllers.first as? MasterViewController else {
+                print("Can't downcast neccessary viewControllers for quick actions.")
+                return
+        }
+        
         switch shortcutItem.type.componentsSeparatedByString(".").last! {
         case "showFavorites":
             masterVC.selectedDeviceList = masterVC.deviceLists.last!
@@ -61,10 +64,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         case "searchForStylisticDevice":
             masterVC.selectedDeviceList = masterVC.deviceLists[2]
             masterVC.searchController.active = true
-            NSTimer.scheduledTimerWithTimeInterval(0.1, target: masterVC.searchController.searchBar, selector: "becomeFirstResponder", userInfo: nil, repeats: false)
+            NSTimer.scheduledTimerWithTimeInterval(0.1, target: masterVC.searchController.searchBar, selector: #selector(UIResponder.becomeFirstResponder), userInfo: nil, repeats: false)
             
         case "playQuiz":
-            masterVC.performSegueWithIdentifier("showQuiz", sender: masterVC)
+            if masterVC.selectedDeviceList.count >= 4 {
+                masterVC.performSegueWithIdentifier("showQuiz", sender: masterVC)
+            }
             
         default: ()
         }

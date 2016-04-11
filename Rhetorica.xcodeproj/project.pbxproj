@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5AD28231B3FC6D471A754A89 /* Pods_Rhetorica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A0EACFD15FD5DD4426087EB /* Pods_Rhetorica.framework */; };
 		630C609A1CB5150300E9054F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 630C60991CB5150300E9054F /* Info.plist */; };
+		631521251CB9471300C192E0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 631521271CB9471300C192E0 /* InfoPlist.strings */; };
 		631E363B19F060D500CD2DEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E363A19F060D500CD2DEB /* AppDelegate.swift */; };
 		631E364219F060D500CD2DEB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 631E364119F060D500CD2DEB /* Images.xcassets */; };
 		631E365119F060D500CD2DEB /* RhetoricaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E365019F060D500CD2DEB /* RhetoricaTests.swift */; };
@@ -66,6 +67,8 @@
 		0A1E9A4814F77251BA6DC3C6 /* Pods-Rhetorica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rhetorica.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rhetorica/Pods-Rhetorica.release.xcconfig"; sourceTree = "<group>"; };
 		1A0EACFD15FD5DD4426087EB /* Pods_Rhetorica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rhetorica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		630C60991CB5150300E9054F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		631521261CB9471300C192E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		631521281CB9471D00C192E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		631E363519F060D500CD2DEB /* Rhetorica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rhetorica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		631E363A19F060D500CD2DEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		631E363F19F060D500CD2DEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -163,6 +166,7 @@
 			children = (
 				631E363A19F060D500CD2DEB /* AppDelegate.swift */,
 				630C60991CB5150300E9054F /* Info.plist */,
+				631521271CB9471300C192E0 /* InfoPlist.strings */,
 				63E58E0E1BD954BD00C717B6 /* Extensions */,
 				63BAEA301B49D06F004182FA /* Model */,
 				63C542A81BC507FD00EBB370 /* Views */,
@@ -400,6 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63494DE71BDD7D7900EF221E /* stylisticDevices_de.plist in Resources */,
+				631521251CB9471300C192E0 /* InfoPlist.strings in Resources */,
 				634526D71BEEDA620028E4E9 /* NoListView.xib in Resources */,
 				63EC67831BBFD2BA00DD7B55 /* Version 1.2.rtf in Resources */,
 				633FDE5A1BDFB359002DCBC6 /* Main.storyboard in Resources */,
@@ -527,6 +532,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		631521271CB9471300C192E0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				631521261CB9471300C192E0 /* Base */,
+				631521281CB9471D00C192E0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		631E363E19F060D500CD2DEB /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

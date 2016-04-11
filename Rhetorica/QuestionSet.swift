@@ -34,7 +34,7 @@ class QuestionSet: NSObject {
     }
     
     func nextQuestion() -> Question? {
-        ++questionIndex
+        questionIndex += 1
         return currentQuestion
     }
     

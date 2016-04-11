@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  Rhetorica
+
+  Created by Nick Podratz on 09.04.16.
+  Copyright © 2016 Nick Podratz. All rights reserved.
+*/
+
+shortcutTitleLearningList = "Learning List";
+shortcutTitleDeviceSearch = "Search for Device";
+shortcutTitlePlayQuizmode = "Play Quizmode";

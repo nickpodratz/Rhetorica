@@ -399,8 +399,13 @@ extension MasterViewController {
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
-            selectedDeviceList.elements.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            if selectedDeviceList.enoughForCategories {
+                selectedDeviceList.elements.removeAtIndex(indexPath.row)
+                tableView.reloadData()
+            } else {
+                selectedDeviceList.elements.removeAtIndex(indexPath.row)
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            }
             showNoEntriesView(noEntries: selectedDeviceList.isEmpty)
             if let split = self.splitViewController {
                 let controllers = split.viewControllers

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Dpx-9T-lJ5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Dpx-9T-lJ5">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -341,10 +341,10 @@
                                         <color key="value" red="0.84505854700000005" green="0.84505854700000005" blue="0.84505854700000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="colorCorrect">
-                                        <color key="value" red="0.39972633123397827" green="0.86322504281997681" blue="0.5105629563331604" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.39972633120000001" green="0.86322504280000001" blue="0.51056295630000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="colorFalse">
-                                        <color key="value" red="0.98621875000000003" green="0.1988170474361646" blue="0.16408716646175311" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="1" green="0.45714747486912366" blue="0.30259278610356954" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="color">
                                         <color key="value" red="0.58431372549019611" green="0.16078431372549021" blue="0.41568627450980394" alpha="1" colorSpace="calibratedRGB"/>
@@ -379,10 +379,10 @@
                                         <color key="value" red="0.84505854700000005" green="0.84505854700000005" blue="0.84505854700000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="colorCorrect">
-                                        <color key="value" red="0.39972633123397827" green="0.86322504281997681" blue="0.5105629563331604" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.39972633120000001" green="0.86322504280000001" blue="0.51056295630000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="colorFalse">
-                                        <color key="value" red="0.98621875000000003" green="0.1988170474361646" blue="0.16408716646175311" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="1" green="0.45714747486912366" blue="0.30259278610356954" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="color">
                                         <color key="value" red="0.58431372549019611" green="0.16078431372549021" blue="0.41568627450980394" alpha="1" colorSpace="calibratedRGB"/>
@@ -496,10 +496,10 @@
                                         <color key="value" red="0.84505854700000005" green="0.84505854700000005" blue="0.84505854700000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="colorCorrect">
-                                        <color key="value" red="0.39972633123397827" green="0.86322504281997681" blue="0.5105629563331604" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.39972633120000001" green="0.86322504280000001" blue="0.51056295630000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="colorFalse">
-                                        <color key="value" red="0.98621875000000003" green="0.1988170474361646" blue="0.16408716646175311" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="1" green="0.45714747486912366" blue="0.30259278610356954" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="color">
                                         <color key="value" red="0.58431372549019611" green="0.16078431372549021" blue="0.41568627450980394" alpha="1" colorSpace="calibratedRGB"/>
@@ -541,10 +541,10 @@
                                         <color key="value" red="0.84505854700000005" green="0.84505854700000005" blue="0.84505854700000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="colorCorrect">
-                                        <color key="value" red="0.39972633123397827" green="0.86322504281997681" blue="0.5105629563331604" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.39972633120000001" green="0.86322504280000001" blue="0.51056295630000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="colorFalse">
-                                        <color key="value" red="0.98621875000000003" green="0.1988170474361646" blue="0.16408716646175311" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="1" green="0.45714747486912366" blue="0.30259278610356954" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="color">
                                         <color key="value" red="0.58431372549019611" green="0.16078431372549021" blue="0.41568627450980394" alpha="1" colorSpace="calibratedRGB"/>
@@ -1102,7 +1102,7 @@
                                                     <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.67058825489999996" green="0.72156864399999998" blue="0.1411764771" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.39972633120000001" green="0.86322504280000001" blue="0.51056295630000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
