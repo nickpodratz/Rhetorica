@@ -48,6 +48,9 @@
 		63E19FDC1C03D899003AA011 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63E19FDB1C03D899003AA011 /* Launch Screen.storyboard */; };
 		63E274311BDFBFAA0039D1C1 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E274301BDFBFAA0039D1C1 /* Language.swift */; };
 		63E58E0D1BD954B500C717B6 /* CollectionType+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E58E0C1BD954B500C717B6 /* CollectionType+.swift */; };
+		63E8541E1CBD1B66005B5DD9 /* RhetoricaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E8541D1CBD1B66005B5DD9 /* RhetoricaUITests.swift */; };
+		63E854271CBD1C2F005B5DD9 /* Snapfile in Resources */ = {isa = PBXBuildFile; fileRef = 63E854251CBD1C2F005B5DD9 /* Snapfile */; };
+		63E854281CBD1C2F005B5DD9 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E854261CBD1C2F005B5DD9 /* SnapshotHelper.swift */; };
 		63EA0C1019F1A59200976A90 /* StylisticDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA0C0F19F1A59200976A90 /* StylisticDevice.swift */; };
 		63EB1F7C1BBB32A10005A996 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EB1F7B1BBB32A10005A996 /* Pin.swift */; };
 		63EC67831BBFD2BA00DD7B55 /* Version 1.2.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 63EC67821BBFD2BA00DD7B55 /* Version 1.2.rtf */; };
@@ -55,6 +58,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		631E364B19F060D500CD2DEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 631E362D19F060D500CD2DEB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 631E363419F060D500CD2DEB;
+			remoteInfo = Rhetorica;
+		};
+		63E854201CBD1B66005B5DD9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 631E362D19F060D500CD2DEB /* Project object */;
 			proxyType = 1;
@@ -115,6 +125,11 @@
 		63E19FDB1C03D899003AA011 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		63E274301BDFBFAA0039D1C1 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		63E58E0C1BD954B500C717B6 /* CollectionType+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionType+.swift"; sourceTree = "<group>"; };
+		63E8541B1CBD1B66005B5DD9 /* RhetoricaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RhetoricaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		63E8541D1CBD1B66005B5DD9 /* RhetoricaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhetoricaUITests.swift; sourceTree = "<group>"; };
+		63E8541F1CBD1B66005B5DD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63E854251CBD1C2F005B5DD9 /* Snapfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Snapfile; sourceTree = "<group>"; };
+		63E854261CBD1C2F005B5DD9 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		63EA0C0F19F1A59200976A90 /* StylisticDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StylisticDevice.swift; sourceTree = "<group>"; };
 		63EB1F7B1BBB32A10005A996 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		63EC67821BBFD2BA00DD7B55 /* Version 1.2.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "Version 1.2.rtf"; sourceTree = SOURCE_ROOT; };
@@ -138,6 +153,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		63E854181CBD1B66005B5DD9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -146,6 +168,7 @@
 			children = (
 				631E363719F060D500CD2DEB /* Rhetorica */,
 				631E364D19F060D500CD2DEB /* RhetoricaTests */,
+				63E8541C1CBD1B66005B5DD9 /* RhetoricaUITests */,
 				631E363619F060D500CD2DEB /* Products */,
 				D0D9BD9A53511BC02756673E /* Pods */,
 				8A80B948D6F0526510DC6DED /* Frameworks */,
@@ -157,6 +180,7 @@
 			children = (
 				631E363519F060D500CD2DEB /* Rhetorica.app */,
 				631E364A19F060D500CD2DEB /* RhetoricaTests.xctest */,
+				63E8541B1CBD1B66005B5DD9 /* RhetoricaUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -300,6 +324,17 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		63E8541C1CBD1B66005B5DD9 /* RhetoricaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				63E8541D1CBD1B66005B5DD9 /* RhetoricaUITests.swift */,
+				63E854261CBD1C2F005B5DD9 /* SnapshotHelper.swift */,
+				63E854251CBD1C2F005B5DD9 /* Snapfile */,
+				63E8541F1CBD1B66005B5DD9 /* Info.plist */,
+			);
+			path = RhetoricaUITests;
+			sourceTree = "<group>";
+		};
 		8A80B948D6F0526510DC6DED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,6 +393,24 @@
 			productReference = 631E364A19F060D500CD2DEB /* RhetoricaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		63E8541A1CBD1B66005B5DD9 /* RhetoricaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63E854241CBD1B66005B5DD9 /* Build configuration list for PBXNativeTarget "RhetoricaUITests" */;
+			buildPhases = (
+				63E854171CBD1B66005B5DD9 /* Sources */,
+				63E854181CBD1B66005B5DD9 /* Frameworks */,
+				63E854191CBD1B66005B5DD9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				63E854211CBD1B66005B5DD9 /* PBXTargetDependency */,
+			);
+			name = RhetoricaUITests;
+			productName = RhetoricaUITests;
+			productReference = 63E8541B1CBD1B66005B5DD9 /* RhetoricaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -365,7 +418,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Nick Podratz";
 				TargetAttributes = {
@@ -375,6 +428,10 @@
 					};
 					631E364919F060D500CD2DEB = {
 						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 631E363419F060D500CD2DEB;
+					};
+					63E8541A1CBD1B66005B5DD9 = {
+						CreatedOnToolsVersion = 7.3;
 						TestTargetID = 631E363419F060D500CD2DEB;
 					};
 				};
@@ -394,6 +451,7 @@
 			targets = (
 				631E363419F060D500CD2DEB /* Rhetorica */,
 				631E364919F060D500CD2DEB /* RhetoricaTests */,
+				63E8541A1CBD1B66005B5DD9 /* RhetoricaUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -422,6 +480,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63E854191CBD1B66005B5DD9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63E854271CBD1C2F005B5DD9 /* Snapfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +587,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		63E854171CBD1B66005B5DD9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63E8541E1CBD1B66005B5DD9 /* RhetoricaUITests.swift in Sources */,
+				63E854281CBD1C2F005B5DD9 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -528,6 +603,11 @@
 			isa = PBXTargetDependency;
 			target = 631E363419F060D500CD2DEB /* Rhetorica */;
 			targetProxy = 631E364B19F060D500CD2DEB /* PBXContainerItemProxy */;
+		};
+		63E854211CBD1B66005B5DD9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 631E363419F060D500CD2DEB /* Rhetorica */;
+			targetProxy = 63E854201CBD1B66005B5DD9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -751,6 +831,38 @@
 			};
 			name = Release;
 		};
+		63E854221CBD1B66005B5DD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = RhetoricaUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = np.RhetoricaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Rhetorica;
+			};
+			name = Debug;
+		};
+		63E854231CBD1B66005B5DD9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = RhetoricaUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = np.RhetoricaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Rhetorica;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -780,6 +892,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		63E854241CBD1B66005B5DD9 /* Build configuration list for PBXNativeTarget "RhetoricaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63E854221CBD1B66005B5DD9 /* Debug */,
+				63E854231CBD1B66005B5DD9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
