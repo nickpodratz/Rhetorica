@@ -13,7 +13,7 @@ import UIKit
 public extension UIColor {
     class func rhetoricaRedColor() -> UIColor {
 //        return UIColor(red:211/256, green:73/256, blue:82/256, alpha:1)
-        return UIColor(red:223/256, green:64/256, blue:65/256, alpha:1)
+        return UIColor(red:255/255, green:117/255, blue:77/255, alpha:1)
 //        return UIColor(hue: 1, saturation: 67, brightness: 86, alpha: 1)
     }
     
@@ -33,7 +33,7 @@ public extension UIColor {
     }
     
     class func rhetoricaGreyColor() -> UIColor {
-        return UIColor(red:143/256, green:36/256, blue:93/256, alpha:1)
+        return UIColor(red:143/255, green:36/255, blue:93/255, alpha:1)
     }
     
 }

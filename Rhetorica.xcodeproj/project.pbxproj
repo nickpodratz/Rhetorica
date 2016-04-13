@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5AD28231B3FC6D471A754A89 /* Pods_Rhetorica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A0EACFD15FD5DD4426087EB /* Pods_Rhetorica.framework */; };
-		630C609A1CB5150300E9054F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 630C60991CB5150300E9054F /* Info.plist */; };
 		631521251CB9471300C192E0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 631521271CB9471300C192E0 /* InfoPlist.strings */; };
 		631E363B19F060D500CD2DEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E363A19F060D500CD2DEB /* AppDelegate.swift */; };
 		631E364219F060D500CD2DEB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 631E364119F060D500CD2DEB /* Images.xcassets */; };
@@ -34,6 +33,7 @@
 		638F91381C0690EB00AF75EB /* FeedbackSharingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F91371C0690EB00AF75EB /* FeedbackSharingVC.swift */; };
 		638F913A1C06942F00AF75EB /* FeedbackLikingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F91391C06942F00AF75EB /* FeedbackLikingVC.swift */; };
 		63B092DF1BDD93EB00EAF5D7 /* stylisticDevices_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63B092DE1BDD93EB00EAF5D7 /* stylisticDevices_en.plist */; };
+		63B929761CBE751B0019206F /* CustomHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B929751CBE751B0019206F /* CustomHUD.swift */; };
 		63BAEA2E1B49CA67004182FA /* DeviceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BAEA2D1B49CA67004182FA /* DeviceList.swift */; };
 		63BE3FFD1BC1AC830007EE6D /* FeedbackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE3FFC1BC1AC830007EE6D /* FeedbackVC.swift */; };
 		63BE3FFF1BC1AC9C0007EE6D /* FeedbackPositiveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE3FFE1BC1AC9C0007EE6D /* FeedbackPositiveVC.swift */; };
@@ -110,6 +110,7 @@
 		638F91371C0690EB00AF75EB /* FeedbackSharingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedbackSharingVC.swift; path = Controller/FeedbackSharingVC.swift; sourceTree = "<group>"; };
 		638F91391C06942F00AF75EB /* FeedbackLikingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedbackLikingVC.swift; path = Controller/FeedbackLikingVC.swift; sourceTree = "<group>"; };
 		63B092DE1BDD93EB00EAF5D7 /* stylisticDevices_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = stylisticDevices_en.plist; sourceTree = "<group>"; };
+		63B929751CBE751B0019206F /* CustomHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomHUD.swift; path = Views/CustomHUD.swift; sourceTree = "<group>"; };
 		63BAEA2D1B49CA67004182FA /* DeviceList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceList.swift; sourceTree = "<group>"; };
 		63BE3FFC1BC1AC830007EE6D /* FeedbackVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackVC.swift; sourceTree = "<group>"; };
 		63BE3FFE1BC1AC9C0007EE6D /* FeedbackPositiveVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackPositiveVC.swift; sourceTree = "<group>"; };
@@ -305,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				636DE7A01BE3A4FA009B2BA5 /* LineChart.swift */,
+				63B929751CBE751B0019206F /* CustomHUD.swift */,
 				63EB1F7B1BBB32A10005A996 /* Pin.swift */,
 				6320D6791BEEDED200D4D6D8 /* Buttons */,
 				6320D6781BEEDEC200D4D6D8 /* Cells */,
@@ -359,12 +361,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 631E365419F060D500CD2DEB /* Build configuration list for PBXNativeTarget "Rhetorica" */;
 			buildPhases = (
-				F28B8B6CECFC12795DF86BE7 /* Check Pods Manifest.lock */,
+				F28B8B6CECFC12795DF86BE7 /* 📦 Check Pods Manifest.lock */,
 				631E363119F060D500CD2DEB /* Sources */,
 				631E363219F060D500CD2DEB /* Frameworks */,
 				631E363319F060D500CD2DEB /* Resources */,
-				F6E9BDBD58AE470506B8F0ED /* Embed Pods Frameworks */,
-				956B8353F5989187DD5A5883 /* Copy Pods Resources */,
+				F6E9BDBD58AE470506B8F0ED /* 📦 Embed Pods Frameworks */,
+				956B8353F5989187DD5A5883 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -470,7 +472,6 @@
 				634526CE1BEEB9E30028E4E9 /* NoDeviceView.xib in Resources */,
 				63B092DF1BDD93EB00EAF5D7 /* stylisticDevices_en.plist in Resources */,
 				6357C37F1BDD9B9700337BFC /* Localizable.strings in Resources */,
-				630C609A1CB5150300E9054F /* Info.plist in Resources */,
 				63E19FDC1C03D899003AA011 /* Launch Screen.storyboard in Resources */,
 				631E364219F060D500CD2DEB /* Images.xcassets in Resources */,
 			);
@@ -494,14 +495,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		956B8353F5989187DD5A5883 /* Copy Pods Resources */ = {
+		956B8353F5989187DD5A5883 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,14 +510,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Rhetorica/Pods-Rhetorica-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F28B8B6CECFC12795DF86BE7 /* Check Pods Manifest.lock */ = {
+		F28B8B6CECFC12795DF86BE7 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -524,14 +525,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		F6E9BDBD58AE470506B8F0ED /* Embed Pods Frameworks */ = {
+		F6E9BDBD58AE470506B8F0ED /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -575,6 +576,7 @@
 				636DE7A51BE3B46C009B2BA5 /* QuestionSet.swift in Sources */,
 				63D525D01BC035D9003F35AC /* RoundedButton.swift in Sources */,
 				63D0B2A51BDFFE6A00380DF7 /* UIImage+Resize.swift in Sources */,
+				63B929761CBE751B0019206F /* CustomHUD.swift in Sources */,
 				636DE7AB1BE3DA5E009B2BA5 /* PinnableDeviceCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -768,7 +770,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Rhetorica/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = np.rhetorica;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -900,6 +902,7 @@
 				63E854231CBD1B66005B5DD9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

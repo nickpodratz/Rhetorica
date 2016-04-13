@@ -30,7 +30,7 @@ class DetailViewController: UITableViewController {
     // MARK: - Properties
     
     var favoritesLabel: UILabel!
-    var hudView: PKHUDSubtitleView?
+    var hudView: CustomHUDBaseView?
     weak var favorites: DeviceList! {
         didSet {
             self.configureView()
@@ -177,46 +177,25 @@ class DetailViewController: UITableViewController {
 
     private func showFavoritesLabel(addedStylisticDevice added: Bool) {
         if added {
-            let pinLayer = PinLayer()
-            hudView = PKHUDSubtitleView(subtitle: NSLocalizedString("hinzugefügt", comment: ""), image: nil)
-            hudView!.layer.addSublayer(pinLayer)
+            hudView = CustomHUDBaseView(subtitle: NSLocalizedString("hinzugefügt", comment: ""), image: nil)
+                        
             PKHUD.sharedHUD.contentView = hudView!
             PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
             PKHUD.sharedHUD.dimsBackground = false
             PKHUD.sharedHUD.show()
             PKHUD.sharedHUD.hide(afterDelay: 1)
-            pinLayer.frame = CGRect(
-                x: hudView!.bounds.width/3,
-                y: hudView!.bounds.height/4,
-                width: hudView!.bounds.width/3,
-                height: hudView!.bounds.height/3
-            )
-            pinLayer.animateHoverIn()
+            
+            hudView!.animateAdded()
         } else {
-            let pinLayer = PinLayer()
-            let crossLayer = PinCrossLayer()
-            hudView = PKHUDSubtitleView(subtitle: NSLocalizedString("entfernt", comment: ""), image: nil)
-            hudView!.layer.addSublayer(pinLayer)
-            hudView!.layer.addSublayer(crossLayer)
-//            view.layer.mask = crossLayer
+            hudView = CustomHUDBaseView(subtitle: NSLocalizedString("entfernt", comment: ""), image: nil)
+            
             PKHUD.sharedHUD.contentView = hudView!
             PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
             PKHUD.sharedHUD.dimsBackground = false
             PKHUD.sharedHUD.show()
             PKHUD.sharedHUD.hide(afterDelay: 1)
-            pinLayer.frame = CGRect(
-                x: hudView!.bounds.width/3,
-                y: hudView!.bounds.height/4,
-                width: hudView!.bounds.width/3,
-                height: hudView!.bounds.height/3
-            )
-            crossLayer.frame = CGRect(
-                x: hudView!.bounds.width/3,
-                y: hudView!.bounds.height/4,
-                width: hudView!.bounds.width/3,
-                height: hudView!.bounds.height/3
-            )
-            crossLayer.animateCrossOut()
+            
+            hudView!.animateRemoved()
         }
     }
         
@@ -228,12 +207,12 @@ class DetailViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        return action == Selector("copy:")
+        return action == #selector(NSObject.copy(_:))
         
     }
 
     override func tableView(tableView: UITableView, performAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject!) {
-        if action == Selector("copy:") {
+        if action == #selector(NSObject.copy(_:)) {
             UIPasteboard.generalPasteboard().string = device?.wikipedia
         }
     }

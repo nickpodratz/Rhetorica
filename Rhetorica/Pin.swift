@@ -132,7 +132,7 @@ class PinLayer: CAShapeLayer {
     
     private func setupLayer() {
         path = PinPath(rect: bounds).CGPath
-        strokeColor = UIColor.blackColor().CGColor
+        strokeColor = color.CGColor
         fillColor = nil
         lineWidth = 2
         lineJoin = kCALineJoinRound

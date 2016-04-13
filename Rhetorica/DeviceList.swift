@@ -66,7 +66,7 @@ extension DeviceList: SequenceType {
     
     func generate() -> Generator {
         var index = 0
-        return anyGenerator {
+        return AnyGenerator {
             if index < self.elements.count {
                 return self.elements[index++]
             }
