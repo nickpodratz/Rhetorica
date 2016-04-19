@@ -1,0 +1,61 @@
+{
+  "default": {
+    "keyword": {
+      "fonts": [
+        {
+          "font": "./fonts/PTMono.ttc",
+          "supported": ["de-DE", "en-US", "es-ES", "fr-FR", "it-IT", "nl-NL", "sv-SE", "pt-BR"]
+        }
+      ]
+    },
+    "title": {
+      "fonts": [
+        {
+          "font": "./fonts/Shree714.ttc",
+          "supported": ["de-DE", "en-US", "es-ES", "fr-FR", "it-IT", "nl-NL", "sv-SE", "pt-BR"]
+        }
+      ],
+      "color": "#545454"
+    },
+    "background": "./background.jpg",
+    "padding": 60
+  },
+
+// purple: #952869, red: #ff7547, green: #5ad971
+  "data": [
+    {
+      "filter": "DetailView",
+      "title": {
+           "text": "Discover new and\npopular podcasts",
+           "padding": 100
+      },
+      "keyword": {
+        "color": "#952869"
+      }
+    },
+    {
+      "filter": "Quiz",
+      "keyword": {
+        "color": "#ff7547"
+      }
+    },
+    {
+      "filter": "UserStats",
+      "keyword": {
+        "color": "#5ad971"
+      }
+    },
+    {
+      "filter": "TableView",
+      "keyword": {
+        "color": "#952869"
+      }
+    },
+    {
+      "filter": "Settings",
+      "keyword": {
+        "color": "#ff7547"
+      }
+    }
+  ]
+}
