@@ -139,6 +139,7 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
     // MARK: - Private Functions
         
     private func setupForNewQuestion() {
+        
         // Get current question and check if quiz ended.
         guard let question = questionSet.nextQuestion() else {
             print("Quiz did end")

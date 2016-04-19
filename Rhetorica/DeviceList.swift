@@ -112,7 +112,7 @@ func ==(lhs:DeviceList, rhs:DeviceList) -> Bool {
 }
 
 
-// MARK: DeviceList: Equatable
+// MARK: DeviceList: Comparable
 
 extension DeviceList: Comparable {}
 func <(lhs:DeviceList, rhs:DeviceList) -> Bool {

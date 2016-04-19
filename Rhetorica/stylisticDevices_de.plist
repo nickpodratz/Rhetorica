@@ -463,7 +463,7 @@
 	<key>Chiasmus</key>
 	<dict>
 		<key>definition</key>
-		<string>Die symmetrische Überkreuzstellung von syntaktisch oder semantisch entsprechenden Satzteilen.</string>
+		<string>Die symmetrische Überkreuzstellung von syntaktisch oder semantisch gleich aufgebauten Satzteilen.</string>
 		<key>examples</key>
 		<array>
 			<string>„Ich bin groß, klein bist du.“</string>
@@ -846,8 +846,8 @@
 		<key>examples</key>
 		<array>
 			<string>„kräftig“ statt: „dick“</string>
-			<string>„das Zeitliche segnen“ statt: „sterben“</string>
 			<string>„Seniorenresidenz“ statt: „Altenheim“</string>
+			<string>„das Zeitliche segnen“ statt: „sterben“</string>
 		</array>
 		<key>levelOfImportance</key>
 		<integer>8</integer>
@@ -1397,6 +1397,8 @@
 		<string>Paradoxon</string>
 		<key>wikipedia</key>
 		<string>https://de.wikipedia.org/wiki/Paradoxon</string>
+		<key>synonym</key>
+		<string>Scheinwiderspruch</string>
 	</dict>
 	<key>Paralipse</key>
 	<dict>

@@ -37,16 +37,19 @@ class QuizResultsViewController: UITableViewController {
         self.navigationItem.hidesBackButton = true
         numberOfFalseAnswersLabel.text = ""
         
-        let identifier = "\(questionSet.extend)_scores"
-        
-        let defaults = NSUserDefaults.standardUserDefaults()
-        scores = (defaults.valueForKey(identifier) as? [Int]) ?? [Int]()
-        scores.append(questionSet.correctAnsweredQuestions.count)
-        let shortenedScores = Array(scores.suffix(15))
-        defaults.setValue(shortenedScores, forKey: identifier)
-        defaults.synchronize()
-        
-        setupDiagram()
+        if isUITestMode {
+            self.scores = [2, 4, 4, 6, 3, 5, 7, 8, 6, 8]
+        } else {
+            let identifier = "\(questionSet.extent)_scores"
+            
+            let defaults = NSUserDefaults.standardUserDefaults()
+            scores = (defaults.valueForKey(identifier) as? [Int]) ?? [Int]()
+            scores.append(questionSet.correctAnsweredQuestions.count)
+            let shortenedScores = Array(scores.suffix(15))
+            defaults.setValue(shortenedScores, forKey: identifier)
+            defaults.synchronize()
+        }
+        setupLineChart()
     }
     
     override func viewWillAppear(animated: Bool) {

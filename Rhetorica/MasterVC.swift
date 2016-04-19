@@ -71,6 +71,10 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Setup data
+        let languageIdentifier = Language.getSelectedLanguageIdentifier() ?? Language.getSystemLanguageIdentifier()
+        selectedLanguage = Language(identifier: languageIdentifier) ?? .German
+
         if #available(iOS 9.0, *) {
             if( traitCollection.forceTouchCapability == .Available){
                 registerForPreviewingWithDelegate(self, sourceView: view)
@@ -89,10 +93,6 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
         
         defaultSeparatorColor = tableView!.separatorColor
         definesPresentationContext = true
-        
-        // Setup data
-        let languageIdentifier = Language.getSelectedLanguageIdentifier() ?? Language.getSystemLanguageIdentifier()
-        selectedLanguage = Language(identifier: languageIdentifier) ?? .German
         
         // Search Controller
         searchController.searchResultsUpdater = self
@@ -120,7 +120,6 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
             tableView.setContentOffset(CGPoint(x: 0, y: searchController.searchBar.bounds.size.height), animated: true)
         }
         //        showNoEntriesView(noEntries: selectedDeviceList.isEmpty)
-        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -131,7 +130,7 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        print("called")
+
         let defaults = NSUserDefaults.standardUserDefaults()
         var counter = NSUserDefaults.standardUserDefaults().integerForKey(masterVCLoadingCounterKey) ?? 0
         

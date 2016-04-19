@@ -125,8 +125,8 @@
 /* Class = "UILabel"; text = "Thank you for using Rhetorica!\nI developed this app during my preparation for final exams at Highschool and hope that it is as well useful for you! Would you mind writing me a short mail or an App Store review with your opinion about this app so I can keep develop fancy upates? And also feel free to check out my other apps listed below, I would be really pleased if you gave them a try."; ObjectID = "hEX-6G-X2F"; */
 "hEX-6G-X2F.text" = "Thank you for using Rhetorica!\nI developed this app during my preparation for final exams at highschool and hope that it is as well useful for you! Would you mind writing me a short mail or an App Store review with your opinion about this app so I can keep develop fancy upates? And also feel free to check out my other apps listed below, I would be really pleased if you gave them a try.";
 
-/* Class = "UITableViewSection"; headerTitle = "Extend of the list"; ObjectID = "hTx-CN-vPh"; */
-"hTx-CN-vPh.headerTitle" = "Extend of the list";
+/* Class = "UITableViewSection"; headerTitle = "Extent of the list"; ObjectID = "hTx-CN-vPh"; */
+"hTx-CN-vPh.headerTitle" = "Extent of the list";
 
 /* Class = "UILabel"; text = "Nick Podratz"; ObjectID = "hjb-DO-2PB"; */
 "hjb-DO-2PB.text" = "Nick Podratz";

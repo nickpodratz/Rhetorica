@@ -10,7 +10,7 @@ import Foundation
 
 class QuestionSet: NSObject {
     let language: Language!
-    let extend: String!
+    let extent: String!
     
     let numberOfQuestions: Int
     let questions: [Question]
