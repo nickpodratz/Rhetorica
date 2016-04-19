@@ -19,7 +19,7 @@ class CustomHUDBaseView: PKHUDSquareBaseView {
         subtitleLabel.font = UIFont.boldSystemFontOfSize(16.0)
         subtitleLabel.textColor = color
         subtitleLabel.numberOfLines = 2
-        subtitleLabel.frame.origin.y = bounds.size.height / 3 * 2
+        subtitleLabel.frame.origin.y = bounds.size.height * 0.67
     }
     
     func animateAdded() {
