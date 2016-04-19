@@ -16,7 +16,7 @@ class QuizResultsViewController: UITableViewController {
     @IBOutlet weak var numberOfFalseAnswersLabel: UILabel!
     
     @IBOutlet weak var languageCell: UITableViewCell!
-    @IBOutlet weak var extendCell: UITableViewCell!
+    @IBOutlet weak var extentCell: UITableViewCell!
     @IBOutlet weak var scoreCell: UITableViewCell!
     @IBOutlet weak var wrongAnswersCell: UITableViewCell!
     
@@ -27,9 +27,6 @@ class QuizResultsViewController: UITableViewController {
     // MARK: - Properties
 
     weak var favorites: DeviceList!
-    
-    var numberOfCorrectAnswers = 0
-    var numberOfQuestions = 0
     
     // MARK: - Life Cycle
     
@@ -54,7 +51,7 @@ class QuizResultsViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         languageCell.detailTextLabel?.text = questionSet.language.localizedDescription
-        extendCell.detailTextLabel?.text = questionSet.extend
+        extentCell.detailTextLabel?.text = questionSet.extent
         scoreCell.detailTextLabel?.text = "\(questionSet.correctAnsweredQuestions.count) / \(questionSet.numberOfQuestions)"
         numberOfFalseAnswersLabel.text = String(questionSet.wrongAnsweredQuestions.count)
         if questionSet.wrongAnsweredQuestions.isEmpty {
@@ -94,7 +91,7 @@ class QuizResultsViewController: UITableViewController {
         }
     }
     
-    private func setupDiagram() {
+    private func setupLineChart() {
         lineChart = LineChart()
         
         lineChart.colors = [UIColor.rhetoricaGreenColor(), UIColor.rhetoricaPurpleColor(), UIColor.rhetoricaRedColor()]
@@ -120,22 +117,6 @@ class QuizResultsViewController: UITableViewController {
         lineChart.frame = diagramView.bounds
         
         lineChart.autoresizingMask = [ .FlexibleHeight, .FlexibleWidth ]
-
-        if #available(iOS 9.0, *) {
-//            let leadingConstraint = lineChart.leadingAnchor.constraintEqualToAnchor(diagramView.leadingAnchor)
-//            let trailingConstraint = lineChart.trailingAnchor.constraintEqualToAnchor(diagramView.trailingAnchor)
-//            let topSpacingConstraint = lineChart.topAnchor.constraintEqualToAnchor(diagramView.topAnchor)
-//            let bottomSpacingConstraint = lineChart.bottomAnchor.constraintEqualToAnchor(diagramView.bottomAnchor)
-            //            NSLayoutConstraint.activateConstraints([leadingConstraint, trailingConstraint, topSpacingConstraint, bottomSpacingConstraint])
-
-//            let horizontalConstraint = lineChart.centerXAnchor.constraintEqualToAnchor(diagramView.centerXAnchor)
-//            let vertivalConstraint = lineChart.centerYAnchor.constraintEqualToAnchor(diagramView.centerYAnchor)
-//            let widthConstraint = lineChart.widthAnchor.constraintEqualToAnchor(nil, constant: self.view.frame.size.width)
-//            let heightConstraint = lineChart.heightAnchor.constraintEqualToAnchor(nil, constant: 170)
-//            NSLayoutConstraint.activateConstraints([horizontalConstraint, vertivalConstraint, widthConstraint, heightConstraint])
-        } else {
-            // Fallback on earlier versions
-        }
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

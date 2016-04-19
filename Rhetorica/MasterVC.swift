@@ -34,6 +34,8 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
             if let listTitle = DeviceList.getSelectedListTitle() {
                 if let loadedList = self.deviceLists.filter({$0.title == listTitle}).first {
                     selectedDeviceList = loadedList
+                } else {
+                    selectedDeviceList = deviceLists.first!
                 }
             } else {
                 selectedDeviceList = deviceLists.first!
@@ -348,7 +350,7 @@ extension MasterViewController {
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if !searchController.active && selectedDeviceList.enoughForCategories == true {
+        if !searchController.active && selectedDeviceList != nil && selectedDeviceList.enoughForCategories == true {
             return (selectedDeviceList.sortedList[selectedDeviceList.presentLetters[section]] != nil) ? selectedDeviceList.presentLetters[section] : nil
         }
         return nil
