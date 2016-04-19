@@ -132,17 +132,21 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
         super.viewDidAppear(animated)
 
         let defaults = NSUserDefaults.standardUserDefaults()
-        var counter = NSUserDefaults.standardUserDefaults().integerForKey(masterVCLoadingCounterKey) ?? 0
-        
-        switch counter {
-        case 12: performSegueWithIdentifier("toFeedback", sender: self)
-        case 20: performSegueWithIdentifier("toFeedbackLiking", sender: self)
-        case 28: performSegueWithIdentifier("toFeedbackSharing", sender: self)
-        default: ()
+        let counter = NSUserDefaults.standardUserDefaults().integerForKey(masterVCLoadingCounterKey) ?? 0
+
+        if !isUITestMode {
+            switch counter {
+            case 12: performSegueWithIdentifier("toFeedback", sender: self)
+            case 20: performSegueWithIdentifier("toFeedbackLiking", sender: self)
+            case 28: performSegueWithIdentifier("toFeedbackSharing", sender: self)
+            default: ()
+            }
+            
+            let newCounter = counter + 1
+            defaults.setInteger(newCounter, forKey: masterVCLoadingCounterKey)
+            defaults.synchronize()
         }
         
-        defaults.setInteger(++counter, forKey: masterVCLoadingCounterKey)
-        defaults.synchronize()
     }
     
     

@@ -35,7 +35,22 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.questionSet = QuestionSet(fromDeviceList: deviceList, language: language, numberOfQuestions: 10)
+        if isUITestMode {
+            // Setup a questionset with only one question
+            let devicesForQuestion: [StylisticDevice] = {
+                var newDevices = [StylisticDevice]()
+                for deviceCount in 1...4 {
+                    let newDevice = deviceList.elements[deviceCount * 15]
+                    newDevices.append(newDevice)
+                }
+                return newDevices
+            }()
+            let question = Question(devices: devicesForQuestion, tagOfCorrectAnswer: 1)
+            self.questionSet = QuestionSet(withQuestions: [question], language: language, extent: deviceList.title)
+            
+        } else {
+            self.questionSet = QuestionSet(fromDeviceList: deviceList, language: language, numberOfQuestions: 10)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -66,7 +81,19 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         if segue.identifier == "toQuizResults" {
             let destinationController = segue.destinationViewController as! QuizResultsViewController
-            destinationController.questionSet = self.questionSet
+            if isUITestMode {
+                let questionSet = QuestionSet(fromDeviceList: deviceList, language: language, numberOfQuestions: 10)
+                for (index, question) in questionSet.questions.enumerate() {
+                    if index == 3||index == 6 {
+                        question.answerWasCorrect = false
+                    } else {
+                        question.answerWasCorrect = true
+                    }
+                }
+                destinationController.questionSet = questionSet
+            } else {
+                destinationController.questionSet = self.questionSet
+            }
             destinationController.favorites = favorites
         }
     }
@@ -159,7 +186,12 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
         // Configuring title of Navigation Bar
         let questionLocalized = NSLocalizedString("frage", comment: "")
         let ofLocalized = NSLocalizedString("von", comment: "")
-        self.navigationItem.title = "\(questionLocalized) \(questionSet.numberOfCurrentQuestion) \(ofLocalized) \(questionSet.numberOfQuestions)"
+        
+        if isUITestMode {
+            self.navigationItem.title = "\(questionLocalized) 7 \(ofLocalized) 10"
+        } else {
+            self.navigationItem.title = "\(questionLocalized) \(questionSet.numberOfCurrentQuestion) \(ofLocalized) \(questionSet.numberOfQuestions)"
+        }
         
         // Configuring Buttons
         print(buttons)

@@ -20,8 +20,8 @@ class RhetoricaUITests: XCTestCase {
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         
         let app = XCUIApplication()
-        app.launchEnvironment = [ "UITest": "1" ]
-        setLanguage(app)
+        app.launchEnvironment = [ "isUITest": "true" ]
+//        app.launchArguments = ["testMode"]
         setupSnapshot(app)
         app.launch()
         

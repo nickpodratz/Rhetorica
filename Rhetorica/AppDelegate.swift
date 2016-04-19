@@ -11,6 +11,8 @@ import CoreSpotlight
 import MobileCoreServices
 
 let appId = "926449450"
+let isUITestMode = NSProcessInfo.processInfo().environment["isUITest"] == "true"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -23,6 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationController.topViewController?.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
         splitViewController.delegate = self
         
+        if isUITestMode {
+            UIView.setAnimationsEnabled(false)
+//            SDStatusBarManager.sharedInstance.enableOverrides()
+        }
         application.setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
         return true
     }

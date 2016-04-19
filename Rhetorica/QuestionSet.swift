@@ -29,10 +29,18 @@ class QuestionSet: NSObject {
         self.numberOfQuestions = numberOfQuestions
         self.questions = QuestionSet.generateQuestions(fromDeviceList: deviceList, numberOfQuestions: numberOfQuestions)
         self.language = language
-        self.extend = deviceList.title
+        self.extent = deviceList.title
         super.init()
     }
-    
+
+    init(withQuestions questions: [Question], language: Language, extent: String) {
+        self.numberOfQuestions = questions.count
+        self.questions = questions
+        self.language = language
+        self.extent = extent
+        super.init()
+    }
+
     func nextQuestion() -> Question? {
         questionIndex += 1
         return currentQuestion
