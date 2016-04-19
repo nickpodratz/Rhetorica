@@ -47,20 +47,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    
     @available(iOS 9.0, *)
     func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
-        guard let splitVC = self.window!.rootViewController as? UISplitViewController,
+        guard let splitVC = self.window?.rootViewController as? UISplitViewController,
             let firstNavigationVC = splitVC.viewControllers.first as? UINavigationController,
             let masterVC = firstNavigationVC.viewControllers.first as? MasterViewController else {
                 print("Can't downcast neccessary viewControllers for quick actions.")
                 return
         }
         
+        guard shortcutItem.type.componentsSeparatedByString(".").isEmpty == false else {
+            return
+        }
+        
+        // Setup data
+        let languageIdentifier = Language.getSelectedLanguageIdentifier() ?? Language.getSystemLanguageIdentifier()
+        let selectedLanguage = Language(identifier: languageIdentifier) ?? .German
+        masterVC.selectedLanguage = selectedLanguage
+        
         switch shortcutItem.type.componentsSeparatedByString(".").last! {
         case "showFavorites":
             masterVC.selectedDeviceList = masterVC.deviceLists.last!
+            masterVC.scrollToTop()
             masterVC.searchController.searchBar.resignFirstResponder()
-            
+            let navigationBarOrigin = masterVC.navigationController!.navigationBar.bounds.origin.y + 12 // + masterVC.navigationController!.navigationBar.bounds.size.height
+            masterVC.tableView.setContentOffset(CGPoint(x: 0, y: -navigationBarOrigin), animated: false)
+//            masterVC.view.layoutIfNeeded()
+
         case "searchForStylisticDevice":
             masterVC.selectedDeviceList = masterVC.deviceLists[2]
             masterVC.searchController.active = true
