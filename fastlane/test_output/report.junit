@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites tests='4' failures='1'>
+  <testsuite name='RhetoricaTests.RhetoricaTests' tests='2' failures='0'>
+    <testcase classname='RhetoricaTests.RhetoricaTests' name='testExample' time='0.003'/>
+    <testcase classname='RhetoricaTests.RhetoricaTests' name='testPerformanceExample' time='0.278'/>
+  </testsuite>
+  <testsuite name='RhetoricaUITests.RhetoricaUITests' tests='2' failures='1'>
+    <testcase classname='RhetoricaUITests.RhetoricaUITests' name='testExample' time='3.883'/>
+    <testcase classname='RhetoricaUITests.RhetoricaUITests' name='testTakeScreenshots'>
+      <failure message='UI Testing Failure - Failed to scroll to visible (by AX action) Button 0x7fc21b520640: traits: 8724152321, {{8.0, 31.5}, {21.0, 21.0}}, label: &apos;Back&apos;, error: Error -25204 performing AXAction 2003'>&lt;unknown&gt;:0</failure>
+    </testcase>
+  </testsuite>
+</testsuites>
