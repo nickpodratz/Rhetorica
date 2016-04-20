@@ -65,10 +65,10 @@ extension DeviceList: SequenceType {
     typealias Generator = AnyGenerator<StylisticDevice>
     
     func generate() -> Generator {
-        var index = 0
+        let index = 0
         return AnyGenerator {
             if index < self.elements.count {
-                return self.elements[index++]
+                return self.elements[index.successor()]
             }
             return nil
         }
