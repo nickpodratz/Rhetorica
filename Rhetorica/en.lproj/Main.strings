@@ -53,8 +53,8 @@
 /* Class = "UILabel"; text = "Das Gegenteil"; ObjectID = "MOU-Qy-1gw"; */
 "MOU-Qy-1gw.text" = "Das Gegenteil";
 
-/* Class = "UINavigationItem"; title = "Extent"; ObjectID = "MYW-o4-ocw"; */
-"MYW-o4-ocw.title" = "Extent";
+/* Class = "UINavigationItem"; title = "Überschrift"; ObjectID = "MYW-o4-ocw"; */
+"MYW-o4-ocw.title" = "Settings";
 
 /* Class = "UINavigationItem"; title = " "; ObjectID = "N1c-Zr-gJP"; */
 "N1c-Zr-gJP.title" = " ";

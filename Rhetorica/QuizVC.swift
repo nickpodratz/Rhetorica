@@ -116,7 +116,12 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
     
     @IBAction func cancel(sender: AnyObject) {
         if questionSet.numberOfCurrentQuestion != 1 {
-            let alertController = UIAlertController(title: "Quiz beenden?", message: "Wenn du nun das Quiz abbrichst, geht dein bisheriger Spielstand verloren.", preferredStyle: .Alert)
+            let quitQuizTitle = NSLocalizedString("quitQuizTitle", comment: "The title of the alert appearing when you are about to quit the quiz.")
+            let quitQuizMessage = NSLocalizedString("quitQuizMessage", comment: "The message of the alert appearing when you are about to quit the quiz.")
+            let quitQuizButtonQuit = NSLocalizedString("quitQuizButtonQuit", comment: "The quit-button's title of the alert appearing when you are about to quit the quiz.")
+            let quitQuizButtonCancel = NSLocalizedString("quitQuizButtonCancel", comment: "The cancel-button's title of the alert appearing when you are about to quit the quiz.")
+            
+            let alertController = UIAlertController(title: "Quiz beenden?", message: "Wenn du nun das Quiz abbrichst, geht dein bisheriger Spielfortschritt verloren.", preferredStyle: .Alert)
             
             let proceedAction = UIAlertAction(title: "Beenden", style: UIAlertActionStyle.Destructive) { action in
                 self.dismissViewControllerAnimated(true, completion: nil)
