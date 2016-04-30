@@ -36,25 +36,25 @@
     {
       "filter": "Quiz",
       "keyword": {
-        "color": "#ff7547"
+        "color": "#5ad971"
       }
     },
     {
       "filter": "UserStats",
       "keyword": {
-        "color": "#5ad971"
+        "color": "#952869"
       }
     },
     {
       "filter": "TableView",
       "keyword": {
-        "color": "#952869"
+        "color": "#5ad971"
       }
     },
     {
       "filter": "Settings",
       "keyword": {
-        "color": "#ff7547"
+        "color": "#952869"
       }
     }
   ]

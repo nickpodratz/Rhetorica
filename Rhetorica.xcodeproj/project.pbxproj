@@ -191,14 +191,12 @@
 			isa = PBXGroup;
 			children = (
 				631E363A19F060D500CD2DEB /* AppDelegate.swift */,
-				631521271CB9471300C192E0 /* InfoPlist.strings */,
+				63FEAAB41CC97E24002DC594 /* Assets */,
 				63E58E0E1BD954BD00C717B6 /* Extensions */,
-				63BAEA301B49D06F004182FA /* Model */,
+				63BAEA301B49D06F004182FA /* Models */,
 				63C542A81BC507FD00EBB370 /* Views */,
-				63BAEA2F1B49CF8E004182FA /* Controller */,
-				631E364119F060D500CD2DEB /* Images.xcassets */,
+				63BAEA2F1B49CF8E004182FA /* Controllers */,
 				631E363819F060D500CD2DEB /* Supporting Files */,
-				63C801FB1A07E18E003240B5 /* MyPlayground.playground */,
 			);
 			path = Rhetorica;
 			sourceTree = "<group>";
@@ -208,9 +206,9 @@
 			children = (
 				6357C3811BDD9B9700337BFC /* Localizable.strings */,
 				630C60991CB5150300E9054F /* Info.plist */,
-				63494DE61BDD7D7900EF221E /* stylisticDevices_de.plist */,
-				63B092DE1BDD93EB00EAF5D7 /* stylisticDevices_en.plist */,
+				631521271CB9471300C192E0 /* InfoPlist.strings */,
 				63EC67821BBFD2BA00DD7B55 /* Version 1.2.rtf */,
+				63C801FB1A07E18E003240B5 /* MyPlayground.playground */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -259,7 +257,7 @@
 			name = Buttons;
 			sourceTree = "<group>";
 		};
-		63BAEA2F1B49CF8E004182FA /* Controller */ = {
+		63BAEA2F1B49CF8E004182FA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				63E19FDB1C03D899003AA011 /* Launch Screen.storyboard */,
@@ -274,10 +272,10 @@
 				636DE7A81BE3D27C009B2BA5 /* QuizWrongAnswersVC.swift */,
 				63C542A71BC5078900EBB370 /* Feedback */,
 			);
-			name = Controller;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
-		63BAEA301B49D06F004182FA /* Model */ = {
+		63BAEA301B49D06F004182FA /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				63E274301BDFBFAA0039D1C1 /* Language.swift */,
@@ -286,7 +284,7 @@
 				636DE7A21BE3AD78009B2BA5 /* Question.swift */,
 				636DE7A41BE3B46C009B2BA5 /* QuestionSet.swift */,
 			);
-			name = Model;
+			name = Models;
 			sourceTree = "<group>";
 		};
 		63C542A71BC5078900EBB370 /* Feedback */ = {
@@ -335,6 +333,16 @@
 				63E8541F1CBD1B66005B5DD9 /* Info.plist */,
 			);
 			path = RhetoricaUITests;
+			sourceTree = "<group>";
+		};
+		63FEAAB41CC97E24002DC594 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				631E364119F060D500CD2DEB /* Images.xcassets */,
+				63494DE61BDD7D7900EF221E /* stylisticDevices_de.plist */,
+				63B092DE1BDD93EB00EAF5D7 /* stylisticDevices_en.plist */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 		8A80B948D6F0526510DC6DED /* Frameworks */ = {

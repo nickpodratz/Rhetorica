@@ -35,3 +35,8 @@ shortcutTitleFavorites = "Show learning list";
 remove_from_favorites = "Remove from learning list";
 add_to_favorites = "Add to learning list";
 CANCEL = "Cancel";
+
+quitQuizTitle = "Quit the quiz?";
+quitQuizMessage = "If you quit the quiz now all your recent progress will be lost.";
+quitQuizButtonQuit = "Quit";
+quitQuizButtonCancel = "Continue";

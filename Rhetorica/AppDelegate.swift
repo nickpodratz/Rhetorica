@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         splitViewController.delegate = self
         
         if isUITestMode {
-            UIView.setAnimationsEnabled(false)
+//            UIView.setAnimationsEnabled(false)
 //            SDStatusBarManager.sharedInstance.enableOverrides()
         }
         application.setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)

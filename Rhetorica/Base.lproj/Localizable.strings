@@ -36,3 +36,8 @@ shortcutTitleFavorites = "Lernliste zeigen";
 remove_from_favorites = "Aus Lernliste entfernen";
 add_to_favorites = "Zu Lernliste hinzufügen";
 CANCEL = "Abbrechen";
+
+quitQuizTitle = "Quiz beenden?";
+quitQuizMessage = "Wenn du nun das Quiz abbrichst, geht dein bisheriger Spielfortschritt verloren.";
+quitQuizButtonQuit = "Beenden";
+quitQuizButtonCancel = "Fortfahren";

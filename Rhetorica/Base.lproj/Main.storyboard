@@ -367,8 +367,8 @@
                                     <action selector="quizButtonTouchedUp:" destination="COG-xr-eg7" eventType="touchUpOutside" id="qsi-IW-Uyi"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qL-Ze-Zbg">
-                                <rect key="frame" x="1" y="66" width="600" height="440"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qL-Ze-Zbg">
+                                <rect key="frame" x="0.0" y="66" width="600" height="440"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Die Definition des gesuchten rhetorischen Mittels" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pkd-5e-Q1j">
                                         <rect key="frame" x="24" y="40" width="552" height="20.5"/>
@@ -380,7 +380,7 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Das Beispiel des gesuchten rhetorischen Mittels" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUC-Md-rWN">
-                                        <rect key="frame" x="24" y="89.5" width="552" height="20.5"/>
+                                        <rect key="frame" x="24" y="89" width="552" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -389,7 +389,7 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beispiel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YiC-F3-vrk">
-                                        <rect key="frame" x="24" y="69.5" width="552" height="18"/>
+                                        <rect key="frame" x="24" y="69" width="552" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -746,7 +746,7 @@
             </objects>
             <point key="canvasLocation" x="1316" y="-10"/>
         </scene>
-        <!--Umfang-->
+        <!--Einstellungen-->
         <scene sceneID="ri4-RK-Zwf">
             <objects>
                 <tableViewController storyboardIdentifier="UmfangVC" id="ue6-FV-5gl" customClass="ListViewController" customModule="Rhetorica" customModuleProvider="target" sceneMemberID="viewController">
@@ -896,7 +896,7 @@
                             <outlet property="delegate" destination="ue6-FV-5gl" id="7VC-xu-6lr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Umfang" id="MYW-o4-ocw">
+                    <navigationItem key="navigationItem" title="Einstellungen" id="MYW-o4-ocw">
                         <barButtonItem key="leftBarButtonItem" title="Über" id="FHw-AO-t47">
                             <connections>
                                 <segue destination="PzX-gw-oXN" kind="presentation" identifier="toAbout" modalPresentationStyle="formSheet" modalTransitionStyle="coverVertical" id="ptq-Kn-tUh"/>
