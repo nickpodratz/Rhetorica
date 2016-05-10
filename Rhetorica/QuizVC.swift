@@ -121,14 +121,14 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
             let quitQuizButtonQuit = NSLocalizedString("quitQuizButtonQuit", comment: "The quit-button's title of the alert appearing when you are about to quit the quiz.")
             let quitQuizButtonCancel = NSLocalizedString("quitQuizButtonCancel", comment: "The cancel-button's title of the alert appearing when you are about to quit the quiz.")
             
-            let alertController = UIAlertController(title: "Quiz beenden?", message: "Wenn du nun das Quiz abbrichst, geht dein bisheriger Spielfortschritt verloren.", preferredStyle: .Alert)
+            let alertController = UIAlertController(title: quitQuizTitle, message: quitQuizMessage, preferredStyle: .Alert)
             
-            let proceedAction = UIAlertAction(title: "Beenden", style: UIAlertActionStyle.Destructive) { action in
+            let proceedAction = UIAlertAction(title: quitQuizButtonQuit, style: UIAlertActionStyle.Destructive) { action in
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
             alertController.addAction(proceedAction)
             
-            let cancelAction = UIAlertAction(title: "Fortfahren", style: UIAlertActionStyle.Cancel, handler: nil)
+            let cancelAction = UIAlertAction(title: quitQuizButtonCancel, style: UIAlertActionStyle.Cancel, handler: nil)
             alertController.addAction(cancelAction)
             
             self.presentViewController(alertController, animated: true, completion: nil)
