@@ -76,7 +76,7 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
         // Setup data
         let languageIdentifier = Language.getSelectedLanguageIdentifier() ?? Language.getSystemLanguageIdentifier()
         selectedLanguage = Language(identifier: languageIdentifier) ?? .German
-
+        
         if #available(iOS 9.0, *) {
             if( traitCollection.forceTouchCapability == .Available){
                 registerForPreviewingWithDelegate(self, sourceView: view)
@@ -114,12 +114,8 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
         if noEntriesView != nil {
             noEntriesView.layer.zPosition = 1
             self.view.addSubview(noEntriesView)
-            let searchBarOffset = self.searchController.searchBar.bounds.height + navigationController!.navigationBar.frame.origin.y
-            noEntriesView.frame = CGRect(x: 0, y: -searchBarOffset, width: self.tableView.bounds.width, height: self.tableView.bounds.height)
+            layoutNoEntriesView()
             noEntriesView.hidden = !selectedDeviceList.isEmpty
-        }
-        if !selectedDeviceList.isEmpty {
-            tableView.setContentOffset(CGPoint(x: 0, y: searchController.searchBar.bounds.size.height), animated: true)
         }
         //        showNoEntriesView(noEntries: selectedDeviceList.isEmpty)
     }
@@ -132,10 +128,10 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-
+        
         let defaults = NSUserDefaults.standardUserDefaults()
         let counter = NSUserDefaults.standardUserDefaults().integerForKey(masterVCLoadingCounterKey) ?? 0
-
+        
         if !isUITestMode {
             switch counter {
             case 12: performSegueWithIdentifier("toFeedback", sender: self)
@@ -148,7 +144,20 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
             defaults.setInteger(newCounter, forKey: masterVCLoadingCounterKey)
             defaults.synchronize()
         }
-        
+    }
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        layoutNoEntriesView()
+    }
+    
+    func layoutNoEntriesView() {
+        let searchBarOffset = self.searchController.searchBar.bounds.height + navigationController!.navigationBar.frame.origin.y
+        noEntriesView.frame = CGRect(x: 0, y: -searchBarOffset, width: self.tableView.bounds.width, height: self.tableView.bounds.height)
+        noEntriesView.hidden = !selectedDeviceList.isEmpty
+        if !selectedDeviceList.isEmpty {
+            tableView.setContentOffset(CGPoint(x: 0, y: searchController.searchBar.bounds.size.height), animated: true)
+        }
     }
     
     
@@ -177,7 +186,7 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
                             return selectedDeviceList.elements[indexPath.row] as StylisticDevice
                         }
                     }
-                    }()
+                }()
                 controller.delegate = self
             }
         case "showQuiz":
@@ -201,23 +210,23 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
         }
     }
     
-//    func previewingContext(previewingContext: UIViewControllerPreviewing,viewControllerForLocation location: CGPoint) -> UIViewController? method:
-//    
-//    // Obtain the index path and the cell that was pressed.
-//    guard let indexPath = tableView.indexPathForRowAtPoint(location),
-//    cell = tableView.cellForRowAtIndexPath(indexPath) else { return nil }
-//    
-//    // Create a destination view controller and set its properties.
-//    guard let destinationViewController = storyboard?.instantiateViewControllerWithIdentifier("DestinationViewController") as? DestinationViewController else { return nil }
-//    let object = fetchedResultController.objectAtIndexPath(indexPath)
-//    destinationViewController.detailItem = object
-//    
-//    destinationViewController.preferredContentSize = CGSize(width: 0.0, height: 0.0)
-//    
-//    previewingContext.sourceRect = cell.frame
-//    
-//    return destinationViewController
-//}
+    //    func previewingContext(previewingContext: UIViewControllerPreviewing,viewControllerForLocation location: CGPoint) -> UIViewController? method:
+    //
+    //    // Obtain the index path and the cell that was pressed.
+    //    guard let indexPath = tableView.indexPathForRowAtPoint(location),
+    //    cell = tableView.cellForRowAtIndexPath(indexPath) else { return nil }
+    //
+    //    // Create a destination view controller and set its properties.
+    //    guard let destinationViewController = storyboard?.instantiateViewControllerWithIdentifier("DestinationViewController") as? DestinationViewController else { return nil }
+    //    let object = fetchedResultController.objectAtIndexPath(indexPath)
+    //    destinationViewController.detailItem = object
+    //
+    //    destinationViewController.preferredContentSize = CGSize(width: 0.0, height: 0.0)
+    //
+    //    previewingContext.sourceRect = cell.frame
+    //
+    //    return destinationViewController
+    //}
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if identifier == "showQuiz" {
@@ -301,7 +310,7 @@ extension MasterViewController: UIViewControllerPreviewingDelegate {
                     return selectedDeviceList.elements[indexPath.row] as StylisticDevice
                 }
             }
-            }()
+        }()
         detailVC.favorites = self.favorites
         detailVC.delegate = self
         return detailVC

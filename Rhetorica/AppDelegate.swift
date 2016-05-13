@@ -80,6 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let navigationBarOrigin = masterVC.navigationController!.navigationBar.bounds.origin.y + 12 // + masterVC.navigationController!.navigationBar.bounds.size.height
             masterVC.tableView.setContentOffset(CGPoint(x: 0, y: -navigationBarOrigin), animated: false)
 //            masterVC.view.layoutIfNeeded()
+            masterVC.layoutNoEntriesView()
 
         case "searchForStylisticDevice":
             masterVC.selectedDeviceList = masterVC.deviceLists[2]
