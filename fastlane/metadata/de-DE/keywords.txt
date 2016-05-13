@@ -1,1 +1,1 @@
-Rhetorik,rhetorische,Poesie,Germanistik,Prosa,Lyrik,Analyse,Erörterung,Literatur,Abi,Abitur,Deutsch
+Rhetorik,rhetorische,Germanistik,Lyrik,Analyse,Erörterung,Literatur,Abi,Abitur,Deutsch,Unterricht

@@ -74,6 +74,15 @@ class DetailViewController: UITableViewController {
         noDeviceView!.hidden = (self.device != nil)
     }
     
+    func layoutNoDeviceView() {
+        guard let noDeviceView = noDeviceView else { return }
+        noDeviceView.frame = CGRect(x: 0, y: 0, width: self.tableView.bounds.width, height: self.tableView.bounds.height)
+        noDeviceView.hidden = device != nil
+    }
+
+    
+    // MARK: Setup
+    
     @available(iOS 9.0, *)
     override func previewActionItems() -> [UIPreviewActionItem] {
         guard let device = self.device else { print("no device"); return [] }

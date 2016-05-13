@@ -116,7 +116,7 @@ class RhetoricaUITests: XCTestCase {
         NSThread.sleepForTimeInterval(0.4)
         snapshot("2Quiz")
         
-        sleep(2)
+        NSThread.sleepForTimeInterval(2.5)
         
         snapshot("3UserStats")
 

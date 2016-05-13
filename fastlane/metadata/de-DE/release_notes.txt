@@ -1,2 +1,3 @@
-– Rhetorica wurde komplett ins Englische übersetzt.
-– Du kannst direkt in der App und ohne die Systemsprache zu ändern zwischen deutschen und englischen Stilmitteln wechseln und getrennte Lernlisten führen. Somit hilft die App nun auch im Englisch Unterricht. Yay!
+– Rhetorica ist nun auch auf Englisch verfügbar und du kannst direkt in der App die Sprache wechseln… Hurra!
+– Eine Menge toller iOS 9 Funktionen wie die systemweite Suche, Quick-Actions und Peek-And-Pop wurden integriert.
+– Es wurde noch etwas an der App-Performance geschraubt.
