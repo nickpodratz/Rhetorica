@@ -19,7 +19,6 @@ platform :ios do
 before_all do
 # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
 
-
 end
 
 desc "Runs all the tests"
@@ -50,8 +49,9 @@ lane :appstore do
 # match(type: "appstore")
 # snapshot
 cert
-sigh
-gym(scheme: "Rhetorica") # Build your app - more options available
+sigh(force: true)
+# gym(scheme: "Rhetorica") # Build your app - more options available
+ENV["DELIVER_ITMSTRANSPORTER_ADDITIONAL_UPLOAD_PARAMETERS"] = "-t DAV"
 deliver(force: true)
 # frameit
 end

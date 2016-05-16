@@ -8,3 +8,12 @@
 
 app_identifier "np.rhetorica" # The bundle identifier of your app
 username "nick@podratz.de" # your Apple ID user
+
+price_tier 3
+
+app_review_information(
+first_name: "Nick",
+last_name: "Podratz",
+phone_number: "+49 176 47735697",
+email_address: "nick.podratz.support@me.com"
+)

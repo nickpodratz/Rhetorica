@@ -683,6 +683,7 @@
 /* Begin XCBuildConfiguration section */
 		631E365219F060D500CD2DEB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 960687A9770D045DECE40364 /* Pods-Rhetorica.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -730,6 +731,7 @@
 		};
 		631E365319F060D500CD2DEB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A1E9A4814F77251BA6DC3C6 /* Pods-Rhetorica.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -807,6 +809,7 @@
 		};
 		631E365819F060D500CD2DEB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 960687A9770D045DECE40364 /* Pods-Rhetorica.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -827,6 +830,7 @@
 		};
 		631E365919F060D500CD2DEB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A1E9A4814F77251BA6DC3C6 /* Pods-Rhetorica.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -843,6 +847,7 @@
 		};
 		63E854221CBD1B66005B5DD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 960687A9770D045DECE40364 /* Pods-Rhetorica.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -858,6 +863,7 @@
 		};
 		63E854231CBD1B66005B5DD9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A1E9A4814F77251BA6DC3C6 /* Pods-Rhetorica.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
