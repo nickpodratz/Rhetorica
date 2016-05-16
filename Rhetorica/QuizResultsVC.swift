@@ -47,6 +47,7 @@ class QuizResultsViewController: UITableViewController {
             defaults.synchronize()
         }
         setupLineChart()
+
     }
     
     override func viewWillAppear(animated: Bool) {

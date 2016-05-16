@@ -443,6 +443,7 @@ extension MasterViewController: ListViewDelegate {
     func listView(didSelectListWithTag tag: Int) {
         selectedDeviceList = deviceLists[tag]
         DeviceList.setSelectedListTitle(selectedDeviceList.title)
+        FacebookLogger.currentDeviceListDidChange(selectedDeviceList, andLangugage: self.selectedLanguage)
     }
     
     func listView(didSelectLanguage language: Language) {
@@ -450,6 +451,7 @@ extension MasterViewController: ListViewDelegate {
             Language.setSelectedLanguage(language)
             self.selectedLanguage = language
             detailViewController?.favorites = self.deviceLists.last!
+            FacebookLogger.currentDeviceListDidChange(selectedDeviceList, andLangugage: self.selectedLanguage)
         }
     }
 }

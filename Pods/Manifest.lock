@@ -1,12 +1,21 @@
 PODS:
+  - Bolts (1.7.0):
+    - Bolts/AppLinks (= 1.7.0)
+    - Bolts/Tasks (= 1.7.0)
+  - Bolts/AppLinks (1.7.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.7.0)
+  - FBSDKCoreKit (4.11.0):
+    - Bolts (~> 1.7)
   - PKHUD (3.1.0)
 
 DEPENDENCIES:
+  - FBSDKCoreKit
   - PKHUD
 
 SPEC CHECKSUMS:
+  Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
+  FBSDKCoreKit: 686ac982723a14ec9ddb85e2f81235d7706c891b
   PKHUD: 4167eccdb1b3a892fd80ce2b51cb6ba412a889ab
 
-PODFILE CHECKSUM: ae4e56c793d39d717031d21cb83b449a4c88079e
-
-COCOAPODS: 1.0.0.beta.6
+COCOAPODS: 0.39.0

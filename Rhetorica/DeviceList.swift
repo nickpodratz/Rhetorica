@@ -31,6 +31,19 @@ class DeviceList: NSObject {
         }
         didSet {
             elements.sortInPlace(<)
+            if oldValue.count < elements.count {
+                // Device was added
+                let devices = elements.filter{!oldValue.contains($0)}
+                for device in devices {
+                    FacebookLogger.learningListModified(device, addedDevice: true)
+                }
+            } else {
+                // Device was deleted
+                let devices = oldValue.filter{!elements.contains($0)}
+                for device in devices {
+                    FacebookLogger.learningListModified(device, addedDevice: false)
+                }
+            }
         }
     }
     lazy var presentLetters: [String] = Language.latinAlphabet.filter{self.sortedList[$0] != nil}

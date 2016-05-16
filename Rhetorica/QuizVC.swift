@@ -8,6 +8,8 @@
 
 import UIKit
 import AudioToolbox
+import FBSDKCoreKit
+import Bolts
 
 
 class QuizViewController: UIViewController, UIActionSheetDelegate {
@@ -55,6 +57,7 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
     
     override func viewWillAppear(animated: Bool) {
         setupForNewQuestion()
+        FacebookLogger.quizModeDidStart(forDeviceList: deviceList, inLanguage: language)
     }
     
     override func viewDidLayoutSubviews() {
@@ -93,6 +96,7 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
                 destinationController.questionSet = questionSet
             } else {
                 destinationController.questionSet = self.questionSet
+                FacebookLogger.quizModeDidFinish(forDeviceList: deviceList, inLanguage: language, withScore: questionSet.correctAnsweredQuestions.count)
             }
             destinationController.favorites = favorites
         }
@@ -124,6 +128,7 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
             let alertController = UIAlertController(title: quitQuizTitle, message: quitQuizMessage, preferredStyle: .Alert)
             
             let proceedAction = UIAlertAction(title: quitQuizButtonQuit, style: UIAlertActionStyle.Destructive) { action in
+                FacebookLogger.quizModeDidCancel(forDeviceList: self.deviceList, inLanguage: self.language, withScore: self.questionSet.correctAnsweredQuestions.count, atQuestion: self.questionSet.numberOfCurrentQuestion)
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
             alertController.addAction(proceedAction)
@@ -133,6 +138,7 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
             
             self.presentViewController(alertController, animated: true, completion: nil)
         } else {
+            FacebookLogger.quizModeDidCancel(forDeviceList: self.deviceList, inLanguage: self.language, withScore: self.questionSet.correctAnsweredQuestions.count, atQuestion: self.questionSet.numberOfCurrentQuestion)
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }

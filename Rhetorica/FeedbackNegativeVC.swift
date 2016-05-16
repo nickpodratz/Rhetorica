@@ -14,6 +14,7 @@ class FeedbackNegativeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
+        FacebookLogger.feedbackDidReceiveUserResponse(false)
     }
 
     @IBAction func pressedComposeMail(sender: UIButton) {

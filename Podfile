@@ -6,5 +6,9 @@ use_frameworks!
 target 'Rhetorica' do
 
     pod 'PKHUD'
+    pod 'FBSDKCoreKit'
+#    pod 'FBSDKLoginKit'
+    #    pod 'FBSDKShareKit'
+
 
 end

@@ -62,6 +62,8 @@ class AboutViewController: UITableViewController, SKStoreProductViewControllerDe
         self.tableView.estimatedRowHeight = 100
         
         timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(AboutViewController.getOtherApps), userInfo: nil, repeats: true)
+        
+        FacebookLogger.aboutPageOpened()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -187,6 +189,7 @@ class AboutViewController: UITableViewController, SKStoreProductViewControllerDe
             let alertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
             let visitWebsiteLocalized = NSLocalizedString("VISIT_MY_WEBSITE", comment: "")
             alertController.addAction(UIAlertAction(title: visitWebsiteLocalized, style: UIAlertActionStyle.Default, handler: { action in
+                FacebookLogger.myWebsiteVisitedFromAboutPage()
                 if let url = NSURL(string: "http://www.podratz.de") {
                     UIApplication.sharedApplication().openURL(url)
                 }
@@ -194,6 +197,7 @@ class AboutViewController: UITableViewController, SKStoreProductViewControllerDe
             }))
             let showFacebookPageLocalized = NSLocalizedString("VISIT_FACEBOOK_PAGE", comment: "")
             alertController.addAction(UIAlertAction(title: showFacebookPageLocalized, style: UIAlertActionStyle.Default, handler: { action in
+                FacebookLogger.facebookPageDidOpenFromAboutPage()
                 if let url = NSURL(string: "fb://profile/1515153398777652/") {
                     UIApplication.sharedApplication().openURL(url)
                 }
@@ -243,7 +247,9 @@ class AboutViewController: UITableViewController, SKStoreProductViewControllerDe
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        openAppStorePagewithIdentifier(otherApps![indexPath.row].trackId)
+        guard let otherApps = otherApps else { return }
+        FacebookLogger.detailsDidShowUpForApp(otherApps[indexPath.row].title)
+        openAppStorePagewithIdentifier(otherApps[indexPath.row].trackId)
     }
     
     
