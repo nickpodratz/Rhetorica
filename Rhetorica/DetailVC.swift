@@ -60,7 +60,9 @@ class DetailViewController: UITableViewController {
             self.tableView.userInteractionEnabled = (self.device != nil)
             self.tableView.addSubview(noDeviceView!)
         }
-        
+        if let device = self.device {
+            FacebookLogger.detailsForDeviceDidOpen(device)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -136,6 +138,9 @@ class DetailViewController: UITableViewController {
             controller.navigationItem.title = self.device?.title
             controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
             controller.navigationItem.leftItemsSupplementBackButton = true
+            if let device = self.device {
+                FacebookLogger.wikipediaForDeviceDidOpen(device)
+            }
         }
     }
 

@@ -13,10 +13,12 @@ class FeedbackPositiveViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
+        FacebookLogger.feedbackDidReceiveUserResponse(true)
     }
     
     @IBAction func pressedOpenAppStore(sender: UIButton) {
         openInAppStore()
+        FacebookLogger.appStoreDidOpenFromFeedback()
         NSTimer.scheduledTimerWithTimeInterval(0.35, target: self, selector: #selector(FeedbackPositiveViewController.toThankYouViewController), userInfo: nil, repeats: false)
     }
     
@@ -27,6 +29,7 @@ class FeedbackPositiveViewController: UIViewController {
     private func openInAppStore() {
         if let iOSAppStoreURL = NSURL(string: "itms-apps://itunes.apple.com/de/app/id\(appId)") {
             UIApplication.sharedApplication().openURL(iOSAppStoreURL)
+            FacebookLogger.likeFBPagePressedFromFeedback()
         }
     }
 

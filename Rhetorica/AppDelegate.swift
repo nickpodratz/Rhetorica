@@ -9,6 +9,8 @@
 import UIKit
 import CoreSpotlight
 import MobileCoreServices
+import FBSDKCoreKit
+import Bolts
 
 let appId = "926449450"
 let isUITestMode = NSProcessInfo.processInfo().environment["isUITest"] == "true"
@@ -24,13 +26,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
         navigationController.topViewController?.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
         splitViewController.delegate = self
-        
         if isUITestMode {
 //            UIView.setAnimationsEnabled(false)
 //            SDStatusBarManager.sharedInstance.enableOverrides()
         }
         application.setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
         return true
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(application,
+            openURL: url,
+            sourceApplication: sourceApplication,
+            annotation: annotation)
     }
     
     func applicationWillResignActive(application: UIApplication) {
@@ -47,6 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        FBSDKAppEvents.activateApp()
     }
     
     func applicationWillTerminate(application: UIApplication) {
