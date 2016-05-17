@@ -32,7 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         application.setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        
         return true
     }
     
@@ -58,6 +57,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         FBSDKAppEvents.activateApp()
+        
+//        For User-Engagement Ads:
+//        FBSDKAppLinkUtility.fetchDeferredAppLink { url, error in
+//            print("Deep link url: \(url)")
+//        }
     }
     
     func applicationWillTerminate(application: UIApplication) {
