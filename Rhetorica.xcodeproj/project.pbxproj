@@ -23,6 +23,7 @@
 		63494DE71BDD7D7900EF221E /* stylisticDevices_de.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63494DE61BDD7D7900EF221E /* stylisticDevices_de.plist */; };
 		634D6B4C1A27F90D0043AA5F /* WikipediaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634D6B4B1A27F90D0043AA5F /* WikipediaVC.swift */; };
 		6350F1F91A0A9DB60060F055 /* QuizVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350F1F81A0A9DB60060F055 /* QuizVC.swift */; };
+		6351D05E1CEA45410076D3FD /* FacebookLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351D05D1CEA45410076D3FD /* FacebookLogger.swift */; };
 		6357C37F1BDD9B9700337BFC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6357C3811BDD9B9700337BFC /* Localizable.strings */; };
 		6357C3871BDDA4EB00337BFC /* Feedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6357C3891BDDA4EB00337BFC /* Feedback.storyboard */; };
 		636DE7A11BE3A4FA009B2BA5 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636DE7A01BE3A4FA009B2BA5 /* LineChart.swift */; };
@@ -100,6 +101,7 @@
 		63494DE61BDD7D7900EF221E /* stylisticDevices_de.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = stylisticDevices_de.plist; sourceTree = "<group>"; };
 		634D6B4B1A27F90D0043AA5F /* WikipediaVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikipediaVC.swift; sourceTree = "<group>"; };
 		6350F1F81A0A9DB60060F055 /* QuizVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizVC.swift; sourceTree = "<group>"; };
+		6351D05D1CEA45410076D3FD /* FacebookLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookLogger.swift; sourceTree = "<group>"; };
 		6357C3841BDD9C6400337BFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		636DE7A01BE3A4FA009B2BA5 /* LineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		636DE7A21BE3AD78009B2BA5 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 		63E58E0E1BD954BD00C717B6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				6351D05D1CEA45410076D3FD /* FacebookLogger.swift */,
 				63C0D7F11B51211C004EAF81 /* UIImage+.swift */,
 				63D0B2A41BDFFE6A00380DF7 /* UIImage+Resize.swift */,
 				63E58E0C1BD954B500C717B6 /* CollectionType+.swift */,
@@ -564,6 +567,7 @@
 				63E274311BDFBFAA0039D1C1 /* Language.swift in Sources */,
 				638F913A1C06942F00AF75EB /* FeedbackLikingVC.swift in Sources */,
 				636DE7A11BE3A4FA009B2BA5 /* LineChart.swift in Sources */,
+				6351D05E1CEA45410076D3FD /* FacebookLogger.swift in Sources */,
 				63EA0C1019F1A59200976A90 /* StylisticDevice.swift in Sources */,
 				63BE3FFD1BC1AC830007EE6D /* FeedbackVC.swift in Sources */,
 				63D0B29C1BDFFD5100380DF7 /* AboutVC.swift in Sources */,
@@ -784,6 +788,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = np.rhetorica;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Rhetorica/Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -802,6 +807,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = np.rhetorica;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Rhetorica/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
