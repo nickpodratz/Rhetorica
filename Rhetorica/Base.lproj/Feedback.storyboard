@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="baT-pV-YQc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="baT-pV-YQc">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -23,7 +23,6 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQZ-vm-qRv" customClass="RoundedButton" customModule="Rhetorica" customModuleProvider="target">
                                         <rect key="frame" x="126" y="0.0" width="110" height="40"/>
-                                        <animations/>
                                         <color key="backgroundColor" red="0.67058825489999996" green="0.72156864399999998" blue="0.1411764771" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="2rD-tD-YBb"/>
@@ -52,7 +51,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WOW-nn-t1n" customClass="RoundedButton" customModule="Rhetorica" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="110" height="40"/>
-                                        <animations/>
                                         <color key="backgroundColor" red="0.52941179279999995" green="0.20784313979999999" blue="0.39215686919999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="arO-x5-0EW"/>
@@ -80,7 +78,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="cQZ-vm-qRv" secondAttribute="bottom" id="5zB-6T-RIG"/>
@@ -94,7 +91,6 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deine Meinung ist mir sehr wichtig und soll bei der Entwicklung kommender Updates berücksichtigt werden." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIz-sa-Cpp">
                                 <rect key="frame" x="165" y="271" width="270" height="58"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="285" id="OUK-42-JJ5"/>
                                 </constraints>
@@ -104,13 +100,11 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gefällt dir Rhetorica?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6N-6n-3I5">
                                 <rect key="frame" x="221" y="244" width="159.5" height="19.5"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="KIz-sa-Cpp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Pzj-xs-NCP" secondAttribute="leadingMargin" constant="16" id="ARm-sm-roq"/>
@@ -154,7 +148,6 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RoT-FF-oxA" customClass="RoundedButton" customModule="Rhetorica" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="110" height="40"/>
-                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="bMT-re-bDQ"/>
                                         </constraints>
@@ -179,7 +172,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o08-T1-tcf" customClass="RoundedButton" customModule="Rhetorica" customModuleProvider="target">
                                         <rect key="frame" x="126" y="0.0" width="110" height="40"/>
-                                        <animations/>
                                         <color key="backgroundColor" red="0.67058825489999996" green="0.72156864399999998" blue="0.1411764771" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="BpE-DZ-wwf"/>
@@ -204,7 +196,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="RoT-FF-oxA" firstAttribute="top" secondItem="IRr-XT-jlm" secondAttribute="top" id="B4x-Gq-udl"/>
@@ -219,7 +210,6 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYb-tR-TnY">
                                 <rect key="frame" x="159" y="261" width="283" height="78"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="285" id="gfT-cH-1tb"/>
                                 </constraints>
@@ -230,13 +220,11 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Das ist schade!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uk9-z1-ejV">
                                 <rect key="frame" x="242.5" y="233.5" width="115.5" height="19.5"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mYb-tR-TnY" firstAttribute="centerY" secondItem="K65-qn-MCf" secondAttribute="centerY" id="75R-fi-QSY"/>
@@ -274,7 +262,6 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jetzt nicht" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTo-z0-76j">
                                 <rect key="frame" x="270" y="565" width="60.5" height="14.5"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -284,7 +271,6 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8l-Pp-7rR" customClass="RoundedButton" customModule="Rhetorica" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="110" height="40"/>
-                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="LMu-HD-YL4"/>
                                             <constraint firstAttribute="height" constant="40" id="V5F-4O-77V"/>
@@ -310,7 +296,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nHL-Gk-gwV" customClass="RoundedButton" customModule="Rhetorica" customModuleProvider="target">
                                         <rect key="frame" x="126" y="0.0" width="110" height="40"/>
-                                        <animations/>
                                         <color key="backgroundColor" red="0.67058825489999996" green="0.72156864399999998" blue="0.1411764771" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="xna-Hs-Gmf"/>
@@ -336,7 +321,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="nHL-Gk-gwV" secondAttribute="bottom" id="19u-yi-6sp"/>
@@ -350,7 +334,6 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfC-xo-Aak">
                                 <rect key="frame" x="152.5" y="261" width="296" height="78"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="320" id="AvG-PL-V6F"/>
                                 </constraints>
@@ -361,13 +344,11 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fantastisch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aC-p4-AmR">
                                 <rect key="frame" x="256" y="233" width="87.5" height="19.5"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="xfC-xo-Aak" secondAttribute="trailing" constant="8" id="MBG-YY-bug"/>
@@ -405,7 +386,6 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zdj-KG-tII" customClass="RoundedButton" customModule="Rhetorica" customModuleProvider="target">
                                 <rect key="frame" x="227.5" y="353" width="145" height="40"/>
-                                <animations/>
                                 <color key="backgroundColor" red="0.67058825489999996" green="0.72156864399999998" blue="0.1411764771" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Opo-hl-eLY"/>
@@ -432,7 +412,6 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ich werde mir dein Feedback so schnell wie möglich durchlesen und dir darauf antworten." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXK-TK-t2b">
                                 <rect key="frame" x="176" y="271" width="248" height="58"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="3et-mR-8pw"/>
                                 </constraints>
@@ -442,13 +421,11 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vielen Dank!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6UC-I0-XYH">
                                 <rect key="frame" x="252.5" y="243.5" width="95" height="19.5"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
@@ -477,7 +454,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ULC-Oa-jUz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <textAttributes key="titleTextAttributes">
@@ -511,7 +487,6 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Er-k4-ggD" customClass="RoundedButton" customModule="Rhetorica" customModuleProvider="target">
                                         <rect key="frame" x="126" y="0.0" width="110" height="40"/>
-                                        <animations/>
                                         <color key="backgroundColor" red="0.67058825489999996" green="0.72156864399999998" blue="0.1411764771" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="We5-9K-xPY"/>
@@ -538,7 +513,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GnJ-BY-P9h" customClass="RoundedButton" customModule="Rhetorica" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="110" height="40"/>
-                                        <animations/>
                                         <color key="backgroundColor" red="0.52941179279999995" green="0.20784313979999999" blue="0.39215686919999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Aua-22-uyH"/>
@@ -564,7 +538,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="3Er-k4-ggD" firstAttribute="leading" secondItem="GnJ-BY-P9h" secondAttribute="trailing" constant="16" id="DeS-Qp-SiB"/>
@@ -578,7 +551,6 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Möchtest du immer auf dem neusten Stand sein?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhr-w3-Cod">
                                 <rect key="frame" x="175" y="185" width="250" height="40.5"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="w4H-Vc-Rpk"/>
                                 </constraints>
@@ -588,7 +560,6 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6pE-fn-R0R">
                                 <rect key="frame" x="148" y="234" width="305" height="138"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="305" id="6zE-oF-lHY"/>
                                 </constraints>
@@ -598,7 +569,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="vhr-w3-Cod" firstAttribute="centerX" secondItem="qmH-Ql-YIJ" secondAttribute="centerX" id="7Q1-q2-8LX"/>
@@ -639,7 +609,6 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caZ-oh-kQr" customClass="RoundedButton" customModule="Rhetorica" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="110" height="40"/>
-                                        <animations/>
                                         <color key="backgroundColor" red="0.52941179279999995" green="0.20784313979999999" blue="0.39215686919999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="HLO-kL-27a"/>
@@ -666,7 +635,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoY-Ww-jJ5" customClass="RoundedButton" customModule="Rhetorica" customModuleProvider="target">
                                         <rect key="frame" x="126" y="0.0" width="110" height="40"/>
-                                        <animations/>
                                         <color key="backgroundColor" red="0.67058825489999996" green="0.72156864399999998" blue="0.1411764771" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="le5-Pa-q9F"/>
@@ -692,7 +660,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="caZ-oh-kQr" firstAttribute="leading" secondItem="G8A-tH-Bd4" secondAttribute="leading" id="0mY-lq-2ki"/>
@@ -706,7 +673,6 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dir gefällt Rhetorica? Dann tue mir doch einen Gefallen und erzähle deinen Freunden davon. Sicher wären sie dir sehr dankbar." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BjK-An-VsN">
                                 <rect key="frame" x="169.5" y="264" width="261.5" height="78"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="265" id="TPf-B6-nUq"/>
                                 </constraints>
@@ -716,13 +682,11 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sharing is caring &lt;3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTH-V6-KKF">
                                 <rect key="frame" x="224" y="237" width="151.5" height="19.5"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="BjK-An-VsN" firstAttribute="top" secondItem="iTH-V6-KKF" secondAttribute="bottom" constant="8" id="6SK-kd-WXD"/>
