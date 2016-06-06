@@ -1,0 +1,1750 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Symbol</key>
+	<dict>
+		<key>definition</key>
+		<string>Something concrete refers to an abstract meaning.</string>
+		<key>examples</key>
+		<array>
+			<string>A cross stands for christianity</string>
+			<string>A dove stands for hope and peace</string>
+			<string>A (red) heart stands for love</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>9</integer>
+		<key>title</key>
+		<string>Symbol</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Symbol</string>
+	</dict>
+	<key>Accumulatio</key>
+	<dict>
+		<key>definition</key>
+		<string>The points made previously are presented again in a compact, forceful manner.</string>
+		<key>examples</key>
+		<array>
+			<string>“Your organization, your vigilance, your devotion to duty, your zeal for the cause must be raised to the highest intensity.” (Winston Churchill)</string>
+			<string>“He is the betrayer of his own self-respect, and the waylayer of the self-respect of others; covetous, intemperate, irascible, arrogant; disloyal to his parents, ungrateful to his friends, troublesome to his kin; insulting to his betters, disdainful of his equals and mates, cruel to his inferiors; in short, he is intolerable to everyone.” (Cicero)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>5</integer>
+		<key>synonym</key>
+		<string>Enumeratio</string>
+		<key>title</key>
+		<string>Accumulatio</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Accumulatio</string>
+	</dict>
+	<key>Adynaton</key>
+	<dict>
+		<key>definition</key>
+		<string>A form of hyperbole taken to such extreme lengths as to insinuate a complete impossibility.</string>
+		<key>examples</key>
+		<array>
+			<string>“One can expect an agreement between philosophers sooner than between clocks.” (Seneca)</string>
+			<string>“I will sooner have a beard grow in the palm of my hand than he shall get one on his cheek.” (Shakespeare)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>3</integer>
+		<key>title</key>
+		<string>Adynaton</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Adynaton</string>
+	</dict>
+	<key>Allegory</key>
+	<dict>
+		<key>definition</key>
+		<string>The representation of an abstract or spiritual meaning through concrete or material forms.</string>
+		<key>examples</key>
+		<array>
+			<string>Justice</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>8</integer>
+		<key>title</key>
+		<string>Allegory</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Allegory</string>
+	</dict>
+	<key>Simile</key>
+	<dict>
+		<key>definition</key>
+		<string>A comparison between two different things. The comparison contains either the word “like” or “as” to underline a similarity.</string>
+		<key>examples</key>
+		<array>
+			<string>“And the executioner went off like an arrow.” (Lewis Carroll)</string>
+			<string>“She walks like an angel. / I wandered lonely as a cloud.” (Wordsworth)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>9</integer>
+		<key>title</key>
+		<string>Simile</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Simile</string>
+	</dict>
+	<key>Metaphor</key>
+	<dict>
+		<key>definition</key>
+		<string>A comparison between two things with a different meaning. Neither “like” nor “as” is used.</string>
+		<key>examples</key>
+		<array>
+			<string>“All the world’s a stage / And all the men and women merely players …” (Shakespeare)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>9</integer>
+		<key>title</key>
+		<string>Metaphor</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Metaphor</string>
+	</dict>
+	<key>Personification</key>
+	<dict>
+		<key>definition</key>
+		<string>A kind of metaphor in which animals, plants, inanimate objects or ab­stract ideas are represented as if they were human beings and possessed human qualities.</string>
+		<key>examples</key>
+		<array>
+			<string>“The wind cried Mary.” (Jimi Hendrix)</string>
+			<string>“Necessity is the mother of invention”</string>
+			<string>“Justice is blind.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>9</integer>
+		<key>title</key>
+		<string>Personification</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Personification</string>
+		<key>synonym</key>
+		<string>Anthropomorphism</string>
+	</dict>
+	<key>Synecdoche</key>
+	<dict>
+		<key>definition</key>
+		<string>A metaphor in which a part of a kind is used to signify the whole.</string>
+		<key>examples</key>
+		<array>
+			<string>“Lend me your ears”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>5</integer>
+		<key>title</key>
+		<string>Synecdoche</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Synecdoche</string>
+	</dict>
+	<key>Alliteration</key>
+	<dict>
+		<key>definition</key>
+		<string>The repetition of the same consonant in the beginning of neighbouring words.</string>
+		<key>examples</key>
+		<array>
+			<string>Peter Piper picked a peck of pickled peppers.</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>9</integer>
+		<key>title</key>
+		<string>Alliteration</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Alliteration</string>
+	</dict>
+	<key>Assonance</key>
+	<dict>
+		<key>definition</key>
+		<string>Two or more words close to one another repeat the same vowel sound but start with different consonant sounds.</string>
+		<key>examples</key>
+		<array>
+			<string>“Men sell the wedding bells.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>5</integer>
+		<key>title</key>
+		<string>Assonance</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Assonance</string>
+	</dict>
+	<key>Con­so­nance</key>
+	<dict>
+		<key>definition</key>
+		<string>The repetition of consonant sounds at the end of neighbouring words which have different vowel sounds.</string>
+		<key>examples</key>
+		<array>
+			<string>“pitter patter”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>5</integer>
+		<key>title</key>
+		<string>Con­so­nance</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Literary_consonance</string>
+	</dict>
+	<key>Metre</key>
+	<dict>
+		<key>definition</key>
+		<string>The basic rhythmic structure of a verse or line in a poem created by a regular pattern of stressed and unstressed syllables.</string>
+		<key>examples</key>
+		<array>
+			<string>Lamb (Unstressed + Stressed)</string>
+			<string>Trochee (Stressed + Unstressed)</string>
+			<string>Spondee (Stressed + Stressed)</string>
+			<string>Pyrrhic (Unstressed + Unstressed)</string>
+			<string>Anapest (Unstressed + Unstressed + Stressed)</string>
+			<string>Dactyl (Stressed + Unstressed + Unstressed)</string>
+			<string>Amphibrach (Unstressed + Stressed + Unstressed)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>6</integer>
+		<key>title</key>
+		<string>Metre</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Metre_(poetry)</string>
+	</dict>
+	<key>Onomatopoeia</key>
+	<dict>
+		<key>definition</key>
+		<string>The use of words which imitate the sound they refer to.</string>
+		<key>examples</key>
+		<array>
+			<string>“the stuttering rifles’ rapid rattle”</string>
+			<string>“The cuckoo whizzed past the buzzing bees.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>6</integer>
+		<key>title</key>
+		<string>Onomatopoeia</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Onomatopoeia</string>
+	</dict>
+	<key>Rhyme</key>
+	<dict>
+		<key>definition</key>
+		<string>The use of words which end with the same sounds.</string>
+		<key>examples</key>
+		<array>
+			<string>“Tiger! Tiger! burning bright / In the forests of the night.”</string>
+			<string>“Letters of joy from girl and boy”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>8</integer>
+		<key>title</key>
+		<string>Rhyme</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Rhyme</string>
+	</dict>
+	<key>Parallelism</key>
+	<dict>
+		<key>definition</key>
+		<string>The repetition of similar or iden­tical words, phrases or constructions in neighbouring lines, sentences or paragraphs.</string>
+		<key>examples</key>
+		<array>
+			<string>“The dog ran across the yard, jumped over the fence, and sprinted down the alley.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>8</integer>
+		<key>title</key>
+		<string>Parallelism</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Parallelism_(grammar)</string>
+	</dict>
+	<key>Anaphora</key>
+	<dict>
+		<key>definition</key>
+		<string>The repitition of one or multiple words at the beginning of succes­sive lines, sentences or paragraphs.</string>
+		<key>examples</key>
+		<array>
+			<string>“In every cry of every man / In every infant’s cry of fear / In every voice, in every ban.” (Blake London)</string>
+			<string>“Mad world! Mad kings! Mad composition!” (Shakespeare)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>7</integer>
+		<key>title</key>
+		<string>Anaphora</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Anaphora_(rhetoric)</string>
+		<key>synonym</key>
+		<string>Epanaphora</string>
+	</dict>
+	<key>Inversion</key>
+	<dict>
+		<key>definition</key>
+		<string>A change of the regular word order in a sentence.</string>
+		<key>examples</key>
+		<array>
+			<string>“Down the stairs came the dog.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>7</integer>
+		<key>title</key>
+		<string>Inversion</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Inversion_(linguistics)</string>
+	</dict>
+	<key>Enjambment</key>
+	<dict>
+		<key>definition</key>
+		<string>An incomplete syntax at the end of a line without punctuation, where the meaning runs over from one poetic line to the next.</string>
+		<key>examples</key>
+		<array>
+			<string>“Love will not be constrain’d by mastery. / When mast’ry comes, the god of love anon / Beateth his wings, and, farewell, he is gone.”</string>
+			<string>“I think that I shall never see / A poem lovely as a tree.” (Joyce Kilmer)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>5</integer>
+		<key>title</key>
+		<string>Enjambment</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Enjambment</string>
+	</dict>
+	<key>Anastrophe</key>
+	<dict>
+		<key>definition</key>
+		<string>A change in the order of related words in a sentence.</string>
+		<key>examples</key>
+		<array>
+			<string>“Joined the Dark Side, Dooku has. Lies, deceit, creating mistrust are his ways now.” (Yoda)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>7</integer>
+		<key>title</key>
+		<string>Anastrophe</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Anastrophe</string>
+	</dict>
+	<key>Chiasmus</key>
+	<dict>
+		<key>definition</key>
+		<string>A reversal in the order of words so that the sec­ond half of a sentence balances the first half in inverted word order.</string>
+		<key>examples</key>
+		<array>
+			<string>“Love’s fire heats water, water cools not love.” (Shakespeare)</string>
+			<string>“Ask not what your country can do for you — ask what you can do for your country” (John F. Kennedy)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>7</integer>
+		<key>title</key>
+		<string>Chiasmus</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Chiasmus</string>
+	</dict>
+	<key>Climax</key>
+	<dict>
+		<key>definition</key>
+		<string>A series of words or expressions rised step by step, beginning with the least important and ending with the most impor­tant.</string>
+		<key>examples</key>
+		<array>
+			<string>“Look! Up in the sky! It&apos;s a bird... it&apos;s a plane... it&apos;s Superman!” (The Adventures of Superman)</string>
+			<string>“… Lost, vaded, broken, dead within an hour.” (Shakespeare)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>8</integer>
+		<key>title</key>
+		<string>Climax</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Climax_(figure_of_speech)</string>
+	</dict>
+	<key>Anticlimax</key>
+	<dict>
+		<key>definition</key>
+		<string>A series of words or expressions declining step by step, beginning with the most important and ending with the least impor­tant.</string>
+		<key>examples</key>
+		<array>
+			<string>Grandmother, mother and child</string>
+			<string>“The bomb completely destroyed the cathedral, several dozen hou­ses and my dustbin.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>5</integer>
+		<key>title</key>
+		<string>Anticlimax</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Anticlimax_(figure_of_speech)</string>
+		<key>synonym</key>
+		<string>Catacosmesis</string>
+	</dict>
+	<key>Allusion</key>
+	<dict>
+		<key>definition</key>
+		<string>A reference to an event, literary work or person.</string>
+		<key>examples</key>
+		<array>
+			<string>“I can’t do that because I am not Superman.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>7</integer>
+		<key>title</key>
+		<string>Allusion</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Allusion</string>
+	</dict>
+	<key>Amplification</key>
+	<dict>
+		<key>definition</key>
+		<string>Repeats a word or expression for emphasis.</string>
+		<key>examples</key>
+		<array>
+			<string>“Love, real love, takes time.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>7</integer>
+		<key>title</key>
+		<string>Amplification</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Amplification_(rhetoric)</string>
+	</dict>
+	<key>Analogy</key>
+	<dict>
+		<key>definition</key>
+		<string>Compares two different things that have some similar characteristics.</string>
+		<key>examples</key>
+		<array>
+			<string>He is flaky as a snowstorm.</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>6</integer>
+		<key>title</key>
+		<string>Analogy</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Analogy</string>
+	</dict>
+	<key>Antanagoge</key>
+	<dict>
+		<key>definition</key>
+		<string>Places a criticism and compliment together to lessen the impact.</string>
+		<key>examples</key>
+		<array>
+			<string>The car is not pretty but it runs great.</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>4</integer>
+		<key>title</key>
+		<string>Antanagoge</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Antanagoge</string>
+	</dict>
+	<key>Antimetabole</key>
+	<dict>
+		<key>definition</key>
+		<string>The exact same words or phrases are repeated in reversed order and oftentimes the meaning is opposite.</string>
+		<key>examples</key>
+		<array>
+			<string>“It’s not the men in my life, it’s the life in my men.” (Mae West)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>4</integer>
+		<key>title</key>
+		<string>Antimetabole</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Antimetabole</string>
+	</dict>
+	<key>Antiphrasis</key>
+	<dict>
+		<key>definition</key>
+		<string>A word with an opposite meaning is used.</string>
+		<key>examples</key>
+		<array>
+			<string>“The Chihuahua was named Goliath.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>3</integer>
+		<key>title</key>
+		<string>Antiphrasis</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Antiphrasis</string>
+	</dict>
+	<key>Antithesis</key>
+	<dict>
+		<key>definition</key>
+		<string>Makes a connection between two different things.</string>
+		<key>examples</key>
+		<array>
+			<string>“That&apos;s one small step for a man, one giant leap for mankind.” (Neil Armstrong)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>7</integer>
+		<key>title</key>
+		<string>Antithesis</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Antithesis</string>
+	</dict>
+	<key>Appositive</key>
+	<dict>
+		<key>definition</key>
+		<string>A noun or phrase is placed next to another noun for descriptive purposes.</string>
+		<key>examples</key>
+		<array>
+			<string>“That&apos;s one small step for a man, one giant leap for mankind.” (Neil Armstrong)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>5</integer>
+		<key>title</key>
+		<string>Appositive</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Appositive</string>
+	</dict>
+	<key>Epanalepsis</key>
+	<dict>
+		<key>definition</key>
+		<string>Repeats something from the beginning of a sentence at the end.</string>
+		<key>examples</key>
+		<array>
+			<string>“My ears heard what you said but I couldn’t believe my ears.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>5</integer>
+		<key>title</key>
+		<string>Epanalepsis</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Appositive</string>
+	</dict>
+	<key>Epithet</key>
+	<dict>
+		<key>definition</key>
+		<string>An adjective or adjective phrase is used to describe something.</string>
+		<key>examples</key>
+		<array>
+			<string>“cloud-gathering Zeus”</string>
+			<string>“mesmerizing eyes”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>3</integer>
+		<key>title</key>
+		<string>Epithet</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Epithet</string>
+	</dict>
+	<key>Epizeuxis</key>
+	<dict>
+		<key>definition</key>
+		<string>One word is repeated to emphasize its importance.</string>
+		<key>examples</key>
+		<array>
+			<string>“O horror, horror, horror.” (Shakespeare: Macbeth)</string>
+			<string>“Words, words, words.” (Shakespeare: Hamlet)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>6</integer>
+		<key>title</key>
+		<string>Epizeuxis</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Epizeuxis</string>
+	</dict>
+	<key>Hyperbole</key>
+	<dict>
+		<key>definition</key>
+		<string>An exaggeration.</string>
+		<key>examples</key>
+		<array>
+			<string>“You are hotter than the sun!”</string>
+			<string>“I have done this a thousand times.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>6</integer>
+		<key>title</key>
+		<string>Hyperbole</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Epizeuxis</string>
+	</dict>
+	<key>Litotes</key>
+	<dict>
+		<key>definition</key>
+		<string>An understatement which denies the opposite of a word that may have been used.</string>
+		<key>examples</key>
+		<array>
+			<string>“The terms of the contract are not disagreeable to me.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>5</integer>
+		<key>title</key>
+		<string>Litotes</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Litotes</string>
+	</dict>
+	<key>Metanoia</key>
+	<dict>
+		<key>definition</key>
+		<string>Corrects or qualifies a statement.</string>
+		<key>examples</key>
+		<array>
+			<string>“You are the most beautiful woman in this town, nay the entire world.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>5</integer>
+		<key>title</key>
+		<string>Metanoia</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Metanoia_(rhetoric)</string>
+	</dict>
+	<key>Metonymy</key>
+	<dict>
+		<key>definition</key>
+		<string>A metaphor where something being compared is referred to by something closely associated with it.</string>
+		<key>examples</key>
+		<array>
+			<string>“The knights are loyal to the crown.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>5</integer>
+		<key>title</key>
+		<string>Metonymy</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Metonymy</string>
+	</dict>
+	<key>Oxymoron</key>
+	<dict>
+		<key>definition</key>
+		<string>A paradox consisting of only two words.</string>
+		<key>examples</key>
+		<array>
+			<string>“seriously funny”</string>
+			<string>“near miss”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>5</integer>
+		<key>title</key>
+		<string>Oxymoron</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Oxymoron</string>
+	</dict>
+	<key>Understatement</key>
+	<dict>
+		<key>definition</key>
+		<string>An idea is described less significant than it is.</string>
+		<key>examples</key>
+		<array>
+			<string>“The hurricane disrupted traffic.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>8</integer>
+		<key>title</key>
+		<string>Understatement</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Understatement</string>
+		<key>synonym</key>
+		<string>Meiosis</string>
+	</dict>
+	<key>Aporia</key>
+	<dict>
+		<key>definition</key>
+		<string>The remark of doubt about an idea or conclusion expressed in a modest and pleasant way.</string>
+		<key>examples</key>
+		<array>
+			<string>“I am not so sure I can accept Tom&apos;s reasons for wanting another new jet.”</string>
+			<string>“It is hard to know which ice cream is better, banana or coffee.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>8</integer>
+		<key>title</key>
+		<string>Aporia</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Aporia</string>
+	</dict>
+	<key>Bathos</key>
+	<dict>
+		<key>definition</key>
+		<string>A humour that comes from an incongruous change of tone.</string>
+		<key>examples</key>
+		<array>
+			<string>“They came… They saw… They did a bit of shopping.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>5</integer>
+		<key>title</key>
+		<string>Bathos</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Bathos</string>
+	</dict>
+	<key>Brevitas</key>
+	<dict>
+		<key>definition</key>
+		<string>The expressing of an idea by the very minimum of essential words to leave space for imagination.</string>
+		<key>examples</key>
+		<array>
+			<string>“Stuff happens.”</string>
+			<string>“Looking good!”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>5</integer>
+		<key>title</key>
+		<string>Brevitas</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Brevitas</string>
+	</dict>
+	<key>Buzzword</key>
+	<dict>
+		<key>definition</key>
+		<string>A word or phrase that became very popular for a period of time.</string>
+		<key>examples</key>
+		<array>
+			<string>“Think outside the box”</string>
+			<string>“Cyber”</string>
+			<string>“Work-Life balance”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>8</integer>
+		<key>title</key>
+		<string>Buzzword</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Buzzword</string>
+	</dict>
+	<key>Burden of Proof</key>
+	<dict>
+		<key>definition</key>
+		<string>Giving the obligation of proving a case to the challenging party.</string>
+		<key>examples</key>
+		<array>
+			<string>“Miracles exist unless someone proves that they do not exist.”</string>
+			<string>“You can not prove that there is no souls.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>5</integer>
+		<key>title</key>
+		<string>Burden of Proof</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Philosophic_burden_of_proof</string>
+	</dict>
+	<key>Catachresis</key>
+	<dict>
+		<key>definition</key>
+		<string>The inexact use of a similar word in place of the proper one to create an unlikely metaphor.</string>
+		<key>examples</key>
+		<array>
+			<string>“The power of man is short”</string>
+			<string>Saying job-seeker instead of “unemployed“</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>5</integer>
+		<key>title</key>
+		<string>Catachresis</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Catachresis</string>
+	</dict>
+	<key>Claim</key>
+	<dict>
+		<key>definition</key>
+		<string>A statement essentially arguable but used as a primary point to support or prove an argument.</string>
+		<key>examples</key>
+		<array>
+			<string>“As I had the idea this project is mine.”</string>
+			<string>“Steve Jobs invented Apple so the high price is his fault.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>7</integer>
+		<key>title</key>
+		<string>Claim</string>
+	</dict>
+	<key>Colon</key>
+	<dict>
+		<key>definition</key>
+		<string>A clause that is grammatically, but not logically, complete.</string>
+		<key>examples</key>
+		<array>
+			<string>“So that while seeing, they should not see; and while hearing, they should not hear; and they should not perceive, lest they should turn back” (Matthew: Bible)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>4</integer>
+		<key>title</key>
+		<string>Claim</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Colon_(rhetoric)</string>
+	</dict>
+	<key>Colloquialism</key>
+	<dict>
+		<key>definition</key>
+		<string>A word or phrase that is not formal or literary, typically one used in ordinary or familiar conversation.</string>
+		<key>examples</key>
+		<array>
+			<string>“You’re driving me up the wall.”</string>
+			<string>“Old as the hills”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>6</integer>
+		<key>title</key>
+		<string>Colloquialism</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Colloquialism</string>
+	</dict>
+	<key>Concessio</key>
+	<dict>
+		<key>definition</key>
+		<string>Acknowledgment of objections to a proposal.</string>
+		<key>examples</key>
+		<array>
+			<string>“Although he&apos;s quiet, he&apos;s not shy”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>6</integer>
+		<key>title</key>
+		<string>Concessio</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Concession_(politics)</string>
+	</dict>
+	<key>Deconstruction</key>
+	<dict>
+		<key>definition</key>
+		<string>Analyzing an excerpt of a sentence or phrase with the goal of determining a structure or pattern.</string>
+		<key>examples</key>
+		<array>
+			<string>“When you say &apos;I am not sure whether I want to go there&apos; do you mean because of the people there?”</string>
+			<string>“Was Jesus a hippie as he had long hair?”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>6</integer>
+		<key>title</key>
+		<string>Deconstruction</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Deconstruction</string>
+	</dict>
+	<key>Diallage</key>
+	<dict>
+		<key>definition</key>
+		<string>Establishing a single point with the use of several arguments.</string>
+		<key>examples</key>
+		<array>
+			<string>“If we put up our prices, then revenue may increase but sales will drop. If we put effort into marketing, then we may well more but margins will be thinner. Maybe we can combine these, funding marketing through an increase in prices.”</string>
+			<string>“John says we need to go South. Jane wants to go West. What is important is that we can&apos;t stay here.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>3</integer>
+		<key>title</key>
+		<string>Diallage</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Diallage</string>
+	</dict>
+	<key>Dysphemism</key>
+	<dict>
+		<key>definition</key>
+		<string>An expression with connotations that are offensive either about the subject of matter or to the audience, or both.</string>
+		<key>examples</key>
+		<array>
+			<string>“What an asshole.”</string>
+			<string>“shrink” for “psychiatrist”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>6</integer>
+		<key>title</key>
+		<string>Dysphemism</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Dysphemism</string>
+	</dict>
+	<key>Ellipsis</key>
+	<dict>
+		<key>definition</key>
+		<string>The suppression of ancillary words to render an expression more lively or more forceful.</string>
+		<key>examples</key>
+		<array>
+			<string>“… sure.”</string>
+			<string>“But I thought we were meeting on Tuesday…?”</string>
+			<string>“So… what happened?”</string>
+			<string>“Um… I’m not sure that’s true.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>8</integer>
+		<key>title</key>
+		<string>Ellipsis</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Ellipsis_(narrative_device)</string>
+	</dict>
+	<key>Enthymeme</key>
+	<dict>
+		<key>definition</key>
+		<string>A type of argument that is grounded in assumed commonalities between a rhetor and the audience.</string>
+		<key>examples</key>
+		<array>
+			<string>“Bob is a person, therefore he is mortal”. The assumption that People are mortal was not stated.</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>2</integer>
+		<key>title</key>
+		<string>Enthymeme</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Enthymeme</string>
+	</dict>
+	<key>Epistrophe</key>
+	<dict>
+		<key>definition</key>
+		<string>The repetition of the same word or words at the end of successive phrases, clauses or sentences.</string>
+		<key>examples</key>
+		<array>
+			<string>“When I was a child, I spoke as a child, I understood as a child, I thought as a child” (The Apostle Paul)</string>
+			<string>“... this nation, under God, shall have a new birth of freedom—and that government of the people, by the people, for the people, shall not perish from the earth.” (Abraham Lincoln)</string>
+			<string>“Where affections bear rule, their reason is subdued, honesty is subdued, good will is subdued, and all things else that withstand evil, for ever are subdued.” (Thomas Wilson)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>6</integer>
+		<key>title</key>
+		<string>Epistrophe</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Epistrophe</string>
+		<key>synonym</key>
+		<string>Epiphora, Antistrophe</string>
+	</dict>
+	<key>Rhetorical Question</key>
+	<dict>
+		<key>definition</key>
+		<string>A question that is asked in order to make a point rather than to elicit an answer.</string>
+		<key>examples</key>
+		<array>
+			<string>“And how many deaths will it take till we know, that too many people have died?” (Bob Dylan)</string>
+			<string>“What the heck?”</string>
+			<string>“To be, or not to be, that is the question: …” (Shakespeare)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>6</integer>
+		<key>title</key>
+		<string>Rhetorical Question</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Rhetorical_question</string>
+		<key>synonym</key>
+		<string>Erotema</string>
+	</dict>
+	<key>Euphemism</key>
+	<dict>
+		<key>definition</key>
+		<string>A generally innocuous word or expression used in place of one that may be found offensive or suggest something unpleasant.</string>
+		<key>examples</key>
+		<array>
+			<string>“Ministry of Love” (George Orwell: 1984)</string>
+			<string>“to pass away” instead of “to die”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>8</integer>
+		<key>title</key>
+		<string>Euphemism</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Euphemism</string>
+	</dict>
+	<key>Figura Etymologica</key>
+	<dict>
+		<key>definition</key>
+		<string>Words with the same etymological derivation are used adjacently.</string>
+		<key>examples</key>
+		<array>
+			<string>“might and magic”</string>
+			<string>“chai tea” (Both words mean tea in different chinese dialects)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>2</integer>
+		<key>title</key>
+		<string>Figura Etymologica</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Figura_etymologica</string>
+	</dict>
+	<key>Genus</key>
+	<dict>
+		<key>definition</key>
+		<string>A rank used in the biological classification of living and fossil organisms in biology.</string>
+		<key>examples</key>
+		<array>
+			<string>“Panthera tigris” (tiger)</string>
+			<string>“Malus domestica” (apple tree)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>2</integer>
+		<key>title</key>
+		<string>Genus</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Genus</string>
+	</dict>
+	<key>Hendiadys</key>
+	<dict>
+		<key>definition</key>
+		<string>The substitution of a conjunction for a subordination.</string>
+		<key>examples</key>
+		<array>
+			<string>“This is nice hot coffee” instead of “This coffee is nice and hot”</string>
+			<string>“come get it” instead of “come and get it”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>2</integer>
+		<key>title</key>
+		<string>Hendiadys</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Hendiadys</string>
+	</dict>
+	<key>Homeoteleuton</key>
+	<dict>
+		<key>definition</key>
+		<string>The repetition of endings in words.</string>
+		<key>examples</key>
+		<array>
+			<string>“The waters rose rapidly / and I dove under quickly.”</string>
+			<string>“liberté, egalité, fraternité”</string>
+			<string>“Well, sir, here&apos;s to plain speaking and clear understanding.” (Dashiell Hammett)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>2</integer>
+		<key>title</key>
+		<string>Homeoteleuton</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Homeoteleuton</string>
+		<key>synonym</key>
+		<string>Near Rhyme</string>
+	</dict>
+	<key>Hyperbaton</key>
+	<dict>
+		<key>definition</key>
+		<string>An alteration or inversion of the logical word order in a sentence.</string>
+		<key>examples</key>
+		<array>
+			<string>“Some rise by sin, and some by virtue fall …” (Shakespeare)</string>
+			<string>“One swallow does not a summer make, nor one fine day.” (Aristotle)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>4</integer>
+		<key>title</key>
+		<string>Hyperbaton</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Hyperbaton</string>
+	</dict>
+	<key>Hypophora</key>
+	<dict>
+		<key>definition</key>
+		<string>A question is posed and then answered shortly after.</string>
+		<key>examples</key>
+		<array>
+			<string>“What made me take this trip to Africa? There is no quick explanation.” (Saul Bellow)</string>
+			<string>“You know what? I&apos;ll take the risk.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>5</integer>
+		<key>title</key>
+		<string>Hypophora</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Hypophora</string>
+	</dict>
+	<key>Hypothesis</key>
+	<dict>
+		<key>definition</key>
+		<string>A proposed explanation based on previous observations.</string>
+		<key>examples</key>
+		<array>
+			<string>“Rainbow trout suffer more lice in low water conditions because there is less oxygen in the water.”</string>
+			<string>“If a prisoner learns a work skill while in jail, then he is less likely to commit a crime when he is released.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>5</integer>
+		<key>title</key>
+		<string>Hypothesis</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Hypothesis</string>
+	</dict>
+	<key>Hypozeuxis</key>
+	<dict>
+		<key>definition</key>
+		<string>An expression or sentence where every clause has its own independent subject and predicate.</string>
+		<key>examples</key>
+		<array>
+			<string>“We shall fight on the beaches. We shall fight on the landing grounds. We shall fight in the fields and in the streets. We shall fight in the hills.” (Winston Churchill)</string>
+			<string>”The sun doesn&apos;t shine here; the doors are locked; the furniture is covered in sheets.” (Malcolm Pryce)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>2</integer>
+		<key>title</key>
+		<string>Hypozeuxis</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Hypozeuxis</string>
+	</dict>
+	<key>Hysteron Proteron</key>
+	<dict>
+		<key>definition</key>
+		<string>The first key word of the idea refers to something that happens temporally later than the second key word.</string>
+		<key>purpose</key>
+		<string>The goal is to call attention to the more important idea by placing it first.</string>
+		<key>examples</key>
+		<array>
+			<string>“Then came the thunder and the lightning”</string>
+			<string>“Muammar Gaddafi Killed, Captured In Sirte” (Huffington Post)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>2</integer>
+		<key>title</key>
+		<string>Hysteron Proteron</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Hysteron_proteron</string>
+	</dict>
+	<key>Identification</key>
+	<dict>
+		<key>definition</key>
+		<string>Connecting with a larger group through a shared understanding of a larger concept or idea.</string>
+		<key>examples</key>
+		<array>
+			<string>“You&apos;re an improbable person, Eve, and so am I. We have that in common. Also a contempt for humanity, an inability to love and be loved, insatiable ambition--and talent. We deserve each other . . . and you realize and you agree how completely you belong to me?” (Addison DeWitt in &apos;All About Eve&apos;)</string>
+			<string>“I feel an extraordinary kinship with this aging statesman [Daniel Webster], this massive victim of pollinosis whose declining days sanctioned the sort of compromise that is born of local irritation. There is a fraternity of those who have been tried beyond endurance. I am closer to Daniel Webster, almost, than to my own flesh.” (E. B. White: One Man&apos;s Meat)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>2</integer>
+		<key>title</key>
+		<string>Identification</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Identification_(information)</string>
+	</dict>
+	<key>Ignoratio Elenchi</key>
+	<dict>
+		<key>definition</key>
+		<string>A conclusion or thesis that is irrelevant for the issue in question.</string>
+		<key>examples</key>
+		<array>
+			<string>“Look at the beautiful autumn foliage.  How can anyone doubt God’s existence?”</string>
+			<string>“Many scientists supported eugenics. We cannot trust science to lead us down a moral path.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>2</integer>
+		<key>title</key>
+		<string>Ignoratio Elenchi</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Ignoratio_elenchi</string>
+		<key>synonym</key>
+		<string>Red Herring</string>
+	</dict>
+	<key>Induction</key>
+	<dict>
+		<key>definition</key>
+		<string>A method for coming to general conclusions through specific examples.</string>
+		<key>examples</key>
+		<array>
+			<string>“I counted five or six people with green eyes; therefore all the people have green eyes.”</string>
+			<string>“Sam is a bus driver. All drivers drive at 30km an hour, therefore Sam drives at 30 km an hour.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>6</integer>
+		<key>title</key>
+		<string>Induction</string>
+	</dict>
+	<key>Insult</key>
+	<dict>
+		<key>definition</key>
+		<string>A disrespectful and offending remark.</string>
+		<key>examples</key>
+		<array>
+			<string>“Are you really that dumb?”</string>
+			<string>“You are so stupid!”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>6</integer>
+		<key>title</key>
+		<string>Insult</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Insult</string>
+	</dict>
+	<key>Irony</key>
+	<dict>
+		<key>definition</key>
+		<string>An expression different from and often opposite to its literal meaning.</string>
+		<key>examples</key>
+		<array>
+			<string>“Thanks! Now you have broken my new camera.”</string>
+			<string>Exclaiming “oh great” after failing an exam.</string>
+			<string>A post on Facebook about how useless it now is.</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>6</integer>
+		<key>title</key>
+		<string>Irony</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Irony</string>
+	</dict>
+	<key>Isocolon</key>
+	<dict>
+		<key>definition</key>
+		<string>A sentence that is composed by two or more parts perfectly equivalent in structure, length and rhythm.</string>
+		<key>examples</key>
+		<array>
+			<string>“Veni, vidi, vici” (Julius Caesar)</string>
+			<string>“It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was …” (Charles Dickens)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>1</integer>
+		<key>title</key>
+		<string>Isocolon</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Isocolon</string>
+	</dict>
+	<key>Jargon</key>
+	<dict>
+		<key>definition</key>
+		<string>A highly technical language used by a specific group related to the subject of matter.</string>
+		<key>examples</key>
+		<array>
+			<string>“B2C Marketing” in Economics</string>
+			<string>“Refactorization” in Programming</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>6</integer>
+		<key>title</key>
+		<string>Jargon</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Jargon</string>
+	</dict>
+	<key>Kolakeia</key>
+	<dict>
+		<key>definition</key>
+		<string>Telling people what they want to hear while disregarding their best interests.</string>
+		<key>examples</key>
+		<array>
+			<string>“That&apos;s a wise thought. Can we explore that more? The other stuff can wait.”</string>
+			<string>“I say, you do look good today. Can we talk about this thing here?”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>3</integer>
+		<key>title</key>
+		<string>Kolakeia</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Kolakeia</string>
+		<key>synonym</key>
+		<string>Flattery, Adulation, Blandishment</string>
+	</dict>
+	<key>Fallacy</key>
+	<dict>
+		<key>definition</key>
+		<string>The use of poor or invalid reasoning for the construction of an argument.</string>
+		<key>examples</key>
+		<array>
+			<string>“You can’t prove that there aren’t Martians living in caves under the surface of Mars, so it is reasonable for me to believe there are.”</string>
+			<string>“Well, Isaac Newton believed in Alchemy, do you think you know more than Isaac Newton?”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>2</integer>
+		<key>title</key>
+		<string>Fallacy</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Fallacy</string>
+	</dict>
+	<key>Proof</key>
+	<dict>
+		<key>definition</key>
+		<string>Reasoned arguments or evidence for the truth of a proposition.</string>
+		<key>examples</key>
+		<array>
+			<string>“The latest news show that this topic is worth debating.”</string>
+			<string>“There is not enough time for this as the game starts at 1:30”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>6</integer>
+		<key>title</key>
+		<string>Proof</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Proof_(truth)</string>
+	</dict>
+	<key>Aphorism</key>
+	<dict>
+		<key>definition</key>
+		<string>A statement of truth or opinion expressed in a concise and witty manner.</string>
+		<key>examples</key>
+		<array>
+			<string>“The man who removes a mountain begins by carrying away small stones.” (William Faulkner)</string>
+			<string>“Having nothing, nothing can he lose.” (Shakespeare)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>6</integer>
+		<key>title</key>
+		<string>Aphorism</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Aphorism</string>
+	</dict>
+	<key>Cliché</key>
+	<dict>
+		<key>definition</key>
+		<string>Refers to an expression that has been overused to the extent that it loses its original meaning or novelty.</string>
+		<key>examples</key>
+		<array>
+			<string>“Waking up on the wrong side of the bed”</string>
+			<string>“They all lived happily ever after.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>5</integer>
+		<key>title</key>
+		<string>Cliché</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Cliché</string>
+	</dict>
+	<key>Apophasis</key>
+	<dict>
+		<key>definition</key>
+		<string>A subject is brought up by either denying it, or denying that it should be brought up.</string>
+		<key>examples</key>
+		<array>
+			<string>“I now forget your wrongs, Clodia, I set aside the memory of my pain [that you caused]” (Cicero)</string>
+			<string>“It would be superfluous in me to point out to your lordship that this is war.” (Charles Francis Adams)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>3</integer>
+		<key>title</key>
+		<string>Apophasis</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Apophasis</string>
+		<key>opposite</key>
+		<string>Occupatio</string>
+		<key>synonym</key>
+		<string>Paralipsis</string>
+	</dict>
+	<key>Paradeigma</key>
+	<dict>
+		<key>definition</key>
+		<string>A listing of examples in order to generalize.</string>
+		<key>examples</key>
+		<array>
+			<string>“You didn&apos;t call last week or the week before or the week before that. You never call me!”</string>
+			<string>“That&apos;s the third rude child from that school I&apos;ve met. It must be a very bad school. We certainly mustn&apos;t send our children there.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>3</integer>
+		<key>title</key>
+		<string>Paradeigma</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Paradeigma</string>
+	</dict>
+	<key>Paraprosdokian</key>
+	<dict>
+		<key>definition</key>
+		<string>A sentence in which the latter half takes an unexpected turn.</string>
+		<key>examples</key>
+		<array>
+			<string>“There but for the grace of God—goes God.” (Winston Churchill)</string>
+			<string>“If I could just say a few words… I&apos;d be a better public speaker.” (Homer Simpson)</string>
+			<string>“On the other hand, you have different fingers.” (Steven Wright)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>5</integer>
+		<key>title</key>
+		<string>Paraprosdokian</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Paraprosdokian</string>
+	</dict>
+	<key>Paradox</key>
+	<dict>
+		<key>definition</key>
+		<string>A statement that seems to be self-contradictory or opposed to common sense. </string>
+		<key>examples</key>
+		<array>
+			<string>“The child is father of the man.” (Wordsworth)</string>
+			<string>“It is awfully hard work doing nothing.” (Oscar Wilde)</string>
+			<string>“This statement is false”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>6</integer>
+		<key>title</key>
+		<string>Paradox</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Paradox</string>
+	</dict>
+	<key>Parenthesis</key>
+	<dict>
+		<key>definition</key>
+		<string>An explanatory inserted into a passage that is not essential to the literal meaning or grammatical correctness.</string>
+		<key>examples</key>
+		<array>
+			<string>“A dog (not a cat) is an animal that barks.”</string>
+			<string>“My umbrella (which is somewhat broken) can still shield the two of us from the rain.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>2</integer>
+		<key>title</key>
+		<string>Parenthesis</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Parenthesis_(rhetoric)</string>
+	</dict>
+	<key>Parody</key>
+	<dict>
+		<key>definition</key>
+		<string>A comical imitation of something or somebody.</string>
+		<key>examples</key>
+		<array>
+			<string>“Vampire Sucks” referring to “Twilight”</string>
+			<string>“Gulliver’s Travel” referring to “Robinson Crusoe”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>2</integer>
+		<key>title</key>
+		<string>Parody</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Parody</string>
+	</dict>
+	<key>Pun</key>
+	<dict>
+		<key>definition</key>
+		<string>A comical imitation of something or somebody.</string>
+		<key>examples</key>
+		<array>
+			<string>“An elephant’s opinion carries a lot of weight.”</string>
+			<string>“What do you call a dinosaur made of cheese? Gorgonzilla!”</string>
+			<string>“Let’s talk about rights and lefts. You’re right, so I left.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>9</integer>
+		<key>title</key>
+		<string>Pun</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Pun</string>
+		<key>synonym</key>
+		<string>Paronomasia</string>
+	</dict>
+	<key>Circumlocution</key>
+	<dict>
+		<key>definition</key>
+		<string>The substitution of many or several words where one would suffice.</string>
+		<key>examples</key>
+		<array>
+			<string>“She opened the door (for me)”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>1</integer>
+		<key>title</key>
+		<string>Circumlocution</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Circumlocution</string>
+		<key>synonym</key>
+		<string>Periphrasis</string>
+	</dict>
+	<key>Pleonasm</key>
+	<dict>
+		<key>definition</key>
+		<string>The use of more words than necessary to express an idea.</string>
+		<key>examples</key>
+		<array>
+			<string>“This was the most unkindest cut of all.” (Shakespeare)</string>
+			<string>“If you are offered something for free, gratis or for nothing, say no!”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>5</integer>
+		<key>title</key>
+		<string>Pleonasm</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Pleonasm</string>
+	</dict>
+	<key>Ambiguity</key>
+	<dict>
+		<key>definition</key>
+		<string>An uncertainty of meaning in which several interpretations are plausible.</string>
+		<key>examples</key>
+		<array>
+			<string>“A good life depends on a liver”</string>
+			<string>“Harry isn’t coming to the party. Tell Joe that we’ll see him next week.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>5</integer>
+		<key>title</key>
+		<string>Ambiguity</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Ambiguity</string>
+	</dict>
+	<key>Polyptoton</key>
+	<dict>
+		<key>definition</key>
+		<string>The repetition of a word or root in different cases or inflections within the same sentence.</string>
+		<key>examples</key>
+		<array>
+			<string>“Judge not, that ye be not judged” (Matthew: Bible)</string>
+			<string>“Absolute power corrupts absolutely” (Lord Acton)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>3</integer>
+		<key>title</key>
+		<string>Polyptoton</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Polyptoton</string>
+	</dict>
+	<key>Presumption</key>
+	<dict>
+		<key>definition</key>
+		<string>An idea is reasonable or acceptable only until it is sufficiently challenged.</string>
+		<key>examples</key>
+		<array>
+			<string>When a person who has been absent for many years is considered dead.</string>
+			<string>The presumption of innocence</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>3</integer>
+		<key>title</key>
+		<string>Presumption</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Presumption</string>
+	</dict>
+	<key>Prosopopoeia</key>
+	<dict>
+		<key>definition</key>
+		<string>Speaking as another person or object.</string>
+		<key>examples</key>
+		<array>
+			<string>“The markets expect bold action from the central banks”</string>
+			<string>“If Miller Huggins was alive today, he&apos;d be turning over in his grave” (Yogi Berra)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>3</integer>
+		<key>title</key>
+		<string>Prosopopoeia</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Prosopopoeia</string>
+	</dict>
+	<key>Blame</key>
+	<dict>
+		<key>definition</key>
+		<string>Declaring someone or something to be responsible for a bad happening.</string>
+		<key>examples</key>
+		<array>
+			<string>“It was all his fault!”</string>
+			<string>“I have bad marks, because the system is so much against me.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>7</integer>
+		<key>title</key>
+		<string>Blame</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Blame</string>
+		<key>synonym</key>
+		<string>Psogos</string>
+	</dict>
+	<key>Repetition</key>
+	<dict>
+		<key>definition</key>
+		<string>The simple repeating of a word, within a sentence or a poetical line, with no particular placement of the words.</string>
+		<key>examples</key>
+		<array>
+			<string>“A horse is a horse, of course, of course”</string>
+			<string>“We did it! We really did it.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>7</integer>
+		<key>title</key>
+		<string>Repetition</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Repetition_(rhetorical_device)</string>
+	</dict>
+	<key>Salutatio</key>
+	<dict>
+		<key>definition</key>
+		<string>A written greeting.</string>
+		<key>examples</key>
+		<array>
+			<string>“Best wishes”</string>
+			<string>“In love”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>1</integer>
+		<key>title</key>
+		<string>Salutatio</string>
+	</dict>
+	<key>Satire</key>
+	<dict>
+		<key>definition</key>
+		<string>Vices, follies, abuses, and shortcomings are held up to ridicule, ideally with the intent of shaming individuals, corporations, government or society itself, into improvement.</string>
+		<key>examples</key>
+		<array>
+			<string>theonion.com</string>
+			<string>The Simpsons</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>1</integer>
+		<key>title</key>
+		<string>Satire</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Satire</string>
+	</dict>
+	<key>Sarcasm</key>
+	<dict>
+		<key>definition</key>
+		<string>A sharp, bitter, or cutting expression or remark.</string>
+		<key>examples</key>
+		<array>
+			<string>“Good fences make good neighbors.”</string>
+			<string>“I didn’t attend the funeral, but I sent a nice letter saying I approved of it.” (Mark Twain)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>6</integer>
+		<key>title</key>
+		<string>Sarcasm</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Sarcasm</string>
+	</dict>
+	<key>Syllogism</key>
+	<dict>
+		<key>definition</key>
+		<string>A logical argument that applies deductive reasoning to arrive at a conclusion based on propositions that are asserted or assumed to be true.</string>
+		<key>examples</key>
+		<array>
+			<string>“All men are mortal / Socrates is a man / Therefore, Socrates is mortal”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>1</integer>
+		<key>title</key>
+		<string>Syllogism</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Syllogism</string>
+	</dict>
+	<key>Sententia</key>
+	<dict>
+		<key>definition</key>
+		<string>A brief moral saying taken from ancient, popular or other sources, often quoted without context.</string>
+		<key>examples</key>
+		<array>
+			<string>“A man&apos;s as miserable as he thinks he is.” (Seneca)</string>
+			<string>“A bad peace is worse than war.” (Tacitus)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>5</integer>
+		<key>title</key>
+		<string>Sententia</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Sententiae</string>
+	</dict>
+	<key>Telling Name</key>
+	<dict>
+		<key>definition</key>
+		<string>A personal name that is suited to its owner. Oftentimes the name describes what he or she is or does.</string>
+		<key>examples</key>
+		<array>
+			<string>Darth Vader (dark + death, invader)</string>
+			<string>Lord Voldemort (“flight of death”)</string>
+			<string>Willy Loman (low man)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>5</integer>
+		<key>title</key>
+		<string>Telling Name</string>
+		<key>synonym</key>
+		<string>Aptronym</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Aptronym</string>
+	</dict>
+	<key>Straw Man</key>
+	<dict>
+		<key>definition</key>
+		<string>An argument that is a logical fallacy based on misrepresentation of an opponent&apos;s position.</string>
+		<key>examples</key>
+		<array>
+			<string>A: “We should relax the laws on beer.”
+B: “No, any society with unrestricted access to intoxicants loses its work ethic and goes only for immediate gratification.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>2</integer>
+		<key>title</key>
+		<string>Straw Man</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Straw_man</string>
+	</dict>
+	<key>Zeugma</key>
+	<dict>
+		<key>definition</key>
+		<string>A single phrase or word joins different parts of a sentence where it must be understood differently in relation to each.</string>
+		<key>examples</key>
+		<array>
+			<string>“Give neither counsel nor salt till you are asked for it.”</string>
+			<string>“You are free to execute your laws and your citizens as you see fit.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>2</integer>
+		<key>title</key>
+		<string>Zeugma</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Zeugma</string>
+		<key>synonym</key>
+		<string>Syllepsis</string>
+	</dict>
+	<key>Symploce</key>
+	<dict>
+		<key>definition</key>
+		<string>Several successive clauses have the same first and last words.</string>
+		<key>examples</key>
+		<array>
+			<string>“When there is talk of hatred, let us stand up and talk against it. When there is talk of violence, let us stand up and talk against it.” (Bill Clinton)</string>
+			<string>“When there is time, use it. When there is money, spend it.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>2</integer>
+		<key>title</key>
+		<string>Symploce</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Symploce</string>
+	</dict>
+	<key>Synchysis</key>
+	<dict>
+		<key>definition</key>
+		<string>The word order causes confusion within a sentence.</string>
+		<key>examples</key>
+		<array>
+			<string>“I run and shoot, fast and accurate.”</string>
+			<string>“Golden happy ring girl”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>2</integer>
+		<key>title</key>
+		<string>Synchysis</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Synchysis</string>
+	</dict>
+	<key>Syncope</key>
+	<dict>
+		<key>definition</key>
+		<string>The loss of one or more sounds from the interior of a word, especially the loss of an unstressed vowel.</string>
+		<key>examples</key>
+		<array>
+			<string>“heav[e]n” &gt; poetic “heav&apos;n”</string>
+			<string>“over” &gt; poetic “o&apos;er”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>2</integer>
+		<key>title</key>
+		<string>Syncope</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Syncope_(phonology)</string>
+	</dict>
+	<key>Tautologia</key>
+	<dict>
+		<key>definition</key>
+		<string>The same idea repeated in different words.</string>
+		<key>examples</key>
+		<array>
+			<string>“I loved reading Sam’s autobiography of his own life.”</string>
+			<string>“No worries, it’s all well and good.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>6</integer>
+		<key>title</key>
+		<string>Tautologia</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Tautology_(rhetoric)</string>
+	</dict>
+	<key>Thesis</key>
+	<dict>
+		<key>definition</key>
+		<string>“A proposition that is maintained by arguments.”</string>
+		<key>examples</key>
+		<array>
+			<string>“Americans should eliminate the regular consumption of fast food because the fast food diet leads to preventable and expensive health issues, such as diabetes, obesity, and heart disease.”</string>
+			<string>“Secondhand smoke is just as harmful as smoking and leads to a higher prevalence of cancer and heart disease. What’s worse, people who inhale secondhand smoke are doing so without consent. For this reason, smoking in any public place should be banned.”</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>6</integer>
+		<key>title</key>
+		<string>Thesis</string>
+		<key>wikipedia</key>
+		<string>https://en.wikipedia.org/wiki/Thesis_statement</string>
+	</dict>
+	<key>Tricolon</key>
+	<dict>
+		<key>definition</key>
+		<string>Three phrases or sentences are perfectly equivalent in structure, length and rhythm.</string>
+		<key>examples</key>
+		<array>
+			<string>“Veni, vidi, vici” (Julius Ceasar)</string>
+			<string>“We cannot dedicate – we cannot consecrate – we cannot hallow...” (Abraham Lincoln)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>3</integer>
+		<key>title</key>
+		<string>Tricolon</string>
+	</dict>
+	<key>Bicolon</key>
+	<dict>
+		<key>definition</key>
+		<string>Two phrases or sentences are perfectly equivalent in structure, length and rhythm.</string>
+		<key>examples</key>
+		<array>
+			<string>“Nothing that’s beautiful hides its face. Nothing that’s honest hides its name.” (C.S. Lewis)</string>
+			<string>“Ask not what your country can do for you; ask what you can do for your country.“ (John F. Kennedy)</string>
+		</array>
+		<key>levelOfImportance</key>
+		<integer>3</integer>
+		<key>title</key>
+		<string>Bicolon</string>
+	</dict>
+</dict>
+</plist>

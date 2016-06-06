@@ -34,8 +34,8 @@
 		638F91381C0690EB00AF75EB /* FeedbackSharingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F91371C0690EB00AF75EB /* FeedbackSharingVC.swift */; };
 		638F913A1C06942F00AF75EB /* FeedbackLikingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F91391C06942F00AF75EB /* FeedbackLikingVC.swift */; };
 		63A16D641D0622980019D624 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63A16D631D0622980019D624 /* LaunchScreen.storyboard */; };
-		63A16D761D062ABD0019D624 /* StylisticDevices_de.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63A16D741D062ABD0019D624 /* StylisticDevices_de.plist */; };
-		63A16D771D062ABD0019D624 /* StylisticDevices_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63A16D751D062ABD0019D624 /* StylisticDevices_en.plist */; };
+		63A16D761D062ABD0019D624 /* stylisticDevices_de.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63A16D741D062ABD0019D624 /* stylisticDevices_de.plist */; };
+		63A16D771D062ABD0019D624 /* stylisticDevices_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63A16D751D062ABD0019D624 /* stylisticDevices_en.plist */; };
 		63B929761CBE751B0019206F /* CustomHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B929751CBE751B0019206F /* CustomHUD.swift */; };
 		63B9297A1CBE90F00019206F /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B929791CBE90F00019206F /* SnapshotHelper.swift */; };
 		63BAEA2E1B49CA67004182FA /* DeviceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BAEA2D1B49CA67004182FA /* DeviceList.swift */; };
@@ -112,8 +112,8 @@
 		638F91371C0690EB00AF75EB /* FeedbackSharingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackSharingVC.swift; sourceTree = "<group>"; };
 		638F91391C06942F00AF75EB /* FeedbackLikingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackLikingVC.swift; sourceTree = "<group>"; };
 		63A16D631D0622980019D624 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		63A16D741D062ABD0019D624 /* StylisticDevices_de.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StylisticDevices_de.plist; sourceTree = "<group>"; };
-		63A16D751D062ABD0019D624 /* StylisticDevices_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StylisticDevices_en.plist; sourceTree = "<group>"; };
+		63A16D741D062ABD0019D624 /* stylisticDevices_de.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = stylisticDevices_de.plist; sourceTree = "<group>"; };
+		63A16D751D062ABD0019D624 /* stylisticDevices_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = stylisticDevices_en.plist; sourceTree = "<group>"; };
 		63B929751CBE751B0019206F /* CustomHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHUD.swift; sourceTree = "<group>"; };
 		63B929791CBE90F00019206F /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		63BAEA2D1B49CA67004182FA /* DeviceList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceList.swift; sourceTree = "<group>"; };
@@ -343,8 +343,8 @@
 			isa = PBXGroup;
 			children = (
 				631E364119F060D500CD2DEB /* Images.xcassets */,
-				63A16D741D062ABD0019D624 /* StylisticDevices_de.plist */,
-				63A16D751D062ABD0019D624 /* StylisticDevices_en.plist */,
+				63A16D741D062ABD0019D624 /* stylisticDevices_de.plist */,
+				63A16D751D062ABD0019D624 /* stylisticDevices_en.plist */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -479,8 +479,8 @@
 				634526D71BEEDA620028E4E9 /* NoListView.xib in Resources */,
 				63EC67831BBFD2BA00DD7B55 /* Version 1.2.rtf in Resources */,
 				633FDE5A1BDFB359002DCBC6 /* Main.storyboard in Resources */,
-				63A16D771D062ABD0019D624 /* StylisticDevices_en.plist in Resources */,
-				63A16D761D062ABD0019D624 /* StylisticDevices_de.plist in Resources */,
+				63A16D771D062ABD0019D624 /* stylisticDevices_en.plist in Resources */,
+				63A16D761D062ABD0019D624 /* stylisticDevices_de.plist in Resources */,
 				6357C3871BDDA4EB00337BFC /* Feedback.storyboard in Resources */,
 				631B18DB1CBECE2600440D73 /* fastlane in Resources */,
 				634526CE1BEEB9E30028E4E9 /* NoDeviceView.xib in Resources */,
