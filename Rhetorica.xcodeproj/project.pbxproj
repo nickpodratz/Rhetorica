@@ -43,7 +43,7 @@
 		63BE3FFF1BC1AC9C0007EE6D /* FeedbackPositiveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE3FFE1BC1AC9C0007EE6D /* FeedbackPositiveVC.swift */; };
 		63BE40011BC1ACAF0007EE6D /* FeedbackNegativeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE40001BC1ACAF0007EE6D /* FeedbackNegativeVC.swift */; };
 		63C0D7F21B51211C004EAF81 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C0D7F11B51211C004EAF81 /* UIImage+.swift */; };
-		63C542A41BC501E600EBB370 /* FeedbackThanksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C542A31BC501E600EBB370 /* FeedbackThanksViewController.swift */; };
+		63C542A41BC501E600EBB370 /* FeedbackThanksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C542A31BC501E600EBB370 /* FeedbackThanksVC.swift */; };
 		63D0B29C1BDFFD5100380DF7 /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D0B29B1BDFFD5100380DF7 /* AboutVC.swift */; };
 		63D0B29E1BDFFD8C00380DF7 /* OtherAppsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D0B29D1BDFFD8C00380DF7 /* OtherAppsCell.swift */; };
 		63D0B2A51BDFFE6A00380DF7 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D0B2A41BDFFE6A00380DF7 /* UIImage+Resize.swift */; };
@@ -120,7 +120,7 @@
 		63BE3FFE1BC1AC9C0007EE6D /* FeedbackPositiveVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackPositiveVC.swift; sourceTree = "<group>"; };
 		63BE40001BC1ACAF0007EE6D /* FeedbackNegativeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackNegativeVC.swift; sourceTree = "<group>"; };
 		63C0D7F11B51211C004EAF81 /* UIImage+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
-		63C542A31BC501E600EBB370 /* FeedbackThanksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackThanksViewController.swift; sourceTree = "<group>"; };
+		63C542A31BC501E600EBB370 /* FeedbackThanksVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackThanksVC.swift; sourceTree = "<group>"; };
 		63C801FB1A07E18E003240B5 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		63D0B29B1BDFFD5100380DF7 /* AboutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		63D0B29D1BDFFD8C00380DF7 /* OtherAppsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherAppsCell.swift; sourceTree = "<group>"; };
@@ -296,7 +296,7 @@
 				63BE40001BC1ACAF0007EE6D /* FeedbackNegativeVC.swift */,
 				638F91371C0690EB00AF75EB /* FeedbackSharingVC.swift */,
 				638F91391C06942F00AF75EB /* FeedbackLikingVC.swift */,
-				63C542A31BC501E600EBB370 /* FeedbackThanksViewController.swift */,
+				63C542A31BC501E600EBB370 /* FeedbackThanksVC.swift */,
 			);
 			name = Feedback;
 			sourceTree = "<group>";
@@ -577,7 +577,7 @@
 				63BAEA2E1B49CA67004182FA /* DeviceList.swift in Sources */,
 				631E365F19F069C700CD2DEB /* DetailVC.swift in Sources */,
 				631E366119F06BCA00CD2DEB /* ListVC.swift in Sources */,
-				63C542A41BC501E600EBB370 /* FeedbackThanksViewController.swift in Sources */,
+				63C542A41BC501E600EBB370 /* FeedbackThanksVC.swift in Sources */,
 				63C0D7F21B51211C004EAF81 /* UIImage+.swift in Sources */,
 				63BE3FFF1BC1AC9C0007EE6D /* FeedbackPositiveVC.swift in Sources */,
 				631E363B19F060D500CD2DEB /* AppDelegate.swift in Sources */,
