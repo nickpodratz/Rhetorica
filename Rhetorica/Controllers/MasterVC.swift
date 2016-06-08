@@ -108,9 +108,9 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
         searchController.view.layoutIfNeeded()
         tableView.tableHeaderView = searchController.searchBar
         
-        // Hide searchBar initially
-        let searchBarHeight = searchController.searchBar.bounds.size.height
-        tableView.setContentOffset(CGPoint(x: 0, y: searchBarHeight), animated: false)
+//        // Hide searchBar initially
+//        let searchBarHeight = searchController.searchBar.bounds.size.height
+//        tableView.setContentOffset(CGPoint(x: 0, y: searchBarHeight), animated: false)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -141,10 +141,16 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        if selectedDeviceList.isEmpty {
-            tableView.reloadData()
-            scrollToTop()
-        }
+        coordinator.animateAlongsideTransition({_ in
+            if self.selectedDeviceList.isEmpty {
+                self.scrollToTop()
+                let cell = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0))
+                let navHeight = self.navigationController?.navigationBar.bounds.size.height ?? 0
+                cell?.bounds.size.height = self.tableView.bounds.size.height - navHeight
+                self.tableView.reloadData()
+            }
+            }, completion: { _ in
+        })
     }
         
     
@@ -250,7 +256,6 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
             tableView.setContentOffset(CGPoint(x: 0, y: 12), animated: false)
         } else {
             let navigationBarOrigin = navigationController!.navigationBar.frame.origin.y
-            let searchBarHeight = searchController.searchBar.bounds.size.height
             tableView.setContentOffset(CGPoint(x: 0, y: -navigationBarOrigin), animated: false)
         }
     }
@@ -408,7 +413,7 @@ extension MasterViewController {
         guard !selectedDeviceList.isEmpty else {
             scrollToTop()
             let searchBarOffset = (self.searchController.searchBar.bounds.size.height ?? 0)
-            return tableView.bounds.size.height - searchBarOffset
+            return (tableView.bounds.size.height - searchBarOffset)
         }
         return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
     }
