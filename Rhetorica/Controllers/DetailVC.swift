@@ -55,10 +55,11 @@ class DetailViewController: UITableViewController {
         noDeviceView = UINib(nibName: "NoDeviceView", bundle: nil).instantiateWithOwner(nil, options: nil).first as? UIView
         if noDeviceView != nil {
             noDeviceView!.layer.zPosition = 1
-            noDeviceView!.autoresizesSubviews = false
+            noDeviceView!.autoresizesSubviews = true
             noDeviceView!.hidden = (self.device != nil)
             self.tableView.userInteractionEnabled = (self.device != nil)
             self.tableView.addSubview(noDeviceView!)
+            layoutNoDeviceView()
         }
         if let device = self.device {
             FacebookLogger.detailsForDeviceDidOpen(device)
@@ -78,7 +79,9 @@ class DetailViewController: UITableViewController {
     
     func layoutNoDeviceView() {
         guard let noDeviceView = noDeviceView else { return }
-        noDeviceView.frame = CGRect(x: 0, y: 0, width: self.tableView.bounds.width, height: self.tableView.bounds.height)
+        let navigationOffset = self.navigationController?.navigationBar.bounds.height ?? 0
+        print("navigationOffset: \(navigationOffset)")
+        noDeviceView.bounds = CGRect(x: 0, y: -navigationOffset, width: self.tableView.bounds.width, height: self.tableView.bounds.height)
         noDeviceView.hidden = device != nil
     }
 

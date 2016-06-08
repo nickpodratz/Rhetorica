@@ -18,7 +18,6 @@
 		631E366119F06BCA00CD2DEB /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E366019F06BCA00CD2DEB /* ListVC.swift */; };
 		633FDE5A1BDFB359002DCBC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 631E363E19F060D500CD2DEB /* Main.storyboard */; };
 		634526CE1BEEB9E30028E4E9 /* NoDeviceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 634526D01BEEB9E30028E4E9 /* NoDeviceView.xib */; };
-		634526D71BEEDA620028E4E9 /* NoListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 634526D91BEEDA620028E4E9 /* NoListView.xib */; };
 		63463EEE1A0BFE8C000C0BBD /* QuizResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63463EED1A0BFE8C000C0BBD /* QuizResultsVC.swift */; };
 		634D6B4C1A27F90D0043AA5F /* WikipediaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634D6B4B1A27F90D0043AA5F /* WikipediaVC.swift */; };
 		6350F1F91A0A9DB60060F055 /* QuizVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350F1F81A0A9DB60060F055 /* QuizVC.swift */; };
@@ -93,8 +92,6 @@
 		633FDE5B1BDFB399002DCBC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Feedback.storyboard; sourceTree = "<group>"; };
 		634526CF1BEEB9E30028E4E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NoDeviceView.xib; sourceTree = "<group>"; };
 		634526D21BEEB9E90028E4E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NoDeviceView.strings; sourceTree = "<group>"; };
-		634526D81BEEDA620028E4E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NoListView.xib; sourceTree = "<group>"; };
-		634526DB1BEEDA640028E4E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NoListView.strings; sourceTree = "<group>"; };
 		634526DC1BEEDAB00028E4E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		63463EED1A0BFE8C000C0BBD /* QuizResultsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizResultsVC.swift; sourceTree = "<group>"; };
 		634D6B4B1A27F90D0043AA5F /* WikipediaVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikipediaVC.swift; sourceTree = "<group>"; };
@@ -233,7 +230,6 @@
 			isa = PBXGroup;
 			children = (
 				634526D01BEEB9E30028E4E9 /* NoDeviceView.xib */,
-				634526D91BEEDA620028E4E9 /* NoListView.xib */,
 			);
 			name = "Empty Table View";
 			path = Base.lproj;
@@ -473,7 +469,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				631521251CB9471300C192E0 /* InfoPlist.strings in Resources */,
-				634526D71BEEDA620028E4E9 /* NoListView.xib in Resources */,
 				633FDE5A1BDFB359002DCBC6 /* Main.storyboard in Resources */,
 				63A16D771D062ABD0019D624 /* stylisticDevices_en.plist in Resources */,
 				63A16D761D062ABD0019D624 /* stylisticDevices_de.plist in Resources */,
@@ -649,16 +644,6 @@
 				634526D21BEEB9E90028E4E9 /* en */,
 			);
 			name = NoDeviceView.xib;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		634526D91BEEDA620028E4E9 /* NoListView.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				634526D81BEEDA620028E4E9 /* Base */,
-				634526DB1BEEDA640028E4E9 /* en */,
-			);
-			name = NoListView.xib;
 			path = ..;
 			sourceTree = "<group>";
 		};

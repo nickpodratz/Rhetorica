@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Nick Podratz. All rights reserved.
 //
 
+
 import UIKit
 
 // , UIViewControllerPreviewing
@@ -14,7 +15,6 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
     // MARK: Outlets and Views
     
     @IBOutlet var tapRecognizer: UITapGestureRecognizer!
-    var noEntriesView: UIView!
     var searchController = UISearchController(searchResultsController: nil)
     var detailViewController: DetailViewController? {
         didSet {
@@ -57,7 +57,6 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
             navigationItem.title = selectedDeviceList.title
             tableView.reloadData()
             scrollToTop()
-            showNoEntriesView(noEntries: selectedDeviceList.isEmpty)
         }
     }
     var favorites: DeviceList? {
@@ -109,15 +108,9 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
         searchController.view.layoutIfNeeded()
         tableView.tableHeaderView = searchController.searchBar
         
-        // No Entries View
-        noEntriesView = UINib(nibName: "NoListView", bundle: nil).instantiateWithOwner(nil, options: nil).first as? UIView
-        if noEntriesView != nil {
-            noEntriesView.layer.zPosition = 1
-            self.view.addSubview(noEntriesView)
-            layoutNoEntriesView()
-            noEntriesView.hidden = !selectedDeviceList.isEmpty
-        }
-        //        showNoEntriesView(noEntries: selectedDeviceList.isEmpty)
+        // Hide searchBar initially
+        let searchBarHeight = searchController.searchBar.bounds.size.height
+        tableView.setContentOffset(CGPoint(x: 0, y: searchBarHeight), animated: false)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -148,18 +141,12 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        layoutNoEntriesView()
-    }
-    
-    func layoutNoEntriesView() {
-        let searchBarOffset = self.searchController.searchBar.bounds.height + navigationController!.navigationBar.frame.origin.y
-        noEntriesView.frame = CGRect(x: 0, y: -searchBarOffset, width: self.tableView.bounds.width, height: self.tableView.bounds.height)
-        noEntriesView.hidden = !selectedDeviceList.isEmpty
-        if !selectedDeviceList.isEmpty {
-            tableView.setContentOffset(CGPoint(x: 0, y: searchController.searchBar.bounds.size.height), animated: true)
+        if selectedDeviceList.isEmpty {
+            tableView.reloadData()
+            scrollToTop()
         }
     }
-    
+        
     
     // MARK: Transitioning
     
@@ -263,21 +250,8 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
             tableView.setContentOffset(CGPoint(x: 0, y: 12), animated: false)
         } else {
             let navigationBarOrigin = navigationController!.navigationBar.frame.origin.y
+            let searchBarHeight = searchController.searchBar.bounds.size.height
             tableView.setContentOffset(CGPoint(x: 0, y: -navigationBarOrigin), animated: false)
-        }
-    }
-    
-    private func showNoEntriesView(noEntries noEntries: Bool) {
-        if self.searchController.active || !noEntries {
-            self.tableView.separatorColor = self.defaultSeparatorColor
-            self.noEntriesView?.hidden = true
-            self.tableView.userInteractionEnabled = true
-        } else {
-            self.tableView.separatorColor = UIColor.whiteColor()
-            let searchBarOffset = navigationController!.navigationBar.frame.origin.y + searchController.searchBar.bounds.height
-            tableView.setContentOffset(CGPoint(x: 0, y: -searchBarOffset), animated: false)
-            self.noEntriesView?.hidden = false
-            self.tableView.userInteractionEnabled = false
         }
     }
     
@@ -329,18 +303,35 @@ extension MasterViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.tableView.userInteractionEnabled = true
+        self.tableView.showsVerticalScrollIndicator = true
+        
         if searchController.active {
             return searchResults.count
+        }
+        
+        // For NoEntriesCell
+        guard !selectedDeviceList.isEmpty else {
+            self.tableView.userInteractionEnabled = false
+            self.tableView.showsVerticalScrollIndicator = false
+            return 1
         }
         
         if selectedDeviceList.enoughForCategories {
             return selectedDeviceList.sortedList[selectedDeviceList.presentLetters[section]]?.count ?? 0
         } else {
-            return selectedDeviceList.elements.count ?? 0
+            return selectedDeviceList.elements.count
         }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        // For NoEntriesCell
+        guard !selectedDeviceList.isEmpty else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("NoEntriesCell", forIndexPath: indexPath)
+            return cell
+        }
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         var device: StylisticDevice!
         
@@ -385,7 +376,7 @@ extension MasterViewController {
         var index = selectedDeviceList.presentLetters
         index.insert(UITableViewIndexSearch, atIndex: 0)
         
-        return (selectedDeviceList.enoughForCategories && !searchController.active) ? index : nil
+        return (!selectedDeviceList.isEmpty && selectedDeviceList.enoughForCategories && !searchController.active) ? index : nil
     }
 }
 
@@ -395,11 +386,16 @@ extension MasterViewController {
 extension MasterViewController {
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         let deleteButton = UITableViewRowAction(style: .Default, title: NSLocalizedString("löschen", comment: ""), handler: { (action, indexPath) in
+            self.tableView?.beginUpdates()
             self.tableView.dataSource?.tableView?(
                 self.tableView,
                 commitEditingStyle: .Delete,
                 forRowAtIndexPath: indexPath
             )
+            if self.selectedDeviceList.isEmpty {
+                let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            }
             return
         })
         
@@ -407,8 +403,18 @@ extension MasterViewController {
         return [deleteButton]
     }
     
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        // For NoEntriesCell
+        guard !selectedDeviceList.isEmpty else {
+            scrollToTop()
+            let searchBarOffset = (self.searchController.searchBar.bounds.size.height ?? 0)
+            return tableView.bounds.size.height - searchBarOffset
+        }
+        return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+    }
+    
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return selectedDeviceList.editable
+        return (selectedDeviceList.editable && !selectedDeviceList.isEmpty)
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -420,7 +426,6 @@ extension MasterViewController {
                 selectedDeviceList.elements.removeAtIndex(indexPath.row)
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             }
-            showNoEntriesView(noEntries: selectedDeviceList.isEmpty)
             if let split = self.splitViewController {
                 let controllers = split.viewControllers
                 if controllers.count > 1 {
@@ -463,7 +468,6 @@ extension MasterViewController: DetailViewControllerDelegate {
             if selectedDeviceList.elements.isEmpty {
                 scrollToTop()
             }
-            showNoEntriesView(noEntries: selectedDeviceList.elements.isEmpty)
         }
     }
 }
@@ -489,7 +493,6 @@ extension MasterViewController: UISearchResultsUpdating {
         } else {
             // Called when Search is canceled, update UI
             self.tableView.separatorColor = defaultSeparatorColor
-            showNoEntriesView(noEntries: selectedDeviceList.elements.isEmpty)
             setNavigationItemsEnabled(true)
             tapRecognizer.enabled = false
         }
