@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5AD28231B3FC6D471A754A89 /* Pods_Rhetorica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A0EACFD15FD5DD4426087EB /* Pods_Rhetorica.framework */; };
 		631521251CB9471300C192E0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 631521271CB9471300C192E0 /* InfoPlist.strings */; };
-		631B18DB1CBECE2600440D73 /* fastlane in Resources */ = {isa = PBXBuildFile; fileRef = 631B18DA1CBECE2600440D73 /* fastlane */; };
 		631E363B19F060D500CD2DEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E363A19F060D500CD2DEB /* AppDelegate.swift */; };
 		631E364219F060D500CD2DEB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 631E364119F060D500CD2DEB /* Images.xcassets */; };
 		631E365119F060D500CD2DEB /* RhetoricaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E365019F060D500CD2DEB /* RhetoricaTests.swift */; };
@@ -473,7 +472,6 @@
 				63A16D771D062ABD0019D624 /* stylisticDevices_en.plist in Resources */,
 				63A16D761D062ABD0019D624 /* stylisticDevices_de.plist in Resources */,
 				6357C3871BDDA4EB00337BFC /* Feedback.storyboard in Resources */,
-				631B18DB1CBECE2600440D73 /* fastlane in Resources */,
 				634526CE1BEEB9E30028E4E9 /* NoDeviceView.xib in Resources */,
 				63A16D641D0622980019D624 /* LaunchScreen.storyboard in Resources */,
 				6357C37F1BDD9B9700337BFC /* Localizable.strings in Resources */,

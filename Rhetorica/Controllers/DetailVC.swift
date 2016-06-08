@@ -81,7 +81,7 @@ class DetailViewController: UITableViewController {
         guard let noDeviceView = noDeviceView else { return }
         let navigationOffset = self.navigationController?.navigationBar.bounds.height ?? 0
         print("navigationOffset: \(navigationOffset)")
-        noDeviceView.bounds = CGRect(x: 0, y: -navigationOffset, width: self.tableView.bounds.width, height: self.tableView.bounds.height)
+        noDeviceView.bounds = CGRect(x: 0, y: -navigationOffset, width: self.tableView.bounds.width, height: self.tableView.bounds.height - navigationOffset)
         noDeviceView.hidden = device != nil
     }
 
