@@ -44,6 +44,10 @@ class WikipediaViewController: UIViewController, UIWebViewDelegate {
         }
     }
     
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+    }
     
     // MARK: - WebView Delegate
     
