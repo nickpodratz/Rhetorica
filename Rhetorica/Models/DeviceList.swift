@@ -80,7 +80,7 @@ extension DeviceList: SequenceType {
     func generate() -> Generator {
         let index = 0
         return AnyGenerator {
-            if index < self.elements.count {
+            if index.successor() < self.elements.count {
                 return self.elements[index.successor()]
             }
             return nil
