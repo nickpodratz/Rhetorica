@@ -175,8 +175,10 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
                     } else {
                         if selectedDeviceList.enoughForCategories == true {
                             return selectedDeviceList.sortedList[selectedDeviceList.presentLetters[indexPath.section]]![indexPath.row]
-                        } else {
+                        } else if indexPath.row < selectedDeviceList.elements.count {
                             return selectedDeviceList.elements[indexPath.row] as StylisticDevice
+                        } else {
+                            return nil
                         }
                     }
                 }()
@@ -285,8 +287,10 @@ extension MasterViewController: UIViewControllerPreviewingDelegate {
             } else {
                 if selectedDeviceList.enoughForCategories == true {
                     return selectedDeviceList.sortedList[selectedDeviceList.presentLetters[indexPath.section]]![indexPath.row]
-                } else {
+                } else if indexPath.row < selectedDeviceList.elements.count {
                     return selectedDeviceList.elements[indexPath.row] as StylisticDevice
+                } else {
+                    return nil
                 }
             }
         }()
@@ -392,7 +396,7 @@ extension MasterViewController {
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         let deleteButton = UITableViewRowAction(style: .Default, title: NSLocalizedString("löschen", comment: ""), handler: { (action, indexPath) in
             self.tableView?.beginUpdates()
-            self.tableView.dataSource?.tableView?(
+            self.tableView(
                 self.tableView,
                 commitEditingStyle: .Delete,
                 forRowAtIndexPath: indexPath
@@ -427,7 +431,7 @@ extension MasterViewController {
             if selectedDeviceList.enoughForCategories {
                 selectedDeviceList.elements.removeAtIndex(indexPath.row)
                 tableView.reloadData()
-            } else {
+            } else if indexPath.row < selectedDeviceList.elements.count {
                 selectedDeviceList.elements.removeAtIndex(indexPath.row)
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             }
