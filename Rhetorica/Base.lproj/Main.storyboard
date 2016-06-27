@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
     </dependencies>
     <scenes>
@@ -700,50 +699,6 @@
                                 <connections>
                                     <segue destination="ssQ-jJ-41J" kind="showDetail" identifier="showDetail" id="XBM-tv-2KK"/>
                                 </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NoEntriesCell" rowHeight="350" id="Avy-Fl-zdM">
-                                <rect key="frame" x="0.0" y="136" width="600" height="350"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Avy-Fl-zdM" id="3qC-un-Ogx">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="349.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Deine Lernliste ist leer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4sa-Hd-YZW">
-                                            <rect key="frame" x="24" y="222" width="552" height="27.5"/>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tippe auf der Seite eines Stilmittels die Pinnadel an, um es zu deiner Lernliste hinzuzufügen." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUM-UH-sAy">
-                                            <rect key="frame" x="125" y="260" width="350" height="36"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" priority="900" constant="350" id="pK7-0o-LcS"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pinBig" translatesAutoresizingMaskIntoConstraints="NO" id="eOa-Rx-YIi">
-                                            <rect key="frame" x="238" y="72" width="125" height="125"/>
-                                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="125" id="Ndd-E4-AUV"/>
-                                                <constraint firstAttribute="width" constant="125" id="gQz-CB-MkJ"/>
-                                            </constraints>
-                                        </imageView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="eOa-Rx-YIi" firstAttribute="centerY" secondItem="3qC-un-Ogx" secondAttribute="centerY" multiplier="0.74" constant="5" id="7JS-Oi-dsy"/>
-                                        <constraint firstItem="YUM-UH-sAy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3qC-un-Ogx" secondAttribute="leading" constant="24" id="Kp4-fq-hFD"/>
-                                        <constraint firstItem="YUM-UH-sAy" firstAttribute="top" secondItem="4sa-Hd-YZW" secondAttribute="bottom" constant="10" id="Nb5-lu-lJK"/>
-                                        <constraint firstItem="4sa-Hd-YZW" firstAttribute="leading" secondItem="3qC-un-Ogx" secondAttribute="leading" constant="24" id="UKL-pN-M5u"/>
-                                        <constraint firstItem="eOa-Rx-YIi" firstAttribute="centerX" secondItem="3qC-un-Ogx" secondAttribute="centerX" id="WDF-D6-duB"/>
-                                        <constraint firstItem="4sa-Hd-YZW" firstAttribute="centerY" secondItem="3qC-un-Ogx" secondAttribute="centerY" multiplier="0.87" constant="84" id="fPj-At-a6e"/>
-                                        <constraint firstItem="YUM-UH-sAy" firstAttribute="centerX" secondItem="3qC-un-Ogx" secondAttribute="centerX" id="gSp-17-qVu"/>
-                                        <constraint firstAttribute="trailing" secondItem="4sa-Hd-YZW" secondAttribute="trailing" constant="24" id="hzl-IU-Vth"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YUM-UH-sAy" secondAttribute="trailing" constant="24" id="yXL-kM-dle"/>
-                                    </constraints>
-                                </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <userDefinedRuntimeAttributes>
@@ -1617,7 +1572,6 @@ Ich habe diese App im Zuge meiner eigenen Abiturvorbereitung entwickelt und hoff
         <image name="germanFlag" width="27" height="27"/>
         <image name="list" width="24" height="24"/>
         <image name="pin" width="24" height="24"/>
-        <image name="pinBig" width="125" height="125"/>
         <image name="portrait" width="50" height="50"/>
         <image name="stack1" width="27" height="27"/>
         <image name="stack2" width="27" height="27"/>

@@ -50,6 +50,7 @@
 		63E274311BDFBFAA0039D1C1 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E274301BDFBFAA0039D1C1 /* Language.swift */; };
 		63E58E0D1BD954B500C717B6 /* CollectionType+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E58E0C1BD954B500C717B6 /* CollectionType+.swift */; };
 		63E8541E1CBD1B66005B5DD9 /* RhetoricaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E8541D1CBD1B66005B5DD9 /* RhetoricaUITests.swift */; };
+		63E931F71D21C307008E860D /* NoListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E931F91D21C307008E860D /* NoListView.xib */; };
 		63EA0C1019F1A59200976A90 /* StylisticDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA0C0F19F1A59200976A90 /* StylisticDevice.swift */; };
 		63EB1F7C1BBB32A10005A996 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EB1F7B1BBB32A10005A996 /* Pin.swift */; };
 /* End PBXBuildFile section */
@@ -128,6 +129,8 @@
 		63E8541B1CBD1B66005B5DD9 /* RhetoricaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RhetoricaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63E8541D1CBD1B66005B5DD9 /* RhetoricaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhetoricaUITests.swift; sourceTree = "<group>"; };
 		63E8541F1CBD1B66005B5DD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63E931F81D21C307008E860D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NoListView.xib; sourceTree = "<group>"; };
+		63E931FB1D21C317008E860D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NoListView.strings; sourceTree = "<group>"; };
 		63EA0C0F19F1A59200976A90 /* StylisticDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StylisticDevice.swift; sourceTree = "<group>"; };
 		63EB1F7B1BBB32A10005A996 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		63FA42D31C07F3FA00E70375 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -229,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				634526D01BEEB9E30028E4E9 /* NoDeviceView.xib */,
+				63E931F91D21C307008E860D /* NoListView.xib */,
 			);
 			name = "Empty Table View";
 			path = Base.lproj;
@@ -468,6 +472,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				631521251CB9471300C192E0 /* InfoPlist.strings in Resources */,
+				63E931F71D21C307008E860D /* NoListView.xib in Resources */,
 				633FDE5A1BDFB359002DCBC6 /* Main.storyboard in Resources */,
 				63A16D771D062ABD0019D624 /* stylisticDevices_en.plist in Resources */,
 				63A16D761D062ABD0019D624 /* stylisticDevices_de.plist in Resources */,
@@ -663,6 +668,16 @@
 			name = Feedback.storyboard;
 			path = ..;
 			sourceTree = "<group>";
+		};
+		63E931F91D21C307008E860D /* NoListView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				63E931F81D21C307008E860D /* Base */,
+				63E931FB1D21C317008E860D /* en */,
+			);
+			name = NoListView.xib;
+			path = Rhetorica/Views;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXVariantGroup section */
 
