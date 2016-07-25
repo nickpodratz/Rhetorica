@@ -4,11 +4,11 @@ source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
 target 'Rhetorica' do
-
-    pod 'PKHUD'
-    pod 'FBSDKCoreKit'
-#    pod 'FBSDKLoginKit'
+    
+    pod 'PKHUD', '3.1.0'
+    pod 'FBSDKCoreKit', '4.11.0'
+    #    pod 'FBSDKLoginKit'
     #    pod 'FBSDKShareKit'
-
-
+    
+    
 end
