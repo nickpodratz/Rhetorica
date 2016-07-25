@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5AD28231B3FC6D471A754A89 /* Pods_Rhetorica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A0EACFD15FD5DD4426087EB /* Pods_Rhetorica.framework */; };
 		631521251CB9471300C192E0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 631521271CB9471300C192E0 /* InfoPlist.strings */; };
 		631E363B19F060D500CD2DEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E363A19F060D500CD2DEB /* AppDelegate.swift */; };
 		631E364219F060D500CD2DEB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 631E364119F060D500CD2DEB /* Images.xcassets */; };
@@ -53,6 +52,7 @@
 		63E931F71D21C307008E860D /* NoListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E931F91D21C307008E860D /* NoListView.xib */; };
 		63EA0C1019F1A59200976A90 /* StylisticDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA0C0F19F1A59200976A90 /* StylisticDevice.swift */; };
 		63EB1F7C1BBB32A10005A996 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EB1F7B1BBB32A10005A996 /* Pin.swift */; };
+		C17E5E238DC06090D1A321A2 /* Pods_Rhetorica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F862E3458946FD08A6997B7 /* Pods_Rhetorica.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,8 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A1E9A4814F77251BA6DC3C6 /* Pods-Rhetorica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rhetorica.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rhetorica/Pods-Rhetorica.release.xcconfig"; sourceTree = "<group>"; };
-		1A0EACFD15FD5DD4426087EB /* Pods_Rhetorica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rhetorica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		272EC8C6B08BFE94D96E9DCC /* Pods-Rhetorica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rhetorica.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rhetorica/Pods-Rhetorica.release.xcconfig"; sourceTree = "<group>"; };
 		630C60991CB5150300E9054F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		631521261CB9471300C192E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		631521281CB9471D00C192E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -134,7 +133,8 @@
 		63EA0C0F19F1A59200976A90 /* StylisticDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StylisticDevice.swift; sourceTree = "<group>"; };
 		63EB1F7B1BBB32A10005A996 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		63FA42D31C07F3FA00E70375 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		960687A9770D045DECE40364 /* Pods-Rhetorica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rhetorica.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rhetorica/Pods-Rhetorica.debug.xcconfig"; sourceTree = "<group>"; };
+		8F862E3458946FD08A6997B7 /* Pods_Rhetorica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rhetorica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE82351251FF730AB437395F /* Pods-Rhetorica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rhetorica.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rhetorica/Pods-Rhetorica.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AD28231B3FC6D471A754A89 /* Pods_Rhetorica.framework in Frameworks */,
+				C17E5E238DC06090D1A321A2 /* Pods_Rhetorica.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +163,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		196D0BB4453576FCB1E370A3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F862E3458946FD08A6997B7 /* Pods_Rhetorica.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		631E362C19F060D500CD2DEB = {
 			isa = PBXGroup;
 			children = (
@@ -171,8 +179,8 @@
 				631E364D19F060D500CD2DEB /* RhetoricaTests */,
 				63E8541C1CBD1B66005B5DD9 /* RhetoricaUITests */,
 				631E363619F060D500CD2DEB /* Products */,
-				D0D9BD9A53511BC02756673E /* Pods */,
-				8A80B948D6F0526510DC6DED /* Frameworks */,
+				E66A4442112661A044F1BBA0 /* Pods */,
+				196D0BB4453576FCB1E370A3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -345,19 +353,11 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
-		8A80B948D6F0526510DC6DED /* Frameworks */ = {
+		E66A4442112661A044F1BBA0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1A0EACFD15FD5DD4426087EB /* Pods_Rhetorica.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D0D9BD9A53511BC02756673E /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				960687A9770D045DECE40364 /* Pods-Rhetorica.debug.xcconfig */,
-				0A1E9A4814F77251BA6DC3C6 /* Pods-Rhetorica.release.xcconfig */,
+				AE82351251FF730AB437395F /* Pods-Rhetorica.debug.xcconfig */,
+				272EC8C6B08BFE94D96E9DCC /* Pods-Rhetorica.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -369,12 +369,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 631E365419F060D500CD2DEB /* Build configuration list for PBXNativeTarget "Rhetorica" */;
 			buildPhases = (
-				F28B8B6CECFC12795DF86BE7 /* 📦 Check Pods Manifest.lock */,
+				31E3297E2AE1ED5E4DBF9935 /* [CP] Check Pods Manifest.lock */,
 				631E363119F060D500CD2DEB /* Sources */,
 				631E363219F060D500CD2DEB /* Frameworks */,
 				631E363319F060D500CD2DEB /* Resources */,
-				F6E9BDBD58AE470506B8F0ED /* 📦 Embed Pods Frameworks */,
-				956B8353F5989187DD5A5883 /* 📦 Copy Pods Resources */,
+				C84B4A9186DC4F314E73C592 /* [CP] Embed Pods Frameworks */,
+				96AE6216538D44AD17A5A1C0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -501,29 +501,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		956B8353F5989187DD5A5883 /* 📦 Copy Pods Resources */ = {
+		31E3297E2AE1ED5E4DBF9935 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Rhetorica/Pods-Rhetorica-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F28B8B6CECFC12795DF86BE7 /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -531,14 +516,29 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		F6E9BDBD58AE470506B8F0ED /* 📦 Embed Pods Frameworks */ = {
+		96AE6216538D44AD17A5A1C0 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Rhetorica/Pods-Rhetorica-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C84B4A9186DC4F314E73C592 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -684,7 +684,6 @@
 /* Begin XCBuildConfiguration section */
 		631E365219F060D500CD2DEB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 960687A9770D045DECE40364 /* Pods-Rhetorica.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -732,7 +731,6 @@
 		};
 		631E365319F060D500CD2DEB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A1E9A4814F77251BA6DC3C6 /* Pods-Rhetorica.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -773,7 +771,7 @@
 		};
 		631E365519F060D500CD2DEB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 960687A9770D045DECE40364 /* Pods-Rhetorica.debug.xcconfig */;
+			baseConfigurationReference = AE82351251FF730AB437395F /* Pods-Rhetorica.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -792,7 +790,7 @@
 		};
 		631E365619F060D500CD2DEB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A1E9A4814F77251BA6DC3C6 /* Pods-Rhetorica.release.xcconfig */;
+			baseConfigurationReference = 272EC8C6B08BFE94D96E9DCC /* Pods-Rhetorica.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -812,7 +810,6 @@
 		};
 		631E365819F060D500CD2DEB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 960687A9770D045DECE40364 /* Pods-Rhetorica.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -833,7 +830,6 @@
 		};
 		631E365919F060D500CD2DEB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A1E9A4814F77251BA6DC3C6 /* Pods-Rhetorica.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -850,7 +846,6 @@
 		};
 		63E854221CBD1B66005B5DD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 960687A9770D045DECE40364 /* Pods-Rhetorica.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -866,7 +861,6 @@
 		};
 		63E854231CBD1B66005B5DD9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A1E9A4814F77251BA6DC3C6 /* Pods-Rhetorica.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
