@@ -1,3 +1,10 @@
+<div align="center" width="100%">
+  <img src="fastlane/screenshots/en-US/iPhone6-1DetailView_framed.png" width="171"/>
+  <img src="fastlane/screenshots/en-US/iPhone6-2Quiz_framed.png" width="171"/>
+  <img src="fastlane/screenshots/en-US/iPhone6-3UserStats_framed.png" width="171"/>
+  <img src="fastlane/screenshots/en-US/iPhone6-4TableView_framed.png" width="171"/>
+  <img src="fastlane/screenshots/en-US/iPhone6-5Settings_framed.png" width="171"/>
+</div>
 # Rhetorica
 
 Rhetorica is an app for the iPhone and iPad that helps you learn stylistic devices.   
