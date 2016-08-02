@@ -11,7 +11,9 @@ Rhetorica is an app for the iPhone and iPad that helps you learn stylistic devic
 It provides an index of >100 devices both in German and English as well as a quiz mode for easy learning.
 
 Latest release: v1.3    
-App Store: https://itunes.apple.com/app/rhetorica-stilmittel-einfach/id926449450?mt=8
+App Store page: 
+[English](https://itunes.apple.com/app/rhetorica-stilmittel-einfach/id926449450?mt=8) |
+[German](https://itunes.apple.com/de/app/binarify/id912928467?mt=8)
 
 ## What you need
 - Computer running macOS
@@ -27,6 +29,6 @@ App Store: https://itunes.apple.com/app/rhetorica-stilmittel-einfach/id926449450
 5. Open the `Rhetorica.xcworkspace` file and mess around (don't touch the `Rhetorica.xcodeproj`, please!)
 
 ## Deployment
-Rhetorica is deployed via the Fastlane tool (https://github.com/fastlane/fastlane).    
+Rhetorica is deployed via the [fastlane](https://github.com/fastlane/fastlane) tool.    
 First navigate into the Rhetorica directory using `cd <path>`, then execute `fastlane appstore`.    
 This command builds the app, signs it and uploads the binary to the App Store for review.
