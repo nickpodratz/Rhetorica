@@ -237,19 +237,14 @@ class AboutViewController: UITableViewController, SKStoreProductViewControllerDe
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("OtherAppsCell", forIndexPath: indexPath) as! OtherAppsCell
         let entry = otherApps![indexPath.row] as (icon: UIImage, title: String, trackId: Int)
-        cell.imageView.image = entry.icon
+        cell.delegate = self
+        cell.button.setBackgroundImage(entry.icon, forState: .Normal)
         cell.label.text = entry.title
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return otherApps?.count ?? 0
-    }
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        guard let otherApps = otherApps else { return }
-        FacebookLogger.detailsDidShowUpForApp(otherApps[indexPath.row].title)
-        openAppStorePagewithIdentifier(otherApps[indexPath.row].trackId)
     }
     
     
@@ -269,6 +264,15 @@ class AboutViewController: UITableViewController, SKStoreProductViewControllerDe
     
 }
 
+// MARK: - Other Apps Cell Delegate
+extension AboutViewController: OtherAppsCellDelegate {
+    func otherAppsCell(pressedButton button: UIButton, inCell cell: UICollectionViewCell) {
+        guard let indexPath = otherAppsCollectionView.indexPathForCell(cell) else { return }
+        guard let otherApps = otherApps else { return }
+        FacebookLogger.detailsDidShowUpForApp(otherApps[indexPath.row].title)
+        openAppStorePagewithIdentifier(otherApps[indexPath.row].trackId)
+    }
+}
 
 // MARK: - Mail Compose View Controller Delegate
 extension AboutViewController: MFMailComposeViewControllerDelegate {
