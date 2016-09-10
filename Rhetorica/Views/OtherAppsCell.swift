@@ -8,15 +8,26 @@
 
 import UIKit
 
+protocol OtherAppsCellDelegate: class {
+    func otherAppsCell(pressedButton button: UIButton, inCell cell: UICollectionViewCell)
+}
+
 class OtherAppsCell: UICollectionViewCell {
 
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var button: UIButton!
     @IBOutlet weak var label: UILabel!
+    weak var delegate: OtherAppsCellDelegate?
     
     override func awakeFromNib() {
-        imageView.layer.borderWidth = 0.2
-        imageView.layer.borderColor = UIColor.darkGrayColor().CGColor
-        imageView.layer.cornerRadius = imageView.bounds.width * 0.225
-        imageView.layer.masksToBounds = true
+        button.addTarget(self, action: #selector(pressedButton), forControlEvents: .TouchUpInside)
+        button.layer.borderWidth = 0.2
+        button.layer.borderColor = UIColor.darkGrayColor().CGColor
+        button.layer.cornerRadius = button.bounds.width * 0.225
+        button.layer.masksToBounds = true
+    }
+    
+    func pressedButton() {
+        delegate?.otherAppsCell(pressedButton: button, inCell: self)
+        print("pressed")
     }
 }

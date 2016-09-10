@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Dpx-9T-lJ5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Dpx-9T-lJ5">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
     </dependencies>
@@ -829,14 +830,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Lernliste" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FcF-Fk-hHG">
-                                                    <rect key="frame" x="54" y="0.0" width="531" height="43.5"/>
+                                                    <rect key="frame" x="57" y="0.0" width="528" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="pin" id="Ahk-Bz-qcN">
-                                                    <rect key="frame" x="15" y="9" width="24" height="24"/>
+                                                    <rect key="frame" x="15" y="8" width="27" height="27"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
@@ -1441,26 +1442,26 @@ Ich habe diese App im Zuge meiner eigenen Abiturvorbereitung entwickelt und hoff
                                                                             <rect key="frame" x="0.0" y="63" width="66" height="12"/>
                                                                         </variation>
                                                                     </label>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="abn-Fj-ogE">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydL-8E-zMK">
                                                                         <rect key="frame" x="3" y="0.0" width="60" height="60"/>
-                                                                        <variation key="widthClass=compact" misplaced="YES">
-                                                                            <rect key="frame" x="3" y="-1" width="60" height="60"/>
-                                                                        </variation>
-                                                                    </imageView>
+                                                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="ydL-8E-zMK" secondAttribute="height" multiplier="1:1" id="w0S-3a-tbn"/>
+                                                                        </constraints>
+                                                                    </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             </view>
                                                             <constraints>
-                                                                <constraint firstItem="abn-Fj-ogE" firstAttribute="top" secondItem="dxc-3j-3lA" secondAttribute="top" id="1Oe-Ms-pC4"/>
-                                                                <constraint firstItem="abn-Fj-ogE" firstAttribute="leading" secondItem="dxc-3j-3lA" secondAttribute="leadingMargin" constant="-5" id="4f4-SB-jAh"/>
-                                                                <constraint firstItem="mI3-Qo-UmM" firstAttribute="centerX" secondItem="abn-Fj-ogE" secondAttribute="centerX" id="98V-rD-057"/>
-                                                                <constraint firstItem="mI3-Qo-UmM" firstAttribute="top" secondItem="abn-Fj-ogE" secondAttribute="bottom" constant="4" id="YVT-YV-8MA"/>
+                                                                <constraint firstItem="ydL-8E-zMK" firstAttribute="centerX" secondItem="dxc-3j-3lA" secondAttribute="centerX" id="9Q1-xP-lhl"/>
                                                                 <constraint firstItem="mI3-Qo-UmM" firstAttribute="leading" secondItem="dxc-3j-3lA" secondAttribute="leading" id="dAi-XD-TVJ"/>
+                                                                <constraint firstItem="ydL-8E-zMK" firstAttribute="top" secondItem="dxc-3j-3lA" secondAttribute="top" id="fJV-cM-vo3"/>
+                                                                <constraint firstItem="mI3-Qo-UmM" firstAttribute="top" secondItem="ydL-8E-zMK" secondAttribute="bottom" constant="4" id="gUe-i4-7HB"/>
                                                                 <constraint firstAttribute="bottom" secondItem="mI3-Qo-UmM" secondAttribute="bottom" id="kVh-UY-qck"/>
                                                                 <constraint firstAttribute="trailing" secondItem="mI3-Qo-UmM" secondAttribute="trailing" id="rmF-W9-b6l"/>
                                                             </constraints>
                                                             <connections>
-                                                                <outlet property="imageView" destination="abn-Fj-ogE" id="ejk-N4-xTl"/>
+                                                                <outlet property="button" destination="ydL-8E-zMK" id="DER-qL-Zga"/>
                                                                 <outlet property="label" destination="mI3-Qo-UmM" id="o05-rf-yfT"/>
                                                             </connections>
                                                         </collectionViewCell>
@@ -1571,7 +1572,7 @@ Ich habe diese App im Zuge meiner eigenen Abiturvorbereitung entwickelt und hoff
         <image name="englandFlag" width="27" height="27"/>
         <image name="germanFlag" width="27" height="27"/>
         <image name="list" width="24" height="24"/>
-        <image name="pin" width="24" height="24"/>
+        <image name="pin" width="27" height="27"/>
         <image name="portrait" width="50" height="50"/>
         <image name="stack1" width="27" height="27"/>
         <image name="stack2" width="27" height="27"/>
