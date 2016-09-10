@@ -28,6 +28,5 @@ class OtherAppsCell: UICollectionViewCell {
     
     func pressedButton() {
         delegate?.otherAppsCell(pressedButton: button, inCell: self)
-        print("pressed")
     }
 }
