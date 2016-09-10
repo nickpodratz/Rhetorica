@@ -195,10 +195,10 @@ class AboutViewController: UITableViewController, SKStoreProductViewControllerDe
                 }
                 tableView.deselectAllRows()
             }))
-            let showFacebookPageLocalized = NSLocalizedString("VISIT_FACEBOOK_PAGE", comment: "")
-            alertController.addAction(UIAlertAction(title: showFacebookPageLocalized, style: UIAlertActionStyle.Default, handler: { action in
-                FacebookLogger.facebookPageDidOpenFromAboutPage()
-                if let url = NSURL(string: "fb://profile/1515153398777652/") {
+            let showTwitterPageLocalized = NSLocalizedString("VISIT_TWITTER_PAGE", comment: "")
+            alertController.addAction(UIAlertAction(title: showTwitterPageLocalized, style: UIAlertActionStyle.Default, handler: { action in
+                FacebookLogger.twitterPageDidOpenFromAboutPage()
+                if let url = NSURL(string: "https://twitter.com/nickpodratz") {
                     UIApplication.sharedApplication().openURL(url)
                 }
                 tableView.deselectAllRows()

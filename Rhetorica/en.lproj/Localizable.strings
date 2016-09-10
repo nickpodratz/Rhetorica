@@ -29,7 +29,7 @@
 "majCountryCode" = "US";
 "minCountryCode" = "us";
 VISIT_MY_WEBSITE = "Visit my website";
-VISIT_FACEBOOK_PAGE = "Show Facebook page";
+VISIT_TWITTER_PAGE = "Show Twitter profile";
 "falsche_antworten" = "Wrong answers";
 shortcutTitleFavorites = "Show learning list";
 remove_from_favorites = "Remove from learning list";
