@@ -1442,7 +1442,7 @@ Ich habe diese App im Zuge meiner eigenen Abiturvorbereitung entwickelt und hoff
                                                                             <rect key="frame" x="0.0" y="63" width="66" height="12"/>
                                                                         </variation>
                                                                     </label>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydL-8E-zMK">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydL-8E-zMK">
                                                                         <rect key="frame" x="3" y="0.0" width="60" height="60"/>
                                                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                                         <constraints>
