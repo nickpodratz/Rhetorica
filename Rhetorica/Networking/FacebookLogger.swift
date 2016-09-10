@@ -68,12 +68,12 @@ class FacebookLogger {
         }
     }
     
-    static func facebookPageDidOpenFromAboutPage() {
+    static func twitterPageDidOpenFromAboutPage() {
         if !isUITestMode {
-            FBSDKAppEvents.logEvent("About Page: FB Page Visits")
+            FBSDKAppEvents.logEvent("About Page: Twitter Page Visits")
         }
     }
-    
+
     
     
     
