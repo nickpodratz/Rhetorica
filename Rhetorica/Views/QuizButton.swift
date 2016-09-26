@@ -26,8 +26,8 @@ class QuizButton: RoundedButton {
     
     // MARK: Animations
     
-    func animateTouched(completionHandler: (() -> ())? = nil) {
-        UIView.animateWithDuration(0.05, delay: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+    func animateTouched(_ completionHandler: (() -> ())? = nil) {
+        UIView.animate(withDuration: 0.05, delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: {
             self.backgroundColor = self.colorSelected
             }, completion: { _ in
                 completionHandler?()
@@ -35,16 +35,16 @@ class QuizButton: RoundedButton {
         
     }
     
-    func animateUntouched(completionHandler: (() -> ())? = nil) {
-        UIView.animateWithDuration(0.35, delay: 0.22, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+    func animateUntouched(_ completionHandler: (() -> ())? = nil) {
+        UIView.animate(withDuration: 0.35, delay: 0.22, options: UIViewAnimationOptions.curveEaseOut, animations: {
             self.backgroundColor = self.color
             },completion: { _ in
         })
         
     }
     
-    func animateToNormal(completionHandler: (() -> ())? = nil) {
-        UIView.animateWithDuration(0.8, delay: 0.9, options: UIViewAnimationOptions.CurveEaseOut,
+    func animateToNormal(_ completionHandler: (() -> ())? = nil) {
+        UIView.animate(withDuration: 0.8, delay: 0.9, options: UIViewAnimationOptions.curveEaseOut,
             animations: {
                 self.backgroundColor = self.color
             },
@@ -54,8 +54,8 @@ class QuizButton: RoundedButton {
         )
     }
     
-    func animateIsCorrect(completionHandler: (() -> ())? = nil) {
-        UIView.animateWithDuration(0.16, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut,
+    func animateIsCorrect(_ completionHandler: (() -> ())? = nil) {
+        UIView.animate(withDuration: 0.16, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut,
             animations: {
                 self.backgroundColor = self.colorCorrect
             },
@@ -65,8 +65,8 @@ class QuizButton: RoundedButton {
         )
     }
     
-    func animateIsFalse(completionHandler: (() -> ())? = nil) {
-        UIView.animateWithDuration(0.16, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn,
+    func animateIsFalse(_ completionHandler: (() -> ())? = nil) {
+        UIView.animate(withDuration: 0.16, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn,
             animations: {
                 self.backgroundColor = self.colorFalse
                 AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))

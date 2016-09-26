@@ -34,42 +34,42 @@ class WikipediaViewController: UIViewController, UIWebViewDelegate {
         
         // Setup activityIndicator
         activityIndicator.hidesWhenStopped = true
-        noConnectionLabel.hidden = true
+        noConnectionLabel.isHidden = true
 
         // Start request
         if urlString != nil { // Add this here?: [unowned self] in
-            let url = NSURL(string: urlString!)
-            let request = NSURLRequest(URL:url!)
+            let url = URL(string: urlString!)
+            let request = URLRequest(url:url!)
             webView.loadRequest(request)
         }
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
     // MARK: - WebView Delegate
     
-    func webViewDidStartLoad(webView: UIWebView) {
-        webView.hidden = true
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        webView.isHidden = true
         activityIndicator.startAnimating()
-        noConnectionLabel.hidden = true
-        navigationItem.rightBarButtonItem?.enabled = false
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        noConnectionLabel.isHidden = true
+        navigationItem.rightBarButtonItem?.isEnabled = false
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
     
-    func webViewDidFinishLoad(webView: UIWebView) {
-        webView.hidden = false
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        webView.isHidden = false
         activityIndicator.stopAnimating()
-        navigationItem.rightBarButtonItem?.enabled = true
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        navigationItem.rightBarButtonItem?.isEnabled = true
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
-        webView.hidden = true
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        webView.isHidden = true
         activityIndicator.stopAnimating()
-        noConnectionLabel.hidden = false
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        noConnectionLabel.isHidden = false
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 }

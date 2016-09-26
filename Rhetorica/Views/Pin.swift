@@ -37,7 +37,7 @@ class PinView: UIVisualEffectView {
         layoutPin()
     }
     
-    private func layoutPin() {
+    fileprivate func layoutPin() {
         pinLayer = PinLayer()
         pinLayer.frame = CGRect(
             x: self.bounds.width/4,
@@ -63,26 +63,26 @@ class PinPath: UIBezierPath {
         super.init(coder: aDecoder)
     }
     
-    private func drawPinInRect(rect: CGRect) {
+    fileprivate func drawPinInRect(_ rect: CGRect) {
         let width = rect.size.width
         let height = rect.size.height
         
         //// pin Drawing
-        moveToPoint(CGPointMake(width * (11.33/24), height * (8.14/24)))
-        addCurveToPoint(CGPointMake(width * (4.74/24), height * (9.73/24)), controlPoint1: CGPointMake(width * (6.56/24), height * (7.23/24)), controlPoint2: CGPointMake(width * (4.74/24), height * (9.73/24)))
-        addLineToPoint(CGPointMake(width * (14.29/24), height * (19.29/24)))
-        addCurveToPoint(CGPointMake(width * (15.88/24), height * (12.46/24)), controlPoint1: CGPointMake(width * (14.29/24), height * (19.29/24)), controlPoint2: CGPointMake(width * (16.79/24), height * (17.24/24)))
-        addCurveToPoint(CGPointMake(width * (22.03/24), height * (8.14/24)), controlPoint1: CGPointMake(width * (20.89/24), height * (8.94/24)), controlPoint2: CGPointMake(width * (22.03/24), height * (8.14/24)))
-        addLineToPoint(CGPointMake(width * (15.88/24), height * (2/24)))
-        addCurveToPoint(CGPointMake(width * (11.33/24), height * (8.14/24)), controlPoint1: CGPointMake(width * (15.88/24), height * (2/24)), controlPoint2: CGPointMake(width * (14.52/24), height * (3.48/24)))
-        closePath()
-        lineJoinStyle = .Round
+        move(to: CGPoint(x: width * (11.33/24), y: height * (8.14/24)))
+        addCurve(to: CGPoint(x: width * (4.74/24), y: height * (9.73/24)), controlPoint1: CGPoint(x: width * (6.56/24), y: height * (7.23/24)), controlPoint2: CGPoint(x: width * (4.74/24), y: height * (9.73/24)))
+        addLine(to: CGPoint(x: width * (14.29/24), y: height * (19.29/24)))
+        addCurve(to: CGPoint(x: width * (15.88/24), y: height * (12.46/24)), controlPoint1: CGPoint(x: width * (14.29/24), y: height * (19.29/24)), controlPoint2: CGPoint(x: width * (16.79/24), y: height * (17.24/24)))
+        addCurve(to: CGPoint(x: width * (22.03/24), y: height * (8.14/24)), controlPoint1: CGPoint(x: width * (20.89/24), y: height * (8.94/24)), controlPoint2: CGPoint(x: width * (22.03/24), y: height * (8.14/24)))
+        addLine(to: CGPoint(x: width * (15.88/24), y: height * (2/24)))
+        addCurve(to: CGPoint(x: width * (11.33/24), y: height * (8.14/24)), controlPoint1: CGPoint(x: width * (15.88/24), y: height * (2/24)), controlPoint2: CGPoint(x: width * (14.52/24), y: height * (3.48/24)))
+        close()
+        lineJoinStyle = .round
         
         //// needle Drawing
-        moveToPoint(CGPointMake(width * (2.01/24), height * (22.02/24)))
-        addCurveToPoint(CGPointMake(width * (8.19/24), height * (13.82/24)), controlPoint1: CGPointMake(width * (1.78/24), height * (21.8/24)), controlPoint2: CGPointMake(width * (8.19/24), height * (13.82/24)))
-        addLineToPoint(CGPointMake(width * (10.18/24), height * (15.81/24)))
-        addCurveToPoint(CGPointMake(width * (2.01/24), height * (22.02/24)), controlPoint1: CGPointMake(width * (10.18/24), height * (15.81/24)), controlPoint2: CGPointMake(width * (2.23/24), height * (22.24/24)))
+        move(to: CGPoint(x: width * (2.01/24), y: height * (22.02/24)))
+        addCurve(to: CGPoint(x: width * (8.19/24), y: height * (13.82/24)), controlPoint1: CGPoint(x: width * (1.78/24), y: height * (21.8/24)), controlPoint2: CGPoint(x: width * (8.19/24), y: height * (13.82/24)))
+        addLine(to: CGPoint(x: width * (10.18/24), y: height * (15.81/24)))
+        addCurve(to: CGPoint(x: width * (2.01/24), y: height * (22.02/24)), controlPoint1: CGPoint(x: width * (10.18/24), y: height * (15.81/24)), controlPoint2: CGPoint(x: width * (2.23/24), y: height * (22.24/24)))
     }
 }
 
@@ -98,21 +98,21 @@ class PinCrossPath: UIBezierPath {
         super.init(coder: aDecoder)
     }
     
-    private func drawPinCrossInRect(rect: CGRect) {
+    fileprivate func drawPinCrossInRect(_ rect: CGRect) {
         let width = rect.size.width
         let height = rect.size.height
         
         //// crossStroke Drawing
-        moveToPoint(CGPointMake(width * (2.01/24), height * (2.01/24)))
-        addLineToPoint(CGPointMake(width * (22.02/24), height * (22.02/24)))
+        move(to: CGPoint(x: width * (2.01/24), y: height * (2.01/24)))
+        addLine(to: CGPoint(x: width * (22.02/24), y: height * (22.02/24)))
     }
 }
 
 class PinLayer: CAShapeLayer {
     
-    var color: UIColor = UIColor.blackColor() {
+    var color: UIColor = UIColor.black {
         didSet {
-            strokeColor = color.CGColor
+            strokeColor = color.cgColor
         }
     }
     
@@ -130,9 +130,9 @@ class PinLayer: CAShapeLayer {
         }
     }
     
-    private func setupLayer() {
-        path = PinPath(rect: bounds).CGPath
-        strokeColor = color.CGColor
+    fileprivate func setupLayer() {
+        path = PinPath(rect: bounds).cgPath
+        strokeColor = color.cgColor
         fillColor = nil
         lineWidth = 2
         lineJoin = kCALineJoinRound
@@ -145,25 +145,25 @@ class PinLayer: CAShapeLayer {
 
         let animation1 = CABasicAnimation(keyPath: "position")
         animation1.duration = 0
-        animation1.fromValue = self.valueForKey("position")
-        animation1.toValue = NSValue(CGPoint: fromPoint)
+        animation1.fromValue = self.value(forKey: "position")
+        animation1.toValue = NSValue(cgPoint: fromPoint)
         self.position = fromPoint
-        self.addAnimation(animation1, forKey: "position")
+        self.add(animation1, forKey: "position")
         
         let animation2 = CABasicAnimation(keyPath: "position")
         animation2.duration = 0.4
-        animation2.fromValue = self.valueForKey("position")
-        animation2.toValue = NSValue(CGPoint: toPoint)
+        animation2.fromValue = self.value(forKey: "position")
+        animation2.toValue = NSValue(cgPoint: toPoint)
         self.position = toPoint
-        self.addAnimation(animation2, forKey: "position")
+        self.add(animation2, forKey: "position")
     }
 }
 
 class PinCrossLayer: CAShapeLayer {
         
-    var color: UIColor = UIColor.blackColor() {
+    var color: UIColor = UIColor.black {
         didSet {
-            strokeColor = color.CGColor
+            strokeColor = color.cgColor
         }
     }
     
@@ -181,16 +181,16 @@ class PinCrossLayer: CAShapeLayer {
         }
     }
     
-    private func setupLayer() {
+    fileprivate func setupLayer() {
 //        backgroundColor = UIColor.blackColor().CGColor
         
         let pinCrossPath = PinCrossPath(rect: bounds)
 //        outerPath.usesEvenOddFillRule = true
 //        outerPath.appendPath(pinCrossPath.bezierPathByReversingPath())
-        path = pinCrossPath.CGPath
+        path = pinCrossPath.cgPath
         lineJoin = kCALineJoinRound
         lineCap = kCALineCapRound
-        strokeColor = color.CGColor
+        strokeColor = color.cgColor
         lineWidth = 3
         fillRule = kCAFillRuleEvenOdd
     }
@@ -200,7 +200,7 @@ class PinCrossLayer: CAShapeLayer {
         pathAnimation.duration = 0.3
         pathAnimation.fromValue = 0
         pathAnimation.toValue = 1
-        self.addAnimation(pathAnimation, forKey: "strokeEnd")
+        self.add(pathAnimation, forKey: "strokeEnd")
     }
     
 }

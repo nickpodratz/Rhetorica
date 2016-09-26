@@ -16,19 +16,19 @@ class FeedbackPositiveViewController: UIViewController {
         FacebookLogger.feedbackDidReceiveUserResponse(true)
     }
     
-    @IBAction func pressedOpenAppStore(sender: UIButton) {
+    @IBAction func pressedOpenAppStore(_ sender: UIButton) {
         openInAppStore()
         FacebookLogger.appStoreDidOpenFromFeedback()
-        NSTimer.scheduledTimerWithTimeInterval(0.35, target: self, selector: #selector(FeedbackPositiveViewController.toThankYouViewController), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 0.35, target: self, selector: #selector(FeedbackPositiveViewController.toThankYouViewController), userInfo: nil, repeats: false)
     }
     
     func toThankYouViewController() {
-        performSegueWithIdentifier("toThankYouViewController", sender: self)
+        performSegue(withIdentifier: "toThankYouViewController", sender: self)
     }
     
-    private func openInAppStore() {
-        if let iOSAppStoreURL = NSURL(string: "itms-apps://itunes.apple.com/de/app/id\(appId)") {
-            UIApplication.sharedApplication().openURL(iOSAppStoreURL)
+    fileprivate func openInAppStore() {
+        if let iOSAppStoreURL = URL(string: "itms-apps://itunes.apple.com/de/app/id\(appId)") {
+            UIApplication.shared.openURL(iOSAppStoreURL)
             FacebookLogger.likeFBPagePressedFromFeedback()
         }
     }

@@ -18,49 +18,49 @@ class QuizWrongAnswersViewController: UITableViewController, PinnableDeviceCellD
     var favorites: DeviceList!
     var selectedCell: PinnableDeviceCell?
     
-    @IBAction func addAllDevicesPressed(sender: AnyObject) {
-        for (index, question) in wrongAnsweredQuestions.enumerate() {
-            let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as! PinnableDeviceCell
+    @IBAction func addAllDevicesPressed(_ sender: AnyObject) {
+        for (index, question) in wrongAnsweredQuestions.enumerated() {
+            let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as! PinnableDeviceCell
             cell.isFavorite = true
             if !favorites.elements.contains(question.correctAnswer) {
                 favorites.elements.append(question.correctAnswer)
             }
-            self.navigationItem.rightBarButtonItem?.enabled = false
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else { return }
         switch identifier {
         case "toDetails":
-            let destinationController = segue.destinationViewController as! DetailViewController
+            let destinationController = segue.destination as! DetailViewController
             destinationController.delegate = self
             if let indexPaths = tableView.indexPathsForSelectedRows {
                 print("to details")
                 destinationController.favorites = self.favorites
-                let device = wrongAnsweredQuestions[indexPaths.first!.row].correctAnswer
+                let device = wrongAnsweredQuestions[(indexPaths.first! as NSIndexPath).row].correctAnswer
                 destinationController.device = device
             }
         default: ()
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         setAddAllEnabled()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         self.selectedCell = nil
         setAddAllEnabled()
     }
         
-    private func setAddAllEnabled() {
-        self.navigationItem.rightBarButtonItem?.enabled = false
+    fileprivate func setAddAllEnabled() {
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
 
         let devices = wrongAnsweredQuestions.map{$0.correctAnswer}
         for device in devices {
             if !favorites.elements.contains(device) {
-                self.navigationItem.rightBarButtonItem?.enabled = true
+                self.navigationItem.rightBarButtonItem?.isEnabled = true
             }
         }
     }
@@ -68,29 +68,29 @@ class QuizWrongAnswersViewController: UITableViewController, PinnableDeviceCellD
     
     // MARK: Table View
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return wrongAnsweredQuestions.count ?? 0
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return wrongAnsweredQuestions.count
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PinnableDeviceCell", forIndexPath: indexPath) as! PinnableDeviceCell
-        cell.device = wrongAnsweredQuestions[indexPath.row].correctAnswer
-        cell.tag = indexPath.row
-        cell.isFavorite = favorites.elements.contains(wrongAnsweredQuestions[indexPath.row].correctAnswer)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PinnableDeviceCell", for: indexPath) as! PinnableDeviceCell
+        cell.device = wrongAnsweredQuestions[(indexPath as NSIndexPath).row].correctAnswer
+        cell.tag = (indexPath as NSIndexPath).row
+        cell.isFavorite = favorites.elements.contains(wrongAnsweredQuestions[(indexPath as NSIndexPath).row].correctAnswer)
         cell.delegate = self
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        selectedCell = tableView.cellForRowAtIndexPath(indexPath) as! PinnableDeviceCell?
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        selectedCell = tableView.cellForRow(at: indexPath) as! PinnableDeviceCell?
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return NSLocalizedString("falsche_antworten", comment: "")
     }
     
@@ -103,16 +103,17 @@ class QuizWrongAnswersViewController: UITableViewController, PinnableDeviceCellD
     func pinnableDeviceCellDelegate(didPressPinButtonOfCellWithTag tag: Int) -> Bool {
         let device = wrongAnsweredQuestions[tag].correctAnswer
         
-        if let index = favorites.indexOf(device) {
-            // Removed from favorites
-            favorites.elements.removeAtIndex(index)
-            setAddAllEnabled()
-            return false
-        } else {
+        let index = favorites.index(ofAccessibilityElement: device)
+        if index == NSNotFound {
             // Added to favorites
             favorites.elements.append(device)
             setAddAllEnabled()
             return true
+        } else {
+            // Removed from favorites
+            favorites.elements.remove(at: index)
+            setAddAllEnabled()
+            return false
         }
     }
 }

@@ -18,19 +18,19 @@ class DeviceList: NSObject {
             if enoughForCategories {
                 presentLetters = Language.latinAlphabet.filter{self.sortedList[$0] != nil}
             }
-            let backgroundQueue = dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)
+            let backgroundQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
             if self.editable {
-                dispatch_async(backgroundQueue) {
+                backgroundQueue.async {
                     // Save Elementlist under title
                     let listOfFavouriteStrings = newValue.map{$0.title}
-                    NSUserDefaults.standardUserDefaults().setValue(listOfFavouriteStrings, forKey: "\(self.language.identifier)_favorites"
+                    UserDefaults.standard.setValue(listOfFavouriteStrings, forKey: "\(self.language.identifier)_favorites"
                     )
-                    NSUserDefaults.standardUserDefaults().synchronize()
+                    UserDefaults.standard.synchronize()
                 }
             }
         }
         didSet {
-            elements.sortInPlace(<)
+            elements.sort(by: <)
             if oldValue.count < elements.count {
                 // Device was added
                 let devices = elements.filter{!oldValue.contains($0)}
@@ -67,21 +67,21 @@ class DeviceList: NSObject {
         self.language = language
         self.title = title
         self.editable = editable
-        self.elements = elements.sort()
+        self.elements = elements.sorted()
     }
 }
 
 
 // MARK: DeviceList: Sequence Type
 
-extension DeviceList: SequenceType {
-    typealias Generator = AnyGenerator<StylisticDevice>
+extension DeviceList: Sequence {
+    typealias Iterator = AnyIterator<StylisticDevice>
     
-    func generate() -> Generator {
+    func makeIterator() -> Iterator {
         let index = 0
-        return AnyGenerator {
-            if index.successor() < self.elements.count {
-                return self.elements[index.successor()]
+        return AnyIterator {
+            if (index + 1) < self.elements.count {
+                return self.elements[(index + 1)]
             }
             return nil
         }
@@ -91,7 +91,16 @@ extension DeviceList: SequenceType {
 
 // MARK: DeviceList: Collection Type
 
-extension DeviceList: CollectionType {
+extension DeviceList: Collection {
+    /// Returns the position immediately after the given index.
+    ///
+    /// - Parameter i: A valid index of the collection. `i` must be less than
+    ///   `endIndex`.
+    /// - Returns: The index value immediately after `i`.
+    public func index(after i: Int) -> Int {
+        return i + 1
+    }
+
     typealias Index = Int
     
     var startIndex: Int {
@@ -112,7 +121,7 @@ extension DeviceList: CollectionType {
 
 extension DeviceList {
     override var description: String {
-        let elementString = elements.map{$0.title}.joinWithSeparator(", ")
+        let elementString = elements.map{$0.title}.joined(separator: ", ")
         return "\(self.title): " + elementString
     }
 }
@@ -141,7 +150,7 @@ func ~=(pattern: DeviceList, x: DeviceList) -> Bool {
 
 extension DeviceList {
         
-    static func getAllDeviceLists(allDevices: [StylisticDevice], forLanguage language: Language) -> [DeviceList] {
+    static func getAllDeviceLists(_ allDevices: [StylisticDevice], forLanguage language: Language) -> [DeviceList] {
         let favoritesKey = "\(language.identifier)_favorites"
         
         /// A mutable collection of the user's favored Stylistic Devices.
@@ -151,7 +160,7 @@ extension DeviceList {
             editable: true,
             elements: {
                 // Load Favourites
-                if let loadedFavourites = NSUserDefaults.standardUserDefaults().valueForKey(favoritesKey) as? [String] {
+                if let loadedFavourites = UserDefaults.standard.value(forKey: favoritesKey) as? [String] {
                     return allDevices.filter{ element in
                         loadedFavourites.contains(element.title)
                     }
@@ -189,16 +198,16 @@ extension DeviceList {
     // NSLocalizedString("gewählte_liste", comment: "")
     
     /// The key under which the title of the selected list is saved.
-    private static var selectedListTitleKey = "selected_list_title"
+    fileprivate static var selectedListTitleKey = "selected_list_title"
     
     /// - Returns: The title of the selected list if it was set or nil.
     static func getSelectedListTitle() -> String? {
-        return NSUserDefaults.standardUserDefaults().stringForKey(selectedListTitleKey)
+        return UserDefaults.standard.string(forKey: selectedListTitleKey)
     }
     
     /// Saves the title of the selected List to the user defaults for later retrieval.
-    static func setSelectedListTitle(title: String) {
-        let defaults = NSUserDefaults.standardUserDefaults()
+    static func setSelectedListTitle(_ title: String) {
+        let defaults = UserDefaults.standard
         
         defaults.setValue(title, forKey: selectedListTitleKey)
         defaults.synchronize()

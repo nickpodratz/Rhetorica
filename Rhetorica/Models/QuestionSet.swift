@@ -14,7 +14,7 @@ class QuestionSet: NSObject {
     
     let numberOfQuestions: Int
     let questions: [Question]
-    private var questionIndex = -1
+    fileprivate var questionIndex = -1
     var currentQuestion: Question? {
         if questionIndex >= questions.count {
             return nil
@@ -46,7 +46,7 @@ class QuestionSet: NSObject {
         return currentQuestion
     }
     
-    private static func generateQuestions(fromDeviceList deviceList: DeviceList, numberOfQuestions: Int) -> [Question] {
+    fileprivate static func generateQuestions(fromDeviceList deviceList: DeviceList, numberOfQuestions: Int) -> [Question] {
         var generatedQuestions = [Question]()
         for _ in 0 ..< numberOfQuestions {
             var newQuestion = Question(fromDeviceList: deviceList)

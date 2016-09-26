@@ -19,9 +19,9 @@ class OtherAppsCell: UICollectionViewCell {
     weak var delegate: OtherAppsCellDelegate?
     
     override func awakeFromNib() {
-        button.addTarget(self, action: #selector(pressedButton), forControlEvents: .TouchUpInside)
+        button.addTarget(self, action: #selector(pressedButton), for: .touchUpInside)
         button.layer.borderWidth = 0.2
-        button.layer.borderColor = UIColor.darkGrayColor().CGColor
+        button.layer.borderColor = UIColor.darkGray.cgColor
         button.layer.cornerRadius = button.bounds.width * 0.225
         button.layer.masksToBounds = true
     }

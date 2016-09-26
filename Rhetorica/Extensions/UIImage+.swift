@@ -11,23 +11,23 @@ import UIKit
 extension UIImage {
     
     convenience init?(color: UIColor) {
-        self.init(color: color, size: CGSizeMake(1, 1))
+        self.init(color: color, size: CGSize(width: 1, height: 1))
     }
     
     convenience init?(color: UIColor, size: CGSize) {
-        let rect = CGRect(origin: CGPointZero, size: size)
+        let rect = CGRect(origin: CGPoint.zero, size: size)
         
         UIGraphicsBeginImageContext(size);
         //        let path = UIBezierPath(rect: rect)
         
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetFillColorWithColor(context, color.CGColor)
-        CGContextFillRect(context, rect)
+        context!.setFillColor(color.cgColor)
+        context!.fill(rect)
         
         let image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         
-        self.init(CGImage: image.CGImage!)
+        self.init(cgImage: image!.cgImage!)
     }
     
     static func transparentWhiteImage() -> UIImage? {
@@ -40,12 +40,12 @@ extension UIImage {
     
     func averageColor() -> UIColor {
         
-        let rgba = UnsafeMutablePointer<CUnsignedChar>.alloc(4)
-        let colorSpace: CGColorSpaceRef = CGColorSpaceCreateDeviceRGB()!
-        let info = CGBitmapInfo(rawValue: CGImageAlphaInfo.PremultipliedLast.rawValue)
-        let context: CGContextRef = CGBitmapContextCreate(rgba, 1, 1, 8, 4, colorSpace, info.rawValue)!
+        let rgba = UnsafeMutablePointer<CUnsignedChar>.allocate(capacity: 4)
+        let colorSpace: CGColorSpace = CGColorSpaceCreateDeviceRGB()
+        let info = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
+        let context: CGContext = CGContext(data: rgba, width: 1, height: 1, bitsPerComponent: 8, bytesPerRow: 4, space: colorSpace, bitmapInfo: info.rawValue)!
         
-        CGContextDrawImage(context, CGRectMake(0, 0, 1, 1), self.CGImage)
+        context.draw(self.cgImage!, in: CGRect(x: 0, y: 0, width: 1, height: 1))
         
         if rgba[3] > 0 {
             
@@ -60,7 +60,7 @@ extension UIImage {
         }
     }
     
-    func getScaleToFillSize(sizeConst: CGFloat) -> CGSize {
+    func getScaleToFillSize(_ sizeConst: CGFloat) -> CGSize {
         var newSize: CGSize!
         if self.size.width > self.size.height {
             newSize = CGSize(
@@ -76,17 +76,17 @@ extension UIImage {
         return newSize
     }
     
-    typealias resizedImage = (resizedImage:UIImage)->()
-    public func resize(size:CGSize, completionHandler: (resizedImage: UIImage) -> Void) {
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), { () -> Void in
+    typealias resizedImage = (_ resizedImage:UIImage)->()
+    public func resize(_ size:CGSize, completionHandler: @escaping (_ resizedImage: UIImage) -> Void) {
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async(execute: { () -> Void in
             let newSize:CGSize = size
-            let rect = CGRectMake(0, 0, newSize.width, newSize.height)
+            let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
             UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-            self.drawInRect(rect)
+            self.draw(in: rect)
             let newImage = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                completionHandler(resizedImage: newImage)
+            DispatchQueue.main.async(execute: { () -> Void in
+                completionHandler(newImage!)
             })
         })
     }
