@@ -5,7 +5,7 @@ use_frameworks!
 
 target 'Rhetorica' do
     
-    pod 'PKHUD', '3.1.0'
+    pod 'PKHUD', :git => 'https://github.com/vkaramov/PKHUD', :branch => 'swift-3.0'
     pod 'FBSDKCoreKit', '4.11.0'
     #    pod 'FBSDKLoginKit'
     #    pod 'FBSDKShareKit'

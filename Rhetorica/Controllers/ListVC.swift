@@ -39,7 +39,7 @@ class ListViewController: UITableViewController {
     
     // MARK: Life Cycle
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         setDeviceListCheckmarks()
         setLanguageCheckmarks()
     }
@@ -47,14 +47,14 @@ class ListViewController: UITableViewController {
     
     // MARK: UITableViewDelegate
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let tagOfSelectedCell = tableView.cellForRowAtIndexPath(indexPath)!.tag
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let tagOfSelectedCell = tableView.cellForRow(at: indexPath)!.tag
+        tableView.deselectRow(at: indexPath, animated: true)
         
-        switch (indexPath.section, indexPath.row) {
+        switch ((indexPath as NSIndexPath).section, (indexPath as NSIndexPath).row) {
         case (0, _):
             delegate?.listView(didSelectListWithTag: tagOfSelectedCell)
-            titleOfSelectedList = tableView.cellForRowAtIndexPath(indexPath)!.textLabel!.text!
+            titleOfSelectedList = tableView.cellForRow(at: indexPath)!.textLabel!.text!
             setDeviceListCheckmarks()
         case (1, _):
             if let language = Language(rawValue: tagOfSelectedCell) {
@@ -66,7 +66,7 @@ class ListViewController: UITableViewController {
         }
     }
     
-    @IBAction func rewindsToListViewController(segue:UIStoryboardSegue) {
+    @IBAction func rewindsToListViewController(_ segue:UIStoryboardSegue) {
         
     }
     
@@ -74,17 +74,17 @@ class ListViewController: UITableViewController {
     
     // MARK: Private Functions
     
-    private func setDeviceListCheckmarks() {
+    fileprivate func setDeviceListCheckmarks() {
         for cell in [fewDevicesCell, someDevicesCell, allDevicesCell, favouritesCell] {
-            let isSelected = (cell.textLabel!.text == titleOfSelectedList)
-            cell.accessoryType = isSelected ? .Checkmark : .None
+            let isSelected = (cell?.textLabel!.text == titleOfSelectedList)
+            cell?.accessoryType = isSelected ? .checkmark : .none
         }
     }
     
-    private func setLanguageCheckmarks() {
+    fileprivate func setLanguageCheckmarks() {
         for cell in [germanLanguageCell, englishLanguageCell] {
-            let isSelected = (cell.textLabel!.text == selectedLanguage?.localizedDescription)
-            cell.accessoryType = isSelected ? .Checkmark : .None
+            let isSelected = (cell?.textLabel!.text == selectedLanguage?.localizedDescription)
+            cell?.accessoryType = isSelected ? .checkmark : .none
         }
     }
 }

@@ -52,12 +52,12 @@ class DetailViewController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 100
         
-        noDeviceView = UINib(nibName: "NoDeviceView", bundle: nil).instantiateWithOwner(nil, options: nil).first as? UIView
+        noDeviceView = UINib(nibName: "NoDeviceView", bundle: nil).instantiate(withOwner: nil, options: nil).first as? UIView
         if noDeviceView != nil {
             noDeviceView!.layer.zPosition = 1
             noDeviceView!.autoresizesSubviews = true
-            noDeviceView!.hidden = (self.device != nil)
-            self.tableView.userInteractionEnabled = (self.device != nil)
+            noDeviceView!.isHidden = (self.device != nil)
+            self.tableView.isUserInteractionEnabled = (self.device != nil)
             self.tableView.addSubview(noDeviceView!)
             layoutNoDeviceView()
         }
@@ -66,15 +66,15 @@ class DetailViewController: UITableViewController {
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         wikipediaCell.setSelected(false, animated: true)
         configureView()
 
     }
     
-    override func viewDidAppear(animated: Bool) {
-        noDeviceView!.hidden = (self.device != nil)
+    override func viewDidAppear(_ animated: Bool) {
+        noDeviceView!.isHidden = (self.device != nil)
     }
     
     func layoutNoDeviceView() {
@@ -82,24 +82,24 @@ class DetailViewController: UITableViewController {
         let navigationOffset = self.navigationController?.navigationBar.bounds.height ?? 0
         print("navigationOffset: \(navigationOffset)")
         noDeviceView.bounds = CGRect(x: 0, y: -navigationOffset, width: self.tableView.bounds.width, height: self.tableView.bounds.height - navigationOffset)
-        noDeviceView.hidden = device != nil
+        noDeviceView.isHidden = device != nil
     }
 
     
     // MARK: Setup
     
     @available(iOS 9.0, *)
-    override func previewActionItems() -> [UIPreviewActionItem] {
+    override var previewActionItems : [UIPreviewActionItem] {
         guard let device = self.device else { print("no device"); return [] }
         guard favorites != nil else { print("no favorites"); return [] }
         
         let action: UIPreviewAction
         if favorites.contains(device) {
-            action = UIPreviewAction(title: NSLocalizedString("remove_from_favorites", comment: ""), style: .Destructive) { (action, viewController) in
+            action = UIPreviewAction(title: NSLocalizedString("remove_from_favorites", comment: ""), style: .destructive) { (action, viewController) in
                 self.addToFavorites(self)
             }
         } else {
-            action = UIPreviewAction(title: "Zu Lernliste hinzufügen", style: .Default) { (action, viewController) -> Void in
+            action = UIPreviewAction(title: "Zu Lernliste hinzufügen", style: .default) { (action, viewController) -> Void in
                 self.addToFavorites(self)
             }
         }
@@ -109,11 +109,11 @@ class DetailViewController: UITableViewController {
     
     // MARK: - User Interaction
     
-    @IBAction func addToFavorites(sender: AnyObject) {
+    @IBAction func addToFavorites(_ sender: AnyObject) {
         guard let favorites = favorites, let device = device else { return }
-        if let indexOfDeviceInFavorites = favorites.elements.indexOf(device){
+        if let indexOfDeviceInFavorites = favorites.elements.index(of: device){
             // Deleting...
-            favorites.elements.removeAtIndex(indexOfDeviceInFavorites)
+            favorites.elements.remove(at: indexOfDeviceInFavorites)
             self.navigationItem.rightBarButtonItem?.image = UIImage(named: "pin")
             showFavoritesLabel(addedStylisticDevice: false)
             delegate?.detailViewControllerDelegate(deviceNowIsFavorite: false)
@@ -126,7 +126,7 @@ class DetailViewController: UITableViewController {
         }
         
         if let navigationController = self.splitViewController?.viewControllers.first as? UINavigationController,
-            masterController = navigationController.childViewControllers.first as? MasterViewController {
+            let masterController = navigationController.childViewControllers.first as? MasterViewController {
                 masterController.tableView.reloadData()
         }
     }
@@ -134,12 +134,12 @@ class DetailViewController: UITableViewController {
     
     // MARK: - Transitioning
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toWikipedia" {
-            let controller = segue.destinationViewController as! WikipediaViewController
+            let controller = segue.destination as! WikipediaViewController
             controller.urlString = self.device?.wikipedia
             controller.navigationItem.title = self.device?.title
-            controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+            controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
             controller.navigationItem.leftItemsSupplementBackButton = true
             if let device = self.device {
                 FacebookLogger.wikipediaForDeviceDidOpen(device)
@@ -147,12 +147,12 @@ class DetailViewController: UITableViewController {
         }
     }
 
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        synonymCell.hidden = (device?.synonym == nil)
-        wikipediaCell.hidden = (device?.wikipedia == nil)
-        oppositeCell.hidden = (device?.opposite == nil)
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        synonymCell.isHidden = (device?.synonym == nil)
+        wikipediaCell.isHidden = (device?.wikipedia == nil)
+        oppositeCell.isHidden = (device?.opposite == nil)
 
-        switch indexPath.row {
+        switch (indexPath as NSIndexPath).row {
         case synonymCell.tag where device?.synonym == nil: return 0
         case wikipediaCell.tag where device?.wikipedia == nil: return 0
         case oppositeCell.tag where device?.opposite == nil: return 0
@@ -163,15 +163,15 @@ class DetailViewController: UITableViewController {
     // MARK: - Helper Functions
     
     func configureView() {
-        self.navigationItem.rightBarButtonItem?.enabled = (device != nil)
-        noDeviceView?.hidden = (self.device != nil)
-        self.tableView.userInteractionEnabled = (self.device != nil)
+        self.navigationItem.rightBarButtonItem?.isEnabled = (device != nil)
+        noDeviceView?.isHidden = (self.device != nil)
+        self.tableView.isUserInteractionEnabled = (self.device != nil)
         noDeviceView!.frame = self.view.bounds
 
         // Fill tableview with data
         titleLabel?.text = self.device?.title
         definitionLabel?.text = self.device?.definition
-        exampleLabel?.text = self.device?.examples.joinWithSeparator("\n")
+        exampleLabel?.text = self.device?.examples.joined(separator: "\n")
         oppositeLabel?.text = self.device?.opposite
         synonymLabel?.text = self.device?.synonym
         
@@ -192,9 +192,9 @@ class DetailViewController: UITableViewController {
     }
     
 
-    private func showFavoritesLabel(addedStylisticDevice added: Bool) {
+    fileprivate func showFavoritesLabel(addedStylisticDevice added: Bool) {
         if added {
-            hudView = CustomHUDBaseView(subtitle: NSLocalizedString("hinzugefügt", comment: ""), image: nil)
+            hudView = CustomHUDBaseView(image: nil, subtitle: NSLocalizedString("hinzugefügt", comment: ""))
                         
             PKHUD.sharedHUD.contentView = hudView!
             PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
@@ -204,7 +204,7 @@ class DetailViewController: UITableViewController {
             
             hudView!.animateAdded()
         } else {
-            hudView = CustomHUDBaseView(subtitle: NSLocalizedString("entfernt", comment: ""), image: nil)
+            hudView = CustomHUDBaseView(image: nil, subtitle: NSLocalizedString("entfernt", comment: ""))
             
             PKHUD.sharedHUD.contentView = hudView!
             PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
@@ -219,18 +219,18 @@ class DetailViewController: UITableViewController {
     
     // MARK: - Table View Delegate
     
-    override func tableView(tableView: UITableView, shouldShowMenuForRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return tableView.cellForRowAtIndexPath(indexPath) == wikipediaCell
+    override func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
+        return tableView.cellForRow(at: indexPath) == wikipediaCell
     }
 
-    override func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        return action == #selector(NSObject.copy(_:))
+    override func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
+        return action == #selector(copy(_:))
         
     }
 
-    override func tableView(tableView: UITableView, performAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject!) {
-        if action == #selector(NSObject.copy(_:)) {
-            UIPasteboard.generalPasteboard().string = device?.wikipedia
+    override func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any!) {
+        if action == #selector(copy(_:)) {
+            UIPasteboard.general.string = device?.wikipedia
         }
     }
 

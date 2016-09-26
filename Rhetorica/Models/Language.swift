@@ -11,22 +11,22 @@ import Foundation
 
 /// A wrapper for the interaction with several languages inside an application.
 enum Language: Int, CustomStringConvertible {
-    case German = 1
-    case English
+    case german = 1
+    case english
     
     /// The localized language name in english.
     var description: String {
         switch self {
-        case .German: return "German"
-        case .English: return "English"
+        case .german: return "German"
+        case .english: return "English"
         }
     }
     
     /// The localized language name.
     var localizedDescription: String {
         switch self {
-        case .German: return NSLocalizedString("german", comment: "")
-        case .English: return NSLocalizedString("english", comment: "")
+        case .german: return NSLocalizedString("german", comment: "")
+        case .english: return NSLocalizedString("english", comment: "")
         }
     }
 }
@@ -49,8 +49,8 @@ extension Language {
     /// The two digit identifier used throughout the system to identify a language which belongs to the language set.
     var identifier: String {
         switch self {
-        case .German: return "de"
-        case .English: return "en"
+        case .german: return "de"
+        case .english: return "en"
         }
     }
     
@@ -58,8 +58,8 @@ extension Language {
     /// - Parameter identifier: The two digit identifier used throughout the system to identify a language.
     init?(identifier: String) {
         switch identifier {
-        case "de": self = .German
-        case "en": self = .English
+        case "de": self = .german
+        case "en": self = .english
         default: return nil
         }
     }    
@@ -71,21 +71,21 @@ extension Language {
 extension Language {
     
     /// The key under which the custom language identifier is saved
-    private static var selectedLanguageIdentifierKey = "selected_language_id"
+    fileprivate static var selectedLanguageIdentifierKey = "selected_language_id"
     
     /// - Returns: The system's default language identifier.
     static func getSystemLanguageIdentifier() -> String {
-        return NSBundle.mainBundle().preferredLocalizations.first!
+        return Bundle.main.preferredLocalizations.first!
     }
     
     /// - Returns: The user-specified language identifier if it was set or nil.
     static func getSelectedLanguageIdentifier() -> String? {
-        return NSUserDefaults.standardUserDefaults().stringForKey(selectedLanguageIdentifierKey)
+        return UserDefaults.standard.string(forKey: selectedLanguageIdentifierKey)
     }
     
     /// Saves the specified identifier to the user defaults for later retrieval.
-    static func setSelectedLanguage(language: Language) {
-        let defaults = NSUserDefaults.standardUserDefaults()
+    static func setSelectedLanguage(_ language: Language) {
+        let defaults = UserDefaults.standard
         
         defaults.setValue(language.identifier, forKey: selectedLanguageIdentifierKey)
         defaults.synchronize()
@@ -98,5 +98,5 @@ extension Language {
 extension Language {
     
     /// An array of all languages available.
-    static var allLanguages = [Language.German, Language.English]
+    static var allLanguages = [Language.german, Language.english]
 }

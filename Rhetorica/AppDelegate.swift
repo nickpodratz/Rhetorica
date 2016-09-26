@@ -13,7 +13,7 @@ import FBSDKCoreKit
 import Bolts
 
 let appId = "926449450"
-let isUITestMode = NSProcessInfo.processInfo().environment["isUITest"] == "true"
+let isUITestMode = ProcessInfo.processInfo.environment["isUITest"] == "true"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,36 +21,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let splitViewController = self.window!.rootViewController as! UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-        navigationController.topViewController?.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
+        navigationController.topViewController?.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
         splitViewController.delegate = self
         if isUITestMode {
 //            UIView.setAnimationsEnabled(false)
 //            SDStatusBarManager.sharedInstance.enableOverrides()
         }
-        application.setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
+        application.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: false)
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         return true
     }
     
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         return FBSDKApplicationDelegate.sharedInstance().application(application,
-            openURL: url,
+            open: url,
             sourceApplication: sourceApplication,
             annotation: annotation)
     }
     
-    func applicationWillResignActive(application: UIApplication) {
+    func applicationWillResignActive(_ application: UIApplication) {
     }
     
-    func applicationDidEnterBackground(application: UIApplication) {
+    func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
     
-    func applicationWillEnterForeground(application: UIApplication) {
+    func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
         guard let splitVC = self.window?.rootViewController as? UISplitViewController,
             let firstNavigationVC = splitVC.viewControllers.first as? UINavigationController,
@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         masterVC.tableView.reloadData()
     }
     
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         FBSDKAppEvents.activateApp()
         
@@ -73,13 +73,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
     }
     
-    func applicationWillTerminate(application: UIApplication) {
+    func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
     
     @available(iOS 9.0, *)
-    func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         guard let splitVC = self.window?.rootViewController as? UISplitViewController,
             let firstNavigationVC = splitVC.viewControllers.first as? UINavigationController,
             let masterVC = firstNavigationVC.viewControllers.first as? MasterViewController else {
@@ -87,16 +87,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 return
         }
         
-        guard shortcutItem.type.componentsSeparatedByString(".").isEmpty == false else {
+        guard shortcutItem.type.components(separatedBy: ".").isEmpty == false else {
             return
         }
         
         // Setup data
         let languageIdentifier = Language.getSelectedLanguageIdentifier() ?? Language.getSystemLanguageIdentifier()
-        let selectedLanguage = Language(identifier: languageIdentifier) ?? .German
+        let selectedLanguage = Language(identifier: languageIdentifier) ?? .german
         masterVC.selectedLanguage = selectedLanguage
         
-        switch shortcutItem.type.componentsSeparatedByString(".").last! {
+        switch shortcutItem.type.components(separatedBy: ".").last! {
         case "showFavorites":
             masterVC.selectedDeviceList = masterVC.deviceLists.last!
             masterVC.scrollToTop()
@@ -107,12 +107,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         case "searchForStylisticDevice":
             masterVC.selectedDeviceList = masterVC.deviceLists[2]
-            masterVC.searchController.active = true
-            NSTimer.scheduledTimerWithTimeInterval(0.1, target: masterVC.searchController.searchBar, selector: #selector(UIResponder.becomeFirstResponder), userInfo: nil, repeats: false)
+            masterVC.searchController.isActive = true
+            Timer.scheduledTimer(timeInterval: 0.1, target: masterVC.searchController.searchBar, selector: #selector(UIResponder.becomeFirstResponder), userInfo: nil, repeats: false)
             
         case "playQuiz":
             if masterVC.selectedDeviceList.count >= 4 {
-                masterVC.performSegueWithIdentifier("showQuiz", sender: masterVC)
+                masterVC.performSegue(withIdentifier: "showQuiz", sender: masterVC)
             }
             
         default: ()
@@ -123,7 +123,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
-    func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
         // Searching from system search
         if #available(iOS 9.0, *) {
             guard userActivity.activityType == CSSearchableItemActionType else { return true }
@@ -137,7 +137,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     masterVC.selectedLanguage = device!.language
                     Language.setSelectedLanguage(device!.language)
                     // Dismiss Quiz or List-VC
-                    masterVC.presentedViewController?.dismissViewControllerAnimated(true, completion: nil)
+                    masterVC.presentedViewController?.dismiss(animated: true, completion: nil)
                     if firstNavigationVC.viewControllers.count > 1 {
                         // Called on iPhone
                         let secondNavigationVC = firstNavigationVC.viewControllers[1] as! UINavigationController
@@ -150,7 +150,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         // TODO: Handle open Quiz
                         //                    navigationController.visibleViewController?.dismissViewControllerAnimated(false, completion: nil)
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                        let detailNavigationVC = storyboard.instantiateViewControllerWithIdentifier("DetailNavigationVC") as! UINavigationController
+                        let detailNavigationVC = storyboard.instantiateViewController(withIdentifier: "DetailNavigationVC") as! UINavigationController
                         let detailVC = detailNavigationVC.visibleViewController as! DetailViewController
                         detailVC.device = device
                         detailVC.favorites = masterVC.favorites
@@ -169,11 +169,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: UISplitViewControllerDelegate {
     
-    func splitViewController(svc: UISplitViewController, shouldHideViewController vc: UIViewController, inOrientation orientation: UIInterfaceOrientation) -> Bool {
+    func splitViewController(_ svc: UISplitViewController, shouldHide vc: UIViewController, in orientation: UIInterfaceOrientation) -> Bool {
         return false
     }
     
-    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController:UIViewController, ontoPrimaryViewController primaryViewController:UIViewController) -> Bool {
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
         if let secondaryAsNavController = secondaryViewController as? UINavigationController {
             if let topAsDetailController = secondaryAsNavController.topViewController as? DetailViewController {
                 if topAsDetailController.device == nil {

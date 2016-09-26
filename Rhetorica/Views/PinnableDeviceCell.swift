@@ -23,7 +23,7 @@ class PinnableDeviceCell: UITableViewCell {
         didSet {
             print("is favorite set")
             let image = isFavorite ? UIImage(named: "pin_filled") : UIImage(named: "pin")
-            pinButton.setImage(image, forState: .Normal)
+            pinButton.setImage(image, for: UIControlState())
         }
     }
     var delegate: PinnableDeviceCellDelegate?
@@ -34,7 +34,7 @@ class PinnableDeviceCell: UITableViewCell {
         }
     }
     
-    @IBAction func pinButtonPressed(sender: AnyObject) {
+    @IBAction func pinButtonPressed(_ sender: AnyObject) {
         if let addedDevice = delegate?.pinnableDeviceCellDelegate(didPressPinButtonOfCellWithTag: self.tag) {
             isFavorite = addedDevice
         }

@@ -55,7 +55,7 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         setupForNewQuestion()
         FacebookLogger.quizModeDidStart(forDeviceList: deviceList, inLanguage: language)
     }
@@ -64,29 +64,29 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
         centerContent()
     }
     
-    @IBAction func quizButtonTouchedDown(sender: QuizButton) {
+    @IBAction func quizButtonTouchedDown(_ sender: QuizButton) {
         sender.animateTouched()
 
         for button in buttons {
-            button.userInteractionEnabled = false
+            button.isUserInteractionEnabled = false
         }
-        sender.userInteractionEnabled = true
+        sender.isUserInteractionEnabled = true
     }
     
-    @IBAction func quizButtonTouchedUp(sender: QuizButton) {
+    @IBAction func quizButtonTouchedUp(_ sender: QuizButton) {
         for button in buttons {
-            button.userInteractionEnabled = true
+            button.isUserInteractionEnabled = true
         }
     }
     
     // MARK: - Transitioning
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.identifier == "toQuizResults" {
-            let destinationController = segue.destinationViewController as! QuizResultsViewController
+            let destinationController = segue.destination as! QuizResultsViewController
             if isUITestMode {
                 let questionSet = QuestionSet(fromDeviceList: deviceList, language: language, numberOfQuestions: 10)
-                for (index, question) in questionSet.questions.enumerate() {
+                for (index, question) in questionSet.questions.enumerated() {
                     if index == 3||index == 6 {
                         question.answerWasCorrect = false
                     } else {
@@ -102,7 +102,7 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
         }
     }
     
-    @IBAction func rewindsToQuizViewController(segue:UIStoryboardSegue) {
+    @IBAction func rewindsToQuizViewController(_ segue:UIStoryboardSegue) {
         self.questionSet = QuestionSet(fromDeviceList: deviceList, language: questionSet.language, numberOfQuestions: 10)
     }
 
@@ -110,47 +110,47 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
     // MARK: - User Interaction
 
     /// Called when Button is pushed down
-    @IBAction func fadeIn(sender: QuizButton) {
+    @IBAction func fadeIn(_ sender: QuizButton) {
     }
     
     /// Called when Button is cancelled
-    @IBAction func fadeOut(sender: QuizButton) {
+    @IBAction func fadeOut(_ sender: QuizButton) {
         sender.animateUntouched()
     }
     
-    @IBAction func cancel(sender: AnyObject) {
+    @IBAction func cancel(_ sender: AnyObject) {
         if questionSet.numberOfCurrentQuestion != 1 {
             let quitQuizTitle = NSLocalizedString("quitQuizTitle", comment: "The title of the alert appearing when you are about to quit the quiz.")
             let quitQuizMessage = NSLocalizedString("quitQuizMessage", comment: "The message of the alert appearing when you are about to quit the quiz.")
             let quitQuizButtonQuit = NSLocalizedString("quitQuizButtonQuit", comment: "The quit-button's title of the alert appearing when you are about to quit the quiz.")
             let quitQuizButtonCancel = NSLocalizedString("quitQuizButtonCancel", comment: "The cancel-button's title of the alert appearing when you are about to quit the quiz.")
             
-            let alertController = UIAlertController(title: quitQuizTitle, message: quitQuizMessage, preferredStyle: .Alert)
+            let alertController = UIAlertController(title: quitQuizTitle, message: quitQuizMessage, preferredStyle: .alert)
             
-            let proceedAction = UIAlertAction(title: quitQuizButtonQuit, style: UIAlertActionStyle.Destructive) { action in
+            let proceedAction = UIAlertAction(title: quitQuizButtonQuit, style: UIAlertActionStyle.destructive) { action in
                 FacebookLogger.quizModeDidCancel(forDeviceList: self.deviceList, inLanguage: self.language, withScore: self.questionSet.correctAnsweredQuestions.count, atQuestion: self.questionSet.numberOfCurrentQuestion)
-                self.dismissViewControllerAnimated(true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
             }
             alertController.addAction(proceedAction)
             
-            let cancelAction = UIAlertAction(title: quitQuizButtonCancel, style: UIAlertActionStyle.Cancel, handler: nil)
+            let cancelAction = UIAlertAction(title: quitQuizButtonCancel, style: UIAlertActionStyle.cancel, handler: nil)
             alertController.addAction(cancelAction)
             
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
         } else {
             FacebookLogger.quizModeDidCancel(forDeviceList: self.deviceList, inLanguage: self.language, withScore: self.questionSet.correctAnsweredQuestions.count, atQuestion: self.questionSet.numberOfCurrentQuestion)
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
     }
 
-    @IBAction func buttonKlicked(sender: QuizButton) {
+    @IBAction func buttonKlicked(_ sender: QuizButton) {
         let answerWasCorrect = (sender.tag == questionSet.currentQuestion!.tagOfCorrectAnswer)
         let correctButton = buttons[questionSet.currentQuestion!.tagOfCorrectAnswer]
 
         questionSet.currentQuestion?.answerWasCorrect = answerWasCorrect
 
         for button in buttons {
-            button.userInteractionEnabled = false
+            button.isUserInteractionEnabled = false
         }
         
         if answerWasCorrect {
@@ -176,18 +176,18 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
     
     // MARK: - Private Functions
         
-    private func setupForNewQuestion() {
+    fileprivate func setupForNewQuestion() {
         
         // Get current question and check if quiz ended.
         guard let question = questionSet.nextQuestion() else {
             print("Quiz did end")
-            performSegueWithIdentifier("toQuizResults", sender: self)
+            performSegue(withIdentifier: "toQuizResults", sender: self)
             return
         }
 
         // Fade out
         if questionSet.numberOfCurrentQuestion > 1 {
-            UIView.animateWithDuration(0.4, delay: 0.03, options: .CurveEaseOut,
+            UIView.animate(withDuration: 0.4, delay: 0.03, options: .curveEaseOut,
                 animations: {
                     self.scrollView.alpha = 0
                 }, completion: nil
@@ -206,8 +206,8 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
         
         // Configuring Buttons
         print(buttons)
-        for (buttonIndex, button) in buttons.enumerate() {            
-            button.setTitle(question.devices[buttonIndex].title, forState: UIControlState.Normal)
+        for (buttonIndex, button) in buttons.enumerated() {            
+            button.setTitle(question.devices[buttonIndex].title, for: UIControlState())
             button.tag = buttonIndex
         }
         
@@ -216,19 +216,19 @@ class QuizViewController: UIViewController, UIActionSheetDelegate {
         exampleLabel.text = question.correctAnswer.examples.shuffled().first
         self.view.layoutIfNeeded()
         
-        UIView.animateWithDuration(0.24, delay: 0.43, options: .CurveEaseIn,
+        UIView.animate(withDuration: 0.24, delay: 0.43, options: .curveEaseIn,
             animations: {
                 self.scrollView.alpha = 1
             },
             completion: { _ in
                 for button in self.buttons {
-                    button.userInteractionEnabled = true
+                    button.isUserInteractionEnabled = true
                 }
             }
         )
     }
     
-    private func centerContent() {
+    fileprivate func centerContent() {
         let heightOfContents = exampleLabel.frame.origin.y + exampleLabel.frame.size.height - definitionLabel.frame.origin.y
         if ((scrollView.frame.height - heightOfContents) / 2) > 30 {
             self.toTopConstraint.constant = (scrollView.frame.height - heightOfContents)/2

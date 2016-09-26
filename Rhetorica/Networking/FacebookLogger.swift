@@ -24,25 +24,25 @@ class FacebookLogger {
     
     static func quizModeDidCancel(forDeviceList deviceList: DeviceList, inLanguage language: Language, withScore score: Int, atQuestion questionIndex: Int) {
         if !isUITestMode {
-            let parameters = ["list": deviceList.title, "language": language.description, "score": score, "question_index": questionIndex]
-            FBSDKAppEvents.logEvent("Quiz Cancels", parameters: parameters as [NSObject : AnyObject])
+            let parameters = ["list": deviceList.title, "language": language.description, "score": score, "question_index": questionIndex] as [String : Any]
+            FBSDKAppEvents.logEvent("Quiz Cancels", parameters: parameters as [AnyHashable: Any])
         }
     }
 
     static func quizModeDidFinish(forDeviceList deviceList: DeviceList, inLanguage language: Language, withScore score: Int) {
         if !isUITestMode {
-            let parameters = ["list": deviceList.title, "language": language.description, "score": score]
-            FBSDKAppEvents.logEvent("Quiz Finishes", parameters: parameters as [NSObject : AnyObject])
+            let parameters = ["list": deviceList.title, "language": language.description, "score": score] as [String : Any]
+            FBSDKAppEvents.logEvent("Quiz Finishes", parameters: parameters as [AnyHashable: Any])
         }
     }
 
     
     // MARK: General
     
-    static func currentDeviceListDidChange(deviceList: DeviceList, andLangugage language: Language) {
+    static func currentDeviceListDidChange(_ deviceList: DeviceList, andLangugage language: Language) {
         if !isUITestMode {
             let parameters = ["list": deviceList.title, "language": language.description]
-            FBSDKAppEvents.logEvent("Current Devicelist Changes", parameters: parameters as [NSObject : AnyObject])
+            FBSDKAppEvents.logEvent("Current Devicelist Changes", parameters: parameters as [AnyHashable: Any])
         }
     }
     
@@ -55,10 +55,10 @@ class FacebookLogger {
         }
     }
     
-    static func detailsDidShowUpForApp(appTitle: String) {
+    static func detailsDidShowUpForApp(_ appTitle: String) {
         if !isUITestMode {
             let parameters = ["app": appTitle]
-            FBSDKAppEvents.logEvent("About Page: App Previews", parameters: parameters as [NSObject : AnyObject])
+            FBSDKAppEvents.logEvent("About Page: App Previews", parameters: parameters as [AnyHashable: Any])
         }
     }
     
@@ -79,7 +79,7 @@ class FacebookLogger {
     
     // MARK: Feedback
     
-    static func feedbackDidReceiveUserResponse(response: Bool) {
+    static func feedbackDidReceiveUserResponse(_ response: Bool) {
         if !isUITestMode {
             let parameters = ["positive": response]
             FBSDKAppEvents.logEvent("Feedback: General Responses", parameters: parameters)
@@ -102,25 +102,25 @@ class FacebookLogger {
     
     // MARK: Stylistic Device Tracking
 
-    static func learningListModified(device: StylisticDevice, addedDevice added: Bool) {
+    static func learningListModified(_ device: StylisticDevice, addedDevice added: Bool) {
         if !isUITestMode {
             let modificationString = added ? "added" : "removed"
             let parameters = ["device": device.title, "language": device.language.description, "modification": modificationString]
-            FBSDKAppEvents.logEvent("Learninglist Modifications", parameters: parameters as [NSObject : AnyObject])
+            FBSDKAppEvents.logEvent("Learninglist Modifications", parameters: parameters as [AnyHashable: Any])
         }
     }
 
-    static func wikipediaForDeviceDidOpen(device: StylisticDevice) {
+    static func wikipediaForDeviceDidOpen(_ device: StylisticDevice) {
         if !isUITestMode {
             let parameters = ["device": device.title, "language": device.language.description]
-            FBSDKAppEvents.logEvent("Wikipedia Visits", parameters: parameters as [NSObject : AnyObject])
+            FBSDKAppEvents.logEvent("Wikipedia Visits", parameters: parameters as [AnyHashable: Any])
         }
     }
 
-    static func detailsForDeviceDidOpen(device: StylisticDevice) {
+    static func detailsForDeviceDidOpen(_ device: StylisticDevice) {
         if !isUITestMode {
             let parameters = ["device": device.title, "language": device.language.description]
-            FBSDKAppEvents.logEvent("Detail Visits", parameters: parameters as [NSObject : AnyObject])
+            FBSDKAppEvents.logEvent("Detail Visits", parameters: parameters as [AnyHashable: Any])
         }
     }
 

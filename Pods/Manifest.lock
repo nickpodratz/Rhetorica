@@ -1,23 +1,33 @@
 PODS:
-  - Bolts (1.7.0):
-    - Bolts/AppLinks (= 1.7.0)
-    - Bolts/Tasks (= 1.7.0)
-  - Bolts/AppLinks (1.7.0):
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
-  - Bolts/Tasks (1.7.0)
+  - Bolts/Tasks (1.8.4)
   - FBSDKCoreKit (4.11.0):
     - Bolts (~> 1.7)
-  - PKHUD (3.1.0)
+  - PKHUD (3.2.1)
 
 DEPENDENCIES:
   - FBSDKCoreKit (= 4.11.0)
-  - PKHUD (= 3.1.0)
+  - PKHUD (from `https://github.com/vkaramov/PKHUD`, branch `swift-3.0`)
+
+EXTERNAL SOURCES:
+  PKHUD:
+    :branch: swift-3.0
+    :git: https://github.com/vkaramov/PKHUD
+
+CHECKOUT OPTIONS:
+  PKHUD:
+    :commit: 0f0f79e8da8589b93ae996fc56b3f346ba7eb719
+    :git: https://github.com/vkaramov/PKHUD
 
 SPEC CHECKSUMS:
-  Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   FBSDKCoreKit: 686ac982723a14ec9ddb85e2f81235d7706c891b
-  PKHUD: 4167eccdb1b3a892fd80ce2b51cb6ba412a889ab
+  PKHUD: 001c11518f125a273ddf026bcc64918423744ea2
 
-PODFILE CHECKSUM: 17f6382811361db51ec42d7b399766b9aad4abfd
+PODFILE CHECKSUM: e47812f71b6e7c5ea0034115ec5d07a9232a93b3
 
 COCOAPODS: 1.0.1

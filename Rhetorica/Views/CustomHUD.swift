@@ -11,12 +11,12 @@ import PKHUD
 
 class CustomHUDBaseView: PKHUDSquareBaseView {
     
-    private let color = UIColor(white: 0.11, alpha: 1)
+    fileprivate let color = UIColor(white: 0.11, alpha: 1)
 
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        subtitleLabel.font = UIFont.boldSystemFontOfSize(16.0)
+        subtitleLabel.font = UIFont.boldSystemFont(ofSize: 16.0)
         subtitleLabel.textColor = color
         subtitleLabel.numberOfLines = 2
         subtitleLabel.frame.origin.y = bounds.size.height * 0.67

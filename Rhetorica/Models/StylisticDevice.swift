@@ -55,7 +55,7 @@ func <(lhs: StylisticDevice, rhs: StylisticDevice) -> Bool {
 
 extension StylisticDevice {
     var searchableStrings: [String] {
-        return [title, definition, examples.reduce("", combine: {$0 + $1}), synonym , wikipedia].flatMap {$0}
+        return [title, definition, examples.reduce("", {$0 + $1}), synonym , wikipedia].flatMap {$0}
     }
 }
 
@@ -64,20 +64,20 @@ extension StylisticDevice {
 
 extension StylisticDevice {
     
-    static func getDevicesFromPlistForLanguage(language: Language) -> [StylisticDevice] {
+    static func getDevicesFromPlistForLanguage(_ language: Language) -> [StylisticDevice] {
         var devices = [StylisticDevice]()
-        if let path = NSBundle.mainBundle().pathForResource("stylisticDevices_\(language.identifier)", ofType: "plist"),
-            dict = NSDictionary(contentsOfFile: path) {
+        if let path = Bundle.main.path(forResource: "stylisticDevices_\(language.identifier)", ofType: "plist"),
+            let dict = NSDictionary(contentsOfFile: path) {
                 for (_, deviceDict) in dict {
                     let device = StylisticDevice(
                         language: language,
-                        title: deviceDict.valueForKey("title") as! String,
-                        definition: deviceDict.valueForKey("definition") as! String,
-                        examples: deviceDict.valueForKey("examples") as! [String],
-                        synonym: deviceDict.valueForKey("synonym") as! String?,
-                        wikipedia: deviceDict.valueForKey("wikipedia") as! String?,
-                        opposite: deviceDict.valueForKey("opposite") as! String?,
-                        levelOfImportance: deviceDict.valueForKey("levelOfImportance") as! Int)
+                        title: (deviceDict as AnyObject).value(forKey: "title") as! String,
+                        definition: (deviceDict as AnyObject).value(forKey: "definition") as! String,
+                        examples: (deviceDict as AnyObject).value(forKey: "examples") as! [String],
+                        synonym: (deviceDict as AnyObject).value(forKey: "synonym") as! String?,
+                        wikipedia: (deviceDict as AnyObject).value(forKey: "wikipedia") as! String?,
+                        opposite: (deviceDict as AnyObject).value(forKey: "opposite") as! String?,
+                        levelOfImportance: (deviceDict as AnyObject).value(forKey: "levelOfImportance") as! Int)
                     
                     devices.append(device)
                 }
@@ -85,10 +85,10 @@ extension StylisticDevice {
         return devices
     }
 
-    static func getDevicesFromPlistForLanguages(languages: [Language]) -> [StylisticDevice] {
+    static func getDevicesFromPlistForLanguages(_ languages: [Language]) -> [StylisticDevice] {
         var allDevices = [StylisticDevice]()
         for language in languages {
-            allDevices.appendContentsOf(StylisticDevice.getDevicesFromPlistForLanguage(language))
+            allDevices.append(contentsOf: StylisticDevice.getDevicesFromPlistForLanguage(language))
         }
         return allDevices
     }
@@ -100,14 +100,14 @@ extension StylisticDevice {
 extension StylisticDevice {
     
     
-    static func indexAllIfPossible(devices: [StylisticDevice]) {
+    static func indexAllIfPossible(_ devices: [StylisticDevice]) {
         if #available(iOS 9.0, *) {
             for device in devices {
                 let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
                 attributeSet.title = device.title
                 attributeSet.contentDescription = device.definition
                 let item = CSSearchableItem(uniqueIdentifier: "\(device.title)", domainIdentifier: "np.rhetorica", attributeSet: attributeSet)
-                CSSearchableIndex.defaultSearchableIndex().indexSearchableItems([item]) { (error: NSError?) -> Void in
+                CSSearchableIndex.default().indexSearchableItems([item]) { error in
                     if let error = error {
                         print("Indexing error: \(error.localizedDescription)")
                     }
