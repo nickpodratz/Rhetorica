@@ -153,7 +153,7 @@ class AboutViewController: UITableViewController, SKStoreProductViewControllerDe
         
         let productInfoDict = [SKStoreProductParameterITunesItemIdentifier: [identifier]]
         storeProductController.loadProduct(withParameters: productInfoDict) { result, error in
-            if error != nil {
+            if let error = error {
                 print(error)
             }
         }
