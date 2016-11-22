@@ -43,20 +43,20 @@
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>
-			<key>UIApplicationShortcutItemIconFile</key>
-			<string>pinFat</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>shortcutTitleLearningList</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>$(PRODUCT_BUNDLE_IDENTIFIER).showFavorites</string>
-		</dict>
-		<dict>
 			<key>UIApplicationShortcutItemIconType</key>
 			<string>UIApplicationShortcutIconTypeSearch</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>shortcutTitleDeviceSearch</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>$(PRODUCT_BUNDLE_IDENTIFIER).searchForStylisticDevice</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>pinFat</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>shortcutTitleLearningList</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).showFavorites</string>
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemIconType</key>

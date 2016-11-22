@@ -6,6 +6,6 @@
   Copyright © 2016 Nick Podratz. All rights reserved.
 */
 
-shortcutTitleLearningList = "Learning List";
-shortcutTitleDeviceSearch = "Search for Device";
-shortcutTitlePlayQuizmode = "Play Quizmode";
+shortcutTitleDeviceSearch = "Search";
+shortcutTitleLearningList = "Learning list";
+shortcutTitlePlayQuizmode = "Quiz mode";
