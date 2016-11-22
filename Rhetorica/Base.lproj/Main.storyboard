@@ -247,7 +247,7 @@
                         <barButtonItem key="rightBarButtonItem" image="pin" id="Qf1-qx-sk5">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="addToFavorites:" destination="I35-n9-hUG" id="x6o-ug-JK1"/>
+                                <action selector="addToFavorites" destination="I35-n9-hUG" id="QiH-Lj-ha4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -604,8 +604,8 @@
                             <mask key="constraints">
                                 <exclude reference="UQ4-yI-dEm"/>
                                 <exclude reference="Zrm-C1-wUj"/>
-                                <exclude reference="Ejs-9w-fCu"/>
                                 <exclude reference="nvR-Dc-fcG"/>
+                                <exclude reference="Ejs-9w-fCu"/>
                                 <exclude reference="2V6-zX-ygH"/>
                             </mask>
                         </variation>
@@ -613,11 +613,11 @@
                             <mask key="constraints">
                                 <include reference="UQ4-yI-dEm"/>
                                 <include reference="Zrm-C1-wUj"/>
+                                <exclude reference="0IZ-MS-Zay"/>
+                                <include reference="nvR-Dc-fcG"/>
                                 <include reference="Ejs-9w-fCu"/>
                                 <exclude reference="cVs-DV-RTc"/>
                                 <exclude reference="d8q-kO-T3U"/>
-                                <exclude reference="0IZ-MS-Zay"/>
-                                <include reference="nvR-Dc-fcG"/>
                                 <include reference="2V6-zX-ygH"/>
                                 <exclude reference="lPc-W9-KHi"/>
                             </mask>
@@ -938,7 +938,7 @@
                 <navigationController storyboardIdentifier="DetailNavigationVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ssQ-jJ-41J" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wfT-1A-7SV" userLabel="DetailVC_NavigationBar">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wfT-1A-7SV" userLabel="DetailVC_NavigationBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -965,7 +965,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kks-Mn-Y9n" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ig2-Dj-jrc" userLabel="listVC_NavigationBar">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ig2-Dj-jrc" userLabel="listVC_NavigationBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1077,7 +1077,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcI-a1-tv0">
-                                                    <rect key="frame" x="15" y="16.5" width="348" height="193"/>
+                                                    <rect key="frame" x="15" y="16" width="348" height="194"/>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -1245,7 +1245,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kRp-8O-q3t" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mZJ-px-eDd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mZJ-px-eDd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1507,7 +1507,7 @@ Ich habe diese App im Zuge meiner eigenen Abiturvorbereitung entwickelt und hoff
             <objects>
                 <navigationController storyboardIdentifier="AboutNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="PzX-gw-oXN" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fwn-gU-BFx">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="fwn-gU-BFx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1531,7 +1531,7 @@ Ich habe diese App im Zuge meiner eigenen Abiturvorbereitung entwickelt und hoff
                 <navigationController id="1e9-BQ-72C" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jYU-Zx-Nb0" userLabel="MainVC_NavigationBar">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jYU-Zx-Nb0" userLabel="MainVC_NavigationBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

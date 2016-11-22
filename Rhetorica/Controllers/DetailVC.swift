@@ -95,12 +95,12 @@ class DetailViewController: UITableViewController {
         
         let action: UIPreviewAction
         if favorites.contains(device) {
-            action = UIPreviewAction(title: NSLocalizedString("remove_from_favorites", comment: ""), style: .destructive) { (action, viewController) in
-                self.addToFavorites(self)
+            action = UIPreviewAction(title: NSLocalizedString("remove_from_favorites", comment: ""), style: .destructive) { [weak self] (action, viewController) in
+                self?.addToFavorites()
             }
         } else {
-            action = UIPreviewAction(title: "Zu Lernliste hinzufügen", style: .default) { (action, viewController) -> Void in
-                self.addToFavorites(self)
+            action = UIPreviewAction(title: "Zu Lernliste hinzufügen", style: .default) { [weak self] (action, viewController) -> Void in
+                self?.addToFavorites()
             }
         }
         
@@ -109,7 +109,7 @@ class DetailViewController: UITableViewController {
     
     // MARK: - User Interaction
     
-    @IBAction func addToFavorites(_ sender: AnyObject) {
+    @IBAction func addToFavorites() {
         guard let favorites = favorites, let device = device else { return }
         if let indexOfDeviceInFavorites = favorites.elements.index(of: device){
             // Deleting...
