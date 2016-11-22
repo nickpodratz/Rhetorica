@@ -75,13 +75,25 @@ class DeviceList: NSObject {
 // MARK: DeviceList: Sequence Type
 
 extension DeviceList: Sequence {
-    typealias Iterator = AnyIterator<StylisticDevice>
+    typealias Iterator = DeviceIterator
+
+    func makeIterator() -> DeviceIterator {
+        return DeviceIterator(self)
+    }
     
-    func makeIterator() -> Iterator {
-        let index = 0
-        return AnyIterator {
-            if (index + 1) < self.elements.count {
-                return self.elements[(index + 1)]
+    struct DeviceIterator: IteratorProtocol {
+        let deviceList: DeviceList
+        var index: Int = 0
+        
+        init(_ deviceList: DeviceList) {
+            self.deviceList = deviceList
+        }
+        
+        mutating func next() -> StylisticDevice? {
+            let maxIndex = deviceList.elements.isEmpty ? 0 : deviceList.elements.count - 1
+            if let nextIndex = deviceList.elements.index(deviceList.startIndex, offsetBy: index + 1, limitedBy: maxIndex) {
+                index = nextIndex
+                return deviceList.elements[index]
             }
             return nil
         }
@@ -130,7 +142,7 @@ extension DeviceList {
 // MARK: DeviceList: Equatable
 
 func ==(lhs:DeviceList, rhs:DeviceList) -> Bool {
-    return (lhs.title == rhs.title)
+    return (lhs.hash == rhs.hash)
 }
 
 
@@ -142,7 +154,7 @@ func <(lhs:DeviceList, rhs:DeviceList) -> Bool {
 }
 
 func ~=(pattern: DeviceList, x: DeviceList) -> Bool {
-    return pattern.title == x.title
+    return pattern.hash == x.hash
 }
 
 
