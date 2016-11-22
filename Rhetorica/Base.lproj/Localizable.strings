@@ -30,7 +30,7 @@
 "minCountryCode" = "de";
 "visit_my_website" = "Meine Website besuchen";
 VISIT_MY_WEBSITE = "Meine Website besuchen";
-VISIT_TWITTER_PAGE = "Twitter-Profil anzeigen";
+VISIT_TWITTER_PAGE = "Auf Twitter anzeigen";
 "falsche_antworten" = "Falsche Antworten";
 shortcutTitleFavorites = "Lernliste zeigen";
 remove_from_favorites = "Aus Lernliste entfernen";
