@@ -287,7 +287,7 @@ extension AboutViewController: MFMailComposeViewControllerDelegate {
         picker.mailComposeDelegate = self
         picker.setToRecipients(["nick.podratz.support@icloud.com"])
         picker.setSubject("\(appName) App Feedback")
-        picker.setMessageBody("\n\n\n\n\n\n\n-------------------------\nSome details about my device:\n– \(deviceModel) with iOS \(systemVersion)\n– \(appName), version \(appVersion)", isHTML: false)
+        picker.setMessageBody("\n\n\n\n\n\n\n-------------------------\nSome details about my \(deviceModel):\n– iOS \(systemVersion)\n– \(appName) \(appVersion)", isHTML: false)
         
         present(picker, animated: true, completion: nil)
     }
