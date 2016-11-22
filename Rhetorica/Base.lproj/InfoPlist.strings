@@ -6,6 +6,6 @@
   Copyright © 2016 Nick Podratz. All rights reserved.
 */
 
-shortcutTitleLearningList = "Lernliste";
-shortcutTitleDeviceSearch = "Stilmittel suchen";
-shortcutTitlePlayQuizmode = "Quizmodus spielen";
+shortcutTitleDeviceSearch = "Suchen";
+shortcutTitleLearningList = "Lernliste zeigen";
+shortcutTitlePlayQuizmode = "Quiz spielen";
