@@ -52,7 +52,7 @@
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemIconFile</key>
-			<string>pinFat</string>
+			<string>pin_27</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>shortcutTitleLearningList</string>
 			<key>UIApplicationShortcutItemType</key>
